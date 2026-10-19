@@ -2,7 +2,7 @@
 
 Ushbu repozitoriy Shahrisabz Tibbiyot Texnikumi uchun "Tibbiyotda axborot texnologiyalari" (TAT) fanidan interaktiv elektron qo'llanma hisoblanadi.
 
-GitHub repozitoriy: https://github.com/OzodbekNapasov/TAT-darslar-new (Branch: `main`)
+GitHub repozitoriy: https://github.com/talabapc-tech/tat-darslari-2026 (Branch: `main`)
 
 ---
 

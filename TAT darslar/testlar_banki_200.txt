@@ -1,0 +1,1431 @@
+================================================================================
+   SHAHRISABZ TIBBIYOT TEXNIKUMI
+   FAN: TIBBIYOTDA AXBOROT TEXNOLOGIYALARI
+   TEST SAVOLLARI BANKI (200 TA SAVOL)
+   QAMROV: 1-mavzudan MS Word 1-darsigacha (Hardware, Xavfsizlik, O'lchovlar)
+================================================================================
+
+1. 'Axborot' so'zi arabchadan tarjima qilinganda qanday ma'noni anglatadi?
+   A) Texnika, asboblar
+   B) Hisob-kitob, raqamlar
+   C) Dasturlar to'plami
+   D) Xabarlar, ma'lumotlar
+   >>> To'g'ri javob: D
+
+2. Inson tashqi olamdagi axborotning eng katta qismini (taxminan 80-90%) qaysi sezgi a'zosi orqali qabul qiladi?
+   A) Hid bilish a'zosi (burun)
+   B) Sezish a'zosi (teri)
+   C) Eshitish a'zosi (quloq)
+   D) Ko'rish a'zosi (ko'z)
+   >>> To'g'ri javob: D
+
+3. Sezgi a'zolari orqali qabul qilinishiga ko'ra axborot qanday turlarga bo'linadi?
+   A) Faqat matnli va sonli
+   B) Faqat dasturiy va texnik
+   C) Faqat kompyuter va telefon axboroti
+   D) Vizual, audial, ta'm bilish, hid bilish, taktil
+   >>> To'g'ri javob: D
+
+4. Taqdim etilish shakliga ko'ra kompyuterda axborot qanday asosiy turlarga ajratiladi?
+   A) Faqat kitoblar va jurnallar
+   B) Faqat internet va tarmoq
+   C) Matnli, sonli, grafik, audio, video
+   D) Faqat ichki va tashqi
+   >>> To'g'ri javob: C
+
+5. Tibbiyotda bemor kardiogrammasi (EKG) tasmisidagi chiziqlar qaysi turdagi axborotga misol bo'ladi?
+   A) Grafik axborot
+   B) Tovushli axborot
+   C) Raqamli kodli axborot
+   D) Matnli axborot
+   >>> To'g'ri javob: A
+
+6. Bemorning tana harorati ko'rsatkichi (masalan, 37.2 °C) qaysi turdagi axborotga kiradi?
+   A) Grafik axborot
+   B) Tovushli axborot
+   C) Video axborot
+   D) Sonli axborot
+   >>> To'g'ri javob: D
+
+7. Shifokor stetoskop orqali yurak urishini eshitishi axborotning qaysi turiga kiradi?
+   A) Tovushli (audio) axborot
+   B) Matnli axborot
+   C) Grafik axborot
+   D) Sonli axborot
+   >>> To'g'ri javob: A
+
+8. Axborotning voqelikka mos kelishi, xatosiz va to'g'ri bo'lishi uning qaysi xossasi deyiladi?
+   A) Ishonchlilik (aniqlik)
+   B) Dolzarblik
+   C) Tushunarlilik
+   D) Qimmatlilik
+   >>> To'g'ri javob: A
+
+9. To'g'ri qaror qabul qilish uchun axborotning yetarli hajmda bo'lishi qaysi xossa hisoblanadi?
+   A) To'liqlik
+   B) Maxfiylik
+   C) Ixchamlik
+   D) Chiroylilik
+   >>> To'g'ri javob: A
+
+10. Axborotning ayni vaqtda kerakli, o'z vaqtida olingan va foydali bo'lishi nima deyiladi?
+   A) Qisqalik
+   B) Oddiylik
+   C) Eskirganlik
+   D) Dolzarblik
+   >>> To'g'ri javob: D
+
+11. Axborot uni qabul qiluvchiga tushunarli tilda va shaklda bayon etilishi qaysi xossa?
+   A) Hajmdorlik
+   B) Maxfiylik
+   C) Murakkablik
+   D) Tushunarlilik
+   >>> To'g'ri javob: D
+
+12. Axborot qo'yilgan maqsadga erishishda qanchalik foyda berishini ifodalovchi xossa qaysi?
+   A) Doimiylik
+   B) Rang-baranglik
+   C) Og'irlik
+   D) Qimmatlilik (foydalilik)
+   >>> To'g'ri javob: D
+
+13. Axborot bilan bajariladigan asosiy jarayonlar to'g'ri ko'rsatilgan qatorni toping:
+   A) Faqat qog'ozga chop etish
+   B) Faqat o'chirish va yopish
+   C) To'plash, saqlash, uzatish, qayta ishlash
+   D) Faqat sotish va sotib olish
+   >>> To'g'ri javob: C
+
+14. Hamshira bemorning qon bosimi natijasini kompyuter bazasiga yozishi qaysi axborot jarayoniga kiradi?
+   A) Axborotni buzish
+   B) Axborotni arxivdan chiqarish
+   C) Axborotni yo'qotish
+   D) Axborotni to'plash (kiritish)
+   >>> To'g'ri javob: D
+
+15. Bemorlarning elektron arxivini kompyuterning qattiq diskida saqlash qaysi jarayonga misol?
+   A) Axborotni saqlash
+   B) Axborotni uzatish
+   C) Axborotni chop etish
+   D) Axborotni yo'q qilish
+   >>> To'g'ri javob: A
+
+16. Rentgen suratini shifokor kabinetiga lokal tarmoq orqali jo'natish qaysi jarayonga kiradi?
+   A) Axborotni o'chirish
+   B) Axborotni qayta ishlash
+   C) Axborotni qirqish
+   D) Axborotni uzatish
+   >>> To'g'ri javob: D
+
+17. Bemorning bo'yi va vazni asosida uning tana massasi indeksini (BMI) dasturda hisoblab topish qaysi jarayon?
+   A) Axborotni uzatish
+   B) Axborotni skanerlash
+   C) Axborotni yo'qotish
+   D) Axborotni qayta ishlash
+   >>> To'g'ri javob: D
+
+18. Axborotning eng kichik o'lchov birligi nima deb ataladi?
+   A) Bit
+   B) Gigabayt
+   C) Bayt
+   D) Kilobayt
+   >>> To'g'ri javob: A
+
+19. 1 bayt necha bitga teng?
+   A) 16 bit
+   B) 8 bit
+   C) 4 bit
+   D) 2 bit
+   >>> To'g'ri javob: B
+
+20. 1 Kilobayt (KB) necha baytga teng?
+   A) 1000 bayt
+   B) 1024 bayt
+   C) 512 bayt
+   D) 2048 bayt
+   >>> To'g'ri javob: B
+
+21. 1 Megabayt (MB) necha Kilobaytga teng?
+   A) 1000 KB
+   B) 2048 KB
+   C) 100 KB
+   D) 1024 KB
+   >>> To'g'ri javob: D
+
+22. 1 Gigabayt (GB) necha Megabaytga teng?
+   A) 1024 MB
+   B) 2048 MB
+   C) 500 MB
+   D) 1000 MB
+   >>> To'g'ri javob: A
+
+23. 1 Terabayt (TB) necha Gigabaytga teng?
+   A) 1024 GB
+   B) 2000 GB
+   C) 512 GB
+   D) 1000 GB
+   >>> To'g'ri javob: A
+
+24. 1 Petabayt (PB) necha Terabaytga teng?
+   A) 10000 TB
+   B) 512 TB
+   C) 1024 TB
+   D) 100 TB
+   >>> To'g'ri javob: C
+
+25. Axborot o'lchov birliklarining o'sish tartibi qaysi qatorda to'g'ri ko'rsatilgan?
+   A) Terabayt, Gigabayt, Megabayt, Kilobayt, bayt
+   B) Bit, bayt, Kilobayt, Megabayt, Gigabayt, Terabayt
+   C) Bayt, bit, Megabayt, Kilobayt, Gigabayt
+   D) Bit, Kilobayt, bayt, Gigabayt, Megabayt
+   >>> To'g'ri javob: B
+
+26. Standart matn faylida har bir harf, raqam yoki probel xotirada qancha joy egallaydi?
+   A) 1 bayt (8 bit)
+   B) 10 bayt
+   C) 1 bit
+   D) 1 Kilobayt
+   >>> To'g'ri javob: A
+
+27. 16 bit necha baytga teng bo'ladi?
+   A) 8 bayt
+   B) 4 bayt
+   C) 2 bayt
+   D) 1 bayt
+   >>> To'g'ri javob: C
+
+28. 2048 Kilobayt axborot necha Megabayt bo'ladi?
+   A) 2 MB
+   B) 20 MB
+   C) 1 MB
+   D) 4 MB
+   >>> To'g'ri javob: A
+
+29. 4 Gigabayt hajmli USB fleshkaga taxminan necha Megabayt axborot sig'adi?
+   A) 8192 MB
+   B) 1024 MB
+   C) 400 MB
+   D) 4096 MB
+   >>> To'g'ri javob: D
+
+30. Quyidagi xotira hajmlaridan qaysi biri eng kattasi hisoblanadi?
+   A) 500 Megabayt
+   B) 2 Gigabayt
+   C) 1 Terabayt
+   D) 900 Kilobayt
+   >>> To'g'ri javob: C
+
+31. Axborot xavfsizligi nima?
+   A) Faqat yangi o'yinlar o'rnatish
+   B) Axborotning maxfiyligi, butunligi va erkin foydalanish imkoniyatini himoyalash
+   C) Faqat kompyuter changini artish
+   D) Faqat kompyuterni elektrdan o'chirish
+   >>> To'g'ri javob: B
+
+32. Axborotning maxfiyligi (konfidensiallik) deganda nima tushuniladi?
+   A) Axborotdan faqat ruxsati bor shaxslarning foydalana olishi
+   B) Axborotni internetga ochiq joylash
+   C) Axborot hajmini qisqartirish
+   D) Axborotni hammaga bepul tarqatish
+   >>> To'g'ri javob: A
+
+33. Axborotning butunligi (yaxlitligi) deganda nima tushuniladi?
+   A) Axborotning ruxsatsiz o'zgartirilishi yoki yo'q qilinishining oldini olish
+   B) Axborotni faqat bitta kompyuterda ko'rish
+   C) Axborotni doimiy ravishda o'chirib turish
+   D) Axborotga rasm qo'shish
+   >>> To'g'ri javob: A
+
+34. Axborot xavfsizligida 'zaxira nusxa' (Backup) nima uchun olinadi?
+   A) Kompyuterni tezroq ishlashga majburlash uchun
+   B) Klaviatura tugmalarini tozalash uchun
+   C) Tizim buzilganda yoki virus tushganda ma'lumotlarni qayta tiklash uchun
+   D) Monitor ekranini yorug' qilish uchun
+   >>> To'g'ri javob: C
+
+35. Quyidagilardan qaysi biri eng ishonchli parol hisoblanadi?
+   A) Ali1995
+   B) Tr#9kL!2026mQ
+   C) 12345678
+   D) password
+   >>> To'g'ri javob: B
+
+36. Parol yaratishda qaysi odat eng xavfli hisoblanadi?
+   A) Katta va kichik harflarni aralashtirish
+   B) Belgilar sonini 10 tadan oshirish
+   C) Maxsus belgilarni qo'shish
+   D) Tug'ilgan sana, ism yoki ketma-ket raqamlardan foydalanish
+   >>> To'g'ri javob: D
+
+37. Kompyuter virusi nima?
+   A) Kompyuter ichiga kirib qolgan chang zarralari
+   B) Kompyuter ishiga zarar yetkazuvchi va o'z-o'zidan ko'payuvchi maxsus zararli dastur
+   C) Kompyuterning eskirib qolgan qismi
+   D) Monitor ekranidagi dog'
+   >>> To'g'ri javob: B
+
+38. Viruslar kompyuterga ko'pincha qanday yo'llar bilan yuqadi?
+   A) Tekshirilmagan fleshkalar va shubhali internet saytlaridan yuklab olish orqali
+   B) Monitorni o'chirib yoqish orqali
+   C) Klaviaturani qattiq bosish orqali
+   D) Kompyuter yonida gaplashish orqali
+   >>> To'g'ri javob: A
+
+39. Antivirus dasturlarining asosiy vazifasi nima?
+   A) Matn terish va jadvallar tuzish
+   B) Viruslarni qidirib topish, zararsizlantirish va tizimni himoya qilish
+   C) Kompyuter ekranini o'chirib qo'yish
+   D) Musiqa va videolarni ijro etish
+   >>> To'g'ri javob: B
+
+40. Quyidagilardan qaysi biri antivirus dasturi hisoblanadi?
+   A) WinRAR
+   B) Microsoft Excel
+   C) Adobe Photoshop
+   D) Kaspersky (yoki Windows Defender)
+   >>> To'g'ri javob: D
+
+41. Fishing (Phishing) hujumi nima?
+   A) Fayllarni boshqa papkaga ko'chirish
+   B) Kompyuter sichqonchasini tez bosish
+   C) Soxta sayt yoki xabarlar orqali foydalanuvchining login va parolini aldab olish
+   D) Kompyuterga yangi o'yin o'rnatish
+   >>> To'g'ri javob: C
+
+42. Kompyuter xonasida texnika xavfsizligi qoidalariga ko'ra nima qilish qat'iyan taqiqlanadi?
+   A) Monitorda matn o'qish
+   B) Klaviatura tugmalarini bosish
+   C) Ho'l qo'l bilan qurilmalarga tegish va kompyuter yonida suyuqlik ichish
+   D) Sichqonchani harakatlantirish
+   >>> To'g'ri javob: C
+
+43. Ko'rish qobiliyatini asrash uchun monitor bilan ko'z orasidagi masofa qancha bo'lishi kerak?
+   A) 5 sm
+   B) 50–70 sm
+   C) 1.5–2 metr
+   D) 10–20 sm
+   >>> To'g'ri javob: B
+
+44. Kompyuterda ishlaganda ko'z va tanani toliqishdan saqlash uchun qanday qoidaga amal qilish kerak?
+   A) Qorong'i xonada ekranni eng yorug' holatga qo'yish
+   B) Har 40-45 daqiqa ishlashdan so'ng 10-15 daqiqa tanaffus qilish va ko'z mashqlarini bajarish
+   C) Monitorni ko'zga juda yaqin olib kelish
+   D) Kun bo'yi to'xtovsiz ekranga qarab o'tirish
+   >>> To'g'ri javob: B
+
+45. Tibbiyot xodimining kompyuteridagi bemorlarning shaxsiy kasallik tarixi qaysi toifaga kiradi?
+   A) Shaxsiy va shifokorlik siri bo'lgan maxfiy axborot
+   B) Ommaviy reklama axboroti
+   C) Keraksiz axborot
+   D) Barcha ko'rishi majburiy bo'lgan ochiq axborot
+   >>> To'g'ri javob: A
+
+46. Ish joyidan vaqtincha ketayotganda kompyuter ekranini begonalardan tezkor qulflash (Lock) tugmalari qaysi?
+   A) Alt + F4
+   B) Win + L
+   C) Ctrl + P
+   D) Ctrl + Z
+   >>> To'g'ri javob: B
+
+47. Kompyuter simlaridan tutun yoki kuyindi hidi chiqsa, birinchi navbatda nima qilish kerak?
+   A) Monitorni yopib qo'yish
+   B) Suv sepib o'chirish
+   C) Ishlashni davom ettirish
+   D) Darhol qurilmani elektr tarmog'idan uzish va o'qituvchi/mutaxassisga xabar berish
+   >>> To'g'ri javob: D
+
+48. Begona fleshkani kompyuterga ulaganda birinchi bo'lib qanday xavfsizlik chorasi ko'riladi?
+   A) Ichidagi barcha fayllarni darhol ochib ko'rish
+   B) Fleshkani formatlash
+   C) Uni antivirus dasturi yordamida tekshirish
+   D) Kompyuterni o'chirib yoqish
+   >>> To'g'ri javob: C
+
+49. Ikki bosqichli autentifikatsiya (2FA) nima uchun xizmat qiladi?
+   A) Internet tezligini oshirish
+   B) Hisob qaydnomasiga kirishda parol bilan birga telefon kodini talab qilib, xavfsizlikni oshirish
+   C) Kompyuterni ikki barobar tezroq yoqish
+   D) Klaviatura tilini ikki marta o'zgartirish
+   >>> To'g'ri javob: B
+
+50. Bemorlarning elektron ma'lumotlarini ruxsatsiz ommaviy ijtimoiy tarmoqlarga tarqatish qanday oqibatga olib keladi?
+   A) Bemorning tezroq tuzalishiga
+   B) Kompyuter xotirasi ko'payishiga
+   C) Hech qanday oqibat bo'lmaydi
+   D) Qonuniy javobgarlikka va shifokorlik sirini buzishga
+   >>> To'g'ri javob: D
+
+51. Elektron pochtaga noma'lum jo'natuvchidan kelgan shubhali havola (link) ni bosish nima uchun xavfli?
+   A) Printer qog'ozi tugaydi
+   B) Monitor rangi o'zgaradi
+   C) Klaviatura harflari o'chib ketadi
+   D) Virus yuqishi yoki parollar o'g'irlanishi mumkin
+   >>> To'g'ri javob: D
+
+52. Kiberxavfsizlikda 'Ijtimoiy muhandislik' (Social engineering) nima?
+   A) Kompyuterlarni ta'mirlash muhandisligi
+   B) Robotlar yasash ilmi
+   C) Yangi internet kabelini tortish
+   D) Insonlarni aldash va ishonchiga kirish orqali maxfiy ma'lumotlarni qo'lga kiritish usuli
+   >>> To'g'ri javob: D
+
+53. Muhim fayllarning zaxira nusxasi (Backup) qayerda saqlanishi eng xavfsiz hisoblanadi?
+   A) Alohida tashqi diskda yoki ishonchli bulutli xotirada
+   B) Hech qayerda saqlamaslik kerak
+   C) Kompyuter savatida (Korzina)
+   D) Faqat ish stolidagi bitta papkada
+   >>> To'g'ri javob: A
+
+54. Kompyuterga yangi dasturlar o'rnatishda nimalarga e'tibor berish lozim?
+   A) Dastur faqat rasmiy va ishonchli manbadan olingan bo'lishiga
+   B) Dastur qimmat bo'lishiga
+   C) Dasturda ko'p reklamalar bo'lishiga
+   D) Dastur eng ko'p joy egallashiga
+   >>> To'g'ri javob: A
+
+55. Xizmat kompyuteringiz parolini hamkasblaringizga aytishingiz mumkinmi?
+   A) Faqat tushlik vaqtida aytish mumkin
+   B) Yo'q, shaxsiy hisob parolini hech kimga oshkor qilish mumkin emas
+   C) Faqat qog'ozga yozib monitorga yopishtirib qo'yish kerak
+   D) Ha, xohlagan odamga aytish mumkin
+   >>> To'g'ri javob: B
+
+56. Sanoq sistemasi nima?
+   A) Sonlarni yozish va ifodalash qoidalari to'plami
+   B) Printerda chop etish tezligi
+   C) Kompyuterning sovutish tizimi
+   D) Klaviatura tugmalari soni
+   >>> To'g'ri javob: A
+
+57. Zamonaviy kompyuter texnikasi asosan qaysi sanoq sistemasida ishlaydi?
+   A) O'nlik
+   B) Ikkilik
+   C) Rim
+   D) Sakkizlik
+   >>> To'g'ri javob: B
+
+58. Ikkilik sanoq sistemasining asosi nechaga teng?
+   A) 2 ga
+   B) 8 ga
+   C) 10 ga
+   D) 1 ga
+   >>> To'g'ri javob: A
+
+59. Ikkilik sanoq sistemasida qanday raqamlar ishlatiladi?
+   A) 0 dan 9 gacha
+   B) Faqat 0
+   C) 1 va 2
+   D) 0 va 1
+   >>> To'g'ri javob: D
+
+60. O'nlik sanoq sistemasining asosi nechaga teng?
+   A) 16 ga
+   B) 2 ga
+   C) 10 ga
+   D) 8 ga
+   >>> To'g'ri javob: C
+
+61. O'nlik sanoq sistemasida nechta raqam ishlatiladi?
+   A) 9 ta (1 dan 9 gacha)
+   B) 2 ta (0 va 1)
+   C) Cheksiz
+   D) 10 ta (0 dan 9 gacha)
+   >>> To'g'ri javob: D
+
+62. Odamlar kundalik hayotida hisob-kitob qilish uchun eng ko'p qaysi sanoq sistemasidan foydalanadilar?
+   A) Sakkizlik
+   B) O'n oltilik
+   C) Ikkilik
+   D) O'nlik
+   >>> To'g'ri javob: D
+
+63. Sakkizlik sanoq sistemasida qaysi raqamlar ishlatiladi?
+   A) 0 dan 8 gacha
+   B) Faqat 0 va 8
+   C) 0 dan 7 gacha
+   D) 1 dan 8 gacha
+   >>> To'g'ri javob: C
+
+64. O'n oltilik sanoq sistemasining asosi nechaga teng?
+   A) 8 ga
+   B) 10 ga
+   C) 16 ga
+   D) 12 ga
+   >>> To'g'ri javob: C
+
+65. O'n oltilik sanoq sistemasida 0 dan 9 gacha bo'lgan raqamlardan tashqari qaysi harflar ishlatiladi?
+   A) Alpha, Beta
+   B) A, B, C, D, E, F
+   C) K, L, M, N
+   D) X, Y, Z
+   >>> To'g'ri javob: B
+
+66. Klaviatura kompyuterning qanday qurilmasi hisoblanadi?
+   A) Axborotni saqlash qurilmasi
+   B) Axborotni chiqarish qurilmasi
+   C) Axborotni kiritish qurilmasi
+   D) Sovutish qurilmasi
+   >>> To'g'ri javob: C
+
+67. Klaviaturaning eng yuqori qatorida joylashgan F1–F12 tugmalari qaysi guruhga kiradi?
+   A) Alfavit-raqamli tugmalar
+   B) Kursor boshqarish tugmalari
+   C) Funksional tugmalar
+   D) Raqamli blok
+   >>> To'g'ri javob: C
+
+68. Matn kiritishda yangi qatorga o'tish yoki buyruqni tasdiqlash uchun qaysi tugma bosiladi?
+   A) Alt
+   B) Enter
+   C) Ctrl
+   D) Shift
+   >>> To'g'ri javob: B
+
+69. Bitta katta harf yozish yoki klavishning yuqori belgisini chiqarish uchun qaysi tugma bosib turiladi?
+   A) Shift
+   B) Spacebar
+   C) Caps Lock
+   D) Tab
+   >>> To'g'ri javob: A
+
+70. Barcha harflarni doimiy ravishda katta qilib yozish rejimini yoqish/o'chirish tugmasi qaysi?
+   A) Caps Lock
+   B) Num Lock
+   C) Scroll Lock
+   D) Backspace
+   >>> To'g'ri javob: A
+
+71. Kursordan chapda turgan belgini o'chirish uchun qaysi tugma bosiladi?
+   A) Insert
+   B) Backspace
+   C) Escape
+   D) Delete
+   >>> To'g'ri javob: B
+
+72. Kursordan o'ngda turgan belgini yoki belgilangan faylni o'chirish tugmasi qaysi?
+   A) Backspace
+   B) End
+   C) Delete
+   D) Home
+   >>> To'g'ri javob: C
+
+73. Matnda so'zlar orasida bo'sh joy qoldirish uchun klaviaturaning qaysi eng uzun tugmasi bosiladi?
+   A) Enter
+   B) Shift
+   C) Probel (Spacebar)
+   D) Tab
+   >>> To'g'ri javob: C
+
+74. Bajarilayotgan amalni yoki ochilgan muloqot oynasini bekor qilish (chiqish) tugmasi qaysi?
+   A) F5
+   B) Esc (Escape)
+   C) Home
+   D) Enter
+   >>> To'g'ri javob: B
+
+75. Matnda tabulyatsiya (standart kattalikdagi bo'shliq) tashlash yoki keyingi maydonga o'tish tugmasi qaysi?
+   A) Pause
+   B) Tab
+   C) Ctrl
+   D) Alt
+   >>> To'g'ri javob: B
+
+76. Klaviaturaning o'ng tomonidagi qo'shimcha raqamlar blokini yoqish/o'chirish tugmasi nima deb ataladi?
+   A) Scroll Lock
+   B) Insert
+   C) Num Lock
+   D) Caps Lock
+   >>> To'g'ri javob: C
+
+77. Kursorni matn satrining eng boshiga tezkor o'tkazish uchun qaysi tugma bosiladi?
+   A) End
+   B) Page Down
+   C) Page Up
+   D) Home
+   >>> To'g'ri javob: D
+
+78. Kursorni matn satrining eng oxiriga tezkor o'tkazish uchun qaysi tugma bosiladi?
+   A) Home
+   B) Insert
+   C) Delete
+   D) End
+   >>> To'g'ri javob: D
+
+79. Hujjatni bir ekran balandligida yuqoriga varoqlash tugmasi qaysi?
+   A) Page Up
+   B) Home
+   C) Page Down
+   D) Up Arrow
+   >>> To'g'ri javob: A
+
+80. Hujjatni bir ekran balandligida pastga varoqlash tugmasi qaysi?
+   A) End
+   B) Page Down
+   C) Down Arrow
+   D) Page Up
+   >>> To'g'ri javob: B
+
+81. Sichqonchaning chap tugmasini bir marta bosish qanday vazifani bajaradi?
+   A) Kompyuterni o'chirish
+   B) Ob'ektni tanlash (belgilash)
+   C) Matnni chop etish
+   D) Dasturni o'chirib yuborish
+   >>> To'g'ri javob: B
+
+82. Sichqonchaning chap tugmasini ikki marta tezkor bosish (double click) nima qiladi?
+   A) Fayl yoki dasturni ochadi
+   B) Fayl nomini o'zgartiradi
+   C) Faylni butunlay o'chiradi
+   D) Kompyuterni qulflaydi
+   >>> To'g'ri javob: A
+
+83. Sichqonchaning o'ng tugmasi bosilganda ekranda nima paydo bo'ladi?
+   A) Kontekst menyu (qo'shimcha amallar ro'yxati)
+   B) Kalkulyator
+   C) O'yinlar ro'yxati
+   D) Internet sahifasi
+   >>> To'g'ri javob: A
+
+84. Sichqoncha g'ildirakchasi (Scroll) asosan nima uchun xizmat qiladi?
+   A) Kursor rangini o'zgartirish
+   B) Fayllarni qirqish
+   C) Sahifani yuqoriga va pastga aylantirish (varoqlash)
+   D) Kompyuter tovushini o'chirish
+   >>> To'g'ri javob: C
+
+85. Sichqoncha yordamida ob'ektni bosib turib boshqa joyga ko'chirish amali nima deyiladi?
+   A) Formatlash
+   B) Arxivlash
+   C) Sudrab o'tkazish (Drag and Drop)
+   D) Nusxalash
+   >>> To'g'ri javob: C
+
+86. Kompyuterning apparat ta'minoti ingliz tilida nima deb ataladi?
+   A) Hardware
+   B) Malware
+   C) Software
+   D) Freeware
+   >>> To'g'ri javob: A
+
+87. Tizim bloki (System Unit) nima?
+   A) Faqat elektr simlari to'plami
+   B) Kompyuterning asosiy ichki qurilmalari joylashgan korpus
+   C) Faqat klaviatura va sichqoncha
+   D) Faqat monitor ekrani
+   >>> To'g'ri javob: B
+
+88. Kompyuterning 'miyasi' deb qaysi qurilmaga aytiladi?
+   A) Qattiq disk
+   B) Quvvat bloki
+   C) Videokarta
+   D) Protsessor (CPU)
+   >>> To'g'ri javob: D
+
+89. Markaziy protsessor (CPU) ning asosiy vazifasi nima?
+   A) Musiqa chalish
+   B) Tasvirni ekranda ko'rsatish
+   C) Barcha arifmetik-mantiqiy amallarni bajarish va qurilmalarni boshqarish
+   D) Matnni qog'ozga bosib chiqarish
+   >>> To'g'ri javob: C
+
+90. Protsessorning ishlash tezligi (chastotasi) qaysi o'lchov birligida o'lchanadi?
+   A) Piksel
+   B) Gerts (MGts, GGts)
+   C) Dyuym
+   D) Bayt (KB, MB)
+   >>> To'g'ri javob: B
+
+91. Protsessor ichida joylashgan eng yuqori tezlikdagi maxsus oraliq xotira nima deyiladi?
+   A) Optik disk
+   B) Kesh xotira (Cache)
+   C) Qattiq disk
+   D) Fleshka
+   >>> To'g'ri javob: B
+
+92. Kompyuterning barcha ichki qismlari ulanadigan eng asosiy katta plata nima deb ataladi?
+   A) Videokarta
+   B) Tarmoq kartasi
+   C) Tovush kartasi
+   D) Ona plata (Motherboard)
+   >>> To'g'ri javob: D
+
+93. Ona platadagi protsessor o'rnatiladigan maxsus uyacha nima deb ataladi?
+   A) Chipset
+   B) Slot
+   C) Soket (Socket)
+   D) Port
+   >>> To'g'ri javob: C
+
+94. Tezkor xotira (RAM / OZU) ning asosiy vazifasi nima?
+   A) Hozir ishlab turgan dasturlar va ma'lumotlarni vaqtincha saqlash
+   B) Tasvir sifatini oshirish
+   C) Qurilmalarni sovitish
+   D) Kompyuter o'chganda ham ma'lumotlarni umrbod saqlash
+   >>> To'g'ri javob: A
+
+95. Kompyuter elektr tarmog'idan uzilganda qaysi xotiradagi ma'lumotlar butunlay o'chib ketadi?
+   A) Tezkor xotira (RAM)
+   B) Fleshka
+   C) SSD disk
+   D) Qattiq disk (HDD)
+   >>> To'g'ri javob: A
+
+96. Hozirgi zamonaviy kompyuterlarda tezkor xotira (RAM) hajmi odatda qaysi birlikda o'lchanadi?
+   A) Gerts (GGts)
+   B) Gigabayt (GB, masalan 8 GB, 16 GB)
+   C) Kilobayt (KB)
+   D) Dyuym
+   >>> To'g'ri javob: B
+
+97. Doimiy xotira (ROM / PZU) ning xususiyati qanday?
+   A) U faqat o'yinlar uchun ishlatiladi
+   B) U kompyuterga ulanmaydi
+   C) U har kuni o'chib ketadi
+   D) U faqat o'qish uchun mo'ljallangan va elektr o'chganda ma'lumotlar saqlanib qoladi
+   >>> To'g'ri javob: D
+
+98. Kompyuter yoqilganda qurilmalarni tekshirib, operatsion tizimni yuklovchi boshlang'ich dasturiy ta'minot nima?
+   A) Microsoft Word
+   B) Paint
+   C) Antivirus
+   D) BIOS (yoki UEFI)
+   >>> To'g'ri javob: D
+
+99. Ma'lumotlarni magnit plastinkalarda uzoq vaqt doimiy saqlovchi xotira qurilmasi qaysi?
+   A) Protsessor
+   B) Tezkor xotira (RAM)
+   C) Qattiq magnit disk (HDD)
+   D) Kesh xotira
+   >>> To'g'ri javob: C
+
+100. SSD (Solid State Drive) disklarning oddiy HDD disklardan asosiy ustunligi nimada?
+   A) Faqat magnit bilan ishlashi
+   B) Kattaroq va og'irroq ekanligi
+   C) Elektr energiyasini ko'p sarflashi
+   D) Aylanuvchi mexanik qismlari yo'qligi va o'qish/yozish tezligi ancha yuqoriligi
+   >>> To'g'ri javob: D
+
+101. USB flesh-xotira (fleshka) qanday xotira turiga kiradi?
+   A) Protsessor ichki xotirasi
+   B) Faqat vaqtinchalik xotira
+   C) Doimiy, ko'chma elektron xotira
+   D) Magnit lentali xotira
+   >>> To'g'ri javob: C
+
+102. Grafik axborotni qayta ishlab, monitorga tasvir chiqarish uchun javobgar qurilma qaysi?
+   A) Tovush kartasi
+   B) Videokarta (GPU)
+   C) Ona plata
+   D) Tarmoq kartasi
+   >>> To'g'ri javob: B
+
+103. Videokartaning tasvirlarni saqlash uchun mo'ljallangan o'z shaxsiy xotirasi nima deb ataladi?
+   A) Kesh xotira
+   B) Video xotira (VRAM)
+   C) ROM
+   D) BIOS
+   >>> To'g'ri javob: B
+
+104. Rozetkadagi 220V o'zgaruvchan tokni kompyuter qismlariga mos kuchlanishga aylantirib beruvchi qurilma qaysi?
+   A) Videokarta
+   B) Quvvat bloki (Power Supply Unit - PSU)
+   C) Monitor
+   D) Kuler
+   >>> To'g'ri javob: B
+
+105. Quvvat blokining quvvati qaysi birlikda o'lchanadi?
+   A) Volt (V)
+   B) Gerts (Hz)
+   C) Amper (A)
+   D) Vatt (W)
+   >>> To'g'ri javob: D
+
+106. Protsessorni qizib ketishdan saqlab, uni sovitib turuvchi ventilyatorli qurilma nima deyiladi?
+   A) Videokarta
+   B) Kuler (Cooler)
+   C) Quvvat bloki
+   D) Ona plata
+   >>> To'g'ri javob: B
+
+107. Protsessor va kuler radiatori orasiga issiqlik o'tkazuvchanlikni oshirish uchun nima surtiladi?
+   A) Spirt
+   B) Oddiy yelim
+   C) Termopasta
+   D) Yog'
+   >>> To'g'ri javob: C
+
+108. Elektr to'satdan o'chganda kompyuterga ma'lum vaqt quvvat berib, fayllarni saqlashga imkon yaratuvchi qurilma nima?
+   A) Kuler
+   B) Uzluksiz quvvat manbai (UPS)
+   C) Stabilizator
+   D) Fleshka
+   >>> To'g'ri javob: B
+
+109. Monitor qanday qurilma hisoblanadi?
+   A) Sovitish qurilmasi
+   B) Axborotni kiritish qurilmasi
+   C) Xotira qurilmasi
+   D) Vizual axborotni chiqarish qurilmasi
+   >>> To'g'ri javob: D
+
+110. Monitor ekranidagi tasvirni hosil qiluvchi eng kichik yorug' nuqta nima deb ataladi?
+   A) Bayt
+   B) Nuqta
+   C) Piksel (Pixel)
+   D) Dyuym
+   >>> To'g'ri javob: C
+
+111. Monitor ekranining o'lchami (diagonali) qaysi o'lchov birligida o'lchanadi?
+   A) Litrlarda
+   B) Santimetrda
+   C) Dyuymda (Inch)
+   D) Pikselda
+   >>> To'g'ri javob: C
+
+112. Monitorning ekranda tasvirni chizish aniqligi (masalan, 1920x1080) nima deb ataladi?
+   A) Ekran aniqligi / ruxsat etish qobiliyati (Resolution)
+   B) Yorug'lik burchagi
+   C) Chastota
+   D) Ekran og'irligi
+   >>> To'g'ri javob: A
+
+113. Hozirgi zamonaviy ingichka monitorlar asosan qaysi displey texnologiyasiga asoslangan?
+   A) Elektron nurli trubka (CRT)
+   B) LCD, LED va OLED
+   C) Plazma trubka
+   D) Mexanik disklar
+   >>> To'g'ri javob: B
+
+114. Printer qanday qurilma hisoblanadi?
+   A) Axborotni kompyuterga kiritish qurilmasi
+   B) Xotira qurilmasi
+   C) Ovoz chiqarish qurilmasi
+   D) Matn va rasmlarni qog'ozga bosib chiqarish qurilmasi
+   >>> To'g'ri javob: D
+
+115. Maxsus kukunli bo'yoq (toner) yordamida tez va sifatli chop etadigan printer turi qaysi?
+   A) Matritsali printer
+   B) Plotter
+   C) Purkovchi printer
+   D) Lazerli printer
+   >>> To'g'ri javob: D
+
+116. Suyuq siyohni mayda tomchilar holida purkash orqali rangli hujjat va suratlarni chop etuvchi printer turi qaysi?
+   A) Lazerli printer
+   B) Matritsali printer
+   C) Purkovchi (Struyniy) printer
+   D) Teletayp
+   >>> To'g'ri javob: C
+
+117. Kassalarda chek chiqarish uchun ignachalar orqali lentaga urib ishlaydigan printer turi qaysi?
+   A) 3D printer
+   B) Matritsali printer
+   C) Lazerli printer
+   D) Purkovchi printer
+   >>> To'g'ri javob: B
+
+118. Printerning chop etish tezligi ko'pincha qaysi birlikda o'lchanadi?
+   A) MB/sekund
+   B) Dyuym
+   C) PPM (bir daqiqadagi sahifalar soni)
+   D) Gerts
+   >>> To'g'ri javob: C
+
+119. Printerning chop etish sifati va aniqligi qaysi o'lchov birligida belgilanadi?
+   A) Volt
+   B) MGts
+   C) KB
+   D) DPI (bir dyuymdagi nuqtalar soni)
+   >>> To'g'ri javob: D
+
+120. Printer, skaner va kserokopiyani bitta korpusda birlashtirgan qurilma nima deyiladi?
+   A) Strimer
+   B) Modem
+   C) Ko'p funksiyali qurilma (MFU / KFQ)
+   D) Plotter
+   >>> To'g'ri javob: C
+
+121. Qog'ozdagi rasm yoki matnli hujjatni kompyuterga raqamli ko'rinishda o'tkazuvchi qurilma qaysi?
+   A) Monitor
+   B) Skaner
+   C) Plotter
+   D) Printer
+   >>> To'g'ri javob: B
+
+122. Katta formatdagi chizmalar, anatomiya plakatlari va sxemalarni qog'ozga chiqarish uchun qaysi qurilma ishlatiladi?
+   A) Plotter (Grafopostroitel)
+   B) Mikrofon
+   C) Veb-kamera
+   D) Oddiy skaner
+   >>> To'g'ri javob: A
+
+123. Tovush axborotini kompyuterga kiritish qurilmasi qaysi?
+   A) Karnay (Kolonka)
+   B) Mikrofon
+   C) Quloqchin
+   D) Videokarta
+   >>> To'g'ri javob: B
+
+124. Kompyuterdagi tovushni eshitish uchun qaysi chiqarish qurilmalari ishlatiladi?
+   A) Mikrofon
+   B) Klaviatura
+   C) Kolonkalar (dinamiklar) va quloqchinlar (naushnik)
+   D) Skaner
+   >>> To'g'ri javob: C
+
+125. Kompyuter ekranidagi tasvirni katta oq doska yoki devorga kattalashtirib ko'rsatish qurilmasi nima?
+   A) Printer
+   B) Skaner
+   C) Multimedia proyektori
+   D) Videokarta
+   >>> To'g'ri javob: C
+
+126. Internet orqali videoqo'ng'iroq va konferensiyalarda tasvirni uzatuvchi qurilma nima?
+   A) Monitor
+   B) Plotter
+   C) Veb-kamera
+   D) Skaner
+   >>> To'g'ri javob: C
+
+127. Noutbuklarda sichqoncha o'rnini bosuvchi sensorli panel nima deb ataladi?
+   A) Slot
+   B) Tachpad (Touchpad)
+   C) Kuler
+   D) Drayver
+   >>> To'g'ri javob: B
+
+128. Kompyuterni kabel orqali lokal tarmoqqa va internetga ulaydigan qurilma nima?
+   A) Quvvat bloki
+   B) Videokarta
+   C) Tarmoq kartasi (Network card)
+   D) Tovush kartasi
+   >>> To'g'ri javob: C
+
+129. Lokal tarmoq kabeli kompyuterning qaysi portiga ulanadi?
+   A) RJ-45 (LAN port)
+   B) HDMI
+   C) USB
+   D) VGA
+   >>> To'g'ri javob: A
+
+130. Fleshka, sichqoncha, klaviatura va printerni ulashda eng keng qo'llaniladigan universal port qaysi?
+   A) PS/2 port
+   B) COM port
+   C) LPT port
+   D) USB port
+   >>> To'g'ri javob: D
+
+131. Qaysi zamonaviy USB turi ikki tomonlama simmetrik ulanishga va yuqori tezlikka ega?
+   A) USB Type-C
+   B) USB 1.0
+   C) Mini-USB
+   D) Micro-USB
+   >>> To'g'ri javob: A
+
+132. Monitorni kompyuterga ulab, ham yuqori sifatli tasvir, ham ovoz uzatuvchi zamonaviy port qaysi?
+   A) PS/2
+   B) VGA
+   C) COM
+   D) HDMI
+   >>> To'g'ri javob: D
+
+133. Monitorni kompyuterga ulash uchun mo'ljallangan ko'k rangli eski analog port nima deyiladi?
+   A) VGA
+   B) LAN
+   C) USB
+   D) HDMI
+   >>> To'g'ri javob: A
+
+134. Quloqchin va mikrofon ulanadigan standart dumaloq 3.5 mm port nima deb ataladi?
+   A) HDMI
+   B) USB
+   C) Soket
+   D) Audio Jack (Mini-Jack)
+   >>> To'g'ri javob: D
+
+135. Quyidagi qatorda faqat axborotni kiritish qurilmalari ko'rsatilgan javobni toping:
+   A) Klaviatura, sichqoncha, skaner, mikrofon
+   B) Monitor, printer, kolonka, proyektor
+   C) Videokarta, protsessor, naushnik
+   D) Qattiq disk, RAM, kuler, ona plata
+   >>> To'g'ri javob: A
+
+136. Quyidagi qatorda faqat axborotni chiqarish qurilmalari ko'rsatilgan javobni toping:
+   A) Klaviatura, skaner, sichqoncha
+   B) Monitor, printer, kolonka, naushnik
+   C) Mikrofon, veb-kamera, tachpad
+   D) Protsessor, RAM, ona plata
+   >>> To'g'ri javob: B
+
+137. Ham axborotni kiritish, ham chiqarish funksiyasini bir vaqtda bajaradigan qurilma qaysi?
+   A) Oddiy sichqoncha
+   B) Sensorli ekran (Touchscreen)
+   C) Oddiy monitor
+   D) Klaviatura
+   >>> To'g'ri javob: B
+
+138. Shaxsiy kompyuterning ishlashi uchun zarur bo'lgan minimal asosiy tarkibiga nimalar kiradi?
+   A) Faqat kuler va tovush kartasi
+   B) Printer, skaner, plotter, kamera
+   C) Tizim bloki, monitor, klaviatura, sichqoncha
+   D) Faqat monitor va fleshka
+   >>> To'g'ri javob: C
+
+139. Tashqi qattiq disklar (External HDD) kompyuterga odatda qaysi port orqali ulanadi?
+   A) VGA port orqali
+   B) PS/2 orqali
+   C) Audio port orqali
+   D) USB port orqali
+   >>> To'g'ri javob: D
+
+140. Optik disklarni (CD, DVD) o'qish va yozish uchun kompyuterga qanday qurilma o'rnatiladi?
+   A) Modem
+   B) Optik disk yurituvchi (CD/DVD drive)
+   C) HDD
+   D) SSD
+   >>> To'g'ri javob: B
+
+141. Standart oddiy CD diskning axborot sig'imi taxminan qancha bo'ladi?
+   A) 700 MB
+   B) 4.7 GB
+   C) 1 TB
+   D) 100 KB
+   >>> To'g'ri javob: A
+
+142. Standart bir qatlamli DVD diskning axborot sig'imi taxminan qancha bo'ladi?
+   A) 1 TB
+   B) 700 MB
+   C) 128 MB
+   D) 4.7 GB
+   >>> To'g'ri javob: D
+
+143. Qurilmalarni (sichqoncha, quloqchin) simsiz tarzda yaqin masofada (10 metrgacha) ulash texnologiyasi nima?
+   A) Bluetooth
+   B) Kabel
+   C) Sputnik
+   D) Infraqizil
+   >>> To'g'ri javob: A
+
+144. Kompyuterning simsiz internet va tarmoqqa ulanishini ta'minlovchi adapter nima?
+   A) Wi-Fi adapter
+   B) Optik privod
+   C) Tovush adapteri
+   D) Kuler
+   >>> To'g'ri javob: A
+
+145. Tovush kartasi (Sound card) ning vazifasi nima?
+   A) Kompyuterni elektr bilan ta'minlash
+   B) Fayllarni arxivlash
+   C) Tovush signallarini raqamli axborotga va aksincha tovushga aylantirish
+   D) Tasvirlarni qog'ozga chiqarish
+   >>> To'g'ri javob: C
+
+146. Dori qutilari yoki bemor bilaguzuklaridagi shtrix-kod va QR-kodlarni kompyuterga o'qib kirituvchi qurilma nima?
+   A) Oddiy printer
+   B) Shtrix-kod skaneri
+   C) Veb-kamera
+   D) Kolonka
+   >>> To'g'ri javob: B
+
+147. Kompyuter o'chirilganda ham ona platadagi vaqt va BIOS sozlamalarini saqlab turuvchi qism nima?
+   A) Quvvat bloki
+   B) CR2032 batareykasi
+   C) Kuler
+   D) Protsessor
+   >>> To'g'ri javob: B
+
+148. Tizim bloki orqasidagi turli xil ulagichlar joylashgan panel nima deb ataladi?
+   A) Drayver
+   B) Kiritish-chiqarish paneli (I/O panel)
+   C) Kuler paneli
+   D) Xotira paneli
+   >>> To'g'ri javob: B
+
+149. USB fleshkani kompyuterdan sug'urib olishdan oldin nima uchun 'Xavfsiz ajratish' (Безопасное извлечение) buyrug'i bosiladi?
+   A) Fayllar to'liq yozib bo'linganligiga ishonch hosil qilish va ularning buzilishini oldini olish uchun
+   B) Fleshkani zaryadlash uchun
+   C) Kompyuter o'chib qolmasligi uchun
+   D) Fleshka hajmini oshirish uchun
+   >>> To'g'ri javob: A
+
+150. Noutbuklarning oddiy stol kompyuterlaridan (PC) asosiy qulayligi va farqi nimada?
+   A) Ixchamligi, yengilligi va akkumulyator orqali zaryad bilan mustaqil ishlay olishida
+   B) Klaviatura ulanmasligida
+   C) Faqat internetda ishlashida
+   D) Faqat o'yinlar uchun mosligida
+   >>> To'g'ri javob: A
+
+151. Operatsion tizim (OT) ning asosiy vazifasi nima?
+   A) Kompyuter qurilmalarini boshqarish va inson bilan kompyuter muloqotini ta'minlash
+   B) Faqat musiqalarni ochish
+   C) Faqat internet saytlarini ko'rish
+   D) Faqat matn terish
+   >>> To'g'ri javob: A
+
+152. Kompyuter yoqilganda ekranda ochiladigan asosiy bosh ish maydoni nima deb ataladi?
+   A) Mundarija
+   B) Ish stoli (Desktop)
+   C) Savat
+   D) Vazifalar paneli
+   >>> To'g'ri javob: B
+
+153. Ekran pastki qismida joylashgan, Pusk tugmasi va ochiq dasturlar belgisi turadigan yo'lakcha nima deyiladi?
+   A) Vazifalar paneli (Taskbar)
+   B) Holat paneli
+   C) Menyu satri
+   D) Sarlavha satri
+   >>> To'g'ri javob: A
+
+154. Windows-da barcha dasturlar, sozlamalar va kompyuterni o'chirish menyusini ochuvchi asosiy tugma qaysi?
+   A) Shift
+   B) Yordam
+   C) Enter
+   D) Boshlash (Pusk / Start)
+   >>> To'g'ri javob: D
+
+155. Ish stolida biron fayl yoki dasturga tez kirish uchun yaratilgan ko'rsatkich belgi nima deb ataladi?
+   A) Piksel
+   B) Drayver
+   C) Yorliq (Shortcut / Yarlik)
+   D) Arxiv
+   >>> To'g'ri javob: C
+
+156. Yorliq (shortcut) belgisining oddiy fayldan asosiy vizual farqi nimada?
+   A) U qizil rangda bo'ladi
+   B) Uning kengaytmasi bo'lmaydi
+   C) Uni o'chirib bo'lmaydi
+   D) Uning chap pastki burchagida kichik o'q (strelka) belgisi bo'ladi
+   >>> To'g'ri javob: D
+
+157. Ochiq dastur oynasini butun ekranga yoyish (kattalashtirish) tugmasi qaysi?
+   A) Kichraytirish (Chiziqcha)
+   B) Kattalashtirish (Maximize / To'rtburchak belgi)
+   C) Yopish (Qizil X)
+   D) Aylantirish
+   >>> To'g'ri javob: B
+
+158. Ochiq dastur oynasini ekrandan yashirib, Vazifalar paneliga buklab qo'yish tugmasi qaysi?
+   A) Kattalashtirish
+   B) Kichraytirish (Minimize / Chiziqcha belgi)
+   C) Yopish (X)
+   D) Yangilash
+   >>> To'g'ri javob: B
+
+159. Dastur oynasini butunlay yopish tugmasi qaysi?
+   A) Yopish (Close / Qizil X belgisi)
+   B) To'rtburchak belgi
+   C) Chiziqcha belgi
+   D) Strelka
+   >>> To'g'ri javob: A
+
+160. Ochiq dastur oynasini klaviatura orqali tezkor yopish tugmalar birikmasi qaysi?
+   A) Shift + Enter
+   B) Ctrl + V
+   C) Alt + F4
+   D) Ctrl + C
+   >>> To'g'ri javob: C
+
+161. Barcha ochiq oynalarni tezda buklab, to'g'ridan-to'g'ri Ish stolini (Desktop) ko'rsatish birikmasi qaysi?
+   A) Alt + Shift
+   B) Ctrl + S
+   C) Ctrl + P
+   D) Win + D
+   >>> To'g'ri javob: D
+
+162. Ochiq dastur oynalari o'rtasida klaviatura orqali tezkor almashish uchun qaysi tugmalar bosiladi?
+   A) Alt + Tab
+   B) Shift + F5
+   C) Win + L
+   D) Ctrl + Z
+   >>> To'g'ri javob: A
+
+163. Windows tizimida dastur yoki fayllarni tezkor qidirish oynasini ochish tugmasi qaysi?
+   A) Ctrl + N
+   B) Shift + D
+   C) Alt + P
+   D) Win + S
+   >>> To'g'ri javob: D
+
+164. Butun ekran tasvirini (skrinshot) xotiraga nusxalab olish tugmasi qaysi?
+   A) Pause Break
+   B) F1
+   C) Scroll Lock
+   D) Print Screen (PrtScn)
+   >>> To'g'ri javob: D
+
+165. Windows-da kompyuter sozlamalari, qurilmalarni o'rnatish va dasturlarni o'chirish qayerdan bajariladi?
+   A) Boshqaruv paneli (Control Panel / Sozlamalar)
+   B) Savat (Korzina)
+   C) Bloknot
+   D) Paint
+   >>> To'g'ri javob: A
+
+166. Fayl nima?
+   A) Xotirada ma'lum bir nomga ega bo'lgan va yaxlit saqlanadigan ma'lumotlar to'plami
+   B) Faqat kompyuter ekrani
+   C) Faqat klaviatura tugmasi
+   D) Faqat printer qog'ozi
+   >>> To'g'ri javob: A
+
+167. Fayl nomi qanday 2 ta qismdan iborat bo'ladi?
+   A) Protsessor va monitor
+   B) Harf va raqam
+   C) Faylning asosiy nomi va kengaytmasi
+   D) Parol va login
+   >>> To'g'ri javob: C
+
+168. Fayl nomi bilan uning kengaytmasi o'rtasida qanday belgi qo'yiladi?
+   A) Ikki nuqta (:)
+   B) Nuqta (.)
+   C) Vergul (,)
+   D) Tiziqcha (-)
+   >>> To'g'ri javob: B
+
+169. Fayl kengaytmasi (.docx, .xlsx, .jpg va h.k.) nimani bildiradi?
+   A) Faylning qaysi turga mansubligini va uni qaysi dastur ochishini
+   B) Fayl narxini
+   C) Foydalanuvchining yoshini
+   D) Kompyuter markasini
+   >>> To'g'ri javob: A
+
+170. Fayllarni tartibli joylashtirish va guruhlash uchun xizmat qiluvchi katalog nima deyiladi?
+   A) Papka (Folder)
+   B) Kengaytma
+   C) Kesh
+   D) Yorliq
+   >>> To'g'ri javob: A
+
+171. Windows-da yangi papka yaratishning tezkor klaviatura tugmalari qaysi?
+   A) Ctrl + P
+   B) Ctrl + N
+   C) Alt + F4
+   D) Ctrl + Shift + N
+   >>> To'g'ri javob: D
+
+172. Belgilangan fayl yoki papkaning nomini o'zgartirish (Rename) tugmasi qaysi?
+   A) F2
+   B) F5
+   C) Esc
+   D) F1
+   >>> To'g'ri javob: A
+
+173. Fayldan nusxa olish (Copy) uchun qaysi klavishlar birikmasi bosiladi?
+   A) Ctrl + V
+   B) Ctrl + C
+   C) Ctrl + Z
+   D) Ctrl + X
+   >>> To'g'ri javob: B
+
+174. Faylni boshqa joyga ko'chirish uchun kesib olish (Cut) birikmasi qaysi?
+   A) Ctrl + A
+   B) Ctrl + V
+   C) Ctrl + X
+   D) Ctrl + C
+   >>> To'g'ri javob: C
+
+175. Nusxalangan yoki kesilgan faylni yangi joyga qo'yish (Paste / Joylashtirish) tugmalari qaysi?
+   A) Ctrl + C
+   B) Ctrl + V
+   C) Ctrl + X
+   D) Ctrl + S
+   >>> To'g'ri javob: B
+
+176. Oxirgi bajarilgan xato amalni bekor qilish (orqaga qaytarish) tezkor tugmasi qaysi?
+   A) Ctrl + D
+   B) Alt + Z
+   C) Ctrl + Z
+   D) Ctrl + Y
+   >>> To'g'ri javob: C
+
+177. Faylni belgilab Delete tugmasi bosilsa, u qayerga tushadi?
+   A) Savatga (Korzina / Recycle Bin)
+   B) Doimiy yo'qoladi
+   C) Fleshkaga
+   D) Internetga
+   >>> To'g'ri javob: A
+
+178. Faylni Savatga tushirmasdan, butunlay o'chirib yuborish uchun qaysi birikma bosiladi?
+   A) Ctrl + Delete
+   B) Alt + Delete
+   C) Shift + Delete
+   D) Win + Delete
+   >>> To'g'ri javob: C
+
+179. Savatdagi faylni avvalgi o'chirilgan joyiga qaytarish amali nima deb ataladi?
+   A) Ko'chirish
+   B) Tiklash (Restore / Vosstanovit)
+   C) Nusxalash
+   D) Formatlash
+   >>> To'g'ri javob: B
+
+180. Arxivlash nima?
+   A) Fayllarni internetda qidirish
+   B) Fayl va papkalarni bitta faylga jamlab, ularning hajmini siqish
+   C) Fayllarni chop etish
+   D) Fayl nomini o'chirish
+   >>> To'g'ri javob: B
+
+181. Fayllarni arxivlashdan asosiy maqsad nima?
+   A) Xotirada joy tejash va internet orqali uzatishni qulaylashtirish
+   B) Kompyuterni o'chirish
+   C) Fayl matnini kattalashtirish
+   D) Faylni rasmga aylantirish
+   >>> To'g'ri javob: A
+
+182. Quyidagilardan qaysi biri arxivator dasturlar hisoblanadi?
+   A) Microsoft Word va Excel
+   B) WinRAR va 7-Zip
+   C) Photoshop va Paint
+   D) VLC va Media Player
+   >>> To'g'ri javob: B
+
+183. Quyidagilardan qaysi biri arxiv fayl kengaytmasi EMAS?
+   A) .rar
+   B) .zip
+   C) .docx
+   D) .7z
+   >>> To'g'ri javob: C
+
+184. Arxiv ichidagi fayllarni tashqariga, asl holida ochib chiqarish amali nima deyiladi?
+   A) Tiklash
+   B) Arxivdan chiqarish (Extract / Izvech)
+   C) Siqish
+   D) O'chirish
+   >>> To'g'ri javob: B
+
+185. Arxivlangan fayllarga begona kishilar kira olmasligi uchun nima qilish mumkin?
+   A) Maxsus himoya paroli o'rnatish
+   B) Fayl nomini o'chirish
+   C) Faylni qizil rangga bo'yash
+   D) Fleshkani yashirish
+   >>> To'g'ri javob: A
+
+186. Microsoft Word dasturi qanday dastur hisoblanadi?
+   A) Komppyuterni virusdan tozalash dasturi
+   B) Matnli hujjatlar yaratish va tahrirlash uchun matn muharriri
+   C) Internet brauzeri
+   D) Jadvallar bilan hisob-kitob qilish dasturi
+   >>> To'g'ri javob: B
+
+187. Zamonaviy Microsoft Word hujjatlarining standart fayl kengaytmasi qanday bo'ladi?
+   A) .pptx
+   B) .txt
+   C) .xlsx
+   D) .docx
+   >>> To'g'ri javob: D
+
+188. Word dasturida yangi bo'sh hujjat ochilganda unga avtomatik qanday nom beriladi?
+   A) Word fayli
+   B) Matn 1
+   C) Yangi fayl
+   D) Hujjat 1 (Document 1)
+   >>> To'g'ri javob: D
+
+189. Word dasturi oynasining yuqori qismidagi buyruqlar va tablar joylashgan keng panel nima deyiladi?
+   A) Sarlavha
+   B) Lenta (Ribbon)
+   C) Vazifalar paneli
+   D) Holat satri
+   >>> To'g'ri javob: B
+
+190. Word-da rasmiy hujjatlar va kasallik tarixlarini chop etish uchun standart qog'oz o'lchami qaysi?
+   A) Letter
+   B) A5
+   C) A3
+   D) A4 (210 x 297 mm)
+   >>> To'g'ri javob: D
+
+191. Word-da varaq yo'nalishi (Orientatsiya) qanday 2 ta turga bo'linadi?
+   A) Qalin va yupqa
+   B) Katta va kichik
+   C) Kitobcha (Portret) va Albomcha (Landshaft)
+   D) Oq va qora
+   >>> To'g'ri javob: C
+
+192. Varaq chetlaridan matngacha bo'lgan bo'sh masofalar nima deb ataladi?
+   A) Hoshiyalar / Maydonlar (Margins)
+   B) Shablon
+   C) Abzats
+   D) Interval
+   >>> To'g'ri javob: A
+
+193. Rasmiy hujjatlar va tibbiy epikrizlarda eng ko'p ishlatiladigan standart shrift turi qaysi?
+   A) Times New Roman
+   B) Chiller
+   C) Comic Sans
+   D) Impact
+   >>> To'g'ri javob: A
+
+194. Rasmiy hujjatlarda asosiy matn uchun shrift o'lchami (kegl) odatda necha pt qilib olinadi?
+   A) 8 pt
+   B) 36 pt
+   C) 24 pt
+   D) 14 pt (yoki 12 pt)
+   >>> To'g'ri javob: D
+
+195. Word-da tanlangan matnni qalin (жирный / bold) ko'rinishga keltirish tezkor tugmasi qaysi?
+   A) Ctrl + U
+   B) Ctrl + K
+   C) Ctrl + I
+   D) Ctrl + B
+   >>> To'g'ri javob: D
+
+196. Word-da matnni qiya (kursiv / italic) qilish uchun qaysi klavishlar birikmasi bosiladi?
+   A) Ctrl + B
+   B) Ctrl + L
+   C) Ctrl + U
+   D) Ctrl + I
+   >>> To'g'ri javob: D
+
+197. Word-da matn ostiga chizish (подчеркнутый / underline) tezkor tugmasi qaysi?
+   A) Ctrl + B
+   B) Ctrl + I
+   C) Ctrl + E
+   D) Ctrl + U
+   >>> To'g'ri javob: D
+
+198. Hujjatdagi barcha matn va ob'ektlarni birvarakayiga to'liq belgilash (Select All) birikmasi qaysi?
+   A) Ctrl + S
+   B) Ctrl + F
+   C) Ctrl + P
+   D) Ctrl + A
+   >>> To'g'ri javob: D
+
+199. Yozilgan hujjatni xotiraga tezkor saqlash (Save) uchun qaysi tugmalar bosiladi?
+   A) Ctrl + N
+   B) Ctrl + W
+   C) Ctrl + S
+   D) Ctrl + O
+   >>> To'g'ri javob: C
+
+200. Hujjatni printerda chop etish (Print) muloqot oynasini ochish tezkor tugmasi qaysi?
+   A) Ctrl + S
+   B) Ctrl + C
+   C) Ctrl + Z
+   D) Ctrl + P
+   >>> To'g'ri javob: D
+
+
+================================================================================
+   TO'LIQ JAVOBLAR KALITI (ANSWER KEY 1-200)
+================================================================================
+1-D | 2-D | 3-D | 4-C | 5-A | 6-D | 7-A | 8-A | 9-A | 10-D
+11-D | 12-D | 13-C | 14-D | 15-A | 16-D | 17-D | 18-A | 19-B | 20-B
+21-D | 22-A | 23-A | 24-C | 25-B | 26-A | 27-C | 28-A | 29-D | 30-C
+31-B | 32-A | 33-A | 34-C | 35-B | 36-D | 37-B | 38-A | 39-B | 40-D
+41-C | 42-C | 43-B | 44-B | 45-A | 46-B | 47-D | 48-C | 49-B | 50-D
+51-D | 52-D | 53-A | 54-A | 55-B | 56-A | 57-B | 58-A | 59-D | 60-C
+61-D | 62-D | 63-C | 64-C | 65-B | 66-C | 67-C | 68-B | 69-A | 70-A
+71-B | 72-C | 73-C | 74-B | 75-B | 76-C | 77-D | 78-D | 79-A | 80-B
+81-B | 82-A | 83-A | 84-C | 85-C | 86-A | 87-B | 88-D | 89-C | 90-B
+91-B | 92-D | 93-C | 94-A | 95-A | 96-B | 97-D | 98-D | 99-C | 100-D
+101-C | 102-B | 103-B | 104-B | 105-D | 106-B | 107-C | 108-B | 109-D | 110-C
+111-C | 112-A | 113-B | 114-D | 115-D | 116-C | 117-B | 118-C | 119-D | 120-C
+121-B | 122-A | 123-B | 124-C | 125-C | 126-C | 127-B | 128-C | 129-A | 130-D
+131-A | 132-D | 133-A | 134-D | 135-A | 136-B | 137-B | 138-C | 139-D | 140-B
+141-A | 142-D | 143-A | 144-A | 145-C | 146-B | 147-B | 148-B | 149-A | 150-A
+151-A | 152-B | 153-A | 154-D | 155-C | 156-D | 157-B | 158-B | 159-A | 160-C
+161-D | 162-A | 163-D | 164-D | 165-A | 166-A | 167-C | 168-B | 169-A | 170-A
+171-D | 172-A | 173-B | 174-C | 175-B | 176-C | 177-A | 178-C | 179-B | 180-B
+181-A | 182-B | 183-C | 184-B | 185-A | 186-B | 187-D | 188-D | 189-B | 190-D
+191-C | 192-A | 193-A | 194-D | 195-D | 196-D | 197-D | 198-D | 199-C | 200-D
