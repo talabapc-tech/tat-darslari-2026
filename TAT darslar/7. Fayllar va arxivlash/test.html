@@ -721,11 +721,7 @@
             <label for="inp-firstname">Ism</label>
             <input type="text" id="inp-firstname" autocomplete="given-name" placeholder="Masalan: Ali" maxlength="40">
           </div>
-          <div class="field-group">
-            <label for="inp-middlename">Otasining ismi</label>
-            <input type="text" id="inp-middlename" autocomplete="additional-name" placeholder="Masalan: Karimovich" maxlength="40">
-          </div>
-          <div class="field-group">
+          <div class="field-group" style="grid-column: 1 / -1;">
             <label for="inp-group">Guruh</label>
             <select id="inp-group">
               <option value="" selected disabled>Guruhni tanlang...</option>
@@ -981,7 +977,6 @@
       e.preventDefault();
       var lastName = cleanName(document.getElementById('inp-lastname').value);
       var firstName = cleanName(document.getElementById('inp-firstname').value);
-      var middleName = cleanName(document.getElementById('inp-middlename').value);
       var group = document.getElementById('inp-group').value;
       var err = document.getElementById('reg-error');
 
@@ -989,7 +984,6 @@
       var focusId = '';
       if (lastName.length < 2) { problem = 'Familiyangizni kiriting.'; focusId = 'inp-lastname'; }
       else if (firstName.length < 2) { problem = 'Ismingizni kiriting.'; focusId = 'inp-firstname'; }
-      else if (middleName.length < 2) { problem = 'Otangizning ismini kiriting.'; focusId = 'inp-middlename'; }
       else if (!group) { problem = 'Guruhingizni ro‘yxatdan tanlang.'; focusId = 'inp-group'; }
 
       if (problem) {
@@ -1003,9 +997,9 @@
       student = {
         lastName: lastName,
         firstName: firstName,
-        middleName: middleName,
+        middleName: "",
         group: group,
-        fullName: lastName + ' ' + firstName + ' ' + middleName
+        fullName: lastName + " " + firstName
       };
 
       QUESTIONS = buildQuestions();
