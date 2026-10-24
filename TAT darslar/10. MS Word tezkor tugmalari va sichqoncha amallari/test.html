@@ -2,22 +2,24 @@
 <html lang="uz" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bilimni Sinash Testi: 10-Dars — MS Word tezkor klavishlar va sichqoncha amallari</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Bilimni Sinash Testi: 10-Dars: MS Word tezkor klavishlar va sichqoncha amallari</title>
   <link rel="icon" type="image/svg+xml" href="./images/logos/word.svg">
   <style>
     :root {
       --bg-page: #07090e;
-      --bg-card: #0e121a;
-      --bg-card-hover: #131926;
-      --border-color: #1e2638;
-      --border-accent: rgba(0, 120, 212, 0.4);
+      --bg-card: rgba(14, 18, 26, 0.85);
+      --bg-card-hover: rgba(22, 29, 43, 0.95);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(0, 120, 212, 0.45);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --text-subtle: #64748b;
       --win-blue: #0078d4;
+      --win-cyan: #38bdf8;
       --win-green: #10b981;
       --win-red: #ef4444;
+      --win-amber: #f59e0b;
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
@@ -28,12 +30,22 @@
       padding: 0;
     }
 
+    /* ANTI-CHEAT & ANTI-COPY ENFORCEMENT */
+    html, body, .test-screen, .q-card, .opt-card, .reg-card, .stepper-wrap {
+      -webkit-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+      user-select: none !important;
+      -webkit-touch-callout: none !important;
+    }
+
     body {
       font-family: var(--font-sans);
       background-color: var(--bg-page);
-      background-image: 
-        radial-gradient(circle at 50% 0%, rgba(0, 120, 212, 0.14) 0%, transparent 50%),
-        radial-gradient(circle at 10% 40%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(0, 120, 212, 0.16) 0%, transparent 55%),
+        radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 15% 70%, rgba(139, 92, 246, 0.07) 0%, transparent 40%);
       background-attachment: fixed;
       color: var(--text-main);
       line-height: 1.6;
@@ -43,7 +55,7 @@
     }
 
     .container {
-      max-width: 900px;
+      max-width: 860px;
       margin: 0 auto;
       padding: 0 1.25rem;
       width: 100%;
@@ -54,767 +66,788 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(7, 9, 14, 0.9);
+      background: rgba(7, 9, 14, 0.92);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border-color);
-      padding: 0.85rem 0;
+    }
+    .top-nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.85rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .lesson-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      background: rgba(0, 120, 212, 0.2);
+      color: var(--win-cyan);
+      border: 1px solid rgba(0, 120, 212, 0.4);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
-    .nav-inner {
+    /* HERO HEADER */
+    .test-hero {
+      text-align: center;
+      padding: 2.25rem 0 1.5rem;
+    }
+    .test-hero h1 {
+      font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .test-hero p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* REGISTRATION CARD */
+    .reg-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 1rem auto 2.5rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+    .reg-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .reg-title svg {
+      color: var(--win-cyan);
+    }
+    .reg-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.1rem;
+    }
+    @media (min-width: 600px) {
+      .reg-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .field-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+    .field-group input, .field-group select {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 0.65rem 0.95rem;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      outline: none;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .field-group input:focus, .field-group select:focus {
+      border-color: var(--win-cyan);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+      background: rgba(255, 255, 255, 0.07);
+    }
+    .field-group select option {
+      background: #0e121a;
+      color: #fff;
+    }
+
+    .btn-start {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      width: 100%;
+      margin-top: 1.25rem;
+      padding: 0.85rem 1.5rem;
+      background: linear-gradient(135deg, #0078d4 0%, #0284c7 100%);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 12px;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0, 120, 212, 0.35);
+    }
+    .btn-start:hover {
+      background: linear-gradient(135deg, #106ebe 0%, #0369a1 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(0, 120, 212, 0.5);
+    }
+
+    .err-banner {
+      display: none;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-radius: 8px;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      color: #fca5a5;
+      margin-top: 1rem;
+    }
+    .err-banner.show {
+      display: block;
+    }
+
+    /* STEPPER TEST SCREEN */
+    .test-screen {
+      display: none;
+      margin: 1.5rem auto 3rem;
+    }
+    .test-screen.active {
+      display: block;
+    }
+
+    /* STEPPER HEADER */
+    .stepper-header {
+      background: var(--bg-card);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .stepper-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .stepper-progress-wrap {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 0.85rem;
+    }
+    .stepper-progress-bar {
+      height: 100%;
+      width: 10%;
+      background: linear-gradient(90deg, #0078d4, #38bdf8);
+      border-radius: 999px;
+      transition: width 0.35s ease;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+    }
+    .stepper-dots {
+      display: flex;
+      gap: 0.45rem;
+      justify-content: space-between;
+    }
+    .s-dot {
+      flex: 1;
+      height: 28px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-subtle);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .s-dot:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+    }
+    .s-dot.active {
+      background: rgba(0, 120, 212, 0.3);
+      border-color: var(--win-cyan);
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.35);
+    }
+    .s-dot.answered {
+      background: rgba(16, 185, 129, 0.18);
+      border-color: rgba(16, 185, 129, 0.4);
+      color: #34d399;
+    }
+
+    .timer-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--win-cyan);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+    }
+    .timer-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #38bdf8;
+      animation: pulseDot 1.4s infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.8); }
+    }
+
+    /* QUESTION CARD */
+    .q-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+      animation: fadeInQ 0.3s ease;
+    }
+    @keyframes fadeInQ {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .q-number {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--win-cyan);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .q-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+    }
+
+    /* OPTIONS LIST */
+    .opts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .opt-card {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 0.95rem 1.15rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .opt-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateX(4px);
+    }
+    .opt-card.selected {
+      background: rgba(0, 120, 212, 0.2);
+      border-color: var(--win-cyan);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
+    }
+    .opt-letter {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-color);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .opt-card.selected .opt-letter {
+      background: #0078d4;
+      border-color: var(--win-cyan);
+      color: #ffffff;
+    }
+    .opt-text {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      line-height: 1.45;
+      flex: 1;
+    }
+    .opt-check {
+      opacity: 0;
+      color: var(--win-cyan);
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+    .opt-card.selected .opt-check {
+      opacity: 1;
+    }
+
+    /* BOTTOM NAV CONTROLS */
+    .nav-controls {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
+      margin-top: 1.5rem;
     }
-
-    .nav-brand {
-      display: flex;
+    .btn-prev {
+      display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-      color: inherit;
+      gap: 0.45rem;
+      padding: 0.75rem 1.25rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-prev:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+    .btn-prev:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
     }
 
-    .nav-logo-box {
-      width: 38px;
-      height: 38px;
+    .btn-next {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.75rem 1.6rem;
+      background: #0078d4;
+      border: 1px solid rgba(56, 189, 248, 0.4);
       border-radius: 10px;
-      background: rgba(0, 120, 212, 0.15);
-      border: 1px solid rgba(0, 120, 212, 0.35);
-      display: flex;
+      color: #ffffff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(0, 120, 212, 0.35);
+      margin-left: auto;
+    }
+    .btn-next:hover {
+      background: #106ebe;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 120, 212, 0.5);
+    }
+    .btn-finish {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      border-color: rgba(52, 211, 153, 0.4);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+    }
+    .btn-finish:hover {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.5);
+    }
+
+    /* RESULTS SCREEN */
+    .result-screen {
+      display: none;
+      margin: 1.5rem auto 3rem;
+      animation: fadeInQ 0.4s ease;
+    }
+    .result-screen.active {
+      display: block;
+    }
+    .result-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 2.25rem 2rem;
+      text-align: center;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      margin-bottom: 2rem;
+    }
+    .result-score-ring {
+      display: inline-flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid var(--win-cyan);
+      background: rgba(56, 189, 248, 0.08);
+      box-shadow: 0 0 24px rgba(56, 189, 248, 0.3);
+      margin-bottom: 1.25rem;
     }
-
-    .nav-logo-box img, .nav-logo-box svg {
-      width: 22px;
-      height: 22px;
+    .res-score-num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
     }
-
-    .nav-title-block h1 {
+    .res-score-total {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .result-grade-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1.1rem;
+      border-radius: 999px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .res-desc {
       font-size: 0.95rem;
-      font-weight: 800;
-      line-height: 1.2;
-    }
-
-    .nav-title-block p {
-      font-size: 0.74rem;
       color: var(--text-muted);
-      font-weight: 500;
+      max-width: 520px;
+      margin: 0 auto 1.5rem;
     }
 
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-    }
-
-    .nav-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.82rem;
-      font-weight: 700;
-      padding: 0.5rem 0.95rem;
+    .send-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
       border-radius: 10px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      border: 1px solid var(--border-color);
-      background: var(--bg-card);
-      color: var(--text-muted);
+      padding: 0.85rem 1.1rem;
+      font-size: 0.85rem;
+      margin: 1.25rem auto;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .send-box.loading {
+      color: #93c5fd;
+      border-color: rgba(59, 130, 246, 0.35);
+    }
+    .send-box.success {
+      color: #34d399;
+      border-color: rgba(16, 185, 129, 0.35);
+      background: rgba(16, 185, 129, 0.08);
+    }
+    .send-box.error {
+      color: #f87171;
+      border-color: rgba(239, 68, 68, 0.35);
+      background: rgba(239, 68, 68, 0.08);
     }
 
-    .nav-btn:hover {
-      color: var(--text-main);
-      border-color: #3b82f6;
-      background: var(--bg-card-hover);
+    /* REVIEW SECTION */
+    .review-wrap {
+      margin-top: 2rem;
+      text-align: left;
     }
-
-    /* HEADER */
-    .test-header {
-      padding: 2.25rem 0 1.5rem 0;
-      text-align: center;
-    }
-
-    .test-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.74rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 0.3rem 0.75rem;
-      border-radius: 9999px;
-      background: rgba(0, 120, 212, 0.15);
-      color: #60a5fa;
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      margin-bottom: 0.75rem;
-    }
-
-    .test-title {
-      font-size: 1.85rem;
-      font-weight: 850;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-    }
-
-    .test-subtitle {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      max-width: 620px;
-      margin: 0 auto;
-    }
-
-    /* AUTH BOX (F.I.O. & GURUH ONLY) */
-    .auth-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-    }
-
-    .auth-title {
-      font-size: 0.92rem;
-      font-weight: 800;
-      color: #38bdf8;
+    .review-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffffff;
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
-
-    .auth-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    @media (min-width: 600px) {
-      .auth-grid {
-        grid-template-columns: 2fr 1fr;
-      }
-    }
-
-    .field-group label {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .field-group input, .field-group select {
-      width: 100%;
-      background: var(--bg-page);
-      border: 1.5px solid var(--border-color);
-      border-radius: 12px;
-      padding: 0.75rem 0.95rem;
-      color: var(--text-main);
-      font-family: inherit;
-      font-size: 0.9rem;
-      font-weight: 600;
-      outline: none;
-      transition: all 0.2s ease;
-    }
-
-    .field-group input:focus, .field-group select:focus {
-      border-color: #38bdf8;
-      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
-    }
-
-    /* QUESTIONS */
-    .question-card {
+    .review-item {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 1.5rem;
-      margin-bottom: 1.25rem;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.18);
-      transition: border-color 0.2s ease;
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
     }
-
-    .q-head {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.85rem;
-      margin-bottom: 1.15rem;
+    .review-item.is-correct {
+      border-left: 4px solid var(--win-green);
     }
-
-    .q-num {
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
-      background: rgba(0, 120, 212, 0.2);
-      color: #60a5fa;
-      font-size: 0.85rem;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+    .review-item.is-wrong {
+      border-left: 4px solid var(--win-red);
     }
-
-    .q-text {
-      font-size: 0.98rem;
-      font-weight: 750;
-      line-height: 1.45;
-      padding-top: 0.2rem;
+    .review-q {
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.6rem;
+      font-size: 0.96rem;
     }
-
-    .q-options {
+    .review-answers {
+      font-size: 0.88rem;
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
+      gap: 0.3rem;
+      margin-bottom: 0.6rem;
     }
-
-    .opt-label {
+    .review-ans-row {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      padding: 0.8rem 1rem;
-      border-radius: 12px;
-      background: var(--bg-page);
-      border: 1.5px solid var(--border-color);
-      cursor: pointer;
-      transition: all 0.18s ease;
-      font-size: 0.88rem;
-      color: var(--text-main);
+      gap: 0.4rem;
     }
-
-    .opt-label:hover {
-      border-color: #38bdf8;
-      background: rgba(56, 189, 248, 0.05);
-    }
-
-    .opt-label input[type="radio"] {
-      accent-color: #0078d4;
-      width: 17px;
-      height: 17px;
-      flex-shrink: 0;
-    }
-
-    .opt-label.correct {
-      border-color: #10b981 !important;
-      background: rgba(16, 185, 129, 0.15) !important;
-      color: #a7f3d0 !important;
+    .ans-tag {
+      font-size: 0.72rem;
       font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
     }
-
-    .opt-label.incorrect {
-      border-color: #ef4444 !important;
-      background: rgba(239, 68, 68, 0.15) !important;
-      color: #fca5a5 !important;
+    .ans-tag.your {
+      background: rgba(239, 68, 68, 0.2);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.4);
     }
-
-    .q-explanation {
-      margin-top: 1rem;
-      padding: 0.75rem 1rem;
-      border-radius: 10px;
-      background: rgba(0, 120, 212, 0.1);
-      border: 1px solid rgba(0, 120, 212, 0.25);
-      font-size: 0.82rem;
-      color: #93c5fd;
-      line-height: 1.45;
-      display: none;
-    }
-
-    /* SUBMIT BUTTON */
-    .btn-submit {
-      width: 100%;
-      background: var(--win-blue);
-      color: #ffffff;
-      border: none;
-      padding: 1.1rem 1.5rem;
-      border-radius: 14px;
-      font-size: 1.05rem;
-      font-weight: 800;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 6px 20px rgba(0, 120, 212, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      margin-top: 1rem;
-    }
-
-    .btn-submit:hover {
-      background: #0066b8;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0, 120, 212, 0.45);
-    }
-
-    /* RESULT MODAL */
-    .result-card {
-      margin-top: 2rem;
-      padding: 2.25rem 2rem;
-      border-radius: 24px;
-      background: var(--bg-card);
-      border: 2px solid var(--win-blue);
-      text-align: center;
-      display: none;
-      box-shadow: 0 16px 40px rgba(0, 120, 212, 0.25);
-    }
-
-    .result-icon {
-      width: 68px;
-      height: 68px;
-      border-radius: 20px;
-      background: rgba(16, 185, 129, 0.18);
+    .ans-tag.correct {
+      background: rgba(16, 185, 129, 0.2);
       color: #34d399;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.25rem;
+      border: 1px solid rgba(16, 185, 129, 0.4);
     }
-
-    .result-score {
-      font-size: 2.8rem;
-      font-weight: 900;
-      color: #ffffff;
-      margin: 0.3rem 0;
-      letter-spacing: -0.02em;
-    }
-
-    .result-grade {
-      font-size: 1.35rem;
-      font-weight: 850;
-      margin-bottom: 0.5rem;
-    }
-
-    .result-details {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 1.75rem;
-    }
-
-    .result-actions {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border-color);
-      background: rgba(7, 9, 14, 0.95);
-      padding: 1.75rem 0;
+    .review-exp {
       font-size: 0.82rem;
       color: var(--text-muted);
-      margin-top: auto;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      line-height: 1.5;
     }
 
-    .footer-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      justify-content: space-between;
-      align-items: center;
-      text-align: center;
-    }
-
-    @media (min-width: 640px) {
-      .footer-inner {
-        flex-direction: row;
-        text-align: left;
-      }
-    }
-
-    /* MOBILE OPTIMIZATION FOR SMARTPHONES */
-    html, body {
-      overflow-x: hidden;
-      max-width: 100vw;
-      width: 100%;
-    }
-
-    p, h1, h2, h3, h4, span, label {
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-    }
-
-    @media (max-width: 640px) {
-      body {
-        background-attachment: scroll !important;
-      }
-
-      .container {
-        padding: 0 0.85rem;
-      }
-
-      .top-nav {
-        padding: 0.55rem 0;
-      }
-
-      .nav-inner {
-        gap: 0.45rem;
-      }
-
-      .nav-brand {
-        gap: 0.5rem;
-        min-width: 0;
-        flex: 1;
-      }
-
-      .nav-logo-box {
-        width: 32px;
-        height: 32px;
-        border-radius: 8px;
-      }
-
-      .nav-logo-box img, .nav-logo-box svg {
-        width: 18px;
-        height: 18px;
-      }
-
-      .nav-title-block {
-        min-width: 0;
-        overflow: hidden;
-      }
-
-      .nav-title-block h1 {
-        font-size: 0.8rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      .nav-title-block p {
-        display: none;
-      }
-
-      .nav-actions {
-        gap: 0.35rem;
-        flex-shrink: 0;
-      }
-
-      .nav-btn {
-        padding: 0.38rem 0.6rem;
-        font-size: 0.72rem;
-        border-radius: 8px;
-        gap: 0.28rem;
-        white-space: nowrap;
-      }
-
-      .test-header {
-        padding: 1.35rem 0 1.1rem 0;
-      }
-
-      .test-title {
-        font-size: 1.35rem;
-        line-height: 1.25;
-      }
-
-      .test-subtitle {
-        font-size: 0.84rem;
-      }
-
-      .auth-card {
-        padding: 1.05rem 0.95rem !important;
-        border-radius: 16px;
-        margin-bottom: 1.25rem;
-      }
-
-      .question-card {
-        padding: 1.1rem 0.95rem;
-        border-radius: 16px;
-        margin-bottom: 1rem;
-      }
-
-      .q-head {
-        gap: 0.65rem;
-        margin-bottom: 0.9rem;
-      }
-
-      .q-num {
-        width: 28px;
-        height: 28px;
-        font-size: 0.78rem;
-        border-radius: 8px;
-      }
-
-      .q-text {
-        font-size: 0.9rem;
-        line-height: 1.42;
-      }
-
-      .opt-label {
-        padding: 0.7rem 0.8rem;
-        font-size: 0.84rem;
-        gap: 0.6rem;
-        align-items: flex-start;
-        line-height: 1.4;
-      }
-
-      .opt-label input[type="radio"] {
-        margin-top: 2px;
-      }
-
-      .result-card {
-        padding: 1.5rem 1rem;
-        border-radius: 18px;
-      }
-
-      .result-score {
-        font-size: 2.1rem;
-      }
-
-      .result-grade {
-        font-size: 1.15rem;
-      }
-    }
-    /* RO'YXATDAN O'TISH, TALABA SATRI VA YUBORISH HOLATI */
-    .reg-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.9rem;
-    }
-
-    @media (min-width: 600px) {
-      .reg-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    .field-group input, .field-group select {
-      font-size: 16px; /* iPhone maydonni avtomatik kattalashtirmasin */
-    }
-
-    .reg-error {
-      display: none;
-      margin-top: 0.9rem;
-      padding: 0.65rem 0.9rem;
+    /* ANTI-COPY TOAST ALERT */
+    .anti-copy-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #0f172a;
+      border: 1px solid rgba(239, 68, 68, 0.5);
+      color: #f87171;
+      padding: 0.75rem 1.4rem;
       border-radius: 10px;
-      background: rgba(239, 68, 68, 0.12);
-      border: 1px solid rgba(239, 68, 68, 0.35);
-      color: #fca5a5;
       font-size: 0.85rem;
       font-weight: 700;
-    }
-
-    .reg-error.show { display: block; }
-
-    .student-strip {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      z-index: 9999;
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem 1.25rem;
-      padding: 0.8rem 1.1rem;
-      margin-bottom: 1.25rem;
-      border-radius: 14px;
-      background: rgba(0, 120, 212, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.28);
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-
-    .student-strip strong { color: var(--text-main); }
-
-    .send-status {
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 0.35rem;
-      margin: 0 auto 1.5rem;
-      max-width: 520px;
-      padding: 0.9rem 1.1rem;
-      border-radius: 14px;
-      font-size: 0.85rem;
-      border: 1px solid var(--border-color);
-      background: rgba(255, 255, 255, 0.03);
-      color: var(--text-muted);
+      gap: 0.5rem;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
     }
-
-    .send-status strong { font-size: 0.95rem; color: var(--text-main); }
-    .send-status.loading { border-color: rgba(56, 189, 248, 0.35); background: rgba(0, 120, 212, 0.1); }
-    .send-status.success { border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.1); }
-    .send-status.success strong { color: #34d399; }
-    .send-status.error { border-color: rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.1); }
-    .send-status.error strong { color: #fca5a5; }
-    .send-status .nav-btn { margin-top: 0.4rem; }
-
-    .opt-label input[type="radio"]:disabled { cursor: default; }
+    .anti-copy-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
   </style>
 </head>
-<body>
+<body oncontextmenu="return false;" oncopy="return false;" oncut="return false;">
 
-  <!-- TOP NAVIGATION -->
-  <header class="top-nav">
-    <div class="container">
-      <div class="nav-inner">
-        <a href="./dars.html" class="nav-brand" title="7-Dars nazariyasiga qaytish">
-          <div class="nav-logo-box">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f5b83d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <div class="nav-title-block">
-            <h1>7-Dars: Bilimni Sinash Testi</h1>
-            <p>Fayllar va papkalar bilan ishlash va ularni arxivlash usullari</p>
-          </div>
+  <!-- ANTI-COPY TOAST -->
+  <div id="antiCopyToast" class="anti-copy-toast">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+    <span>Savollardan nusxa olish taqiqlangan! Testni o‘z bilimingiz bilan yeching.</span>
+  </div>
+
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <div class="container top-nav-inner">
+      <div style="display:flex; align-items:center; gap:0.6rem;">
+        <a href="./dars.html" class="nav-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span>Darsga qaytish</span>
         </a>
-
-        <div class="nav-actions">
-          <a href="./dars.html" class="nav-btn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-            <span>Nazariya</span>
-          </a>
-          <a href="../index.html" class="nav-btn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            <span>Mundarija</span>
-          </a>
+        <span class="lesson-badge">Nazorat Testi</span>
+      </div>
+      <div id="topTimerBox" style="display:none;">
+        <div class="timer-pill">
+          <span class="timer-dot"></span>
+          <span id="timerText">00:00</span>
         </div>
       </div>
     </div>
-  </header>
+  </nav>
 
-  <main style="padding: 1.5rem 0 3.5rem 0;">
-    <div class="container">
+  <main class="container">
 
-      <!-- HEADER -->
-      <div class="test-header">
-        <span class="test-badge">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-          20 ta savol • Natija o‘qituvchiga yuboriladi
-        </span>
-        <h2 class="test-title">Fayllar, papkalar va arxivlash testi</h2>
-        <p class="test-subtitle">Familiya, ism va guruhingizni kiriting. Har bir talabaga 30 talik bankdan tasodifiy 20 ta savol tushadi, javob variantlari ham aralashtiriladi.</p>
-      </div>
+    <!-- REGISTRATION SCREEN -->
+    <section id="regScreen" class="test-hero">
+      <h1>10-Dars: MS Word tezkor klavishlar va sichqoncha amallari</h1>
+      <p>Familiya, ism va guruhingizni tanlang. Testda jami 10 ta savol bitta-bitta taqdim etiladi.</p>
 
-      <!-- GRADING SCALE INFO -->
-      <div class="auth-card" style="padding: 1.15rem 1.35rem; margin-bottom: 1.5rem;">
-        <div class="auth-title" style="margin-bottom: 0.65rem; font-size: 0.85rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-          <span>Baholash mezonlari (20 ta savol bo‘yicha):</span>
+      <div class="reg-card">
+        <div class="reg-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Talaba ma‘lumotlari</span>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.6rem; font-size: 0.8rem;">
-          <div style="background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.25); padding: 0.5rem 0.75rem; border-radius: 10px; color: #fca5a5;">
-            <strong>2 (Qoniqarsiz):</strong> 50% dan past (0–9 ta)
-          </div>
-          <div style="background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.25); padding: 0.5rem 0.75rem; border-radius: 10px; color: #fde68a;">
-            <strong>3 (Qoniqarli):</strong> 50% – 69% (10–13 ta)
-          </div>
-          <div style="background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.25); padding: 0.5rem 0.75rem; border-radius: 10px; color: #bae6fd;">
-            <strong>4 (Yaxshi):</strong> 70% – 84% (14–16 ta)
-          </div>
-          <div style="background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25); padding: 0.5rem 0.75rem; border-radius: 10px; color: #a7f3d0;">
-            <strong>5 (A'lo):</strong> 85% – 100% (17–20 ta)
-          </div>
-        </div>
-      </div>
 
-      <!-- RO'YXATDAN O'TISH: F.I.O VA GURUH -->
-      <form class="auth-card" id="reg-form" onsubmit="startTest(event)" novalidate>
-        <div class="auth-title">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          <span>Talaba ma’lumotlari</span>
-        </div>
-        <div class="reg-grid">
-          <div class="field-group">
-            <label for="inp-lastname">Familiya</label>
-            <input type="text" id="inp-lastname" autocomplete="family-name" placeholder="Masalan: Valiyev" maxlength="40">
+        <form onsubmit="startTest(event)">
+          <div class="reg-grid">
+            <div class="field-group">
+              <label for="inp-lastname">Familiya</label>
+              <input type="text" id="inp-lastname" placeholder="Masalan: Valiyev" autocomplete="family-name" maxlength="40" required>
+            </div>
+            <div class="field-group">
+              <label for="inp-firstname">Ism</label>
+              <input type="text" id="inp-firstname" placeholder="Masalan: Ali" autocomplete="given-name" maxlength="40" required>
+            </div>
+            <div class="field-group" style="grid-column: 1 / -1;">
+              <label for="inp-group">Guruh</label>
+              <select id="inp-group" required>
+                <option value="" selected disabled>Guruhni tanlang...</option>
+                <option value="Hi-26-02">Hi-26-02 guruhi</option>
+                <option value="Hi-26-03">Hi-26-03 guruhi</option>
+                <option value="Hi-26-04">Hi-26-04 guruhi</option>
+                <option value="Hi-26-05">Hi-26-05 guruhi</option>
+                <option value="Hi-26-06">Hi-26-06 guruhi</option>
+                <option value="Hi-26-07">Hi-26-07 guruhi</option>
+              </select>
+            </div>
           </div>
-          <div class="field-group">
-            <label for="inp-firstname">Ism</label>
-            <input type="text" id="inp-firstname" autocomplete="given-name" placeholder="Masalan: Ali" maxlength="40">
-          </div>
-          <div class="field-group" style="grid-column: 1 / -1;">
-            <label for="inp-group">Guruh</label>
-            <select id="inp-group">
-              <option value="" selected disabled>Guruhni tanlang...</option>
-              <option value="26-01">26-01 guruhi</option>
-              <option value="26-02">26-02 guruhi</option>
-              <option value="26-03">26-03 guruhi</option>
-              <option value="26-04">26-04 guruhi</option>
-              <option value="26-05">26-05 guruhi</option>
-              <option value="26-06">26-06 guruhi</option>
-              <option value="26-07">26-07 guruhi</option>
-            </select>
-          </div>
-        </div>
-        <div class="reg-error" id="reg-error" role="alert"></div>
-        <button type="submit" class="btn-submit">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          <span>Testni boshlash</span>
-        </button>
-      </form>
 
-      <!-- TEST (ro'yxatdan o'tgach ko'rinadi) -->
-      <div id="quiz-area" style="display:none;">
-        <div class="student-strip" id="student-strip"></div>
+          <div id="regError" class="err-banner"></div>
 
-        <form id="quiz-form" onsubmit="submitTest(event)">
-          <div id="questions-list"></div>
-
-          <button type="submit" class="btn-submit" id="btn-submit">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Testni yakunlash va natijani ko'rish</span>
+          <button type="submit" class="btn-start">
+            <span>Testni boshlash</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
           </button>
         </form>
       </div>
+    </section>
 
-      <!-- RESULT CARD -->
-      <div class="result-card" id="result-box">
-        <div class="result-icon">
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <h3 style="font-size:1.45rem; font-weight:850; color:#38bdf8;" id="res-student-title">Natija</h3>
-        <div class="result-score" id="res-score">0 / 20</div>
-        <div class="result-grade" id="res-grade" style="color:#34d399;">Baho: 5 (A'lo)</div>
-        <p class="result-details" id="res-desc"></p>
-
-        <div class="send-status" id="send-status">
-          <strong id="send-title">Natija o‘qituvchiga yuborilmoqda...</strong>
-          <span id="send-msg">Iltimos, sahifani yopmang.</span>
-          <button type="button" class="nav-btn" id="btn-resend" onclick="resendResult()" style="display:none;">Qayta yuborish</button>
+    <!-- STEPPER TEST SCREEN (1 BY 1) -->
+    <section id="testScreen" class="test-screen">
+      <!-- STEPPER HEADER -->
+      <div class="stepper-header">
+        <div class="stepper-meta">
+          <span style="font-size:0.85rem; font-weight:700; color:var(--text-main);" id="stepQuestionNum">Savol 1 / 10</span>
+          <span style="font-size:0.8rem; color:var(--text-subtle);" id="studentBadge">Talaba</span>
         </div>
 
-        <div class="result-actions">
-          <button type="button" class="nav-btn" onclick="restartTest()" style="padding:0.75rem 1.5rem; font-size:0.9rem;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
-            <span>Qaytadan boshlash</span>
+        <div class="stepper-progress-wrap">
+          <div class="stepper-progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="stepper-dots" id="dotsContainer">
+          <!-- 10 Dots dynamically injected -->
+        </div>
+      </div>
+
+      <!-- ACTIVE QUESTION CARD -->
+      <div class="q-card" id="questionCard">
+        <div class="q-number" id="qBadge">SAVOL #01</div>
+        <div class="q-title" id="qText">Savol matni yuklanmoqda...</div>
+
+        <div class="opts-list" id="optsList">
+          <!-- 4 Options dynamically injected -->
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="nav-controls">
+          <button type="button" class="btn-prev" id="btnPrev" onclick="navigateStep(-1)" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            <span>Oldingi</span>
           </button>
-          <a href="./dars.html" class="nav-btn nav-btn-primary" style="padding:0.75rem 1.5rem; font-size:0.9rem; background:#0078d4; color:#fff; text-decoration:none;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-            <span>Dars nazariyasiga qaytish</span>
+
+          <button type="button" class="btn-next" id="btnNext" onclick="navigateStep(1)">
+            <span id="btnNextText">Keyingi savol</span>
+            <svg id="btnNextIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS SCREEN -->
+    <section id="resultScreen" class="result-screen">
+      <div class="result-card">
+        <div class="result-score-ring">
+          <div class="res-score-num" id="resScore">0</div>
+          <div class="res-score-total">/ 10 ta to‘g‘ri</div>
+        </div>
+
+        <div class="result-grade-badge" id="resGradeBadge" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">
+          Baho: 5 (A‘lo)
+        </div>
+
+        <p class="res-desc" id="resSummary">Test muvaffaqiyatli topshirildi.</p>
+
+        <div class="send-box loading" id="sendBox">
+          <strong id="sendTitle">Natija o‘qituvchiga yuborilmoqda...</strong>
+          <span id="sendSubtitle">Iltimos, sahifani yopmang.</span>
+        </div>
+
+        <div style="margin-top:1.5rem; display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
+          <button type="button" class="nav-btn" onclick="restartTest()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            <span>Qayta topshirish</span>
+          </button>
+          <a href="./dars.html" class="nav-btn" style="background:#0078d4; color:#fff; border-color:#0078d4;">
+            <span>Darsga qaytish</span>
           </a>
         </div>
       </div>
 
-    </div>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div>
-          <strong>Shahrisabz Tibbiyot Texnikumi</strong> — Tibbiyotda axborot texnologiyalari fani
+      <!-- DETAILED REVIEW -->
+      <div class="review-wrap">
+        <div class="review-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span>Savollar tahlili va to‘g‘ri javoblar</span>
         </div>
-        <div>
-          <span>7-Dars testi • Natija o‘qituvchining Telegram botiga yuboriladi</span>
+        <div id="reviewContainer">
+          <!-- Dynamically populated -->
         </div>
       </div>
-    </div>
-  </footer>
+    </section>
+
+  </main>
 
   <script>
     /* ====================================================================== */
     /* SOZLAMALAR                                                             */
     /* ====================================================================== */
-    // 5-dars testi bilan bir xil Google Apps Script manzili: u natijani
-    // o'qituvchining Telegram botiga yuboradi ("7-Dars" listiga ham yoziladi).
     var BACKEND_API_URL = "https://script.google.com/macros/s/AKfycbwlnNlpNGLWH3hs_pUXXias8x-uSYMj3kC5Ildf4bFuyySJO9ihVaGFMUU2A_FUqeys/exec";
     var LESSON_NAME = "10-Dars: MS Word tezkor klavishlar va sichqoncha amallari";
-    var QUESTIONS_PER_TEST = 20;
+    var QUESTIONS_PER_TEST = 10;
 
-    /* ====================================================================== */
-    /* 30 TALIK SAVOLLAR BANKI (ans — opts ichidagi to'g'ri javob indeksi)     */
-    /* Har bir talabaga tasodifiy 20 tasi, aralashtirilgan variantlar bilan.  */
-    /* ====================================================================== */
     var QUESTION_BANK = [
       { q: "Microsoft Word dasturida yangi bo'sh hujjat yaratish uchun qaysi tezkor tugmalar birikmasi bosiladi?",
         opts: ["Ctrl + N", "Ctrl + O", "Ctrl + S", "Ctrl + W"], ans: 0,
@@ -914,223 +947,352 @@
         exp: "Ctrl+S o'zgarishlarni faylga tezkor saqlash (Save) amali, F12 esa faylning nusxasini boshqa nom yoki formatda saqlash (Save As) oynasidir." }
     ];
 
-    var QUESTIONS = [];      // joriy test savollari (aralashtirilgan)
-    var student = null;      // { lastName, firstName, middleName, group, fullName }
-    var startedAt = 0;
-    var lastPayload = null;
+    /* STATE */
+    var student = { lastName: '', firstName: '', group: '', fullName: '' };
+    var selectedQuestions = []; // 10 chosen questions with shuffled options
+    var userAnswers = new Array(10).fill(-1);
+    var currentIndex = 0;
+    var startedAt = null;
+    var timerInterval = null;
     var isSubmitted = false;
 
-    function shuffle(arr) {
-      var a = arr.slice();
-      for (var i = a.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var t = a[i]; a[i] = a[j]; a[j] = t;
+    /* ANTI-CHEAT & ANTI-COPY PROTECTION */
+    function triggerAntiCopy() {
+      var toast = document.getElementById('antiCopyToast');
+      toast.classList.add('show');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(function() {
+        toast.classList.remove('show');
+      }, 2600);
+    }
+
+    document.addEventListener('copy', function(e) {
+      e.preventDefault();
+      triggerAntiCopy();
+    });
+    document.addEventListener('cut', function(e) { e.preventDefault(); });
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      triggerAntiCopy();
+    });
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && ['c','C','a','A','x','X','u','U','p','P'].includes(e.key)) {
+        e.preventDefault();
+        triggerAntiCopy();
+        return false;
       }
-      return a;
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I','i','J','j','C','c'].includes(e.key))) {
+        e.preventDefault();
+        triggerAntiCopy();
+        return false;
+      }
+    });
+
+    function cleanName(str) {
+      return (str || '').trim().replace(/\s+/g, ' ');
     }
 
-    function escapeHtml(s) {
-      return String(s).replace(/[&<>"']/g, function (c) {
-        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
-      });
+    function shuffleArray(arr) {
+      var copy = arr.slice();
+      for (var i = copy.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = copy[i];
+        copy[i] = copy[j];
+        copy[j] = temp;
+      }
+      return copy;
     }
 
-    // Bankdan tasodifiy 20 ta savol, har birining variantlari aralashtiriladi
-    function buildQuestions() {
-      return shuffle(QUESTION_BANK).slice(0, QUESTIONS_PER_TEST).map(function (item, idx) {
-        var order = shuffle(item.opts.map(function (_, i) { return i; }));
+    /* BUILD 10 QUESTIONS */
+    function build10Questions() {
+      var pool = shuffleArray(QUESTION_BANK).slice(0, QUESTIONS_PER_TEST);
+      return pool.map(function(item, idx) {
+        var origOpts = item.opts.map(function(t, i) { return { text: t, isCorrect: i === item.ans }; });
+        var shuffledOpts = shuffleArray(origOpts);
+        var correctIdx = shuffledOpts.findIndex(function(o) { return o.isCorrect; });
         return {
           id: idx + 1,
           q: item.q,
-          opts: order.map(function (i) { return item.opts[i]; }),
-          ans: order.indexOf(item.ans),
+          opts: shuffledOpts.map(function(o) { return o.text; }),
+          ans: correctIdx,
           exp: item.exp
         };
       });
     }
 
-    function renderQuestions() {
-      var letters = ['A', 'B', 'C', 'D'];
-      var html = '';
-      QUESTIONS.forEach(function (item, idx) {
-        html += '<div class="question-card" id="q_card_' + item.id + '">';
-        html += '  <div class="q-head">';
-        html += '    <div class="q-num">' + (idx + 1) + '</div>';
-        html += '    <div class="q-text">' + item.q + '</div>';
-        html += '  </div>';
-        html += '  <div class="q-options">';
-        item.opts.forEach(function (opt, oIdx) {
-          html += '<label class="opt-label" id="lbl_' + item.id + '_' + oIdx + '">';
-          html += '  <input type="radio" name="q_' + item.id + '" value="' + oIdx + '" required>';
-          html += '  <span>' + letters[oIdx] + ') ' + opt + '</span>';
-          html += '</label>';
-        });
-        html += '  </div>';
-        html += '  <div class="q-explanation" id="exp_' + item.id + '"><strong>Izoh:</strong> ' + item.exp + '</div>';
-        html += '</div>';
-      });
-      document.getElementById('questions-list').innerHTML = html;
-    }
-
-    /* ====================================================================== */
-    /* 1. RO'YXATDAN O'TISH                                                   */
-    /* ====================================================================== */
-    function cleanName(v) {
-      return v.replace(/\s+/g, ' ').trim();
-    }
-
+    /* START TEST */
     function startTest(e) {
       e.preventDefault();
-      var lastName = cleanName(document.getElementById('inp-lastname').value);
-      var firstName = cleanName(document.getElementById('inp-firstname').value);
-      var group = document.getElementById('inp-group').value;
-      var err = document.getElementById('reg-error');
+      var last = cleanName(document.getElementById('inp-lastname').value);
+      var first = cleanName(document.getElementById('inp-firstname').value);
+      var grp = document.getElementById('inp-group').value;
+      var err = document.getElementById('regError');
 
-      var problem = '';
-      var focusId = '';
-      if (lastName.length < 2) { problem = 'Familiyangizni kiriting.'; focusId = 'inp-lastname'; }
-      else if (firstName.length < 2) { problem = 'Ismingizni kiriting.'; focusId = 'inp-firstname'; }
-      else if (!group) { problem = 'Guruhingizni ro‘yxatdan tanlang.'; focusId = 'inp-group'; }
-
-      if (problem) {
-        err.textContent = problem;
+      if (last.length < 2) {
+        err.textContent = 'Familiyangizni kiriting.';
         err.classList.add('show');
-        document.getElementById(focusId).focus();
+        document.getElementById('inp-lastname').focus();
         return;
       }
-      err.classList.remove('show');
+      if (first.length < 2) {
+        err.textContent = 'Ismingizni kiriting.';
+        err.classList.add('show');
+        document.getElementById('inp-firstname').focus();
+        return;
+      }
+      if (!grp) {
+        err.textContent = 'Guruhingizni tanlang.';
+        err.classList.add('show');
+        document.getElementById('inp-group').focus();
+        return;
+      }
 
+      err.classList.remove('show');
       student = {
-        lastName: lastName,
-        firstName: firstName,
-        middleName: "",
-        group: group,
-        fullName: lastName + " " + firstName
+        lastName: last,
+        firstName: first,
+        group: grp,
+        fullName: last + ' ' + first
       };
 
-      QUESTIONS = buildQuestions();
-      renderQuestions();
+      selectedQuestions = build10Questions();
+      userAnswers = new Array(QUESTIONS_PER_TEST).fill(-1);
+      currentIndex = 0;
+      isSubmitted = false;
       startedAt = Date.now();
 
-      document.getElementById('student-strip').innerHTML =
-        '<span>Talaba: <strong>' + escapeHtml(student.fullName) + '</strong></span>' +
-        '<span>Guruh: <strong>' + escapeHtml(student.group) + '</strong></span>';
-      document.getElementById('reg-form').style.display = 'none';
-      document.getElementById('quiz-area').style.display = 'block';
-      document.getElementById('quiz-area').scrollIntoView({ behavior: 'smooth' });
+      // UI Switch
+      document.getElementById('regScreen').style.display = 'none';
+      document.getElementById('testScreen').classList.add('active');
+      document.getElementById('topTimerBox').style.display = 'block';
+      document.getElementById('studentBadge').textContent = student.fullName + ' (' + student.group + ')';
+
+      // Start live timer
+      startTimer();
+      renderDots();
+      renderCurrentQuestion();
     }
 
-    /* ====================================================================== */
-    /* 2. TESTNI YAKUNLASH VA BAHOLASH                                        */
-    /* ====================================================================== */
-    function submitTest(e) {
-      e.preventDefault();
-      if (isSubmitted) return;
-      isSubmitted = true;
+    function startTimer() {
+      clearInterval(timerInterval);
+      timerInterval = setInterval(function() {
+        var diff = Math.floor((Date.now() - startedAt) / 1000);
+        var m = Math.floor(diff / 60);
+        var s = diff % 60;
+        document.getElementById('timerText').textContent = 
+          (m < 10 ? '0' + m : m) + ':' + (s < 10 ? '0' + s : s);
+      }, 1000);
+    }
 
-      var correctCount = 0;
-      QUESTIONS.forEach(function (item) {
-        var radios = document.getElementsByName('q_' + item.id);
-        var selected = -1;
-        for (var i = 0; i < radios.length; i++) {
-          if (radios[i].checked) selected = parseInt(radios[i].value, 10);
-          radios[i].disabled = true;
-        }
-        for (var j = 0; j < radios.length; j++) {
-          var lbl = document.getElementById('lbl_' + item.id + '_' + j);
-          if (!lbl) continue;
-          lbl.classList.remove('correct', 'incorrect');
-          if (j === item.ans) lbl.classList.add('correct');
-          else if (j === selected) lbl.classList.add('incorrect');
-        }
-        var exp = document.getElementById('exp_' + item.id);
-        if (exp) exp.style.display = 'block';
-        if (selected === item.ans) correctCount++;
+    /* RENDER DOTS */
+    function renderDots() {
+      var container = document.getElementById('dotsContainer');
+      container.innerHTML = '';
+      for (var i = 0; i < QUESTIONS_PER_TEST; i++) {
+        var dot = document.createElement('div');
+        dot.className = 's-dot' + (i === currentIndex ? ' active' : '') + (userAnswers[i] !== -1 ? ' answered' : '');
+        dot.textContent = (i + 1);
+        (function(step) {
+          dot.onclick = function() { jumpToStep(step); };
+        })(i);
+        container.appendChild(dot);
+      }
+    }
+
+    /* RENDER CURRENT QUESTION */
+    function renderCurrentQuestion() {
+      var q = selectedQuestions[currentIndex];
+      document.getElementById('stepQuestionNum').textContent = 'Savol ' + (currentIndex + 1) + ' / ' + QUESTIONS_PER_TEST;
+      document.getElementById('qBadge').textContent = 'SAVOL #' + ((currentIndex + 1) < 10 ? '0' + (currentIndex + 1) : (currentIndex + 1));
+      document.getElementById('qText').textContent = q.q;
+
+      // Progress bar
+      var pct = ((currentIndex + 1) / QUESTIONS_PER_TEST) * 100;
+      document.getElementById('progressBar').style.width = pct + '%';
+
+      // Dots highlight
+      renderDots();
+
+      // Render options
+      var list = document.getElementById('optsList');
+      list.innerHTML = '';
+      var letters = ['A', 'B', 'C', 'D'];
+      q.opts.forEach(function(optText, optIdx) {
+        var card = document.createElement('div');
+        card.className = 'opt-card' + (userAnswers[currentIndex] === optIdx ? ' selected' : '');
+        card.innerHTML = 
+          '<div class="opt-letter">' + letters[optIdx] + '</div>' +
+          '<div class="opt-text">' + optText + '</div>' +
+          '<svg class="opt-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
+        card.onclick = function() {
+          selectOption(optIdx);
+        };
+        list.appendChild(card);
       });
 
-      var total = QUESTIONS.length;
-      var percent = Math.round((correctCount / total) * 100);
-      var grade = 2, gradeLabel = 'Qoniqarsiz', gradeColor = '#ef4444';
-      if (percent >= 85) { grade = 5; gradeLabel = "A'lo"; gradeColor = '#10b981'; }
-      else if (percent >= 70) { grade = 4; gradeLabel = 'Yaxshi'; gradeColor = '#38bdf8'; }
-      else if (percent >= 50) { grade = 3; gradeLabel = 'Qoniqarli'; gradeColor = '#f59e0b'; }
+      // Update Prev / Next buttons
+      document.getElementById('btnPrev').disabled = (currentIndex === 0);
 
-      var secs = Math.max(0, Math.round((Date.now() - startedAt) / 1000));
-      var timeSpent = Math.floor(secs / 60) + ' daq ' + (secs % 60) + ' soniya';
+      var nextBtn = document.getElementById('btnNext');
+      var nextText = document.getElementById('btnNextText');
+      if (currentIndex === QUESTIONS_PER_TEST - 1) {
+        nextBtn.className = 'btn-next btn-finish';
+        nextText.textContent = 'Testni yakunlash';
+      } else {
+        nextBtn.className = 'btn-next';
+        nextText.textContent = 'Keyingi savol';
+      }
+    }
 
-      var resBox = document.getElementById('result-box');
-      resBox.style.display = 'block';
-      document.getElementById('res-student-title').textContent = student.fullName + ' • ' + student.group;
-      document.getElementById('res-score').textContent = correctCount + ' / ' + total + ' (' + percent + '%)';
-      var gradeEl = document.getElementById('res-grade');
-      gradeEl.textContent = 'Baho: ' + grade + ' (' + gradeLabel + ')';
-      gradeEl.style.color = gradeColor;
-      document.getElementById('res-desc').textContent =
-        "To'g'ri javoblar: " + correctCount + " ta. Xatolar: " + (total - correctCount) + " ta. Sarflangan vaqt: " + timeSpent +
-        ". Yuqoridagi savollarda to'g'ri javoblar yashil rangda, izohlari bilan ko'rsatildi.";
-      document.getElementById('btn-submit').style.display = 'none';
+    function selectOption(optIdx) {
+      userAnswers[currentIndex] = optIdx;
+      renderCurrentQuestion();
+    }
 
-      sendResult({
+    function jumpToStep(step) {
+      if (step >= 0 && step < QUESTIONS_PER_TEST) {
+        currentIndex = step;
+        renderCurrentQuestion();
+      }
+    }
+
+    function navigateStep(delta) {
+      if (delta === 1 && currentIndex === QUESTIONS_PER_TEST - 1) {
+        finishTest();
+        return;
+      }
+      var target = currentIndex + delta;
+      if (target >= 0 && target < QUESTIONS_PER_TEST) {
+        currentIndex = target;
+        renderCurrentQuestion();
+      }
+    }
+
+    /* FINISH TEST */
+    function finishTest() {
+      var unanswered = userAnswers.filter(function(a) { return a === -1; }).length;
+      if (unanswered > 0) {
+        var conf = confirm('Siz ' + QUESTIONS_PER_TEST + ' ta savoldan ' + (QUESTIONS_PER_TEST - unanswered) + ' tasiga javob berdingiz. ' + unanswered + ' ta savol qoldi. Testni baribir yakunlaysizmi?');
+        if (!conf) return;
+      }
+
+      clearInterval(timerInterval);
+      isSubmitted = true;
+
+      // Calculate score
+      var correctCount = 0;
+      selectedQuestions.forEach(function(q, i) {
+        if (userAnswers[i] === q.ans) correctCount++;
+      });
+
+      var pct = Math.round((correctCount / QUESTIONS_PER_TEST) * 100);
+      var grade = 2, gradeLabel = "Qoniqarsiz", gradeColor = "#ef4444", gradeBg = "rgba(239,68,68,0.2)";
+      if (pct >= 85) {
+        grade = 5; gradeLabel = "A‘lo"; gradeColor = "#34d399"; gradeBg = "rgba(16,185,129,0.2)";
+      } else if (pct >= 70) {
+        grade = 4; gradeLabel = "Yaxshi"; gradeColor = "#38bdf8"; gradeBg = "rgba(56,189,248,0.2)";
+      } else if (pct >= 50) {
+        grade = 3; gradeLabel = "Qoniqarli"; gradeColor = "#f59e0b"; gradeBg = "rgba(245,158,11,0.2)";
+      }
+
+      var timeDiff = Math.max(1, Math.floor((Date.now() - startedAt) / 1000));
+      var timeMin = Math.floor(timeDiff / 60);
+      var timeSec = timeDiff % 60;
+      var timeStr = (timeMin > 0 ? timeMin + ' daqiqa ' : '') + timeSec + ' soniya';
+
+      // UI Switch to Results
+      document.getElementById('testScreen').classList.remove('active');
+      document.getElementById('topTimerBox').style.display = 'none';
+      document.getElementById('resultScreen').classList.add('active');
+
+      document.getElementById('resScore').textContent = correctCount;
+      var b = document.getElementById('resGradeBadge');
+      b.textContent = 'Baho: ' + grade + ' (' + gradeLabel + ')';
+      b.style.color = gradeColor;
+      b.style.background = gradeBg;
+      b.style.border = '1px solid ' + gradeColor;
+
+      document.getElementById('resSummary').textContent = 
+        student.fullName + ' (' + student.group + '). Sarflangan vaqt: ' + timeStr + '. Natija: ' + pct + '%.';
+
+      // Build Review Items
+      renderReview();
+
+      // Send to Backend
+      sendResultToBot({
         lesson: LESSON_NAME,
         studentName: student.fullName,
         lastName: student.lastName,
         firstName: student.firstName,
-        middleName: student.middleName,
+        middleName: '',
         group: student.group,
-        correctCount: correctCount,
-        totalQuestions: total,
-        percent: percent,
+        correct: correctCount,
+        total: QUESTIONS_PER_TEST,
+        percent: pct,
         grade: grade,
         gradeLabel: gradeLabel,
-        timeSpent: timeSpent,
-        date: new Date().toLocaleString('uz-UZ')
+        timeSpent: timeStr,
+        timestamp: new Date().toISOString()
       });
-
-      resBox.scrollIntoView({ behavior: 'smooth' });
     }
 
-    /* ====================================================================== */
-    /* 3. NATIJANI O'QITUVCHINING TELEGRAM BOTIGA YUBORISH                    */
-    /* ====================================================================== */
-    function setSendStatus(state, title, msg) {
-      var box = document.getElementById('send-status');
-      box.className = 'send-status ' + state;
-      document.getElementById('send-title').textContent = title;
-      document.getElementById('send-msg').textContent = msg;
-      document.getElementById('btn-resend').style.display = (state === 'error') ? 'inline-flex' : 'none';
+    function renderReview() {
+      var rev = document.getElementById('reviewContainer');
+      rev.innerHTML = '';
+      var letters = ['A', 'B', 'C', 'D'];
+
+      selectedQuestions.forEach(function(q, i) {
+        var userAnsIdx = userAnswers[i];
+        var isCorrect = (userAnsIdx === q.ans);
+        var item = document.createElement('div');
+        item.className = 'review-item ' + (isCorrect ? 'is-correct' : 'is-wrong');
+
+        var userAnsText = (userAnsIdx !== -1) ? (letters[userAnsIdx] + ') ' + q.opts[userAnsIdx]) : 'Javob berilmadi';
+        var correctAnsText = letters[q.ans] + ') ' + q.opts[q.ans];
+
+        item.innerHTML = 
+          '<div class="review-q">' + (i + 1) + '. ' + q.q + '</div>' +
+          '<div class="review-answers">' +
+            '<div class="review-ans-row">' +
+              '<span class="ans-tag ' + (isCorrect ? 'correct' : 'your') + '">' + (isCorrect ? 'To‘g‘ri' : 'Sizning javobingiz') + ':</span>' +
+              '<span>' + userAnsText + '</span>' +
+            '</div>' +
+            (!isCorrect ? (
+              '<div class="review-ans-row">' +
+                '<span class="ans-tag correct">To‘g‘ri javob:</span>' +
+                '<span>' + correctAnsText + '</span>' +
+              '</div>'
+            ) : '') +
+          '</div>' +
+          '<div class="review-exp">' + q.exp + '</div>';
+
+        rev.appendChild(item);
+      });
     }
 
-    function sendResult(payload) {
-      lastPayload = payload;
-      try { localStorage.setItem('tat_backup_result_10', JSON.stringify(payload)); } catch (e) {}
+    function sendResultToBot(payload) {
+      var box = document.getElementById('sendBox');
+      var t = document.getElementById('sendTitle');
+      var st = document.getElementById('sendSubtitle');
 
-      setSendStatus('loading', 'Natija o‘qituvchiga yuborilmoqda...', 'Iltimos, sahifani yopmang.');
-
-      var controller = ('AbortController' in window) ? new AbortController() : null;
-      var timer = setTimeout(function () { if (controller) controller.abort(); }, 15000);
-
-      // no-cors: Apps Script javobini o'qimaymiz, faqat so'rov yetib borishi muhim
       fetch(BACKEND_API_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(payload),
-        signal: controller ? controller.signal : undefined
-      }).then(function () {
-        clearTimeout(timer);
-        setSendStatus('success', 'Natija o‘qituvchiga yuborildi!', 'Bahongiz o‘qituvchining Telegram botiga yetkazildi.');
-      }).catch(function () {
-        clearTimeout(timer);
-        setSendStatus('error', 'Natija yuborilmadi', 'Internet aloqasini tekshirib, “Qayta yuborish” tugmasini bosing. Natijangiz qurilmada saqlab qo‘yildi.');
+        body: JSON.stringify(payload)
+      }).then(function() {
+        box.className = 'send-box success';
+        t.textContent = 'Natija o‘qituvchiga muvaffaqiyatli yuborildi!';
+        st.textContent = 'Ballaringiz Telegram bot va elektron jurnalda qayd etildi.';
+      }).catch(function() {
+        box.className = 'send-box error';
+        t.textContent = 'Natijani yuborishda xatolik yuz berdi.';
+        st.textContent = 'Internet aloqasini tekshiring. Natijangiz qurilma xotirasida saqlandi.';
       });
     }
 
-    function resendResult() {
-      if (lastPayload) sendResult(lastPayload);
-    }
-
     function restartTest() {
-      if (confirm("Testni qaytadan boshlashni xohlaysizmi? Yangi natija ham o'qituvchiga yuboriladi.")) {
+      if (confirm('Testni qaytadan boshlashni xohlaysizmi?')) {
         window.location.reload();
       }
     }
