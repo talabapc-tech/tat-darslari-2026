@@ -555,33 +555,6 @@
       margin: 0 auto 1.5rem;
     }
 
-    .send-box {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 0.85rem 1.1rem;
-      font-size: 0.85rem;
-      margin: 1.25rem auto;
-      max-width: 480px;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-    .send-box.loading {
-      color: #93c5fd;
-      border-color: rgba(59, 130, 246, 0.35);
-    }
-    .send-box.success {
-      color: #34d399;
-      border-color: rgba(16, 185, 129, 0.35);
-      background: rgba(16, 185, 129, 0.08);
-    }
-    .send-box.error {
-      color: #f87171;
-      border-color: rgba(239, 68, 68, 0.35);
-      background: rgba(239, 68, 68, 0.08);
-    }
-
     /* REVIEW SECTION */
     .review-wrap {
       margin-top: 2rem;
@@ -712,7 +685,7 @@
     <!-- REGISTRATION SCREEN -->
     <section id="regScreen" class="test-hero">
       <h1>7-Dars: Fayllar, papkalar va arxivlash testi</h1>
-      <p>Familiya, ism va guruhingizni tanlang. Testda jami 10 ta savol bitta-bitta taqdim etiladi.</p>
+      <p>Testda jami 10 ta savol bitta-bitta taqdim etiladi. Natija darhol ekranda tahlili bilan ko‘rsatiladi.</p>
 
       <div class="reg-card">
         <div class="reg-title">
@@ -724,15 +697,15 @@
           <div class="reg-grid">
             <div class="field-group">
               <label for="inp-lastname">Familiya</label>
-              <input type="text" id="inp-lastname" placeholder="Masalan: Valiyev" autocomplete="family-name" maxlength="40" required>
+              <input type="text" id="inp-lastname" placeholder="Masalan: Valiyev" autocomplete="family-name" maxlength="40" >
             </div>
             <div class="field-group">
               <label for="inp-firstname">Ism</label>
-              <input type="text" id="inp-firstname" placeholder="Masalan: Ali" autocomplete="given-name" maxlength="40" required>
+              <input type="text" id="inp-firstname" placeholder="Masalan: Ali" autocomplete="given-name" maxlength="40" >
             </div>
             <div class="field-group" style="grid-column: 1 / -1;">
               <label for="inp-group">Guruh</label>
-              <select id="inp-group" required>
+              <select id="inp-group" >
                 <option value="" selected disabled>Guruhni tanlang...</option>
                 <option value="Hi-26-02">Hi-26-02 guruhi</option>
                 <option value="Hi-26-03">Hi-26-03 guruhi</option>
@@ -810,11 +783,6 @@
 
         <p class="res-desc" id="resSummary">Test muvaffaqiyatli topshirildi.</p>
 
-        <div class="send-box loading" id="sendBox">
-          <strong id="sendTitle">Natija o‘qituvchiga yuborilmoqda...</strong>
-          <span id="sendSubtitle">Iltimos, sahifani yopmang.</span>
-        </div>
-
         <div style="margin-top:1.5rem; display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
           <button type="button" class="nav-btn" onclick="restartTest()">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
@@ -844,7 +812,6 @@
     /* ====================================================================== */
     /* SOZLAMALAR                                                             */
     /* ====================================================================== */
-    var BACKEND_API_URL = "https://script.google.com/macros/s/AKfycbwlnNlpNGLWH3hs_pUXXias8x-uSYMj3kC5Ildf4bFuyySJO9ihVaGFMUU2A_FUqeys/exec";
     var LESSON_NAME = "7-Dars: Fayllar va papkalar, arxivlash";
     var QUESTIONS_PER_TEST = 10;
 
@@ -1022,31 +989,12 @@
       var grp = document.getElementById('inp-group').value;
       var err = document.getElementById('regError');
 
-      if (last.length < 2) {
-        err.textContent = 'Familiyangizni kiriting.';
-        err.classList.add('show');
-        document.getElementById('inp-lastname').focus();
-        return;
-      }
-      if (first.length < 2) {
-        err.textContent = 'Ismingizni kiriting.';
-        err.classList.add('show');
-        document.getElementById('inp-firstname').focus();
-        return;
-      }
-      if (!grp) {
-        err.textContent = 'Guruhingizni tanlang.';
-        err.classList.add('show');
-        document.getElementById('inp-group').focus();
-        return;
-      }
-
-      err.classList.remove('show');
+      var displayName = (last || first) ? cleanName(last + ' ' + first) : 'Talaba';
       student = {
         lastName: last,
         firstName: first,
-        group: grp,
-        fullName: last + ' ' + first
+        group: grp || 'TAT',
+        fullName: displayName
       };
 
       selectedQuestions = build10Questions();
@@ -1212,23 +1160,7 @@
       // Build Review Items
       renderReview();
 
-      // Send to Backend
-      sendResultToBot({
-        lesson: LESSON_NAME,
-        studentName: student.fullName,
-        lastName: student.lastName,
-        firstName: student.firstName,
-        middleName: '',
-        group: student.group,
-        correct: correctCount,
-        total: QUESTIONS_PER_TEST,
-        percent: pct,
-        grade: grade,
-        gradeLabel: gradeLabel,
-        timeSpent: timeStr,
-        timestamp: new Date().toISOString()
-      });
-    }
+      }
 
     function renderReview() {
       var rev = document.getElementById('reviewContainer');
@@ -1261,27 +1193,6 @@
           '<div class="review-exp">' + q.exp + '</div>';
 
         rev.appendChild(item);
-      });
-    }
-
-    function sendResultToBot(payload) {
-      var box = document.getElementById('sendBox');
-      var t = document.getElementById('sendTitle');
-      var st = document.getElementById('sendSubtitle');
-
-      fetch(BACKEND_API_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(payload)
-      }).then(function() {
-        box.className = 'send-box success';
-        t.textContent = 'Natija o‘qituvchiga muvaffaqiyatli yuborildi!';
-        st.textContent = 'Ballaringiz Telegram bot va elektron jurnalda qayd etildi.';
-      }).catch(function() {
-        box.className = 'send-box error';
-        t.textContent = 'Natijani yuborishda xatolik yuz berdi.';
-        st.textContent = 'Internet aloqasini tekshiring. Natijangiz qurilma xotirasida saqlandi.';
       });
     }
 
