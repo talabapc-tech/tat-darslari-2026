@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10-Dars: Microsoft Word — Tezkor klavishlar va sichqoncha amallari | Tibbiyotda Axborot Texnologiyalari</title>
+  <meta name="description" content="Microsoft Word dasturida tezkor klavishlar, fayl amallari, matnni formatlash, tahrirlash va sichqoncha texnikasi bo'yicha to'liq interaktiv qo'llanma va trenajyor.">
+  <link rel="icon" type="image/svg+xml" href="./images/logos/word.svg">
+  <script>
+    try {
+      if (localStorage.getItem('tat-role') === 'teacher') {
+        document.documentElement.setAttribute('data-role', 'teacher');
+      }
+    } catch (e) {}
+  </script>
+  <style>
+    :root {
+      --bg-page: #07090e;
+      --bg-card: #0e121a;
+      --bg-card-hover: #131926;
+      --border-color: #1e2638;
+      --border-accent: rgba(0, 120, 212, 0.4);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+
+      --word-blue: #2b579a;
+      --word-accent: #0078d4;
+      --win-blue: #0078d4;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --purple: #8b5cf6;
+
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    html:not([data-role="teacher"]) .teacher-only {
+      display: none !important;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-page);
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(43, 87, 154, 0.18) 0%, transparent 50%),
+        radial-gradient(circle at 85% 20%, rgba(0, 120, 212, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 10% 40%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+      width: 100%;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      width: 100%;
+    }
+
+    /* TOP BAR */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 9, 14, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .top-nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      gap: 0.75rem;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.85rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .nav-btn-primary {
+      background: #0078d4;
+      border-color: #0078d4;
+      color: #fff;
+      font-weight: 600;
+    }
+    .nav-btn-primary:hover {
+      background: #106ebe;
+      border-color: #106ebe;
+      color: #fff;
+    }
+    .lesson-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      background: rgba(43, 87, 154, 0.35);
+      color: #60a5fa;
+      border: 1px solid rgba(43, 87, 154, 0.5);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* SEARCH BAR IN NAV */
+    .search-box {
+      position: relative;
+      flex: 1;
+      max-width: 340px;
+    }
+    .search-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.42rem 0.75rem 0.42rem 2.1rem;
+      font-size: 0.82rem;
+      color: var(--text-main);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    .search-input:focus {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--word-accent);
+      box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.25);
+    }
+    .search-icon {
+      position: absolute;
+      left: 0.65rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-subtle);
+      pointer-events: none;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding: 3rem 0 2rem;
+      position: relative;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.85rem;
+      flex-wrap: wrap;
+    }
+    .hero-title {
+      font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 0.85rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-title span {
+      background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 780px;
+      line-height: 1.6;
+      margin-bottom: 1.6rem;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+    .stat-pill strong {
+      color: var(--text-main);
+    }
+    .stat-pill svg {
+      color: #60a5fa;
+    }
+
+    /* QUICK NAVIGATION PILLS */
+    .quick-nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      padding: 0.5rem;
+      background: rgba(14, 18, 26, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+    }
+    .q-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--text-muted);
+      background: transparent;
+      transition: all 0.2s;
+    }
+    .q-pill:hover, .q-pill.active {
+      color: #ffffff;
+      background: rgba(0, 120, 212, 0.25);
+      border-color: rgba(0, 120, 212, 0.5);
+    }
+
+    /* CARDS & SECTIONS */
+    .section-block {
+      margin-bottom: 3rem;
+      scroll-margin-top: 80px;
+    }
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(0, 120, 212, 0.2);
+      border: 1px solid rgba(0, 120, 212, 0.4);
+      color: #60a5fa;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .section-title {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+    .section-count {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-subtle);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.2rem 0.6rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border-color);
+    }
+
+    /* SHORTCUT GRID */
+    .shortcut-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1rem;
+    }
+    .shortcut-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .shortcut-card:hover {
+      border-color: rgba(0, 120, 212, 0.5);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+    .sc-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .sc-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* KBD KEY STYLING */
+    kbd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 28px;
+      padding: 0 0.45rem;
+      background: #1e2638;
+      border: 1px solid #334155;
+      border-bottom: 2px solid #0f172a;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      user-select: none;
+    }
+    .plus-sign {
+      color: var(--text-subtle);
+      font-weight: 700;
+      font-size: 0.85rem;
+      user-select: none;
+    }
+
+    .sc-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.4;
+    }
+    .sc-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .sc-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.78rem;
+    }
+    .sc-meta-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+      color: var(--text-muted);
+    }
+    .sc-meta-label {
+      color: var(--text-subtle);
+      font-weight: 600;
+      min-width: 95px;
+      flex-shrink: 0;
+    }
+    .sc-meta-val {
+      color: #cbd5e1;
+    }
+
+    /* MEDICAL TIP BOX */
+    .tip-box {
+      background: rgba(43, 87, 154, 0.12);
+      border: 1px solid rgba(43, 87, 154, 0.35);
+      border-left: 3px solid #0078d4;
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .tip-icon {
+      color: #60a5fa;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .tip-text {
+      font-size: 0.88rem;
+      color: #e2e8f0;
+      line-height: 1.55;
+    }
+    .tip-text strong {
+      color: #ffffff;
+    }
+
+    /* INTERACTIVE SIMULATOR (TRENAJYOR) */
+    .trainer-card {
+      background: #0e121a;
+      border: 1px solid #1e2638;
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .trainer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .trainer-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .trainer-title svg {
+      color: #60a5fa;
+    }
+    .trainer-tabs {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .trainer-tab {
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .trainer-tab.active {
+      background: #0078d4;
+      border-color: #0078d4;
+      color: #ffffff;
+    }
+
+    /* SIMULATOR WORKSPACE */
+    .sim-screen {
+      background: #07090e;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+      min-height: 140px;
+      position: relative;
+    }
+    .sim-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding-bottom: 0.75rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      flex-wrap: wrap;
+    }
+    .sim-btn {
+      padding: 0.35rem 0.65rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.15s;
+    }
+    .sim-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    .sim-btn.active {
+      background: #0078d4;
+      border-color: #0078d4;
+      color: #fff;
+    }
+    .sim-editor {
+      width: 100%;
+      min-height: 100px;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #f8fafc;
+      font-size: 1rem;
+      line-height: 1.6;
+      resize: vertical;
+      font-family: inherit;
+    }
+    .sim-feedback {
+      background: rgba(0, 120, 212, 0.15);
+      border: 1px solid rgba(0, 120, 212, 0.35);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+      color: #93c5fd;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .sim-feedback strong {
+      color: #ffffff;
+    }
+
+    /* MOUSE PLAYGROUND */
+    .mouse-playground {
+      background: #07090e;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1.25rem;
+      position: relative;
+    }
+    .mouse-sample-text {
+      background: #0e121a;
+      border: 1px solid #1e2638;
+      border-radius: 8px;
+      padding: 1.25rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #e2e8f0;
+      user-select: text;
+      cursor: text;
+    }
+    .mouse-status-bar {
+      margin-top: 1rem;
+      padding: 0.65rem 1rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 6px;
+      font-size: 0.82rem;
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* TABLE LAYOUT FOR CHEAT-SHEET */
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+    table.cheat-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+      text-align: left;
+    }
+    table.cheat-table th {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      color: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+    table.cheat-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      vertical-align: top;
+    }
+    table.cheat-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    table.cheat-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* CTA CARD (TESTGA CHAQIRUV) */
+    .cta-card {
+      background: linear-gradient(135deg, rgba(43, 87, 154, 0.3) 0%, rgba(14, 18, 26, 0.8) 100%);
+      border: 1px solid rgba(0, 120, 212, 0.4);
+      border-radius: 16px;
+      padding: 2.25rem 2rem;
+      text-align: center;
+      margin: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(0, 120, 212, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.6rem;
+    }
+    .cta-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.85rem;
+      background: #0078d4;
+      border: 1px solid #2b579a;
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0, 120, 212, 0.4);
+    }
+    .cta-btn:hover {
+      background: #106ebe;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 120, 212, 0.6);
+    }
+
+    /* FOOTER */
+    .page-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2rem 0;
+      margin-top: auto;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-subtle);
+    }
+
+    @media (max-width: 768px) {
+      .top-nav-inner {
+        height: auto;
+        padding: 0.6rem 0;
+        flex-wrap: wrap;
+      }
+      .search-box {
+        order: 3;
+        max-width: 100%;
+        width: 100%;
+      }
+      .hero-title {
+        font-size: 1.65rem;
+      }
+      .shortcut-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <div class="container top-nav-inner">
+      <div class="nav-left">
+        <a href="../index.html" class="nav-btn" title="Asosiy mundarijaga qaytish">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span>Mundarija</span>
+        </a>
+        <span class="lesson-badge">10-DARS</span>
+      </div>
+
+      <div class="search-box">
+        <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="shortcutSearch" class="search-input" placeholder="Tezkor tugmani qidirish (Ctrl+S, qalin, abzats...)" oninput="filterShortcuts(this.value)">
+      </div>
+
+      <div style="display:flex; gap:0.5rem; align-items:center;">
+        <a href="#trenajyor" class="nav-btn" style="display:none; @media(min-width:640px){display:inline-flex;}">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6" y2="8"/><line x1="10" y1="8" x2="10" y2="8"/><line x1="14" y1="8" x2="14" y2="8"/><line x1="18" y1="8" x2="18" y2="8"/><line x1="6" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="18" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg>
+          <span>Trenajyor</span>
+        </a>
+        <a href="./test.html" class="nav-btn nav-btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <span>Test (20 ta)</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-eyebrow">
+        <span class="lesson-badge">10-Mavzu • Word amaliyoti</span>
+        <span style="font-size:0.8rem; color:var(--text-subtle);">Shahrisabz Tibbiyot Texnikumi</span>
+      </div>
+      <h1 class="hero-title">Microsoft Word: <span>Tezkor klavishlar va sichqoncha amallari</span></h1>
+      <p class="hero-desc">
+        Hujjatlar, hisobotlar, arizalar va tibbiy ma'lumotnomalarni yozishda sichqonchaga ortiqcha chalg'imasdan, klaviatura orqali tezkor va professional ishlash usullari to'plami.
+      </p>
+
+      <div class="hero-stats">
+        <div class="stat-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6" y2="8"/><line x1="10" y1="8" x2="10" y2="8"/><line x1="14" y1="8" x2="14" y2="8"/><line x1="18" y1="8" x2="18" y2="8"/><line x1="6" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="18" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg>
+          <strong>33 ta</strong> asosiy amal
+        </div>
+        <div class="stat-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <strong>4 ta</strong> mavzuviy guruh
+        </div>
+        <div class="stat-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+          <strong>2 soat</strong> amaliy mashg'ulot
+        </div>
+        <div class="stat-pill">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <strong>20 talik</strong> nazorat testi
+        </div>
+      </div>
+
+      <!-- QUICK NAV PILLS -->
+      <div class="quick-nav">
+        <a href="#fayl" class="q-pill active">1. Fayl amallari (12)</a>
+        <a href="#formatlash" class="q-pill">2. Matnni formatlash (7)</a>
+        <a href="#tahrirlash" class="q-pill">3. Tahrirlash (6)</a>
+        <a href="#sichqoncha" class="q-pill">4. Sichqoncha amallari (8)</a>
+        <a href="#trenajyor" class="q-pill">Interaktiv trenajyor</a>
+        <a href="#jadval" class="q-pill">Shpargalka jadval</a>
+      </div>
+    </header>
+
+    <!-- PEDAGOGIK TUSHUNTIRISH -->
+    <div class="tip-box">
+      <svg class="tip-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      <div class="tip-text">
+        <strong>Tibbiyot xodimi uchun tezkor klavishlarning amaliy foydasi:</strong>
+        Kasalxona va poliklinikalarda kasallik tarixi, epikriz, tibbiy hisobotlar va retseptlar tayyorlashda sichqonchaga doimiy qo'l uzatish daqiqasiga 2-3 soniya yo'qotadi. Bir ish kunida bu 30-40 daqiqa behuda vaqtga aylanadi. Tezkor tugmalarni o'rganish diqqatni faqat hujjat mazmuniga qaratishga yordam beradi.
+      </div>
+    </div>
+
+    <!-- 1-BO'LIM: FAYL VA UMUMIY AMALLAR -->
+    <section id="fayl" class="section-block">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-number">1</span>
+          <h2 class="section-title">Fayl va umumiy amallar</h2>
+        </div>
+        <span class="section-count">12 ta amal</span>
+      </div>
+
+      <div class="shortcut-grid">
+
+        <!-- Ctrl+N -->
+        <div class="shortcut-card" data-shortcut="ctrl+n new yangi fayl ochish">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>N</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">New</span>
+          </div>
+          <div class="sc-title">Yangi bo‘sh hujjat ochadi</div>
+          <div class="sc-desc">Oldingi faylni yopmasdan, toza oq qog'ozli yangi Word oynasini ishga tushiradi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Yangi topshiriq yoki yangi bemor kartasi boshlaganda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Word ochilgandan so‘ng istalgan vaqtda.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+O -->
+        <div class="shortcut-card" data-shortcut="ctrl+o open ochish saqlangan fayl">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>O</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Open</span>
+          </div>
+          <div class="sc-title">Saqlangan hujjatni ochadi</div>
+          <div class="sc-desc">Kompyuter diskidagi mavjud hujjatlarni tanlash va ochish oynasini chaqiradi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Oldin yozilgan hisobot yoki faylni davom ettirishda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Word ochilgandan keyin.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+S -->
+        <div class="shortcut-card" data-shortcut="ctrl+s save saqlash xavfsizlik">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>S</kbd></div>
+            <span style="font-size:0.75rem; color:#10b981; font-weight:700;">Eng muhim</span>
+          </div>
+          <div class="sc-title">Hujjatni saqlaydi (Save)</div>
+          <div class="sc-desc">Kiritilgan har qanday o'zgarishni darhol xotiraga yozadi. Elektr o'chganda matn yo'qolishidan asraydi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Har 2-3 daqiqada, matn kiritgandan yoki tahrirdan so'ng.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Matn yozish yoki tahrirlashdan keyin.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- F12 -->
+        <div class="shortcut-card" data-shortcut="f12 save as yangi nom bilan saqlash nusxa">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>F12</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Save As</span>
+          </div>
+          <div class="sc-title">Yangi nom bilan saqlaydi</div>
+          <div class="sc-desc">Hujjatning asl nusxasiga tegmasdan, uni yangi nom yoki yangi papkaga nusxa qilib saqlaydi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Hujjat nusxasini boshqa nom yoki formatda saqlaganda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Ctrl+S dan keyin (yangi nusxa zarur bo'lganda).</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+P -->
+        <div class="shortcut-card" data-shortcut="ctrl+p print chop etish printer">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>P</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Print</span>
+          </div>
+          <div class="sc-title">Chop etish oynasini ochadi</div>
+          <div class="sc-desc">Hujjatning qog'ozdagi ko'rinishini tekshirish va printerga chiqarish oynasini ochadi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Hujjatni qog‘ozga chiqarmoqchi bo‘lganda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Hujjat to'liq saqlangandan so'ng.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+W -->
+        <div class="shortcut-card" data-shortcut="ctrl+w close yopish hujjat">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>W</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Close</span>
+          </div>
+          <div class="sc-title">Hujjatni yopadi</div>
+          <div class="sc-desc">Word dasturini to'liq yopmasdan, faqat joriy tahrirlanayotgan faylni yopadi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Hujjatdagi ish tugatilganda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Ctrl+S bilan saqlangandan keyin.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+Z -->
+        <div class="shortcut-card" data-shortcut="ctrl+z undo bekor qilish ortga">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>Z</kbd></div>
+            <span style="font-size:0.75rem; color:#f59e0b; font-weight:700;">Qutqaruvchi</span>
+          </div>
+          <div class="sc-title">Oxirgi amalni bekor qiladi</div>
+          <div class="sc-desc">Adashib matn o'chib ketsa yoki noto'g'ri format berilsa, uni darhol ortga qaytaradi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Xato qilinganda yoki o'chirilgan matnni qaytarishda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Xato sodir bo'lishi bilanoq darhol.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+Y -->
+        <div class="shortcut-card" data-shortcut="ctrl+y redo qaytarish oldinga">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>Y</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Redo</span>
+          </div>
+          <div class="sc-title">Bekor qilingan amalni qaytaradi</div>
+          <div class="sc-desc">Agar Ctrl+Z ni ortiqcha bosib yuborsangiz, bekor qilingan amalni yana oldinga tiklaydi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Ctrl+Z ni ortga qaytarmoqchi bo‘lganda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Ctrl+Z bosilgandan keyin.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- F4 -->
+        <div class="shortcut-card" data-shortcut="f4 repeat takrorlash oxirgi amal">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>F4</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Repeat</span>
+          </div>
+          <div class="sc-title">Oxirgi amalni takrorlaydi</div>
+          <div class="sc-desc">Oldingi bajarilgan formatlash yoki jadval amalining o'zini yangi joyda bir tugmada takrorlaydi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Oldingi formatlashni boshqa joyda qo'llashda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Boshlang'ich amal bajarilgandan keyin.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+F -->
+        <div class="shortcut-card" data-shortcut="ctrl+f find qidirish izlash">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>F</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Find</span>
+          </div>
+          <div class="sc-title">So‘zni hujjatdan qidiradi</div>
+          <div class="sc-desc">Hujjat ichidan kerakli so'z, sana yoki bemor familiyasini darhol topib ko'rsatadi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Hujjat ichidan kerakli joyni tez topishda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Istalgan vaqtda.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+H -->
+        <div class="shortcut-card" data-shortcut="ctrl+h replace almashtirish qidirib topish">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>H</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Replace</span>
+          </div>
+          <div class="sc-title">So‘zni topib, almashtiradi</div>
+          <div class="sc-desc">Hujjatdagi bir xil xato so'zni butun matn bo'ylab birdaniga yangisiga almashtirish oynasini ochadi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Bir xil so'zni hamma joyda o'zgartirish kerak bo'lganda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Ctrl+F dan keyin yoki to'g'ridan-to'g'ri.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- F1 -->
+        <div class="shortcut-card" data-shortcut="f1 help yordam malumotnoma">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>F1</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Help</span>
+          </div>
+          <div class="sc-title">Yordam oynasini ochadi</div>
+          <div class="sc-desc">Word dasturining rasmiy yo'riqnomasi va qidiruv ma'lumotnomasini ochadi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Biror funksiya vazifasini aniqlash kerak bo'lganda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Istalgan vaqtda.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 2-BO'LIM: MATNNI FORMATLASH -->
+    <section id="formatlash" class="section-block">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-number">2</span>
+          <h2 class="section-title">Matnni formatlash</h2>
+        </div>
+        <span class="section-count">7 ta amal</span>
+      </div>
+
+      <div class="shortcut-grid">
+
+        <!-- Ctrl+B -->
+        <div class="shortcut-card" data-shortcut="ctrl+b bold qalin jirnoviy">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>B</kbd></div>
+            <span style="font-size:0.75rem; color:#60a5fa; font-weight:700;">Bold</span>
+          </div>
+          <div class="sc-title">Matnni qalin qiladi (Bold)</div>
+          <div class="sc-desc">Tanlangan matnni qalinlashtiradi. Qayta bosilsa oddiy holiga qaytadi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Sarlavha, kasallik tashxisi yoki muhim atamani ajratishda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Matnni belgilagandan keyin.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+I -->
+        <div class="shortcut-card" data-shortcut="ctrl+i italic kursiv qiya qiyshiq">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>I</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Italic</span>
+          </div>
+          <div class="sc-title">Matnni qiyshiq (kursiv) qiladi</div>
+          <div class="sc-desc">Matnga qiyalik (kursiv) beradi. Lotincha tibbiy atamalar uchun keng qo'llaniladi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Lotincha dori nomlari, iqtibos va izohlarda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Matnni belgilagandan keyin.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+U -->
+        <div class="shortcut-card" data-shortcut="ctrl+u underline tagiga chizish chiziq">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>U</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Underline</span>
+          </div>
+          <div class="sc-title">Matn ostiga chiziq tortadi</div>
+          <div class="sc-desc">Belgilangan matn ostiga uzluksiz chiziq tortadi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Muhim joyni ajratishda (rasmiy hujjatlarda kam ishlatiladi).</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Matnni belgilagandan keyin.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+E -->
+        <div class="shortcut-card" data-shortcut="ctrl+e center ortaga tekislash sarlavha">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>E</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Center</span>
+          </div>
+          <div class="sc-title">Matnni o‘rtaga tekislaydi</div>
+          <div class="sc-desc">Abzatsni varaqning o'rtasiga markazlashtiradi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Hujjat sarlavhasi (masalan, ARIZA, BILDIRISHNOMA) uchun.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Sarlavha yozilgach yoki belgilangach.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+L -->
+        <div class="shortcut-card" data-shortcut="ctrl+l left chapga tekislash">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>L</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Left</span>
+          </div>
+          <div class="sc-title">Matnni chapga tekislaydi</div>
+          <div class="sc-desc">Matn qatorlarini sahifaning chap hoshiyasiga tekislaydi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Oddiy yozuvlar, ro'yxatlar va izohlar uchun.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Matnni belgilagandan keyin.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+R -->
+        <div class="shortcut-card" data-shortcut="ctrl+r right ongga tekislash sana imzo">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>R</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Right</span>
+          </div>
+          <div class="sc-title">Matnni o‘ngga tekislaydi</div>
+          <div class="sc-desc">Qatorni sahifaning o'ng hoshiyasi bo'yicha tekislaydi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Ariza bosh qismi («shapka»), sana yoki imzoni o‘ngga qo‘yishda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Matnni belgilagandan keyin.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+J -->
+        <div class="shortcut-card" data-shortcut="ctrl+j justify ikki chetga tekislash rasmiy">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>J</kbd></div>
+            <span style="font-size:0.75rem; color:#10b981; font-weight:700;">Standart</span>
+          </div>
+          <div class="sc-title">Matnni ikki chetga tekislaydi</div>
+          <div class="sc-desc">Qatorlarning chap va o'ng qirralarini kitobdagidek tekis qiladi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Rasmiy tibbiy hujjatlar va arizaning asosiy mazmuni uchun.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Matn to'liq yozilib belgilangandan so'ng.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3-BO'LIM: TAHRIRLASH VA MATN BO'YLAB HARAKATLANISH -->
+    <section id="tahrirlash" class="section-block">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-number">3</span>
+          <h2 class="section-title">Tahrirlash va matn bo‘ylab harakatlanish</h2>
+        </div>
+        <span class="section-count">6 ta amal</span>
+      </div>
+
+      <div class="shortcut-grid">
+
+        <!-- Ctrl+C -->
+        <div class="shortcut-card" data-shortcut="ctrl+c copy nusxalash nusxa">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>C</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Copy</span>
+          </div>
+          <div class="sc-title">Tanlangan matnni nusxalaydi</div>
+          <div class="sc-desc">Matnni o'z joyida qoldirib, xotira buferiga nusxa oladi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Bir xil tibbiy matnni boshqa joyga ko'chirishda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Matnni belgilagandan keyin.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+X -->
+        <div class="shortcut-card" data-shortcut="ctrl+x cut kesib olish kochirish">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>X</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Cut</span>
+          </div>
+          <div class="sc-title">Tanlangan matnni kesib oladi</div>
+          <div class="sc-desc">Matnni eski joyidan olib tashlaydi va yangi joyga qo'yish uchun xotirada saqlaydi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Abzats yoki jumlani boshqa joyga ko‘chirganda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Matnni belgilagandan keyin.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+V -->
+        <div class="shortcut-card" data-shortcut="ctrl+v paste joylashtirish qoyish">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>V</kbd></div>
+            <span style="font-size:0.75rem; color:#10b981; font-weight:700;">Joylashtirish</span>
+          </div>
+          <div class="sc-title">Nusxani kursor joyiga qo‘yadi</div>
+          <div class="sc-desc">Ctrl+C yoki Ctrl+X orqali olingan matnni yangi o'rinda paydo qiladi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Matnni yangi o'ringa joylashtirmoqchi bo'lganda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Ctrl+C yoki Ctrl+X dan keyin.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+A -->
+        <div class="shortcut-card" data-shortcut="ctrl+a select all hamma matnni tanlash ajratish">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>A</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Select All</span>
+          </div>
+          <div class="sc-title">Hujjatning hammasini tanlaydi</div>
+          <div class="sc-desc">Butun fayldagi barcha sahifalar, jadvallar va rasmlarni birdaniga to'liq belgilaydi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Shrift yoki oraliqni hamma joyda birdan o'zgartirishda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Istalgan vaqtda.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+Backspace -->
+        <div class="shortcut-card" data-shortcut="ctrl+backspace sozni ochirish toliq ochirish">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>Backspace</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Delete Word</span>
+          </div>
+          <div class="sc-title">Kursor oldidagi so‘zni o‘chiradi</div>
+          <div class="sc-desc">Harfma-harf emas, kursorning chapidagi butun bitta so'zni bir bosishda yo'qotadi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">So'z noto'g'ri yozilganda uni tezkor tozalash uchun.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Xato yozilgandan darhol keyin.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl+Enter -->
+        <div class="shortcut-card" data-shortcut="ctrl+enter page break yangi sahifa boshlash">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>Enter</kbd></div>
+            <span style="font-size:0.75rem; color:#60a5fa; font-weight:700;">Sahifa uzilishi</span>
+          </div>
+          <div class="sc-title">Yangi sahifa boshlaydi (Page Break)</div>
+          <div class="sc-desc">Enter tugmasini ko'p marta bosmasdan, yangi bo'limni darhol keyingi toza varaqdan boshlaydi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Ilova, yangi bo'lim yoki yangi hisobot boshlanganda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Joriy sahifa matni tugagandan keyin.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4-BO'LIM: SICHQONCHA AMALLARI -->
+    <section id="sichqoncha" class="section-block">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-number">4</span>
+          <h2 class="section-title">Sichqoncha amallari</h2>
+        </div>
+        <span class="section-count">8 ta amal</span>
+      </div>
+
+      <div class="shortcut-grid">
+
+        <!-- Chap tugma -->
+        <div class="shortcut-card" data-shortcut="chap tugma kursor qoyish">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Chap tugma</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">1 marta bosish</span>
+          </div>
+          <div class="sc-title">Kursorni kerakli joyga qo‘yadi</div>
+          <div class="sc-desc">Matn ichidagi ixtiyoriy nuqtaga kursorni o'rnatadi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Shu joydan yozish yoki tahrir qilishni boshlashda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Istalgan vaqtda.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 marta bosish -->
+        <div class="shortcut-card" data-shortcut="ikki marta bosish double click sozni tanlash">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>2x chertish</kbd></div>
+            <span style="font-size:0.75rem; color:#60a5fa; font-weight:700;">Bitta so'z</span>
+          </div>
+          <div class="sc-title">Bitta so‘zni tanlaydi</div>
+          <div class="sc-desc">So'z ustiga chap tugmani ikki marta tez bosish aynan shu so'zni to'liq belgilaydi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">So'zni tez almashtirish, o'chirish yoki qalin qilishda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Sichqoncha ko'rsatkichi so'z ustida turganda.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 marta bosish -->
+        <div class="shortcut-card" data-shortcut="uch marta bosish triple click butun abzatsni tanlash">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>3x chertish</kbd></div>
+            <span style="font-size:0.75rem; color:#10b981; font-weight:700;">Butun abzats</span>
+          </div>
+          <div class="sc-title">Butun abzatsni tanlaydi</div>
+          <div class="sc-desc">Abzats ichida 3 marta tez chertilsa, butun xatboshi boshidan oxirigacha belgilanadi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Butun xatboshini tekislash yoki shriftini o'zgartirishda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Sichqoncha abzats ichida turganda.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Qator chetida bosish -->
+        <div class="shortcut-card" data-shortcut="qator chetida chap hoshiya bitta qatorni tanlash">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Chap hoshiya</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Bitta qator</span>
+          </div>
+          <div class="sc-title">Bitta qatorni tanlaydi</div>
+          <div class="sc-desc">Chap oq maydonga olib borganda kursor o'ngga qaragan oq strelkaga aylanadi; 1 marta bosilsa butun qator belgilanadi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Qatorni o‘chirish, bo'yash yoki ko‘chirish uchun.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Sichqoncha matnning chap chetiga yetganda.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shift + bosish -->
+        <div class="shortcut-card" data-shortcut="shift bosish oraliq tanlash blok tanlash">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Shift</kbd><span class="plus-sign">+</span><kbd>Chertish</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Oraliq</span>
+          </div>
+          <div class="sc-title">Oraliqdagi matnni tanlaydi</div>
+          <div class="sc-desc">Kursorni boshiga qo'yib, Shift bosgan holda oxiriga bosilsa, oraliqdagi barcha matn belgilanadi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Uzun matn parchasi yoki jadval qismini aniq tanlashda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Boshlang‘ich nuqtaga kursor qo‘yilgandan so'ng.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl + bosish -->
+        <div class="shortcut-card" data-shortcut="ctrl bosish bitta gapni tanlash ajratish nuqtagacha">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>Chertish</kbd></div>
+            <span style="font-size:0.75rem; color:#f59e0b; font-weight:700;">Bitta gap</span>
+          </div>
+          <div class="sc-title">Bitta butun gapni belgilaydi</div>
+          <div class="sc-desc">Ctrl tugmasini bosib turib matn ustiga 1 marta bosilsa, gap boshidan to yakuniy nuqtagacha avtomatik belgilanadi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Aynan bitta gapni ko'chirib olish yoki o'chirishda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Ctrl tugmasi bosib turilgan holda.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- G'ildirak aylantirish -->
+        <div class="shortcut-card" data-shortcut="gildirak aylantirish scroll varaq surish">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>G‘ildirak</kbd></div>
+            <span style="font-size:0.75rem; color:var(--text-subtle);">Scroll</span>
+          </div>
+          <div class="sc-title">Hujjatni yuqori yoki pastga suradi</div>
+          <div class="sc-desc">Sichqoncha g'ildiragini (skroll) aylantirib sahifalar bo'ylab erkin harakatlanish.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Hujjatni tez ko‘zdan kechirish va o'qishda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Hujjat ochilgandan so'ng istalgan paytda.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ctrl + G'ildirak -->
+        <div class="shortcut-card" data-shortcut="ctrl gildirak zoom masshtab kattalashtirish">
+          <div class="sc-header">
+            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>G‘ildirak</kbd></div>
+            <span style="font-size:0.75rem; color:#60a5fa; font-weight:700;">Masshtab (Zoom)</span>
+          </div>
+          <div class="sc-title">Matnni kattalashtiradi / kichraytiradi</div>
+          <div class="sc-desc">Ctrl bosib g'ildirak aylantirilsa, shrift o'lchamini o'zgartirmasdan faqat ekrandagi masshtab (Zoom) o'zgaradi.</div>
+          <div class="sc-meta">
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Qachon:</span>
+              <span class="sc-meta-val">Kichik harflarni yaqindan aniq ko‘rmoqchi bo‘lganda.</span>
+            </div>
+            <div class="sc-meta-row">
+              <span class="sc-meta-label">Ketma-ketlik:</span>
+              <span class="sc-meta-val">Ctrl tugmasi bosib turilgan holda.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTERAKTIV TRENAJYOR -->
+    <section id="trenajyor" class="section-block">
+      <div class="trainer-card">
+        <div class="trainer-header">
+          <div class="trainer-title">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6" y2="8"/><line x1="10" y1="8" x2="10" y2="8"/><line x1="14" y1="8" x2="14" y2="8"/><line x1="18" y1="8" x2="18" y2="8"/><line x1="6" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="18" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg>
+            <span>Interaktiv Amaliy Trenajyor</span>
+          </div>
+          <div class="trainer-tabs">
+            <button type="button" class="trainer-tab active" onclick="switchTrainer('keyboard')">Klaviatura Sinovi</button>
+            <button type="button" class="trainer-tab" onclick="switchTrainer('mouse')">Sichqoncha Amallari</button>
+          </div>
+        </div>
+
+        <!-- 1. KLAVIATURA TRENAJYORI -->
+        <div id="keyboardTrainer">
+          <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">
+            Quyidagi matn maydoniga cherting va kompyuteringiz klaviaturasida <kbd>Ctrl+B</kbd>, <kbd>Ctrl+I</kbd>, <kbd>Ctrl+U</kbd>, <kbd>Ctrl+E</kbd>, <kbd>Ctrl+J</kbd>, <kbd>Ctrl+S</kbd> yoki <kbd>Ctrl+Enter</kbd> tugmalarini bosib ko'ring:
+          </p>
+
+          <div class="sim-screen">
+            <div class="sim-toolbar">
+              <button type="button" class="sim-btn" onclick="applyTrainerStyle('bold')" title="Ctrl+B"><b>B</b> (Ctrl+B)</button>
+              <button type="button" class="sim-btn" onclick="applyTrainerStyle('italic')" title="Ctrl+I"><i>I</i> (Ctrl+I)</button>
+              <button type="button" class="sim-btn" onclick="applyTrainerStyle('underline')" title="Ctrl+U"><u>U</u> (Ctrl+U)</button>
+              <span style="width:1px; height:18px; background:rgba(255,255,255,0.1); margin:0 4px;"></span>
+              <button type="button" class="sim-btn" onclick="applyTrainerAlign('left')" title="Ctrl+L">Chap (Ctrl+L)</button>
+              <button type="button" class="sim-btn" onclick="applyTrainerAlign('center')" title="Ctrl+E">O'rta (Ctrl+E)</button>
+              <button type="button" class="sim-btn" onclick="applyTrainerAlign('right')" title="Ctrl+R">O'ng (Ctrl+R)</button>
+              <button type="button" class="sim-btn" onclick="applyTrainerAlign('justify')" title="Ctrl+J">Ikkala chet (Ctrl+J)</button>
+            </div>
+
+            <div id="trainerEditor" contenteditable="true" class="sim-editor" spellcheck="false">
+              Bemor: Karimov Jasur Aliyevich. 
+Tashxis: O'tkir respirator virusli infeksiya (O'RVI), o'rta og'ir darajasi.
+Tavsiya: Yotoq rejimi, ko'p miqdorda iliq suyuqlik ichish, vitamin C va paratsetamol 500 mg.
+Shifokor: Dr. O.Z. Napasov (Imzo)
+            </div>
+          </div>
+
+          <div class="sim-feedback" id="keyboardFeedback">
+            <div>
+              <span style="color:var(--text-subtle); font-size:0.78rem; display:block;">Oxirgi aniqlangan kombinatsiya:</span>
+              <strong id="lastComboName">Klaviaturadan biror bir tezkor tugmani bosing...</strong>
+            </div>
+            <span id="comboBadge" style="padding:0.25rem 0.6rem; border-radius:6px; background:rgba(255,255,255,0.08); font-size:0.8rem; font-family:var(--font-mono);">Kutilyapti</span>
+          </div>
+        </div>
+
+        <!-- 2. SICHQONCHA TRENAJYORI -->
+        <div id="mouseTrainer" style="display:none;">
+          <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">
+            Sichqonchaning tezkor belgilash sirlarini sinab ko'ring:
+            <br>• <strong>2 marta tez bosing:</strong> faqat bitta so'z belgilanadi.
+            <br>• <strong>3 marta tez bosing:</strong> butun boshli abzats belgilanadi.
+            <br>• <strong>Ctrl tugmasini bosib turib cherting:</strong> nuqtagacha bo'lgan to'liq GAP belgilanadi!
+          </p>
+
+          <div class="mouse-playground">
+            <div class="mouse-sample-text" id="mouseTargetText">
+              Shahrisabz Tibbiyot Texnikumida talabalar zamonaviy axborot texnologiyalarini chuqur o'rganmoqdalar. Ushbu amaliy ko'nikmalar kelajakda shifoxonalarda elektron tibbiy kartalar bilan ishlashda katta yordam beradi. Har bir hamshira va feldsher kompyuterda tezkor hujjat rasmiylashtirish mahoratiga ega bo'lishi shart.
+            </div>
+
+            <div class="mouse-status-bar" id="mouseStatus">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+              <span id="mouseStatusText">Matn ustida 2 marta yoki 3 marta tez chertib sinab ko'ring...</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SHPARGALKA JADVAL -->
+    <section id="jadval" class="section-block">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="section-number">5</span>
+          <h2 class="section-title">Umumiy Shpargalka Jadvali</h2>
+        </div>
+        <span class="section-count">33 ta amal</span>
+      </div>
+
+      <div class="table-wrap">
+        <table class="cheat-table" id="fullCheatTable">
+          <thead>
+            <tr>
+              <th style="width:170px;">Tugma / Amal</th>
+              <th>Vazifasi</th>
+              <th>Qachon ishlatiladi</th>
+              <th>Qaysidan keyin ishlatiladi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>N</kbd></td><td>Yangi bo‘sh hujjat ochadi.</td><td>Yangi ish boshlaganda.</td><td>Word ochilgandan keyin istalgan vaqtda.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>O</kbd></td><td>Saqlangan hujjatni ochadi.</td><td>Oldingi faylni davom ettirganda.</td><td>Word ochilgandan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Hujjatni saqlaydi.</td><td>Tez-tez, ayniqsa o‘zgarish kiritgandan keyin.</td><td>Matn yozish yoki tahrirlashdan keyin.</td></tr>
+            <tr><td><kbd>F12</kbd></td><td>Hujjatni yangi nom bilan saqlaydi.</td><td>Faylning nusxasini boshqa nom bilan saqlaganda.</td><td>Ctrl+S dan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>P</kbd></td><td>Chop etish oynasini ochadi.</td><td>Hujjatni qog‘ozga chiqarmoqchi bo‘lganda.</td><td>Hujjat saqlangandan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>W</kbd></td><td>Hujjatni yopadi.</td><td>Ishni tugatganda.</td><td>Ctrl+S dan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td><td>Oxirgi amalni bekor qiladi.</td><td>Xato qilganda yoki o‘chirilgan matnni qaytarmoqchi bo‘lganda.</td><td>Xato qilingandan darhol keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Y</kbd></td><td>Bekor qilingan amalni qaytaradi.</td><td>Ctrl+Z ni ortga qaytarmoqchi bo‘lganda.</td><td>Ctrl+Z dan keyin.</td></tr>
+            <tr><td><kbd>F4</kbd></td><td>Oxirgi amalni takrorlaydi.</td><td>Oldingi yozish yoki formatlash amalini boshqa joyda takrorlaganda.</td><td>Oxirgi amal bajarilgandan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>So‘zni hujjatdan qidiradi.</td><td>Kerakli joyni tez topmoqchi bo‘lganda.</td><td>Istalgan vaqtda.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>H</kbd></td><td>So‘zni topib, boshqasiga almashtiradi.</td><td>Bir xil so‘zni hamma joyda o‘zgartirmoqchi bo‘lganda.</td><td>Ctrl+F dan keyin yoki o‘zi.</td></tr>
+            <tr><td><kbd>F1</kbd></td><td>Yordam oynasini ochadi.</td><td>Biror funksiya nimaga kerakligini bilmasangiz.</td><td>Istalgan vaqtda.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>B</kbd></td><td>Matnni qalin qiladi.</td><td>Sarlavha yoki muhim so‘zni ajratmoqchi bo‘lganda.</td><td>Matnni belgilagandan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>I</kbd></td><td>Matnni qiyshiq (kursiv) qiladi.</td><td>Chet tilidagi so‘z yoki iqtibosni ajratganda.</td><td>Matnni belgilagandan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>U</kbd></td><td>Matn ostiga chiziq tortadi.</td><td>Muhim joyni belgilash kerak bo‘lganda (rasmiy hujjatda kam ishlatiladi).</td><td>Matnni belgilagandan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>E</kbd></td><td>Matnni o‘rtaga tekislaydi.</td><td>Sarlavha yoki imzo uchun.</td><td>Matnni belgilagandan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>L</kbd></td><td>Matnni chapga tekislaydi.</td><td>Oddiy matn uchun.</td><td>Matnni belgilagandan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>R</kbd></td><td>Matnni o‘ngga tekislaydi.</td><td>Sana yoki imzoni o‘ng tomonga qo‘yganda.</td><td>Matnni belgilagandan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>J</kbd></td><td>Matnni ikki chetga teng tekislaydi.</td><td>Ariza yoki rasmiy matn uchun.</td><td>Matnni belgilagandan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>Tanlangan matnni nusxalaydi.</td><td>Matnni boshqa joyga nusxa qilmoqchi bo‘lganda.</td><td>Matnni belgilagandan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>X</kbd></td><td>Tanlangan matnni kesib oladi.</td><td>Matnni boshqa joyga ko‘chirmoqchi bo‘lganda.</td><td>Matnni belgilagandan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>V</kbd></td><td>Nusxalangan yoki kesilgan matnni kursor turgan joyga qo‘yadi.</td><td>Matnni yangi joyga joylashtirmoqchi bo‘lganda.</td><td>Ctrl+C yoki Ctrl+X dan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>A</kbd></td><td>Hujjatning hammasini tanlaydi.</td><td>Hammasini birdan o‘zgartirmoqchi bo‘lganda.</td><td>Istalgan vaqtda.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Backspace</kbd></td><td>Kursor oldidagi so‘zni o‘chiradi.</td><td>Butun so‘zni bir marta o‘chirmoqchi bo‘lganda.</td><td>Xato yozilgandan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd>+<kbd>Enter</kbd></td><td>Yangi sahifa boshlaydi.</td><td>Yangi sahifadan yozmoqchi bo‘lganda (masalan, ilova).</td><td>Joriy sahifa matni tugagandan keyin.</td></tr>
+            <tr><td><kbd>Chap tugma</kbd></td><td>Sichqoncha bosilgan joyga kursorni qo‘yadi.</td><td>Shu joydan yozish yoki tahrirlashni davom ettirganda.</td><td>Istalgan vaqtda.</td></tr>
+            <tr><td><kbd>2 marta bosish</kbd></td><td>Bitta so‘zni tanlaydi.</td><td>So‘zni tez belgilash uchun.</td><td>Sichqoncha so‘z ustida turganda.</td></tr>
+            <tr><td><kbd>3 marta bosish</kbd></td><td>Butun abzatsni tanlaydi.</td><td>Abzatsni to‘liq belgilash uchun.</td><td>Sichqoncha abzats ichida turganda.</td></tr>
+            <tr><td><kbd>Qator chetida</kbd></td><td>Bitta qatorni tanlaydi.</td><td>Qatorni o‘chirish yoki ko‘chirish uchun.</td><td>Sichqoncha matn chap chetiga yetganda.</td></tr>
+            <tr><td><kbd>Shift</kbd> + bosish</td><td>Sichqoncha va bosilgan joy orasini tanlaydi.</td><td>Uzun matn qismini belgilaganda.</td><td>Sichqoncha boshlang‘ich joyda turganda.</td></tr>
+            <tr><td><kbd>Ctrl</kbd> + bosish</td><td>Bitta gapni belgilaydi.</td><td>Gapni tez belgilash uchun.</td><td>Ctrl tugmasi bosib turilganda.</td></tr>
+            <tr><td><kbd>G‘ildirak</kbd></td><td>Hujjatni yuqoriga yoki pastga suradi.</td><td>Hujjatni tez ko‘zdan kechirganda.</td><td>Hujjat ochilgandan keyin.</td></tr>
+            <tr><td><kbd>Ctrl</kbd> + g‘ildirak</td><td>Matnni kattalashtiradi yoki kichraytiradi.</td><td>Matnni yaqindan ko‘rmoqchi bo‘lganda.</td><td>G‘ildirak aylantirishdan keyin (Ctrl bosib turgan holda).</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- O'QITUVCHI BO'LIMI -->
+    <div class="teacher-only section-block" style="background:#0e121a; border:1px solid #f59e0b; border-radius:12px; padding:1.5rem; margin-bottom:2rem;">
+      <div style="display:flex; align-items:center; gap:0.5rem; color:#f59e0b; font-weight:700; margin-bottom:0.75rem;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>O'qituvchi uchun metodik savol-javoblar (Dars davomida blitz-so'rov)</span>
+      </div>
+      <ol style="margin-left:1.5rem; line-height:1.8; font-size:0.88rem; color:#cbd5e1;">
+        <li><strong>Ctrl+S bilan F12 farqi:</strong> Ctrl+S mavjud fayl ustiga o'zgarishni yozadi. F12 esa yangi fayl nomi berib nusxa saqlash oynasini ochadi.</li>
+        <li><strong>Ctrl+Z va Ctrl+Y munosabati:</strong> Ctrl+Z amalni bekor qiladi, Ctrl+Y bekor qilinganini qaytaradi.</li>
+        <li><strong>F4 amali:</strong> Oxirgi qilingan formatlash yoki amalni yangi joyda takrorlaydi.</li>
+        <li><strong>Sichqoncha bilan bitta gapni tanlash:</strong> Ctrl tugmasini bosib turib gap ustiga 1 marta chap tugma chertiladi.</li>
+        <li><strong>Shift+chertish vazifasi:</strong> Kursor turgan joydan yangi chertilgan nuqtagacha bo'lgan barcha matn oraliq tarzida belgilanadi.</li>
+      </ol>
+    </div>
+
+    <!-- CTA TESTGA CHAQIRUV -->
+    <section class="cta-card">
+      <h2 class="cta-title">Mavzuni to‘liq o‘zlashtirdingizmi?</h2>
+      <p class="cta-desc">
+        O‘rgangan tezkor klavishlaringizni 20 talik interaktiv test orqali sinab ko‘ring. Natija darhol hisoblanadi va o‘qituvchiga yuboriladi.
+      </p>
+      <a href="./test.html" class="cta-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        <span>Bilimni Sinash Testini Boshlash (20 ta savol)</span>
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    <div class="container">
+      <p>Shahrisabz Tibbiyot Texnikumi — "Tibbiyotda axborot texnologiyalari" (TAT) fani</p>
+      <p style="margin-top:0.35rem; color:var(--text-subtle);">O'qituvchi: O.Z. Napasov • 2026-2027 o'quv yili</p>
+    </div>
+  </footer>
+
+  <script>
+    // Qidiruv filtri
+    function filterShortcuts(query) {
+      var q = query.toLowerCase().trim();
+      var cards = document.querySelectorAll('.shortcut-card');
+      cards.forEach(function(card) {
+        var text = (card.getAttribute('data-shortcut') || '') + ' ' + card.innerText.toLowerCase();
+        if (!q || text.indexOf(q) !== -1) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      // Jadvalni ham filtrlaymiz
+      var rows = document.querySelectorAll('#fullCheatTable tbody tr');
+      rows.forEach(function(row) {
+        var text = row.innerText.toLowerCase();
+        if (!q || text.indexOf(q) !== -1) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    // Trenajyor tablarini almashtirish
+    function switchTrainer(tab) {
+      var tabs = document.querySelectorAll('.trainer-tab');
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      if (tab === 'keyboard') {
+        tabs[0].classList.add('active');
+        document.getElementById('keyboardTrainer').style.display = 'block';
+        document.getElementById('mouseTrainer').style.display = 'none';
+      } else {
+        tabs[1].classList.add('active');
+        document.getElementById('keyboardTrainer').style.display = 'none';
+        document.getElementById('mouseTrainer').style.display = 'block';
+      }
+    }
+
+    // Trenajyor stillarini qo'llash
+    function applyTrainerStyle(command) {
+      document.execCommand(command, false, null);
+      var editor = document.getElementById('trainerEditor');
+      editor.focus();
+      updateLastCombo('Tugma orqali: ' + command.toUpperCase(), 'Formatlandi');
+    }
+
+    function applyTrainerAlign(align) {
+      var map = { 'left': 'justifyLeft', 'center': 'justifyCenter', 'right': 'justifyRight', 'justify': 'justifyFull' };
+      document.execCommand(map[align], false, null);
+      var editor = document.getElementById('trainerEditor');
+      editor.focus();
+      updateLastCombo('Tekislash: ' + align.toUpperCase(), 'Tekislandi');
+    }
+
+    function updateLastCombo(name, action) {
+      document.getElementById('lastComboName').textContent = name + ' (' + action + ')';
+      var badge = document.getElementById('comboBadge');
+      badge.textContent = 'Muvaffaqiyatli';
+      badge.style.background = 'rgba(16, 185, 129, 0.25)';
+      badge.style.color = '#34d399';
+      setTimeout(function() {
+        badge.style.background = 'rgba(255, 255, 255, 0.08)';
+        badge.style.color = 'var(--text-main)';
+      }, 2000);
+    }
+
+    // Klaviaturani tinglash
+    var editor = document.getElementById('trainerEditor');
+    editor.addEventListener('keydown', function(e) {
+      var key = e.key.toUpperCase();
+      var isCtrl = e.ctrlKey || e.metaKey;
+
+      if (isCtrl) {
+        if (key === 'B') {
+          updateLastCombo('Ctrl + B', 'Matn qalinlashtirildi');
+        } else if (key === 'I') {
+          updateLastCombo('Ctrl + I', 'Kursiv qilindi');
+        } else if (key === 'U') {
+          updateLastCombo('Ctrl + U', 'Tagiga chizildi');
+        } else if (key === 'E') {
+          e.preventDefault();
+          applyTrainerAlign('center');
+          updateLastCombo('Ctrl + E', 'O‘rtaga tekislandi');
+        } else if (key === 'L') {
+          e.preventDefault();
+          applyTrainerAlign('left');
+          updateLastCombo('Ctrl + L', 'Chapga tekislandi');
+        } else if (key === 'R') {
+          e.preventDefault();
+          applyTrainerAlign('right');
+          updateLastCombo('Ctrl + R', 'O‘ngga tekislandi');
+        } else if (key === 'J') {
+          e.preventDefault();
+          applyTrainerAlign('justify');
+          updateLastCombo('Ctrl + J', 'Ikki chetga tekislandi');
+        } else if (key === 'S') {
+          e.preventDefault();
+          updateLastCombo('Ctrl + S', 'Hujjat saqlandi');
+        } else if (key === 'ENTER') {
+          e.preventDefault();
+          updateLastCombo('Ctrl + Enter', 'Yangi sahifaga o‘tildi (Page break)');
+        } else if (key === 'Z') {
+          updateLastCombo('Ctrl + Z', 'Bekor qilindi (Undo)');
+        } else if (key === 'Y') {
+          updateLastCombo('Ctrl + Y', 'Qaytarildi (Redo)');
+        }
+      } else if (e.key === 'F12') {
+        e.preventDefault();
+        updateLastCombo('F12', 'Yangi nom bilan saqlash (Save As)');
+      } else if (e.key === 'F4') {
+        e.preventDefault();
+        updateLastCombo('F4', 'Oxirgi amal takrorlandi');
+      }
+    });
+
+    // Sichqoncha mashqini kuzatish
+    var mouseTarget = document.getElementById('mouseTargetText');
+    mouseTarget.addEventListener('mouseup', function(e) {
+      var selection = window.getSelection().toString().trim();
+      var status = document.getElementById('mouseStatusText');
+      if (!selection) return;
+
+      var words = selection.split(/\s+/);
+      if (words.length === 1 && selection.length > 1) {
+        status.innerHTML = '<strong>Ajoyib!</strong> Bitta so‘z belgilandi: "<em>' + selection + '</em>"';
+      } else if (words.length > 15) {
+        status.innerHTML = '<strong>Mukammal!</strong> Butun abzats to‘liq belgilandi (3 marta bosish).';
+      } else if (selection.endsWith('.') || selection.endsWith('!') || selection.endsWith('?')) {
+        status.innerHTML = '<strong>Juda yaxshi!</strong> Bitta butun gap belgilandi (Ctrl+bosish): "<em>' + selection.substring(0, 35) + '...</em>"';
+      } else {
+        status.innerHTML = 'Belgilangan oraliq: ' + words.length + ' ta so‘z.';
+      }
+    });
+  </script>
+</body>
+</html>

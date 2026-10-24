@@ -1,15 +1,20 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-
   "framework": null,
   "buildCommand": "",
   "installCommand": "",
   "outputDirectory": ".",
-
   "redirects": [
-    { "source": "/", "destination": "/TAT%20darslar/index.html", "permanent": false },
-    { "source": "/mundarija", "destination": "/TAT%20darslar/index.html", "permanent": false },
-
+    {
+      "source": "/",
+      "destination": "/TAT%20darslar/index.html",
+      "permanent": false
+    },
+    {
+      "source": "/mundarija",
+      "destination": "/TAT%20darslar/index.html",
+      "permanent": false
+    },
     {
       "source": "/1-dars",
       "destination": "/TAT%20darslar/1.%20Axborot/offline/1-dars.html",
@@ -79,16 +84,44 @@
       "source": "/word",
       "destination": "/TAT%20darslar/WORD%206%20darsi/index.html",
       "permanent": false
+    },
+    {
+      "source": "/10-dars",
+      "destination": "/TAT%20darslar/10.%20MS%20Word%20tezkor%20tugmalari%20va%20sichqoncha%20amallari/dars.html",
+      "permanent": false
+    },
+    {
+      "source": "/10-test",
+      "destination": "/TAT%20darslar/10.%20MS%20Word%20tezkor%20tugmalari%20va%20sichqoncha%20amallari/test.html",
+      "permanent": false
+    },
+    {
+      "source": "/tezkor-klavishlar",
+      "destination": "/TAT%20darslar/10.%20MS%20Word%20tezkor%20tugmalari%20va%20sichqoncha%20amallari/dars.html",
+      "permanent": false
+    },
+    {
+      "source": "/word-hotkeys",
+      "destination": "/TAT%20darslar/10.%20MS%20Word%20tezkor%20tugmalari%20va%20sichqoncha%20amallari/dars.html",
+      "permanent": false
     }
   ],
-
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
       ]
     }
   ]
