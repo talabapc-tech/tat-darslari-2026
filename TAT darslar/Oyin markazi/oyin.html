@@ -1,0 +1,2441 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O‘yin markazi: Kompyuter ustasi | Tibbiyotda Axborot Texnologiyalari</title>
+  <meta name="description" content="Sichqoncha va klaviatura ko‘nikmalarini o‘yin orqali mashq qilish: nishon arenasi, basketbol, sudrab tashlash, scroll, tez yozish va tezkor tugmalar. 7 bosqich, ball va sertifikat.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%23a3e635'/%3E%3Cg fill='none' stroke='%230b1204' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M7 12h3M8.5 10.5v3M14.5 13h.01M17 11h.01'/%3E%3Crect x='3.5' y='7' width='17' height='10' rx='2'/%3E%3C/g%3E%3C/svg%3E">
+  <script>
+    try {
+      if (localStorage.getItem('tat-role') === 'teacher') {
+        document.documentElement.setAttribute('data-role', 'teacher');
+      }
+    } catch (e) {}
+  </script>
+  <style>
+    :root {
+      --bg-page: #07090e;
+      --bg-card: #0e121a;
+      --bg-card-hover: #131926;
+      --bg-inset: #0a0d14;
+      --border-color: #1e2638;
+      --border-strong: #2c3750;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+
+      --lime: #a3e635;
+      --lime-dark: #65a30d;
+      --amber: #f59e0b;
+      --green: #10b981;
+      --rose: #f43f5e;
+      --sky: #38bdf8;
+      --violet: #a78bfa;
+      --star: #fbbf24;
+
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    [hidden] { display: none !important; }
+
+    html, body { overflow-x: hidden; max-width: 100vw; width: 100%; }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    button { font: inherit; color: inherit; cursor: pointer; }
+    :focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
+    kbd {
+      font-family: var(--font-mono);
+      font-size: .85em;
+      background: #1a2131;
+      border: 1px solid var(--border-strong);
+      border-bottom-width: 3px;
+      border-radius: 6px;
+      padding: .05em .45em;
+      color: var(--text-main);
+    }
+    .mono { font-family: var(--font-mono); }
+
+    /* ---------- SVG belgilar ---------- */
+    .ic { width: 1.15em; height: 1.15em; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: -.2em; }
+    .ic.fill { fill: currentColor; }
+    .tile {
+      --c: var(--lime);
+      display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+      width: 44px; height: 44px; border-radius: 12px; font-size: 1.15rem;
+      color: var(--c);
+      background: rgba(255,255,255,.04);
+      background: color-mix(in srgb, var(--c) 13%, transparent);
+      border: 1px solid color-mix(in srgb, var(--c) 28%, transparent);
+    }
+    .tile.lg { width: 60px; height: 60px; border-radius: 16px; font-size: 1.6rem; }
+    .tile.sm { width: 34px; height: 34px; border-radius: 10px; font-size: .95rem; }
+
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 1.25rem; width: 100%; }
+    .narrow { max-width: 760px; }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+      min-height: 42px; padding: .55rem 1.1rem; border-radius: 10px; border: 1px solid transparent;
+      font-weight: 650; font-size: .93rem; text-decoration: none; white-space: nowrap;
+      transition: background .15s ease, border-color .15s ease, filter .15s ease;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn.primary { background: var(--lime); color: #0b1204; }
+    .btn.primary:hover { filter: brightness(1.08); }
+    .btn.ghost { background: var(--bg-card); border-color: var(--border-color); color: var(--text-main); }
+    .btn.ghost:hover { background: var(--bg-card-hover); border-color: var(--border-strong); }
+    .btn.danger { background: var(--rose); color: #fff; }
+    .btn.danger:hover { filter: brightness(1.08); }
+    .btn.big { min-height: 48px; padding: .7rem 1.6rem; font-size: 1rem; }
+    .btn:disabled { opacity: .45; cursor: not-allowed; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; }
+
+    /* ---------- Top bar ---------- */
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(7, 9, 14, .92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .tb-in { display: flex; align-items: center; gap: .9rem; min-height: 60px; }
+    .tb-back { display: inline-flex; align-items: center; gap: .4rem; color: var(--text-muted); text-decoration: none; font-size: .88rem; font-weight: 600; white-space: nowrap; border-radius: 8px; padding: .3rem .4rem; margin-left: -.4rem; }
+    .tb-back:hover { color: var(--text-main); }
+    .tb-sep { width: 1px; height: 22px; background: var(--border-color); }
+    .tb-brand { display: flex; align-items: center; gap: .55rem; font-weight: 700; font-size: 1rem; white-space: nowrap; }
+    .brand-mark { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 9px; background: var(--lime); color: #0b1204; font-size: .95rem; }
+    .tb-spacer { flex: 1; }
+    .tb-score { display: flex; align-items: center; gap: .75rem; }
+    .tb-rank { display: inline-flex; align-items: center; gap: .35rem; font-size: .82rem; font-weight: 700; padding: .22rem .6rem; border-radius: 999px; background: rgba(163,230,53,.1); border: 1px solid rgba(163,230,53,.25); color: var(--lime); white-space: nowrap; }
+    .tb-total { font-family: var(--font-mono); font-size: .85rem; color: var(--text-muted); white-space: nowrap; }
+    .tb-total b { color: var(--text-main); font-size: 1rem; }
+    .tb-bar { width: 90px; height: 6px; border-radius: 99px; background: #1a2131; overflow: hidden; }
+    .tb-bar i { display: block; height: 100%; width: 0; background: var(--lime); transition: width .6s ease; }
+    .tb-user { display: flex; align-items: center; gap: .5rem; min-width: 0; padding-left: .85rem; border-left: 1px solid var(--border-color); }
+    .avatar { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: #1a2131; border: 1px solid var(--border-strong); font-size: .74rem; font-weight: 700; color: var(--text-main); flex-shrink: 0; }
+    .tb-user div { min-width: 0; line-height: 1.2; }
+    .tb-user b { display: block; font-size: .84rem; font-weight: 650; max-width: 170px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .tb-user small { display: block; font-size: .72rem; color: var(--text-subtle); }
+    .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 10px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-muted); font-size: 1rem; flex-shrink: 0; }
+    .icon-btn:hover { color: var(--text-main); border-color: var(--border-strong); }
+
+    /* ---------- Screens ---------- */
+    .screen { display: none; padding: 1.25rem 0 3rem; }
+    .screen.on { display: block; animation: fadeIn .22s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+    /* ---------- Kirish ---------- */
+    .login-wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3rem; align-items: center; min-height: calc(100vh - 120px); }
+    .eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--lime); }
+    .login-copy h1 { font-size: clamp(2.2rem, 5vw, 3.3rem); line-height: 1.08; letter-spacing: -.02em; margin: .6rem 0 .8rem; }
+    .login-copy > p { color: var(--text-muted); font-size: 1.05rem; max-width: 500px; }
+    .feat { list-style: none; display: grid; gap: .95rem; margin-top: 1.75rem; }
+    .feat li { display: flex; gap: .85rem; align-items: center; }
+    .feat b { display: block; font-size: .96rem; }
+    .feat small { display: block; color: var(--text-muted); font-size: .86rem; }
+    .login-side { display: grid; gap: 1rem; }
+    .login { padding: 1.5rem; display: grid; gap: 1rem; }
+    .login h2 { font-size: 1.2rem; }
+    .login > p { color: var(--text-muted); font-size: .88rem; margin-top: -.7rem; }
+    .field { display: grid; gap: .3rem; }
+    .field > span { font-size: .84rem; color: var(--text-muted); font-weight: 600; }
+    .field input {
+      width: 100%; min-height: 44px; padding: .6rem .85rem; border-radius: 10px; border: 1px solid var(--border-color);
+      background: var(--bg-inset); color: var(--text-main); font: inherit; font-size: .98rem; outline: none;
+    }
+    .field input:focus { border-color: var(--lime); box-shadow: 0 0 0 3px rgba(163,230,53,.15); }
+    .field small { display: none; color: var(--rose); font-size: .78rem; }
+    .field.err input { border-color: var(--rose); }
+    .field.err small { display: block; }
+    .fields-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .saved { padding: 1rem; }
+    .saved h3 { font-size: .86rem; color: var(--text-muted); font-weight: 650; margin-bottom: .5rem; }
+    .saved-list { display: grid; gap: .25rem; }
+    .saved-row { display: flex; align-items: center; gap: .65rem; width: 100%; text-align: left; padding: .45rem .5rem; border-radius: 10px; border: 0; background: transparent; }
+    .saved-row:hover { background: var(--bg-card-hover); }
+    .saved-row div { flex: 1; min-width: 0; line-height: 1.25; }
+    .saved-row b { display: block; font-size: .9rem; font-weight: 650; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .saved-row small { color: var(--text-subtle); font-size: .76rem; }
+    .saved-row > span:last-child { color: var(--text-subtle); }
+
+    /* ---------- Boshqaruv paneli ---------- */
+    .dash-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.1rem; }
+    .dash-head h1 { font-size: 1.6rem; line-height: 1.2; letter-spacing: -.01em; }
+    .dash-head p { color: var(--text-muted); font-size: .9rem; }
+    .dash-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
+
+    .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: .85rem; margin-bottom: .85rem; }
+    .kpi { padding: .95rem 1rem; display: flex; flex-direction: column; gap: .15rem; min-width: 0; }
+    .kpi-top { display: flex; align-items: center; justify-content: space-between; font-size: .8rem; color: var(--text-muted); font-weight: 600; }
+    .kpi-top .ic { color: var(--text-subtle); }
+    .kpi-v { font-size: 1.55rem; font-weight: 750; font-family: var(--font-mono); line-height: 1.25; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .kpi-v.txt { font-family: var(--font-sans); }
+    .kpi-v small { font-size: .85rem; font-weight: 500; color: var(--text-subtle); }
+    .kpi-sub { font-size: .77rem; color: var(--text-subtle); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .meter { height: 5px; border-radius: 99px; background: #1a2131; overflow: hidden; margin-top: .45rem; }
+    .meter i { display: block; height: 100%; background: var(--c, var(--lime)); border-radius: 99px; }
+
+    .next { --c: var(--lime); display: flex; align-items: center; gap: 1rem; padding: .9rem 1.1rem; margin-bottom: 1.6rem; flex-wrap: wrap; border-color: color-mix(in srgb, var(--c) 35%, var(--border-color)); }
+    .next div { flex: 1; min-width: 200px; line-height: 1.3; }
+    .next small { display: block; font-size: .78rem; color: var(--text-muted); font-weight: 600; }
+    .next b { font-size: 1.05rem; }
+
+    .sec-h { display: flex; align-items: baseline; gap: .5rem; font-size: 1.05rem; margin-bottom: .75rem; }
+    .sec-h small, .panel h2 small { font-size: .8rem; font-weight: 500; color: var(--text-subtle); }
+    .map-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: .85rem; }
+
+    .stage-card {
+      --c: var(--lime);
+      position: relative; text-align: left; display: flex; flex-direction: column; gap: .3rem;
+      padding: 1rem; border-radius: 14px; min-height: 186px;
+      background: var(--bg-card); border: 1px solid var(--border-color);
+      transition: border-color .15s ease, background .15s ease;
+    }
+    .stage-card:not(.locked):hover { background: var(--bg-card-hover); border-color: var(--c); }
+    .stage-card.locked { cursor: not-allowed; }
+    .stage-card.locked > * { opacity: .5; }
+    .stage-card.perfect { border-color: rgba(251,191,36,.45); }
+    .sc-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: .35rem; }
+    .sc-num { font-size: .74rem; font-weight: 700; color: var(--text-subtle); letter-spacing: .03em; text-transform: uppercase; }
+    .sc-line { display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
+    .sc-title { font-weight: 700; font-size: 1.04rem; line-height: 1.25; }
+    .sc-skill { color: var(--text-muted); font-size: .84rem; flex: 1; line-height: 1.4; }
+    .sc-foot { display: flex; justify-content: space-between; align-items: center; gap: .5rem; margin-top: .55rem; font-size: .82rem; }
+    .sc-foot > span:first-child { font-family: var(--font-mono); color: var(--text-muted); }
+    .sc-foot > span.txt { font-family: var(--font-sans); }
+    .sc-play { display: inline-flex; align-items: center; gap: .3rem; font-weight: 700; color: var(--c); white-space: nowrap; }
+    .sc-pc { display: inline-flex; align-items: center; gap: .25rem; font-size: .72rem; color: var(--text-subtle); }
+    .stars { display: inline-flex; gap: .1rem; color: #2c3750; white-space: nowrap; font-size: .95rem; }
+    .stars .on { color: var(--star); }
+
+    .dash-two { display: grid; grid-template-columns: 1.5fr 1fr; gap: .85rem; margin-top: 1.6rem; align-items: start; }
+    .panel { padding: 1rem 1.1rem; }
+    .panel h2 { display: flex; align-items: baseline; gap: .5rem; font-size: 1.02rem; margin-bottom: .75rem; }
+    .badge-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: .5rem; }
+    .badge { --c: var(--star); display: flex; align-items: center; gap: .6rem; padding: .45rem .55rem; border-radius: 10px; border: 1px solid var(--border-color); font-size: .85rem; font-weight: 600; line-height: 1.25; }
+    .badge small { display: block; color: var(--text-subtle); font-size: .74rem; font-weight: 400; }
+    .badge.off { --c: var(--text-subtle); }
+    .badge.off > * { opacity: .55; }
+    .badge.on { border-color: rgba(251,191,36,.4); background: rgba(251,191,36,.05); }
+    .board { list-style: none; display: grid; gap: .15rem; }
+    .board li { display: grid; grid-template-columns: 26px 1fr auto; align-items: center; gap: .5rem; padding: .4rem .5rem; border-radius: 9px; font-size: .88rem; }
+    .board li.me { background: rgba(163,230,53,.08); }
+    .board .pos { font-family: var(--font-mono); color: var(--text-subtle); font-size: .8rem; }
+    .board li:nth-child(1) .pos { color: var(--star); font-weight: 700; }
+    .board .nm { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .board .nm small { color: var(--text-subtle); margin-left: .3rem; }
+    .board .pts { font-family: var(--font-mono); font-weight: 700; }
+
+    /* ---------- Bosqich ekrani ---------- */
+    .st-top { display: flex; align-items: center; gap: .8rem; margin-bottom: .75rem; }
+    .st-titles { min-width: 0; flex: 1; }
+    .st-kicker { font-size: .78rem; color: var(--text-muted); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .st-titles h2 { font-size: 1.25rem; line-height: 1.2; }
+    .stats-bar { display: flex; justify-content: space-between; align-items: center; gap: .75rem; margin-bottom: .6rem; flex-wrap: wrap; min-height: 46px; }
+    .stats { display: flex; gap: .4rem; flex-wrap: wrap; }
+    .stat { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 9px; padding: .2rem .65rem; display: flex; flex-direction: column; min-width: 72px; }
+    .stat span { font-size: .66rem; color: var(--text-subtle); text-transform: uppercase; letter-spacing: .04em; font-weight: 700; }
+    .stat b { font-family: var(--font-mono); font-size: .98rem; line-height: 1.3; }
+    .combo { display: inline-flex; align-items: center; gap: .3rem; font-weight: 750; color: var(--amber); font-size: .92rem; opacity: 0; transition: opacity .2s; white-space: nowrap; }
+    .combo.on { opacity: 1; }
+    .combo.bump { animation: bump .25s ease; }
+    @keyframes bump { 50% { transform: scale(1.15); } }
+
+    .stage-area {
+      position: relative; height: clamp(400px, calc(100vh - 226px), 640px); border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--border-color); background: #05070b;
+      user-select: none; -webkit-user-select: none; touch-action: none;
+    }
+    .stage-area.free { touch-action: auto; background: var(--bg-card); }
+    .game-canvas { position: absolute; inset: 0; display: block; cursor: none; touch-action: none; }
+    .game-canvas.hand { cursor: grab; }
+    .st-bottom { margin-top: .85rem; }
+
+    /* kirish oynasi va sanoq */
+    .intro { position: absolute; inset: 0; display: flex; padding: 1.25rem; overflow-y: auto; background: var(--bg-inset); }
+    .intro-card { margin: auto; width: 100%; max-width: 640px; display: grid; gap: .9rem; }
+    .intro-head { display: flex; align-items: center; gap: .9rem; }
+    .intro-head h3 { font-size: 1.35rem; line-height: 1.2; }
+    .intro-head p { color: var(--text-muted); font-size: .92rem; }
+    .intro-how { list-style: none; display: grid; gap: .4rem; padding: .85rem 1rem; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-muted); font-size: .9rem; counter-reset: h; }
+    .intro-how li { display: grid; grid-template-columns: 20px 1fr; gap: .4rem; counter-increment: h; }
+    .intro-how li::before { content: counter(h); font-family: var(--font-mono); font-size: .78rem; font-weight: 700; color: var(--c, var(--lime)); line-height: 1.75; }
+    .intro-how b { color: var(--text-main); }
+    .intro .warn { display: flex; align-items: center; gap: .4rem; color: var(--amber); font-size: .84rem; }
+    .intro-foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .intro-best { display: inline-flex; align-items: center; gap: .5rem; color: var(--text-muted); font-size: .85rem; }
+    .cd { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(5,7,11,.55); z-index: 20; pointer-events: none; }
+    .cd span { font-size: 6rem; font-weight: 900; font-family: var(--font-mono); color: #fff; animation: cdPop .6s ease; }
+    .cd span.go { color: var(--lime); }
+    @keyframes cdPop { from { transform: scale(1.8); opacity: 0; } 40% { opacity: 1; } to { transform: scale(1); } }
+
+    .pop { position: absolute; z-index: 30; pointer-events: none; font-weight: 800; font-size: 1.1rem; transform: translate(-50%, -50%); text-shadow: 0 2px 6px rgba(0,0,0,.7); animation: popUp .9s ease forwards; white-space: nowrap; color: var(--lime); }
+    .pop.bad { color: var(--rose); font-size: .98rem; }
+    .pop.gold { color: var(--star); }
+    @keyframes popUp { from { opacity: 0; margin-top: 10px; } 20% { opacity: 1; } to { opacity: 0; margin-top: -40px; } }
+
+    /* pritsel sozlamalari */
+    .xhair { padding: 1rem 1.1rem; display: flex; gap: 1.1rem; align-items: center; flex-wrap: wrap; }
+    .xhair h3 { display: flex; align-items: center; gap: .4rem; font-size: .98rem; width: 100%; margin-bottom: -.25rem; }
+    .xh-prev { width: 110px; height: 110px; border-radius: 12px; border: 1px solid var(--border-color); background: #4a5058; flex-shrink: 0; }
+    .xh-ctrls { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: .45rem 1.5rem; flex: 1; min-width: 200px; }
+    .xh-row { display: flex; align-items: center; justify-content: space-between; gap: .75rem; font-size: .85rem; color: var(--text-muted); }
+    .xh-row input[type=range] { flex: 1; max-width: 170px; accent-color: var(--lime); }
+    .xh-row input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--lime); }
+    .swatches { display: flex; gap: .35rem; }
+    .sw { width: 24px; height: 24px; border-radius: 7px; border: 2px solid transparent; }
+    .sw.on { border-color: #fff; }
+
+    /* ---------- 3-bosqich ---------- */
+    .desk-bg { background: #0d1a3a; }
+    .legend { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: center; gap: .4rem 1.4rem; flex-wrap: wrap; padding: .55rem; background: rgba(0,0,0,.35); font-size: .86rem; font-weight: 650; z-index: 5; }
+    .legend span { display: inline-flex; align-items: center; gap: .35rem; }
+    .ci { --t: var(--sky); position: absolute; width: 96px; display: flex; flex-direction: column; align-items: center; gap: .25rem; padding: .5rem .3rem; border-radius: 12px; cursor: pointer; animation: ciIn .15s ease; }
+    .ci[data-t=double] { --t: var(--amber); }
+    .ci[data-t=right] { --t: var(--violet); }
+    .ci:hover { background: rgba(255,255,255,.1); }
+    .ci-ic { display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 14px; background: var(--t); color: #0b1020; font-size: 1.7rem; pointer-events: none; }
+    .ci-lb { font-size: .78rem; font-weight: 700; pointer-events: none; }
+    .ci-bar { width: 70%; height: 4px; background: rgba(255,255,255,.18); border-radius: 9px; overflow: hidden; pointer-events: none; }
+    .ci-bar i { display: block; height: 100%; background: var(--lime); animation: shrink linear forwards; transform-origin: left; }
+    .ci.ok { animation: ciOk .2s ease forwards; }
+    .ci.bad { animation: shake .3s ease; background: rgba(244,63,94,.3); }
+    .ci.gone { opacity: 0; transition: opacity .2s; }
+    @keyframes ciIn { from { transform: scale(.5); opacity: 0; } }
+    @keyframes ciOk { to { transform: scale(1.3); opacity: 0; } }
+    @keyframes shrink { from { transform: scaleX(1); } to { transform: scaleX(0); background: var(--rose); } }
+    @keyframes shake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+
+    /* ---------- 4-bosqich ---------- */
+    .zones { position: absolute; top: 0; left: 0; right: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: .6rem; padding: .75rem; z-index: 2; }
+    .dz { display: grid; justify-items: center; gap: .1rem; border: 2px dashed rgba(255,255,255,.22); border-radius: 12px; padding: .5rem .4rem; text-align: center; background: rgba(0,0,0,.28); transition: background .15s, border-color .15s, transform .15s; }
+    .dz-ic { font-size: 1.5rem; color: #cbd5e1; line-height: 1.1; }
+    .dz-t { font-weight: 700; font-size: .86rem; }
+    .dz-n { font-family: var(--font-mono); font-size: .76rem; color: var(--text-muted); }
+    .dz.hover { border-color: var(--lime); background: rgba(163,230,53,.15); transform: scale(1.03); }
+    .dz.ok { border-color: var(--green); background: rgba(16,185,129,.25); }
+    .dz.bad { border-color: var(--rose); background: rgba(244,63,94,.25); animation: shake .3s ease; }
+    .desk-hint { position: absolute; bottom: .8rem; left: 0; right: 0; text-align: center; color: rgba(255,255,255,.4); font-size: .84rem; pointer-events: none; }
+    .file { position: absolute; width: 112px; padding: .45rem .3rem; border-radius: 12px; text-align: center; cursor: grab; touch-action: none; z-index: 3; transition: transform .12s ease; }
+    .file:hover { background: rgba(255,255,255,.08); }
+    .file.in { animation: ciIn .2s ease; }
+    .file.dragging { cursor: grabbing; z-index: 10; transform: scale(1.06) rotate(-2deg); background: rgba(163,230,53,.12); outline: 1px solid rgba(163,230,53,.5); }
+    .file.back { transition: left .3s ease, top .3s ease; }
+    .file.gone { transform: scale(0); opacity: 0; transition: transform .25s ease, opacity .25s ease; }
+    .f-ic { position: relative; display: block; width: 46px; height: 54px; margin: 0 auto .15rem; color: #e2e8f0; pointer-events: none; }
+    .f-ic .ic { width: 100%; height: 100%; stroke-width: 1.3; fill: rgba(255,255,255,.08); }
+    .f-ext { position: absolute; left: 50%; bottom: 7px; transform: translateX(-50%); padding: 0 .28rem; border-radius: 4px; background: var(--fc); color: #fff; font-family: var(--font-mono); font-size: .6rem; font-weight: 800; line-height: 1.4; text-transform: uppercase; }
+    .f-nm { font-size: .74rem; font-weight: 650; word-break: break-all; pointer-events: none; line-height: 1.25; }
+
+    /* ---------- 5-bosqich ---------- */
+    .hunt { position: absolute; inset: 0; display: flex; flex-direction: column; }
+    .hunt-top { padding: .7rem 1rem; border-bottom: 1px solid var(--border-color); background: var(--bg-inset); display: flex; justify-content: space-between; gap: .5rem 1rem; flex-wrap: wrap; align-items: center; }
+    .hunt-q { font-size: 1rem; }
+    .hunt-q b { color: var(--lime); }
+    .hq-r { font-family: var(--font-mono); font-size: .8rem; color: var(--text-subtle); margin-right: .35rem; }
+    .hunt-tip { display: inline-flex; align-items: center; gap: .35rem; font-size: .8rem; color: var(--text-subtle); }
+    .hunt-list { flex: 1; overflow-y: auto; overscroll-behavior: contain; }
+    .hrow { display: grid; grid-template-columns: 44px 1.6fr 90px 1.1fr 70px; gap: .5rem; padding: .58rem 1rem; border-bottom: 1px solid #141a27; font-size: .9rem; cursor: pointer; align-items: center; }
+    .hrow:nth-child(even) { background: rgba(255,255,255,.015); }
+    .hrow:hover { background: rgba(163,230,53,.08); }
+    .hrow .h-n { color: var(--text-subtle); font-family: var(--font-mono); font-size: .78rem; }
+    .hrow .h-k { font-family: var(--font-mono); color: var(--sky); }
+    .hrow .h-dep, .hrow .h-age { color: var(--text-muted); font-size: .84rem; }
+    .hrow.head, .hrow.head:hover { position: sticky; top: 0; z-index: 2; background: var(--bg-card); cursor: default; padding-top: .4rem; padding-bottom: .4rem; border-bottom-color: var(--border-color); }
+    .hrow.head span { font-family: var(--font-sans); font-size: .7rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--text-subtle); }
+    .hrow.ok { background: rgba(16,185,129,.3) !important; }
+    .hrow.bad { background: rgba(244,63,94,.28) !important; animation: shake .3s ease; }
+
+    /* ---------- 6-bosqich ---------- */
+    .typing { position: absolute; inset: 0; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: .85rem; }
+    .race { display: grid; gap: .4rem; margin-top: auto; }
+    .lane { display: grid; grid-template-columns: 130px 1fr; align-items: center; gap: .6rem; }
+    .lane-lb { display: inline-flex; align-items: center; gap: .35rem; font-size: .78rem; color: var(--text-muted); font-weight: 650; }
+    .track { position: relative; height: 34px; border-radius: 9px; background: repeating-linear-gradient(90deg, #1a2131 0 18px, #141a27 18px 36px); border-right: 6px solid; border-image: repeating-linear-gradient(0deg, #fff 0 6px, #000 6px 12px) 6; }
+    .car { position: absolute; top: 50%; left: 0; width: 46px; height: 23px; transform: translateY(-50%); transition: left .25s linear; color: var(--lime); }
+    .car.ghost { color: #94a3b8; }
+    .car .ic { display: block; width: 100%; height: 100%; }
+    .type-text { font-family: var(--font-mono); font-size: clamp(1rem, 2.4vw, 1.2rem); line-height: 1.85; padding: .9rem 1rem; background: var(--bg-inset); border: 1px solid var(--border-color); border-radius: 12px; white-space: pre-wrap; word-break: break-word; color: var(--text-subtle); }
+    .type-text span.ok { color: var(--text-main); }
+    .type-text span.bad { color: #fff; background: rgba(244,63,94,.65); border-radius: 3px; }
+    .type-text span.cur { box-shadow: inset 0 -3px 0 var(--lime); color: var(--text-main); animation: blink 1s steps(2) infinite; }
+    @keyframes blink { 50% { box-shadow: inset 0 -3px 0 transparent; } }
+    .type-input { width: 100%; resize: none; padding: .75rem .9rem; border-radius: 12px; border: 1px solid var(--border-color); background: var(--bg-inset); color: var(--text-main); font-family: var(--font-mono); font-size: 1.02rem; outline: none; }
+    .type-input:focus { border-color: var(--lime); box-shadow: 0 0 0 3px rgba(163,230,53,.15); }
+    .type-note { display: flex; align-items: center; gap: .35rem; font-size: .8rem; color: var(--text-subtle); margin-bottom: auto; }
+
+    /* ---------- 7-bosqich ---------- */
+    .quiz { position: absolute; inset: 0; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: .85rem; }
+    .q-dots { display: flex; gap: .35rem; flex-wrap: wrap; }
+    .q-dots i { width: 26px; height: 8px; border-radius: 9px; background: #1e2638; }
+    .q-dots i.cur { background: var(--sky); }
+    .q-dots i.ok { background: var(--green); }
+    .q-dots i.bad { background: var(--rose); }
+    .q-timer { height: 6px; border-radius: 9px; background: #1a2131; overflow: hidden; }
+    .q-timer i { display: block; height: 100%; width: 100%; background: var(--lime); }
+    .q-card { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: .85rem; padding: 1rem 0; }
+    .q-kind { display: inline-flex; align-items: center; gap: .4rem; font-size: .8rem; font-weight: 750; letter-spacing: .04em; text-transform: uppercase; color: var(--sky); }
+    .q-text { font-size: clamp(1.15rem, 3vw, 1.55rem); font-weight: 750; max-width: 720px; line-height: 1.3; }
+    .q-keys { font-size: 1.5rem; display: flex; gap: .5rem; align-items: center; }
+    .q-keys kbd { font-size: 1.3rem; padding: .25rem .8rem; min-width: 56px; }
+    .q-hint { color: var(--text-subtle); font-size: .85rem; }
+    .q-opts { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; width: 100%; max-width: 760px; }
+    .q-opt { text-align: left; display: flex; align-items: center; gap: .65rem; padding: .8rem .95rem; border-radius: 12px; background: var(--bg-inset); border: 1px solid var(--border-color); font-size: .94rem; font-weight: 600; transition: border-color .15s, background .15s; }
+    .q-opt:hover:not(:disabled) { border-color: var(--sky); background: #0f1724; }
+    .q-opt.ok { border-color: var(--green); background: rgba(16,185,129,.18); }
+    .q-opt.bad { border-color: var(--rose); background: rgba(244,63,94,.18); }
+    .q-opt:disabled { cursor: default; }
+    .q-fb { display: flex; align-items: center; justify-content: center; gap: .4rem; min-height: 1.6em; font-weight: 750; }
+    .q-fb.ok { color: var(--green); }
+    .q-fb.bad { color: var(--rose); }
+
+    /* ---------- Modal oynalar ---------- */
+    .modal { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 1rem; background: rgba(3,5,9,.78); backdrop-filter: blur(4px); }
+    .modal.on { display: flex; }
+    #confirm { z-index: 120; }
+    .modal-card { --c: var(--lime); width: 100%; max-width: 480px; max-height: calc(100vh - 2rem); overflow-y: auto; padding: 1.4rem; border-radius: 16px; background: var(--bg-card); border: 1px solid var(--border-color); animation: modalIn .2s ease; }
+    .modal-card.sm { max-width: 400px; }
+    @keyframes modalIn { from { transform: translateY(8px); opacity: 0; } }
+    .r-head { display: flex; align-items: center; gap: .8rem; }
+    .r-title { font-weight: 750; font-size: 1.12rem; line-height: 1.2; }
+    .r-sub { color: var(--text-muted); font-size: .84rem; }
+    .r-main { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 1rem 0 .8rem; padding: .8rem 1rem; border-radius: 12px; background: var(--bg-inset); }
+    .r-stars { display: inline-flex; gap: .2rem; font-size: 1.75rem; }
+    .rs { color: #2c3750; display: inline-flex; }
+    .rs.on { color: var(--star); animation: starIn .4s ease backwards; }
+    @keyframes starIn { from { transform: scale(2) rotate(-30deg); opacity: 0; } }
+    .r-score b { font-family: var(--font-mono); font-size: 2rem; line-height: 1; }
+    .r-score span { color: var(--text-muted); margin-left: .3rem; font-size: .86rem; }
+    .r-rec, .r-best { display: flex; align-items: center; gap: .35rem; font-size: .86rem; margin-bottom: .6rem; }
+    .r-rec { color: var(--star); font-weight: 700; }
+    .r-best { color: var(--text-subtle); }
+    .r-lines { list-style: none; display: grid; margin-bottom: .9rem; font-size: .88rem; }
+    .r-lines li { display: flex; justify-content: space-between; gap: 1rem; padding: .32rem 0; border-bottom: 1px solid var(--border-color); color: var(--text-muted); }
+    .r-lines li:last-child { border-bottom: 0; }
+    .r-lines b { color: var(--text-main); font-weight: 650; text-align: right; }
+    .r-badges { display: grid; gap: .4rem; margin-bottom: .8rem; }
+    .r-next { display: flex; gap: .4rem; color: var(--amber); font-size: .85rem; margin-bottom: .8rem; }
+    .r-btns { display: flex; gap: .5rem; justify-content: flex-end; flex-wrap: wrap; }
+    .c-text { color: var(--text-muted); font-size: .92rem; margin-top: .35rem; }
+    .c-title { font-weight: 750; font-size: 1.08rem; }
+
+    /* ---------- Sertifikat ---------- */
+    .cert { border: 1px solid var(--border-strong); border-radius: 16px; padding: 8px; background: var(--bg-card); }
+    .cert-in { border: 1px solid rgba(163,230,53,.35); border-radius: 10px; padding: 1.9rem 1.6rem 1.4rem; text-align: center; }
+    .cert-mark { display: inline-flex; margin-bottom: .6rem; }
+    .cert-k { font-size: .76rem; color: var(--text-subtle); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; }
+    .cert h1 { font-size: clamp(1.9rem, 6vw, 2.7rem); letter-spacing: .16em; margin: .35rem 0 .05rem; color: var(--lime); }
+    .cert-sub { color: var(--text-muted); }
+    .cert-name { font-size: clamp(1.5rem, 5vw, 2rem); font-weight: 750; margin-top: 1.1rem; line-height: 1.2; }
+    .cert-grp { color: var(--text-muted); }
+    .cert-rank { display: inline-flex; align-items: center; gap: .4rem; margin: .8rem 0 .9rem; font-size: 1rem; font-weight: 750; padding: .32rem .95rem; border-radius: 999px; background: rgba(163,230,53,.1); border: 1px solid rgba(163,230,53,.35); color: var(--lime); }
+    .cert-tbl { width: 100%; border-collapse: collapse; margin: .25rem 0 .9rem; font-size: .9rem; text-align: left; }
+    .cert-tbl td { padding: .4rem .35rem; border-bottom: 1px solid var(--border-color); }
+    .cert-tbl td:first-child { width: 30px; color: var(--text-subtle); }
+    .cert-tbl td:last-child, .cert-tbl td:nth-child(3) { text-align: right; white-space: nowrap; }
+    .cert-tbl td:nth-child(3) { font-family: var(--font-mono); }
+    .cert-total { font-size: 1.1rem; }
+    .cert-total b { font-family: var(--font-mono); font-size: 1.45rem; color: var(--lime); }
+    .cert-badges { display: flex; flex-wrap: wrap; gap: .4rem; justify-content: center; margin-top: .85rem; }
+    .cert-badges .badge { padding: .25rem .6rem; font-size: .8rem; }
+    .cert-foot { display: flex; justify-content: space-between; margin-top: 1.2rem; color: var(--text-subtle); font-size: .8rem; flex-wrap: wrap; gap: .5rem; }
+    .cert-actions { display: flex; gap: .6rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap; }
+    .cert-note { text-align: center; color: var(--text-subtle); font-size: .85rem; margin-top: .7rem; }
+
+    .toast { position: fixed; left: 50%; bottom: 1.5rem; transform: translate(-50%, 30px); opacity: 0; z-index: 200; background: #1a2131; border: 1px solid var(--border-strong); padding: .6rem 1rem; border-radius: 10px; font-weight: 600; font-size: .9rem; transition: all .25s ease; pointer-events: none; max-width: calc(100vw - 2rem); text-align: center; }
+    .toast.on { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (max-width: 960px) {
+      .login-wrap { grid-template-columns: 1fr; gap: 1.5rem; min-height: 0; padding-top: .5rem; }
+      .kpis { grid-template-columns: repeat(2, 1fr); }
+      .dash-two { grid-template-columns: 1fr; }
+      .tb-bar { display: none; }
+    }
+    @media (max-width: 760px) {
+      .tb-sep, .tb-brand b, .tb-user div { display: none; }
+      .tb-user { padding-left: 0; border-left: 0; }
+      .q-opts { grid-template-columns: 1fr; }
+      .hrow { grid-template-columns: 32px 1.5fr 70px; }
+      .hrow .h-dep, .hrow .h-age { display: none; }
+      .lane { grid-template-columns: 84px 1fr; }
+      .zones { gap: .35rem; padding: .5rem; }
+      .dz-ic { font-size: 1.2rem; }
+      .dz-t { font-size: .74rem; }
+      .file { width: 92px; }
+      .sc-pc { display: none; }
+    }
+    @media (max-width: 520px) {
+      .container { padding: 0 1rem; }
+      .fields-row { grid-template-columns: 1fr; }
+      .tb-back span, .tb-total { display: none; }
+      .stat { min-width: 60px; padding: .2rem .5rem; }
+      .kpi-v { font-size: 1.3rem; }
+      .r-btns .btn { flex: 1; }
+      .st-top .btn span { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+
+    @media print {
+      @page { size: A4 portrait; margin: 12mm; }
+      html, body { background: #fff !important; color: #000; overflow: visible; }
+      .topbar, .cert-actions, .cert-note, .toast, .modal { display: none !important; }
+      .screen { padding: 0; animation: none !important; }
+      .container { max-width: none; padding: 0; }
+      .cert { background: #fff; border-color: #000; }
+      .cert-in { border-color: #555; }
+      .cert-in, .cert-in * { color: #000 !important; }
+      .cert-tbl td { border-bottom-color: #bbb; }
+      .cert-rank, .cert-badges .badge { background: #fff; border-color: #555; }
+      .stars .ic { color: #ccc !important; }
+      .stars .ic.on { color: #000 !important; }
+      .stars use { color: inherit !important; }
+      .tile { background: #fff; border-color: #555; }
+    }
+  </style>
+</head>
+<body>
+
+  <svg xmlns="http://www.w3.org/2000/svg" hidden>
+    <symbol id="i-gamepad" viewBox="0 0 24 24"><path d="M6 12h4M8 10v4M15 13h.01M18 11h.01"/><rect x="2" y="6" width="20" height="12" rx="2"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-crosshair" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M22 12h-4M6 12H2M12 6V2M12 22v-4"/></symbol>
+    <symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2v20M5 5c3 3 3 11 0 14M19 5c-3 3-3 11 0 14"/></symbol>
+    <symbol id="i-pointer" viewBox="0 0 24 24"><path d="m9 9 5 12 1.8-5.2L21 14 9 9z"/><path d="m7.2 2.2.8 2.9M5.1 8l-2.9-.8M14 4.1 12 6M6 12l-1.9 2"/></symbol>
+    <symbol id="i-mouse" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="6"/><path d="M12 6v4"/></symbol>
+    <symbol id="i-folder-down" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.7-.9l-.8-1.2A2 2 0 0 0 7.9 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/><path d="M12 10v6M9 13l3 3 3-3"/></symbol>
+    <symbol id="i-list-search" viewBox="0 0 24 24"><path d="M21 6H3M10 12H3M10 18H3"/><circle cx="17" cy="15" r="3"/><path d="m21 19-1.9-1.9"/></symbol>
+    <symbol id="i-keyboard" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 13h.01M10 13h.01M14 13h.01M18 13h.01M8 16h8"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"/></symbol>
+    <symbol id="i-volume-x" viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="m22 9-6 6M16 9l6 6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m6 3 14 9-14 9V3z"/></symbol>
+    <symbol id="i-retry" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-printer" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+    <symbol id="i-chevrons" viewBox="0 0 24 24"><path d="m17 11-5-5-5 5M17 18l-5-5-5 5"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3z"/></symbol>
+    <symbol id="i-medal" viewBox="0 0 24 24"><circle cx="12" cy="15" r="6"/><path d="M8.5 9.8 5 2h4l3 6 3-6h4l-3.5 7.8"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.12"/></symbol>
+    <symbol id="i-crown" viewBox="0 0 24 24"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zM5 20h14"/></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.09-3.09a2 2 0 0 0-2.82 0L6 21"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.7-.9l-.8-1.2A2 2 0 0 0 7.9 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="currentColor"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3zM12 9v4M12 17h.01"/></symbol>
+    <symbol id="i-car" viewBox="0 0 48 24"><path fill="currentColor" stroke="none" d="M2 16c0-2.2 1.3-3.6 3.4-4l6.6-1.2 6.6-5.4c.7-.6 1.5-.9 2.4-.9h9.4c1 0 1.9.4 2.6 1.1l5.5 5.3 5 1c1.9.4 3 1.6 3 3.5v3.1c0 .8-.6 1.4-1.4 1.4H3.4c-.8 0-1.4-.6-1.4-1.4z"/><circle cx="13" cy="18.5" r="4" fill="#0b0f17" stroke="currentColor" stroke-width="2"/><circle cx="36" cy="18.5" r="4" fill="#0b0f17" stroke="currentColor" stroke-width="2"/></symbol>
+  </svg>
+
+  <header class="topbar">
+    <div class="container tb-in">
+      <a class="tb-back" href="../index.html" aria-label="Mundarijaga qaytish"><svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg><span>Mundarija</span></a>
+      <span class="tb-sep"></span>
+      <div class="tb-brand"><span class="brand-mark"><svg class="ic" aria-hidden="true"><use href="#i-gamepad"/></svg></span><b>Kompyuter ustasi</b></div>
+      <div class="tb-spacer"></div>
+      <div class="tb-score" id="tb-score" hidden>
+        <div class="tb-rank" id="tb-rank"></div>
+        <div class="tb-total"><b id="tb-total">0</b> / 7000</div>
+        <div class="tb-bar"><i id="tb-bar"></i></div>
+      </div>
+      <div class="tb-user" id="tb-user" hidden></div>
+      <button class="icon-btn" id="btn-sound"></button>
+    </div>
+  </header>
+
+  <!-- ==================== KIRISH ==================== -->
+  <section class="screen" id="scr-login">
+    <div class="container login-wrap">
+      <div class="login-copy">
+        <div class="eyebrow">Tibbiyotda axborot texnologiyalari</div>
+        <h1>Kompyuter ustasi</h1>
+        <p>Sichqoncha va klaviatura ko‘nikmalarini o‘yin orqali mustahkamlang: topshiriqlarni bajaring, ball to‘plang va sertifikat oling.</p>
+        <ul class="feat">
+          <li><span class="tile" style="--c:var(--sky)"><svg class="ic" aria-hidden="true"><use href="#i-gamepad"/></svg></span><div><b>7 ta amaliy bosqich</b><small>Nishon, basketbol, fayllar, scroll, tez yozish, tezkor tugmalar</small></div></li>
+          <li><span class="tile" style="--c:var(--star)"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg></span><div><b>Ball, yulduz va unvon</b><small>Kursantdan Generalgacha ko‘tariling, nishonlarni yig‘ing</small></div></li>
+          <li><span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-trophy"/></svg></span><div><b>Yakuniy sertifikat</b><small>Barcha bosqichlarni o‘tib, natijangizni o‘qituvchiga ko‘rsating</small></div></li>
+        </ul>
+      </div>
+      <div class="login-side">
+        <form class="card login" id="login-form" autocomplete="off" novalidate>
+          <h2>Kirish</h2>
+          <p>Shu ism bilan qayta kirsangiz, natijangiz davom etadi.</p>
+          <div class="fields-row">
+            <label class="field"><span>Familiya</span><input name="fam" maxlength="40" placeholder="Masalan: Karimova"><small>Familiyani kiriting</small></label>
+            <label class="field"><span>Ism</span><input name="ism" maxlength="40" placeholder="Masalan: Dilnoza"><small>Ismni kiriting</small></label>
+          </div>
+          <label class="field"><span>Guruh</span><input name="guruh" maxlength="20" placeholder="Masalan: 101-HI"><small>Guruhni kiriting</small></label>
+          <button class="btn primary big" type="submit"><svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg>O‘yinga kirish</button>
+        </form>
+        <div class="card saved" id="saved-box" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BOSHQARUV PANELI ==================== -->
+  <section class="screen" id="scr-map">
+    <div class="container">
+      <div class="dash-head">
+        <div>
+          <h1 id="dash-hello"></h1>
+          <p id="dash-sub"></p>
+        </div>
+        <div class="dash-actions">
+          <button class="btn ghost" id="btn-switch"><svg class="ic" aria-hidden="true"><use href="#i-users"/></svg>Boshqa talaba</button>
+          <button class="btn ghost" id="btn-cert"></button>
+        </div>
+      </div>
+      <div class="kpis" id="kpis"></div>
+      <div class="card next" id="next-box"></div>
+      <h2 class="sec-h">Bosqichlar <small>Keyingi bosqich kamida bitta yulduz olinganda ochiladi. Eng yaxshi natija saqlanadi.</small></h2>
+      <div class="map-grid" id="map-grid"></div>
+      <div class="dash-two">
+        <section class="card panel">
+          <h2>Nishonlar <small id="badge-count"></small></h2>
+          <div class="badge-list" id="badge-list"></div>
+        </section>
+        <section class="card panel">
+          <h2>Reyting <small>shu kompyuterda</small></h2>
+          <ol class="board" id="board"></ol>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BOSQICH ==================== -->
+  <section class="screen" id="scr-stage">
+    <div class="container">
+      <div class="st-top">
+        <button class="btn ghost" id="btn-tomap" aria-label="Bosqichlarga qaytish"><svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg><span>Bosqichlar</span></button>
+        <span class="tile" id="st-icon"></span>
+        <div class="st-titles">
+          <h2 id="st-title"></h2>
+          <div class="st-kicker" id="st-kicker"></div>
+        </div>
+      </div>
+      <div class="stats-bar">
+        <div class="stats" id="stats"></div>
+        <div class="combo" id="combo"></div>
+      </div>
+      <div class="stage-area" id="area"></div>
+      <div class="st-bottom" id="st-bottom"><div id="st-extra"></div></div>
+    </div>
+  </section>
+
+  <!-- ==================== SERTIFIKAT ==================== -->
+  <section class="screen" id="scr-final">
+    <div class="container narrow">
+      <div class="cert" id="cert"></div>
+      <div class="cert-actions">
+        <button class="btn ghost" id="btn-final-map"><svg class="ic" aria-hidden="true"><use href="#i-arrow-left"/></svg>Bosqichlar</button>
+        <button class="btn primary" id="btn-print"><svg class="ic" aria-hidden="true"><use href="#i-printer"/></svg>Chop etish</button>
+      </div>
+      <p class="cert-note">Sertifikatni chop eting yoki skrinshot qilib o‘qituvchingizga ko‘rsating.</p>
+    </div>
+  </section>
+
+  <div class="modal" id="result" role="dialog" aria-modal="true" aria-label="Bosqich natijasi"><div class="modal-card" id="result-card"></div></div>
+  <div class="modal" id="confirm" role="alertdialog" aria-modal="true"><div class="modal-card sm" id="confirm-card"></div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ================================================================
+       Yordamchi funksiyalar
+       ================================================================ */
+    const $ = (s, el = document) => el.querySelector(s);
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+    const rand = (a, b) => a + Math.random() * (b - a);
+    const pick = a => a[Math.floor(Math.random() * a.length)];
+    const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+    const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const TAU = Math.PI * 2;
+    const FONT = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif';
+    const MONO = 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
+    const TEACHER = document.documentElement.getAttribute('data-role') === 'teacher';
+    const ic = (n, cls = '') => `<svg class="ic ${cls}" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+    const tile = (n, c, cls = '') => `<span class="tile ${cls}" style="--c:${c}">${ic(n)}</span>`;
+    const initials = p => esc(([...p.ism][0] + [...p.fam][0]).toUpperCase());
+
+    function rr(c, x, y, w, h, r) {
+      c.beginPath();
+      c.moveTo(x + r, y); c.lineTo(x + w - r, y); c.quadraticCurveTo(x + w, y, x + w, y + r);
+      c.lineTo(x + w, y + h - r); c.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+      c.lineTo(x + r, y + h); c.quadraticCurveTo(x, y + h, x, y + h - r);
+      c.lineTo(x, y + r); c.quadraticCurveTo(x, y, x + r, y);
+      c.closePath();
+    }
+
+    /* ================================================================
+       Saqlash (faqat shu brauzerda)
+       ================================================================ */
+    const KEY = 'tat-oyin-v1';
+    function blank() { return { player: null, best: {}, badges: [], at: 0, certAt: 0, others: {}, muted: false, cross: null }; }
+    function load() {
+      try {
+        const d = JSON.parse(localStorage.getItem(KEY) || 'null');
+        if (d && typeof d === 'object') return Object.assign(blank(), d, { best: d.best || {}, badges: d.badges || [], others: d.others || {} });
+      } catch (e) {}
+      return blank();
+    }
+    let DB = load();
+    function save() { try { localStorage.setItem(KEY, JSON.stringify(DB)); } catch (e) {} }
+
+    // Har talabaning natijasi alohida saqlanadi: DB hozirgi talabani, DB.others qolganlarini ushlaydi
+    const pid = p => [p.fam, p.ism, p.guruh].join('|').toLowerCase();
+    const emptyPlayer = () => ({ player: null, best: {}, badges: [], at: 0, certAt: 0 });
+    function stash() {
+      if (!DB.player) return;
+      DB.others[pid(DB.player)] = { player: DB.player, best: DB.best, badges: DB.badges, at: DB.at, certAt: DB.certAt };
+      Object.assign(DB, emptyPlayer());
+    }
+    function activate(p) {
+      stash();
+      const id = pid(p), o = DB.others[id];
+      delete DB.others[id];
+      Object.assign(DB, o || Object.assign(emptyPlayer(), { player: p }));
+      DB.at = Date.now();
+      save();
+    }
+    function roster() {
+      const list = Object.values(DB.others);
+      if (DB.player) list.push({ player: DB.player, best: DB.best, at: DB.at, me: true });
+      return list;
+    }
+
+    /* ================================================================
+       Ovoz effektlari (WebAudio, fayl kerak emas)
+       ================================================================ */
+    const SFX = (() => {
+      let ac = null;
+      function ctx() {
+        if (DB.muted) return null;
+        if (!ac) { try { ac = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { return null; } }
+        if (ac.state === 'suspended') ac.resume();
+        return ac;
+      }
+      function tone(freq, dur, type = 'sine', vol = .15, slide = 0) {
+        const a = ctx(); if (!a) return;
+        const t = a.currentTime, o = a.createOscillator(), g = a.createGain();
+        o.type = type; o.frequency.setValueAtTime(freq, t);
+        if (slide) o.frequency.exponentialRampToValueAtTime(Math.max(30, freq * slide), t + dur);
+        g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+        o.connect(g); g.connect(a.destination); o.start(t); o.stop(t + dur + .02);
+      }
+      function noise(dur, vol = .2, freq = 1800) {
+        const a = ctx(); if (!a) return;
+        const n = Math.floor(a.sampleRate * dur), b = a.createBuffer(1, n, a.sampleRate), d = b.getChannelData(0);
+        for (let i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / n, 2);
+        const s = a.createBufferSource(), f = a.createBiquadFilter(), g = a.createGain();
+        s.buffer = b; f.type = 'lowpass'; f.frequency.value = freq; g.gain.value = vol;
+        s.connect(f); f.connect(g); g.connect(a.destination); s.start();
+      }
+      return {
+        shot() { noise(.09, .22, 2600); tone(140, .07, 'square', .04, .5); },
+        hit() { tone(1300, .06, 'square', .05); },
+        head() { tone(1750, .12, 'triangle', .12); tone(2600, .08, 'sine', .05); },
+        ok() { tone(660, .08, 'triangle', .11); setTimeout(() => tone(990, .1, 'triangle', .09), 60); },
+        bad() { tone(200, .18, 'sawtooth', .07, .6); },
+        tick() { tone(880, .07, 'sine', .12); },
+        go() { tone(1320, .2, 'triangle', .13); },
+        star() { [784, 988, 1175].forEach((f, i) => setTimeout(() => tone(f, .16, 'triangle', .11), 200 + i * 250)); },
+        rim() { tone(520, .12, 'triangle', .09, .8); },
+        board() { noise(.06, .2, 600); },
+        swish() { noise(.3, .12, 4500); },
+        bounce() { tone(110, .08, 'sine', .18, .6); },
+        key() { tone(1800, .02, 'square', .02); }
+      };
+    })();
+
+    /* ================================================================
+       Ma'lumotlar
+       ================================================================ */
+    const RANKS = [[0, 'Kursant', 'shield'], [1000, 'Serjant', 'chevrons'], [2000, 'Leytenant', 'star'], [3000, 'Kapitan', 'sparkles'], [4000, 'Mayor', 'medal'], [5000, 'Polkovnik', 'award'], [6000, 'General', 'crown']];
+
+    const BADGES = {
+      snayper: { i: 'target', t: 'Snayper', d: 'Nishon arenasida 90%+ aniqlik' },
+      headshot: { i: 'crosshair', t: 'Headshot ustasi', d: 'Bir o‘yinda 5+ headshot' },
+      swish: { i: 'ball', t: 'Swish', d: 'Basketbolda 3+ swish' },
+      raketa: { i: 'rocket', t: 'Raketa', d: '35+ WPM tezlik' },
+      xatosiz: { i: 'pen', t: 'Xatosiz', d: 'Matnni 100% aniq yozish' },
+      tezkor: { i: 'zap', t: 'Tezkor barmoqlar', d: 'Barcha tezkor tugmalar to‘g‘ri' },
+      general: { i: 'crown', t: 'Mutlaq usta', d: 'Barcha bosqichlarda uchtadan yulduz' }
+    };
+
+    const FILES = [
+      { n: 'rentgen_kokrak.jpg', k: 'img' }, { n: 'EKG_lenta.png', k: 'img' }, { n: 'MRT_bosh.jpeg', k: 'img' }, { n: 'jarohat_foto.bmp', k: 'img' },
+      { n: 'tahlil_natija.docx', k: 'doc' }, { n: 'bemor_kartasi.pdf', k: 'doc' }, { n: 'retsept.docx', k: 'doc' }, { n: 'oylik_hisobot.xlsx', k: 'doc' },
+      { n: 'yurak_urishi.mp3', k: 'music' }, { n: 'nafas_tovushi.wav', k: 'music' }, { n: 'maruza_yozuvi.m4a', k: 'music' }, { n: 'tinchlantiruvchi.ogg', k: 'music' },
+      { n: 'virus.exe', k: 'trash' }, { n: 'keygen_crack.exe', k: 'trash' }, { n: 'temp_8841.tmp', k: 'trash' }, { n: 'eski_nusxa.bak', k: 'trash' }
+    ];
+    const ZONES = [{ k: 'img', i: 'image', t: 'Rasmlar' }, { k: 'doc', i: 'folder', t: 'Hujjatlar' }, { k: 'music', i: 'music', t: 'Musiqa' }, { k: 'trash', i: 'trash', t: 'Korzina' }];
+    function fileIcon(n) {
+      const ext = n.split('.').pop().toLowerCase();
+      const col = ({ jpg: '#0284c7', jpeg: '#0284c7', png: '#0284c7', bmp: '#0284c7', docx: '#2563eb', pdf: '#dc2626', xlsx: '#059669', mp3: '#7c3aed', wav: '#7c3aed', m4a: '#7c3aed', ogg: '#7c3aed', exe: '#b91c1c' })[ext] || '#475569';
+      return `<span class="f-ic" style="--fc:${col}">${ic('file')}<span class="f-ext">${ext}</span></span>`;
+    }
+
+    const SURNAMES = ['Karimov', 'Rahimov', 'Toshmatov', 'Usmonov', 'Yusupov', 'Aliyev', 'Sobirov', 'Nazarov', 'Qodirov', 'Ergashev', 'Xolmatov', 'Mirzayev', 'Saidov', 'Jo‘rayev', 'Hamidov', 'Tursunov', 'Abdullayev', 'Rashidov'];
+    const NAMES_F = ['Dilnoza', 'Madina', 'Gulnora', 'Nilufar', 'Sevara', 'Zarina', 'Malika', 'Shahnoza', 'Mohira', 'Feruza', 'Kamola', 'Durdona'];
+    const NAMES_M = ['Aziz', 'Bekzod', 'Jasur', 'Sardor', 'Otabek', 'Doston', 'Sherzod', 'Ulug‘bek', 'Farrux', 'Akmal', 'Javohir', 'Sanjar'];
+    const DEPTS = ['Kardiologiya', 'Nevrologiya', 'Terapiya', 'Jarrohlik', 'Pediatriya', 'Travmatologiya', 'Ginekologiya', 'LOR bo‘limi', 'Endokrinologiya'];
+
+    const TEXTS = [
+      "Bemorning tana harorati 37,8 daraja, qon bosimi 120/80. Shifokor ko'proq suyuqlik ichish va to'liq dam olishni tavsiya qildi.",
+      "Hamshira har kuni ertalab bemorlar ro'yxatini tekshiradi, dori vositalarini tarqatadi va natijalarni elektron kartaga kiritadi.",
+      "Kompyuterda tez va xatosiz yozish tibbiyot xodimi uchun muhim ko'nikma: u vaqtni tejaydi va hujjatlar bilan ishlashni osonlashtiradi.",
+      "Laboratoriya tahlili tayyor: gemoglobin 128 g/l, leykotsitlar 6,4. Natijalar shifokorga elektron pochta orqali yuborildi."
+    ];
+
+    const KEYQ = [
+      { a: 'Belgilangan matndan nusxa oling (Copy)', code: 'KeyC', k: 'Ctrl + C' },
+      { a: 'Nusxalangan matnni joylashtiring (Paste)', code: 'KeyV', k: 'Ctrl + V' },
+      { a: 'Belgilangan matnni kesib oling (Cut)', code: 'KeyX', k: 'Ctrl + X' },
+      { a: 'Oxirgi amalni bekor qiling (Undo)', code: 'KeyZ', k: 'Ctrl + Z' },
+      { a: 'Bekor qilingan amalni qaytaring (Redo)', code: 'KeyY', k: 'Ctrl + Y' },
+      { a: 'Hujjatdagi hamma narsani belgilang', code: 'KeyA', k: 'Ctrl + A' },
+      { a: 'Hujjatni saqlang', code: 'KeyS', k: 'Ctrl + S' },
+      { a: 'Matnni qalin (Bold) qiling', code: 'KeyB', k: 'Ctrl + B' },
+      { a: 'Matnni kursiv (Italic) qiling', code: 'KeyI', k: 'Ctrl + I' },
+      { a: 'Matnning tagiga chizing (Underline)', code: 'KeyU', k: 'Ctrl + U' },
+      { a: 'Matn ichidan so‘z qidiring (Find)', code: 'KeyF', k: 'Ctrl + F' },
+      { a: 'Hujjatni chop etishga yuboring (Print)', code: 'KeyP', k: 'Ctrl + P' }
+    ];
+
+    // Har savolda birinchi variant to'g'ri javob (ekranda aralashtiriladi)
+    const MCQ = [
+      { q: 'Faylni yoki papkani ochish uchun sichqoncha bilan nima qilinadi?', o: ['Chap tugma 2 marta bosiladi', 'O‘ng tugma 1 marta bosiladi', 'G‘ildirak aylantiriladi', 'Chap tugma bosib turiladi'] },
+      { q: 'Kontekst menyu qanday ochiladi?', o: ['Sichqonchaning o‘ng tugmasi bosiladi', 'Chap tugma 2 marta bosiladi', 'Enter bosiladi', 'Sichqoncha silkitiladi'] },
+      { q: 'Sichqoncha g‘ildiragi asosan nima uchun kerak?', o: ['Sahifani yuqoriga-pastga aylantirish (scroll)', 'Faylni o‘chirish', 'Matnni nusxalash', 'Kompyuterni o‘chirish'] },
+      { q: '«Drag and drop» nima?', o: ['Obyektni bosib turib sudrash va boshqa joyga tashlash', 'Ikki marta tez bosish', 'Fayl nomini o‘zgartirish', 'Klaviaturada tez yozish'] },
+      { q: 'Bosh harf yozish uchun qaysi tugma bosib turiladi?', o: ['Shift', 'Ctrl', 'Alt', 'Tab'] },
+      { q: 'Caps Lock tugmasi nima qiladi?', o: ['Doimiy bosh harf rejimini yoqadi yoki o‘chiradi', 'Hujjatni saqlaydi', 'Kursorni qator boshiga olib boradi', 'Oynani yopadi'] },
+      { q: 'Backspace tugmasi nimani o‘chiradi?', o: ['Kursordan chapdagi belgini', 'Kursordan o‘ngdagi belgini', 'Butun qatorni', 'Butun hujjatni'] },
+      { q: 'Delete tugmasi nimani o‘chiradi?', o: ['Kursordan o‘ngdagi belgini', 'Kursordan chapdagi belgini', 'Faqat bo‘sh joylarni', 'Hech narsani'] },
+      { q: '10 barmoq usulida ko‘rsatkich barmoqlar qaysi tugmalarda turadi?', o: ['F va J', 'A va L', 'G va H', 'Q va P'] },
+      { q: 'Alt + Tab birikmasi nima qiladi?', o: ['Ochiq oynalar orasida almashtiradi', 'Hujjatni saqlaydi', 'Kompyuterni o‘chiradi', 'Matnni qalin qiladi'] },
+      { q: 'Win + D birikmasi nima qiladi?', o: ['Ish stolini ko‘rsatadi', 'Faylni o‘chiradi', 'Yangi papka ochadi', 'Ovozni o‘chiradi'] },
+      { q: 'Sichqoncha sezgirligi qaysi birlikda o‘lchanadi?', o: ['DPI', 'GB', 'Vatt', 'Piksel'] },
+      { q: 'So‘z ustida chap tugma 2 marta bosilsa nima bo‘ladi?', o: ['O‘sha so‘z belgilanadi', 'Butun hujjat o‘chadi', 'Hujjat saqlanadi', 'Yangi oyna ochiladi'] },
+      { q: 'Enter tugmasi matn muharririda nima qiladi?', o: ['Yangi qatorga (abzatsga) o‘tadi', 'Matnni o‘chiradi', 'Hujjatni yopadi', 'Shriftni o‘zgartiradi'] }
+    ];
+
+    /* ================================================================
+       Bosqichlar ro'yxati
+       ================================================================ */
+    const STAGES = [
+      {
+        id: 'aim', icon: 'target', title: 'Nishon arenasi', color: '#f59e0b', stars: [250, 550, 800], touch: true,
+        skill: 'Sichqonchani aniq va tez boshqarish: nishonga olish va bosish',
+        intro: '45 soniya, 3 to‘lqin. Pritselni nishonga olib boring va chap tugmani bosing!',
+        how: [
+          'Sichqonchani nishonga olib boring va <b>chap tugmani</b> bosing: bu «o‘q uzish».',
+          '<b>1-to‘lqin, Flick:</b> devordagi mishenlar kichrayib yo‘qoladi, tez bo‘ling.',
+          '<b>2-to‘lqin, Botlar:</b> qutilar ortidan chiqadi. Boshiga tegsa <b>HEADSHOT</b> (×2 ball).',
+          '<b>3-to‘lqin, Strafe:</b> chapga-o‘ngga yuguruvchi botlar.',
+          'Behuda o‘q −5 ball. <b>Aniqlik</b> yakuniy ballga ta’sir qiladi. Ketma-ket tegishlar kombo beradi.'
+        ],
+        run: runAim, extra: aimSettings
+      },
+      {
+        id: 'hoops', icon: 'ball', title: 'Basketbol', color: '#f97316', stars: [300, 600, 850], touch: true,
+        skill: 'Bosib turib sudrash (drag) va kuchni his qilish',
+        intro: '10 ta otish. To‘pni orqaga tortib, qo‘yib yuboring!',
+        how: [
+          'To‘pni sichqonchaning <b>chap tugmasi bilan bosib turing</b>.',
+          'Tugmani qo‘yib yubormasdan, otmoqchi bo‘lgan tomoningizga <b>teskari tomonga torting</b> (rogatka kabi).',
+          'Qancha ko‘p tortsangiz, shuncha kuchli otiladi. Nuqtalar uchish yo‘lini ko‘rsatadi.',
+          'Tushdi: +80. Halqaga tegmay tushsa <b>SWISH</b>: +40. Ketma-ket tushirsangiz seriya bonusi bor.',
+          '4-otishdan joy o‘zgaradi, 7-otishdan halqa harakatlanadi.'
+        ],
+        run: runHoops
+      },
+      {
+        id: 'clicks', icon: 'pointer', title: 'Bir, ikki yoki o‘ng', color: '#38bdf8', stars: [300, 550, 800], touch: false,
+        skill: 'Bir marta, ikki marta va o‘ng tugma bilan bosish',
+        intro: '20 ta ikonka. Har biriga to‘g‘ri usulda bosing!',
+        how: [
+          '<b>Tugma</b>: chap tugmani <b>1 marta</b> bosing.',
+          '<b>Papka</b>: chap tugmani <b>2 marta tez</b> bosing (ochish).',
+          '<b>Sozlama</b>: <b>o‘ng tugmani</b> bosing (kontekst menyu).',
+          'Ikonka ostidagi chiziq tugaguncha ulguring: vaqt tobora qisqaradi.',
+          'Noto‘g‘ri usul −15 ball. Telefonda o‘ng tugma o‘rniga uzoq bosing.'
+        ],
+        run: runClicks
+      },
+      {
+        id: 'drag', icon: 'folder-down', title: 'Fayllarni saralash', color: '#a78bfa', stars: [300, 550, 800], touch: true,
+        skill: 'Drag & drop: faylni papkaga sudrab tashlash',
+        intro: '16 ta tibbiy fayl, 70 soniya. Har birini o‘z papkasiga sudrang!',
+        how: [
+          'Faylni chap tugma bilan <b>bosib turing</b> va kerakli papka ustiga <b>sudrab olib boring</b>, keyin qo‘yib yuboring.',
+          '<b>Rasmlar</b>: .jpg .png .jpeg .bmp · <b>Hujjatlar</b>: .docx .pdf .xlsx',
+          '<b>Musiqa</b>: .mp3 .wav .m4a .ogg · <b>Korzina</b>: viruslar (.exe), vaqtinchalik (.tmp, .bak) fayllar.',
+          'Noto‘g‘ri papka −10 ball. Hammasini vaqtidan oldin saralasangiz, qolgan vaqt uchun bonus.'
+        ],
+        run: runDrag
+      },
+      {
+        id: 'scroll', icon: 'list-search', title: 'Scroll ovchisi', color: '#34d399', stars: [300, 600, 850], touch: true, free: true,
+        skill: 'Sichqoncha g‘ildiragi bilan sahifani aylantirish',
+        intro: '3 raund. Uzun ro‘yxatdan kerakli bemorni toping!',
+        how: [
+          'Yuqorida qaysi bemorni topish kerakligi yozilgan: <b>ism va karta raqami</b>.',
+          'Ro‘yxatni <b>sichqoncha g‘ildiragi</b> bilan pastga aylantiring va bemor qatoriga bosing.',
+          'Diqqat: bir xil ismli bemorlar bor, <b>karta raqamini</b> tekshiring!',
+          'Qancha tez topsangiz, shuncha ko‘p ball. Ctrl+F bu bosqichda ishlamaydi.'
+        ],
+        run: runScroll
+      },
+      {
+        id: 'type', icon: 'keyboard', title: 'Tez yozish poygasi', color: '#f472b6', stars: [200, 450, 700], touch: false, free: true,
+        skill: 'Klaviaturada tez va xatosiz yozish',
+        intro: 'Tibbiy matnni tez va xatosiz yozing. Raqibni quvib o‘ting!',
+        how: [
+          'Matnni pastdagi maydonga <b>aynan o‘zidek</b> yozing. Vaqt birinchi harfdan boshlanadi.',
+          'Yashil: to‘g‘ri, qizil: xato. Xatoni <b>Backspace</b> bilan tuzatish mumkin.',
+          'Mashinangiz raqib (25 WPM) bilan poyga qiladi. <b>WPM</b>: bir daqiqadagi so‘zlar soni.',
+          'Ball = tezlik × aniqlik. Nusxa ko‘chirib joylashtirish (paste) o‘chirilgan.'
+        ],
+        run: runType
+      },
+      {
+        id: 'keys', icon: 'zap', title: 'Tezkor tugmalar', color: '#a3e635', stars: [350, 600, 850], touch: false, free: true,
+        skill: 'Ctrl + … birikmalari va bilim savollari',
+        intro: '12 ta savol: 6 tasi amaliy (tugmalarni bosasiz), 6 tasi test.',
+        how: [
+          '<b>Amaliy topshiriq:</b> «Hujjatni saqlang» desa, haqiqatan <kbd>Ctrl</kbd> + <kbd>S</kbd> bosing.',
+          '<b>Test savoli:</b> javobni sichqoncha bilan tanlang yoki <kbd>1</kbd>–<kbd>4</kbd> raqamlarini bosing.',
+          'Har savolga 15 soniya. Qancha tez javob bersangiz, bonus shuncha katta.'
+        ],
+        run: runKeys
+      }
+    ];
+
+    /* ================================================================
+       Holat, ball, unvon
+       ================================================================ */
+    let current = null;     // { i, st, ctx }
+    let lastIndex = 0;
+
+    const bestOf = st => DB.best[st.id] || 0;
+    const starsOf = (st, sc) => st.stars.filter(t => (sc == null ? bestOf(st) : sc) >= t).length;
+    const sumBest = b => STAGES.reduce((s, st) => s + (b[st.id] || 0), 0);
+    const totalScore = () => sumBest(DB.best);
+    const totalStars = () => STAGES.reduce((s, st) => s + starsOf(st), 0);
+    const doneCount = () => STAGES.filter(st => starsOf(st) >= 1).length;
+    const rankOf = total => { let r = RANKS[0]; RANKS.forEach(x => { if (total >= x[0]) r = x; }); return r; };
+    const isUnlocked = i => TEACHER || i === 0 || starsOf(STAGES[i - 1]) >= 1;
+    const starsHtml = n => `<span class="stars">${[0, 1, 2].map(j => ic('star', 'fill' + (j < n ? ' on' : ''))).join('')}</span>`;
+    function nextStage() {
+      const i = STAGES.findIndex((st, j) => isUnlocked(j) && !starsOf(st));
+      return i >= 0 ? i : STAGES.findIndex(st => starsOf(st) < 3);
+    }
+
+    function updateHeader() {
+      const p = DB.player;
+      $('#tb-score').hidden = !p;
+      $('#tb-user').hidden = !p;
+      if (p) $('#tb-user').innerHTML = `<span class="avatar">${initials(p)}</span><div><b>${esc(p.fam)} ${esc(p.ism)}</b><small>${esc(p.guruh)}</small></div>`;
+      const tot = totalScore(), r = rankOf(tot);
+      $('#tb-total').textContent = tot;
+      $('#tb-rank').innerHTML = `${ic(r[2])} ${r[1]}`;
+      $('#tb-bar').style.width = (tot / 7000 * 100) + '%';
+      const snd = $('#btn-sound'), label = DB.muted ? 'Ovozni yoqish' : 'Ovozni o‘chirish';
+      snd.innerHTML = ic(DB.muted ? 'volume-x' : 'volume');
+      snd.title = label; snd.setAttribute('aria-label', label);
+    }
+
+    function show(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.toggle('on', s.id === id));
+      window.scrollTo(0, 0);
+    }
+
+    let toastT = 0;
+    function toast(msg) {
+      const t = $('#toast');
+      t.textContent = msg; t.classList.add('on');
+      clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 2400);
+    }
+
+    // Brauzerning confirm() oynasi o'rniga platforma uslubidagi tasdiqlash
+    function ask(title, text, okLabel) {
+      return new Promise(res => {
+        const m = $('#confirm'), c = $('#confirm-card');
+        c.innerHTML = `<div class="c-title">${esc(title)}</div><p class="c-text">${esc(text)}</p>
+          <div class="r-btns" style="margin-top:1.1rem"><button class="btn ghost" data-v="0">Davom etish</button><button class="btn danger" data-v="1">${esc(okLabel)}</button></div>`;
+        m.classList.add('on');
+        const done = v => {
+          m.classList.remove('on');
+          document.removeEventListener('keydown', onKey);
+          const inp = $('.type-input'); if (inp && !v) inp.focus();
+          res(v);
+        };
+        const onKey = e => { if (e.key === 'Escape') done(false); };
+        document.addEventListener('keydown', onKey);
+        c.querySelectorAll('[data-v]').forEach(b => b.onclick = () => done(b.dataset.v === '1'));
+        m.onclick = e => { if (e.target === m) done(false); };
+        c.querySelector('[data-v="0"]').focus();
+      });
+    }
+
+    /* ================================================================
+       Kirish ekrani
+       ================================================================ */
+    function renderLogin() {
+      const box = $('#saved-box');
+      const list = roster().sort((x, y) => (y.at || 0) - (x.at || 0)).slice(0, 5);
+      box.hidden = !list.length;
+      box.innerHTML = list.length ? `<h3>Shu kompyuterda saqlangan talabalar</h3><div class="saved-list">${list.map(o => `<button class="saved-row" type="button" data-id="${esc(pid(o.player))}">
+          <span class="avatar">${initials(o.player)}</span>
+          <div><b>${esc(o.player.fam)} ${esc(o.player.ism)}</b><small>${esc(o.player.guruh)} · ${sumBest(o.best)} ball</small></div>
+          <span>${ic('arrow-right')}</span>
+        </button>`).join('')}</div>` : '';
+      box.querySelectorAll('.saved-row').forEach(b => b.onclick = () => {
+        const o = DB.others[b.dataset.id];
+        if (o) { activate(o.player); SFX.ok(); openMap(); }
+      });
+      const form = $('#login-form');
+      form.reset();
+      form.querySelectorAll('.field').forEach(f => f.classList.remove('err'));
+      updateHeader();
+      show('scr-login');
+    }
+
+    $('#login-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const form = e.target, p = {};
+      let bad = null;
+      ['fam', 'ism', 'guruh'].forEach(k => {
+        const inp = form.elements[k];
+        p[k] = inp.value.trim().replace(/\s+/g, ' ');
+        inp.closest('.field').classList.toggle('err', !p[k]);
+        if (!p[k] && !bad) bad = inp;
+      });
+      if (bad) { bad.focus(); return; }
+      activate(p); SFX.ok();
+      openMap();
+    });
+    $('#login-form').addEventListener('input', e => {
+      const f = e.target.closest('.field');
+      if (f) f.classList.remove('err');
+    });
+
+    /* ================================================================
+       Xarita
+       ================================================================ */
+    const kpi = (icon, label, val, sub, pct, txt) => `<div class="card kpi">
+        <div class="kpi-top"><span>${label}</span>${ic(icon)}</div>
+        <div class="kpi-v ${txt ? 'txt' : ''}">${val}</div>
+        <div class="kpi-sub">${sub}</div>
+        <div class="meter"><i style="width:${clamp(pct, 0, 100)}%"></i></div>
+      </div>`;
+
+    function openMap() {
+      stopCurrent();
+      if (!DB.player) { renderLogin(); return; }
+      updateHeader();
+      const n = STAGES.length, tot = totalScore(), stars = totalStars(), done = doneCount();
+      const r = rankOf(tot), nx = RANKS.find(x => x[0] > tot);
+      const ready = TEACHER || done === n;
+
+      $('#dash-hello').textContent = `Salom, ${DB.player.ism}!`;
+      $('#dash-sub').textContent = `${DB.player.fam} ${DB.player.ism} · ${DB.player.guruh} guruhi`;
+      const cb = $('#btn-cert');
+      cb.className = 'btn ' + (ready ? 'primary' : 'ghost');
+      cb.innerHTML = ready ? `${ic('trophy')} Sertifikat` : `${ic('lock')} Sertifikat · ${done}/${n}`;
+
+      $('#kpis').innerHTML = [
+        kpi('zap', 'Umumiy ball', `${tot} <small>/ 7000</small>`, `${Math.round(tot / 70)}% to‘plandi`, tot / 70),
+        kpi('star', 'Yulduzlar', `${stars} <small>/ ${n * 3}</small>`, stars === n * 3 ? 'Hammasi yig‘ildi' : `${n * 3 - stars} ta qoldi`, stars / (n * 3) * 100),
+        kpi('gamepad', 'Bosqichlar', `${done} <small>/ ${n}</small>`, done === n ? 'Sertifikat ochildi' : `Sertifikatgacha ${n - done} ta bosqich`, done / n * 100),
+        kpi(r[2], 'Unvon', r[1], nx ? `${nx[1]} unvonigacha ${nx[0] - tot} ball` : 'Eng yuqori unvon', nx ? (tot - r[0]) / (nx[0] - r[0]) * 100 : 100, true)
+      ].join('');
+
+      const ni = nextStage(), nb = $('#next-box');
+      if (ni < 0) {
+        nb.style.setProperty('--c', 'var(--star)');
+        nb.innerHTML = `${tile('crown', 'var(--star)')}<div><small>Barcha bosqichlar a’lo bahoda</small><b>Sertifikatingiz tayyor</b></div><button class="btn primary" id="btn-next">${ic('trophy')} Sertifikat</button>`;
+        $('#btn-next').onclick = () => openFinal();
+      } else {
+        const st = STAGES[ni], played = bestOf(st) > 0;
+        nb.style.setProperty('--c', st.color);
+        nb.innerHTML = `${tile(st.icon, st.color)}<div><small>${played ? 'Natijani oshiring' : 'Keyingi bosqich'}</small><b>${ni + 1}. ${st.title}</b></div><button class="btn primary" id="btn-next">${ic(played ? 'retry' : 'play', played ? '' : 'fill')} ${played ? 'Qayta o‘ynash' : 'Boshlash'}</button>`;
+        $('#btn-next').onclick = () => openStage(ni);
+      }
+
+      $('#map-grid').innerHTML = STAGES.map((st, i) => {
+        const locked = !isUnlocked(i), best = bestOf(st), s = starsOf(st);
+        return `<button class="stage-card ${locked ? 'locked' : ''} ${s === 3 ? 'perfect' : ''}" data-i="${i}" style="--c:${st.color}" ${locked ? 'disabled title="Oldingi bosqichda kamida bitta yulduz oling"' : ''}>
+          <div class="sc-top">${tile(locked ? 'lock' : st.icon, st.color)}${starsHtml(s)}</div>
+          <div class="sc-line"><span class="sc-num">${i + 1}-bosqich</span>${st.touch ? '' : `<span class="sc-pc">${ic('monitor')} kompyuterda</span>`}</div>
+          <div class="sc-title">${st.title}</div>
+          <div class="sc-skill">${st.skill}</div>
+          <div class="sc-foot"><span class="${best ? '' : 'txt'}">${best ? best + ' / 1000' : locked ? 'Yopiq' : 'Hali o‘ynalmagan'}</span>${locked ? '' : `<span class="sc-play">${best ? ic('retry') + ' Qayta' : ic('play', 'fill') + ' O‘ynash'}</span>`}</div>
+        </button>`;
+      }).join('');
+      $('#map-grid').querySelectorAll('.stage-card').forEach(b => b.onclick = () => openStage(+b.dataset.i));
+
+      const bk = Object.entries(BADGES);
+      $('#badge-count').textContent = `${bk.filter(([k]) => DB.badges.includes(k)).length} / ${bk.length}`;
+      $('#badge-list').innerHTML = bk.map(([k, b]) => {
+        const on = DB.badges.includes(k);
+        return `<div class="badge ${on ? 'on' : 'off'}">${tile(on ? b.i : 'lock', on ? 'var(--star)' : 'var(--text-subtle)', 'sm')}<div>${b.t}<small>${b.d}</small></div></div>`;
+      }).join('');
+
+      $('#board').innerHTML = roster().sort((x, y) => sumBest(y.best) - sumBest(x.best)).slice(0, 8).map((o, i) =>
+        `<li class="${o.me ? 'me' : ''}"><span class="pos">${i + 1}</span><span class="nm">${esc(o.player.fam)} ${esc(o.player.ism)}<small>${esc(o.player.guruh)}</small></span><span class="pts">${sumBest(o.best)}</span></li>`).join('');
+      show('scr-map');
+    }
+
+    $('#btn-switch').onclick = () => {
+      stash(); save();
+      renderLogin();
+    };
+    $('#btn-cert').onclick = () => {
+      if (TEACHER || doneCount() === STAGES.length) openFinal();
+      else toast('Sertifikat barcha 7 bosqichda kamida bitta yulduz olinganda ochiladi');
+    };
+    $('#btn-sound').onclick = () => { DB.muted = !DB.muted; save(); updateHeader(); if (!DB.muted) SFX.ok(); };
+
+    /* ================================================================
+       Bosqich: kirish, ishga tushirish, yakunlash
+       ================================================================ */
+    function openStage(i) {
+      if (!isUnlocked(i)) return;
+      stopCurrent();
+      lastIndex = i;
+      const st = STAGES[i];
+      $('#st-kicker').textContent = `${i + 1}-bosqich · ${st.skill}`;
+      $('#st-title').textContent = st.title;
+      const si = $('#st-icon');
+      si.style.setProperty('--c', st.color); si.innerHTML = ic(st.icon);
+      $('#stats').innerHTML = ''; $('#combo').className = 'combo'; $('#combo').textContent = '';
+      $('.stats-bar').hidden = true;
+      const extra = $('#st-extra'); extra.innerHTML = '';
+      $('#st-bottom').hidden = !st.extra;
+      if (st.extra) st.extra(extra);
+      const area = $('#area');
+      area.className = 'stage-area free';
+      area.style.setProperty('--c', st.color);
+      area.innerHTML = `<div class="intro"><div class="intro-card">
+          <div class="intro-head">${tile(st.icon, st.color, 'lg')}<div><h3>${st.title}</h3><p>${st.intro}</p></div></div>
+          <ul class="intro-how">${st.how.map(h => `<li><span>${h}</span></li>`).join('')}</ul>
+          ${st.touch ? '' : `<p class="warn">${ic('monitor')} Bu bosqichni kompyuterda (sichqoncha va klaviatura bilan) o‘ynash tavsiya etiladi.</p>`}
+          <div class="intro-foot"><span class="intro-best">Eng yaxshi natija: <b>${bestOf(st)}</b> ${starsHtml(starsOf(st))}</span><button class="btn primary big" id="btn-go">${ic('play', 'fill')} Boshlash</button></div>
+        </div></div>`;
+      $('#btn-go').onclick = () => startStage(i);
+      show('scr-stage');
+      $('#btn-go').focus({ preventScroll: true });
+    }
+
+    function startStage(i) {
+      stopCurrent();
+      const st = STAGES[i];
+      lastIndex = i;
+      const area = $('#area');
+      $('.stats-bar').hidden = false;
+      area.className = 'stage-area' + (st.free ? ' free' : '');
+      area.innerHTML = '';
+      const ctx = makeCtx(st, area);
+      current = { i, st, ctx };
+      countdown(ctx, () => st.run(ctx));
+    }
+
+    function stopCurrent() {
+      if (current) { current.ctx.dispose(); current = null; }
+      $('#result').classList.remove('on');
+    }
+
+    function countdown(ctx, cb) {
+      const ov = document.createElement('div');
+      ov.className = 'cd'; ctx.area.appendChild(ov);
+      let n = 3;
+      const step = () => {
+        if (n > 0) { ov.innerHTML = `<span>${n}</span>`; SFX.tick(); n--; ctx.timeout(step, 650); }
+        else { ov.innerHTML = '<span class="go">GO!</span>'; SFX.go(); ctx.timeout(() => { ov.remove(); cb(); }, 420); }
+      };
+      step();
+    }
+
+    function makeCombo() {
+      let n = 0, best = 0;
+      const mult = () => n >= 10 ? 2 : n >= 5 ? 1.5 : 1;
+      function paint() {
+        const e = $('#combo');
+        e.innerHTML = n >= 2 ? `${ic('flame')} Kombo ×${n}${mult() > 1 ? ` · ball ×${mult()}` : ''}` : '';
+        e.classList.toggle('on', n >= 2);
+        e.classList.remove('bump'); void e.offsetWidth;
+        if (n >= 2) e.classList.add('bump');
+      }
+      return {
+        hit() { n++; best = Math.max(best, n); paint(); return mult(); },
+        miss() { if (n) { n = 0; paint(); } },
+        get best() { return best; }
+      };
+    }
+
+    function makeCtx(st, area) {
+      const disposers = [];
+      let done = false;
+      const ctx = {
+        area, stage: st,
+        combo: makeCombo(),
+        get done() { return done; },
+        track(fn) { disposers.push(fn); },
+        on(t, ev, fn, opt) { t.addEventListener(ev, fn, opt); disposers.push(() => t.removeEventListener(ev, fn, opt)); },
+        timeout(fn, ms) { const id = setTimeout(() => { if (!done) fn(); }, ms); disposers.push(() => clearTimeout(id)); return id; },
+        loop(fn) {
+          let last = performance.now(), id = 0;
+          const step = now => {
+            if (done) return;
+            const dt = clamp((now - last) / 1000, 0, .05); last = now;
+            fn(dt, now);
+            if (!done) id = requestAnimationFrame(step);
+          };
+          id = requestAnimationFrame(step);
+          disposers.push(() => cancelAnimationFrame(id));
+        },
+        stats(obj) {
+          $('#stats').innerHTML = Object.entries(obj).map(([k, v]) => `<div class="stat"><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join('');
+        },
+        popup(x, y, text, cls = '') {
+          const p = document.createElement('div');
+          p.className = 'pop ' + cls; p.textContent = text;
+          p.style.left = x + 'px'; p.style.top = y + 'px';
+          area.appendChild(p); setTimeout(() => p.remove(), 900);
+        },
+        toast,
+        finish(score, lines = [], badges = []) {
+          if (done) return;
+          ctx.dispose();
+          current = null;
+          showResult(st, Math.round(clamp(score, 0, 1000)), lines, badges);
+        },
+        dispose() {
+          done = true;
+          disposers.splice(0).forEach(f => { try { f(); } catch (e) {} });
+        }
+      };
+      // O'yin ketayotganda sahifa tasodifan yopilmasin (masalan, Ctrl+W bosilsa)
+      ctx.on(window, 'beforeunload', e => { e.preventDefault(); e.returnValue = ''; });
+      return ctx;
+    }
+
+    function makeCanvas(ctx, onResize) {
+      const cv = document.createElement('canvas');
+      cv.className = 'game-canvas';
+      ctx.area.appendChild(cv);
+      // onResize keyinroq ham berilishi mumkin: S.onResize = fn
+      const S = { cv, g: cv.getContext('2d'), W: 1, H: 1, dpr: 1, onResize };
+      function fit() {
+        const r = ctx.area.getBoundingClientRect();
+        const W = Math.max(1, Math.round(r.width)), H = Math.max(1, Math.round(r.height));
+        if (W === S.W && H === S.H) return;
+        S.W = W; S.H = H; S.dpr = Math.min(2, window.devicePixelRatio || 1);
+        cv.width = Math.round(W * S.dpr); cv.height = Math.round(H * S.dpr);
+        S.g.setTransform(S.dpr, 0, 0, S.dpr, 0, 0);
+        if (S.onResize) S.onResize(S);
+      }
+      S.pos = e => { const r = cv.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; };
+      fit();
+      if (window.ResizeObserver) { const ro = new ResizeObserver(fit); ro.observe(ctx.area); ctx.track(() => ro.disconnect()); }
+      else ctx.on(window, 'resize', fit);
+      ctx.on(cv, 'contextmenu', e => e.preventDefault());
+      return S;
+    }
+
+    // Canvas uchun zarrachalar va uchib ketuvchi yozuvlar
+    function makeFx() {
+      const parts = [], texts = [];
+      return {
+        burst(x, y, color, n = 14, spd = 220) {
+          for (let i = 0; i < n; i++) {
+            const a = Math.random() * TAU, v = spd * (.3 + Math.random());
+            parts.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 60, life: .45 + Math.random() * .3, t: 0, color, s: 2 + Math.random() * 3 });
+          }
+        },
+        text(x, y, str, color = '#fff', size = 18) { texts.push({ x, y, str, color, size, t: 0 }); },
+        draw(c, dt) {
+          for (let i = parts.length - 1; i >= 0; i--) {
+            const p = parts[i]; p.t += dt;
+            if (p.t > p.life) { parts.splice(i, 1); continue; }
+            p.vy += 520 * dt; p.x += p.vx * dt; p.y += p.vy * dt;
+            c.globalAlpha = 1 - p.t / p.life; c.fillStyle = p.color;
+            c.fillRect(p.x - p.s / 2, p.y - p.s / 2, p.s, p.s);
+          }
+          c.textAlign = 'center'; c.textBaseline = 'middle';
+          for (let i = texts.length - 1; i >= 0; i--) {
+            const q = texts[i]; q.t += dt;
+            if (q.t > 1) { texts.splice(i, 1); continue; }
+            const y = q.y - q.t * 45;
+            c.globalAlpha = Math.min(1, (1 - q.t) * 1.6);
+            c.font = `900 ${q.size}px ${FONT}`;
+            c.lineWidth = 4; c.strokeStyle = 'rgba(0,0,0,.75)'; c.strokeText(q.str, q.x, y);
+            c.fillStyle = q.color; c.fillText(q.str, q.x, y);
+          }
+          c.globalAlpha = 1;
+        }
+      };
+    }
+
+    function showResult(st, score, lines, badges) {
+      const i = STAGES.indexOf(st);
+      const prev = bestOf(st), rec = score > prev;
+      if (rec) DB.best[st.id] = score;
+      const fresh = badges.filter(b => !DB.badges.includes(b));
+      DB.badges.push(...fresh);
+      if (!DB.badges.includes('general') && STAGES.every(s => starsOf(s) === 3)) { DB.badges.push('general'); fresh.push('general'); }
+      const allDone = STAGES.every(x => starsOf(x) >= 1);
+      if (allDone && !DB.certAt) DB.certAt = Date.now();
+      DB.at = Date.now();
+      save(); updateHeader();
+
+      const s = starsOf(st, score);
+      const nextOk = i < STAGES.length - 1 && isUnlocked(i + 1);
+      const canCert = !nextOk && allDone;
+      const card = $('#result-card');
+      card.innerHTML = `
+        <div class="r-head">${tile(st.icon, st.color)}<div><div class="r-title">${st.title}</div><div class="r-sub">${i + 1}-bosqich yakunlandi</div></div></div>
+        <div class="r-main">
+          <div class="r-score"><b>${score}</b><span>/ 1000</span></div>
+          <div class="r-stars">${[0, 1, 2].map(j => `<span class="rs ${j < s ? 'on' : ''}" style="animation-delay:${.15 + j * .2}s">${ic('star', 'fill')}</span>`).join('')}</div>
+        </div>
+        ${rec && prev > 0 ? `<div class="r-rec">${ic('sparkles')} Yangi rekord!</div>` : prev > 0 ? `<div class="r-best">Eng yaxshi natijangiz: ${prev}</div>` : ''}
+        <ul class="r-lines">${lines.map(l => {
+          const k = l.indexOf(': ');
+          return k < 0 ? `<li><b>${esc(l)}</b></li>` : `<li><span>${esc(l.slice(0, k))}</span><b>${esc(l.slice(k + 2))}</b></li>`;
+        }).join('')}</ul>
+        ${fresh.length ? `<div class="r-badges">${fresh.map(b => `<div class="badge on">${tile(BADGES[b].i, 'var(--star)', 'sm')}<div>Yangi nishon: ${BADGES[b].t}<small>${BADGES[b].d}</small></div></div>`).join('')}</div>` : ''}
+        ${s === 0 && i < STAGES.length - 1 && !nextOk ? `<div class="r-next">${ic('lock')} <span>Keyingi bosqichni ochish uchun kamida ${st.stars[0]} ball kerak.</span></div>` : ''}
+        <div class="r-btns">
+          <button class="btn ghost" data-a="map">Bosqichlar</button>
+          <button class="btn ${nextOk || canCert ? 'ghost' : 'primary'}" data-a="retry">${ic('retry')} Qayta o‘ynash</button>
+          ${nextOk ? `<button class="btn primary" data-a="next">Keyingi ${ic('arrow-right')}</button>` : ''}
+          ${canCert ? `<button class="btn primary" data-a="cert">${ic('trophy')} Sertifikat</button>` : ''}
+        </div>`;
+      card.querySelectorAll('[data-a]').forEach(b => b.onclick = () => {
+        $('#result').classList.remove('on');
+        const a = b.dataset.a;
+        if (a === 'map') openMap();
+        else if (a === 'retry') { openStage(i); startStage(i); }
+        else if (a === 'next') openStage(i + 1);
+        else if (a === 'cert') openFinal();
+      });
+      $('#result').classList.add('on');
+      if (s > 0) SFX.star();
+      // Yozayotgan talaba tugmani tasodifan bosib yubormasligi uchun fokus biroz kechroq beriladi
+      setTimeout(() => {
+        const b = card.querySelector('.btn.primary');
+        if (b && $('#result').classList.contains('on')) b.focus();
+      }, 700);
+    }
+
+    $('#btn-tomap').onclick = async () => {
+      if (current && !current.ctx.done && !await ask('Bosqich to‘xtatilsinmi?', 'Bu urinish natijasi saqlanmaydi.', 'To‘xtatish')) return;
+      openMap();
+    };
+
+    /* ================================================================
+       Sertifikat
+       ================================================================ */
+    function openFinal() {
+      stopCurrent();
+      const p = DB.player || { fam: '', ism: '', guruh: '' };
+      const tot = totalScore(), r = rankOf(tot), d = new Date(DB.certAt || Date.now());
+      const date = `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.${d.getFullYear()}`;
+      $('#cert').innerHTML = `<div class="cert-in">
+        <div class="cert-mark">${tile('trophy', 'var(--lime)', 'lg')}</div>
+        <div class="cert-k">Shahrisabz Tibbiyot Texnikumi · Tibbiyotda axborot texnologiyalari</div>
+        <h1>SERTIFIKAT</h1>
+        <div class="cert-sub">«Kompyuter ustasi» o‘yin-mashg‘uloti</div>
+        <div class="cert-name">${esc(p.fam)} ${esc(p.ism)}</div>
+        <div class="cert-grp">${esc(p.guruh)} guruhi</div>
+        <div class="cert-rank">${ic(r[2])} ${r[1]}</div>
+        <table class="cert-tbl">${STAGES.map((s, i) => `<tr><td>${ic(s.icon)}</td><td>${i + 1}. ${s.title}</td><td>${bestOf(s)}</td><td>${starsHtml(starsOf(s))}</td></tr>`).join('')}</table>
+        <div class="cert-total">Jami: <b>${tot}</b> / 7000</div>
+        <div class="cert-badges">${DB.badges.filter(b => BADGES[b]).map(b => `<div class="badge on">${ic(BADGES[b].i)}<div>${BADGES[b].t}</div></div>`).join('')}</div>
+        <div class="cert-foot"><span>Sana: ${date}</span><span>${doneCount()} / 7 bosqich o‘tildi</span></div>
+      </div>`;
+      show('scr-final');
+    }
+    $('#btn-final-map').onclick = () => openMap();
+    $('#btn-print').onclick = () => window.print();
+
+    /* ================================================================
+       1-BOSQICH: NISHON ARENASI
+       ================================================================ */
+    function crossCfg() {
+      if (!DB.cross) DB.cross = { color: '#22ff66', size: 9, gap: 4, thick: 2, dot: false };
+      return DB.cross;
+    }
+
+    function drawCross(c, x, y, cs, kick = 0) {
+      const gap = cs.gap + kick, L = cs.size, T = cs.thick;
+      const bars = [[x - gap - L, y - T / 2, L, T], [x + gap, y - T / 2, L, T], [x - T / 2, y - gap - L, T, L], [x - T / 2, y + gap, T, L]];
+      c.fillStyle = 'rgba(0,0,0,.7)';
+      bars.forEach(b => c.fillRect(b[0] - 1, b[1] - 1, b[2] + 2, b[3] + 2));
+      if (cs.dot) c.fillRect(x - T / 2 - 1, y - T / 2 - 1, T + 2, T + 2);
+      c.fillStyle = cs.color;
+      bars.forEach(b => c.fillRect(b[0], b[1], b[2], b[3]));
+      if (cs.dot) c.fillRect(x - T / 2, y - T / 2, T, T);
+    }
+
+    function aimSettings(el) {
+      const cs = crossCfg();
+      const colors = ['#22ff66', '#00e5ff', '#ffee00', '#ff3df2', '#ffffff', '#ff4d4d'];
+      el.innerHTML = `<div class="card xhair">
+        <h3>${ic('crosshair')} Pritsel sozlamalari</h3>
+        <canvas class="xh-prev" id="xh-prev"></canvas>
+        <div class="xh-ctrls">
+          <div class="xh-row"><span>Rang</span><div class="swatches">${colors.map(c => `<button class="sw ${c === cs.color ? 'on' : ''}" data-c="${c}" style="background:${c}" aria-label="${c}"></button>`).join('')}</div></div>
+          <label class="xh-row"><span>Uzunlik</span><input type="range" min="3" max="20" data-k="size" value="${cs.size}"></label>
+          <label class="xh-row"><span>Oraliq (gap)</span><input type="range" min="0" max="12" data-k="gap" value="${cs.gap}"></label>
+          <label class="xh-row"><span>Qalinlik</span><input type="range" min="1" max="5" data-k="thick" value="${cs.thick}"></label>
+          <label class="xh-row"><span>Markaziy nuqta</span><input type="checkbox" data-k="dot" ${cs.dot ? 'checked' : ''}></label>
+        </div></div>`;
+      const pv = $('#xh-prev', el), dpr = Math.min(2, window.devicePixelRatio || 1);
+      pv.width = 110 * dpr; pv.height = 110 * dpr;
+      const c = pv.getContext('2d'); c.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const paint = () => { c.clearRect(0, 0, 110, 110); drawCross(c, 55, 55, cs); };
+      paint();
+      el.querySelectorAll('.sw').forEach(b => b.onclick = () => {
+        cs.color = b.dataset.c; el.querySelectorAll('.sw').forEach(x => x.classList.toggle('on', x === b)); save(); paint();
+      });
+      el.querySelectorAll('input').forEach(inp => inp.oninput = () => {
+        cs[inp.dataset.k] = inp.type === 'checkbox' ? inp.checked : +inp.value; save(); paint();
+      });
+    }
+
+    function renderArena(S, hz) {
+      const off = document.createElement('canvas');
+      off.width = Math.round(S.W * S.dpr); off.height = Math.round(S.H * S.dpr);
+      const c = off.getContext('2d'); c.setTransform(S.dpr, 0, 0, S.dpr, 0, 0);
+      const W = S.W, H = S.H;
+
+      // beton devor
+      let gr = c.createLinearGradient(0, 0, 0, hz);
+      gr.addColorStop(0, '#2a2f35'); gr.addColorStop(1, '#4b5159');
+      c.fillStyle = gr; c.fillRect(0, 0, W, hz);
+      const pw = Math.max(90, W / 9), ph = pw * .5;
+      c.lineWidth = 2;
+      for (let y = hz - 16, row = 0; y > -ph; y -= ph, row++) {
+        for (let x = row % 2 ? -pw / 2 : 0; x < W; x += pw) {
+          c.strokeStyle = 'rgba(0,0,0,.35)'; c.strokeRect(x + 1, y - ph + 1, pw - 2, ph - 2);
+          c.strokeStyle = 'rgba(255,255,255,.04)'; c.strokeRect(x + 3, y - ph + 3, pw - 6, ph - 6);
+        }
+      }
+      for (let i = 0; i < W * hz / 80; i++) {
+        const v = Math.random() < .5 ? 0 : 255;
+        c.fillStyle = `rgba(${v},${v},${v},${Math.random() * .05})`;
+        c.fillRect(Math.random() * W, Math.random() * hz, 2, 2);
+      }
+      // devordagi belgilar
+      c.fillStyle = 'rgba(245,158,11,.75)';
+      for (let x = pw * .5; x < W; x += pw * 2) c.fillRect(x - 3, hz * .45 - 3, 6, 6);
+      // yuqoridagi chiroqlar
+      [.2, .5, .8].forEach(f => {
+        const lg = c.createRadialGradient(W * f, 0, 0, W * f, 0, hz * .9);
+        lg.addColorStop(0, 'rgba(255,236,200,.13)'); lg.addColorStop(1, 'rgba(255,236,200,0)');
+        c.fillStyle = lg; c.fillRect(0, 0, W, hz);
+      });
+      // ogohlantiruvchi chiziq
+      c.save(); c.beginPath(); c.rect(0, hz - 16, W, 16); c.clip();
+      c.fillStyle = '#111'; c.fillRect(0, hz - 16, W, 16);
+      c.fillStyle = '#f59e0b';
+      for (let x = -30; x < W + 30; x += 28) { c.beginPath(); c.moveTo(x, hz); c.lineTo(x + 14, hz); c.lineTo(x + 30, hz - 16); c.lineTo(x + 16, hz - 16); c.fill(); }
+      c.restore();
+      // pol
+      gr = c.createLinearGradient(0, hz, 0, H);
+      gr.addColorStop(0, '#2b2e33'); gr.addColorStop(1, '#141619');
+      c.fillStyle = gr; c.fillRect(0, hz, W, H - hz);
+      c.strokeStyle = 'rgba(255,255,255,.06)'; c.lineWidth = 1;
+      for (let i = -14; i <= 14; i++) {
+        c.beginPath(); c.moveTo(W / 2 + i * W / 10 * .3, hz); c.lineTo(W / 2 + i * W / 10, H); c.stroke();
+      }
+      for (let k = 1; k <= 7; k++) {
+        const y = hz + (H - hz) * Math.pow(k / 7, 1.6);
+        c.beginPath(); c.moveTo(0, y); c.lineTo(W, y); c.stroke();
+      }
+      // vinyetka
+      const vg = c.createRadialGradient(W / 2, H * .45, Math.min(W, H) * .3, W / 2, H * .45, Math.max(W, H) * .8);
+      vg.addColorStop(0, 'rgba(0,0,0,0)'); vg.addColorStop(1, 'rgba(0,0,0,.55)');
+      c.fillStyle = vg; c.fillRect(0, 0, W, H);
+      return off;
+    }
+
+    function runAim(ctx) {
+      const cs = crossCfg(), fx = makeFx();
+      const T = 45, K = .35;
+      const WAVES = ['1-TO‘LQIN · FLICK', '2-TO‘LQIN · BOTLAR', '3-TO‘LQIN · STRAFE'];
+      const crates = [{ x: .14, z: .3 }, { x: .33, z: .62 }, { x: .52, z: .14 }, { x: .7, z: .82 }, { x: .88, z: .42 }];
+      let bg = null, hz = 0, u = 1;
+      let t = 0, wave = -1, banner = 0, nextSpawn = 0;
+      let targets = [], dead = [], holes = [], feed = [];
+      let shots = 0, hits = 0, heads = 0, expired = 0, raw = 0, reacts = [];
+      let mouse = null, kick = 0, shake = 0, hm = 0, hmHead = false, statT = 0;
+
+      const S = makeCanvas(ctx, S => { hz = S.H * .58; u = S.H / 600; bg = renderArena(S, hz); });
+      const c = S.g;
+
+      const fy = z => hz + (S.H - hz) * (.1 + .78 * z);
+      const bh = z => 230 * u * (.42 + .62 * z);
+      function crateRect(cr) { const h = bh(cr.z), w = h * .6, ch = h * .43, x = cr.x * S.W, y = fy(cr.z); return { x: x - w / 2, y: y - ch, w, h: ch }; }
+      function botGeo(b) {
+        const h = bh(b.z), base = fy(b.z), off = (1 - b.rise) * h * .7, x = b.crate ? b.crate.x * S.W : b.x;
+        return { x, h, base, off, headY: base - h * .88 + off, headR: h * .1, bodyTop: base - h * .77 + off, bodyW: h * .36 };
+      }
+      const discR = d => d.r0 * (1 - .55 * Math.min(1, (t - d.born) / d.life));
+      const inRect = (p, r) => p.x >= r.x && p.x <= r.x + r.w && p.y >= r.y && p.y <= r.y + r.h;
+      const blocked = (p, z) => crates.some(cr => cr.z > z && inRect(p, crateRect(cr)));
+      const finalScore = () => { const acc = shots ? hits / shots : 0; return Math.round(Math.min(1000, raw * (.4 + .6 * acc) * K)); };
+
+      function spawnDisc() {
+        const r0 = clamp(Math.min(S.W, S.H) * .045, 16, 34);
+        targets.push({ kind: 'disc', x: rand(r0 + 30, S.W - r0 - 30), y: rand(80 + r0, Math.max(90 + r0, hz - 30 - r0)), r0, born: t, life: 1.5 - .45 * (t / 15), z: -1 });
+      }
+      function spawnCrateBot() {
+        const free = crates.filter(cr => !targets.some(b => b.crate === cr));
+        if (!free.length) return;
+        const cr = pick(free);
+        targets.push({ kind: 'bot', crate: cr, z: cr.z, born: t, life: 1.9, rise: 0 });
+      }
+      function spawnStrafe() {
+        const z = rand(.25, .85), dir = Math.random() < .5 ? -1 : 1;
+        targets.push({ kind: 'bot', strafe: true, crate: null, z, x: rand(.15, .85) * S.W, vx: dir * rand(170, 260) * u * (.5 + .7 * z), turn: t + rand(.3, .8), born: t, life: 2.8, rise: 1, alpha: 0 });
+      }
+
+      function hitTest(p) {
+        const bots = targets.filter(b => b.kind === 'bot' && b.rise > .25).sort((a, b) => b.z - a.z);
+        for (const b of bots) {
+          const G = botGeo(b);
+          if (blocked(p, b.z)) continue;
+          const visBottom = b.crate ? crateRect(b.crate).y : G.base;
+          if (Math.hypot(p.x - G.x, p.y - G.headY) <= G.headR * 1.2) return { b, part: 'head' };
+          if (Math.abs(p.x - G.x) <= G.bodyW / 2 + G.h * .05 && p.y > G.headY + G.headR * .8 && p.y < Math.min(visBottom, G.base)) return { b, part: 'body' };
+        }
+        for (const d of targets.filter(b => b.kind === 'disc')) {
+          if (blocked(p, -1)) break;
+          if (Math.hypot(p.x - d.x, p.y - d.y) <= discR(d) + 2) return { b: d, part: 'disc' };
+        }
+        return null;
+      }
+
+      ctx.on(S.cv, 'pointermove', e => { mouse = S.pos(e); });
+      ctx.on(S.cv, 'pointerleave', e => { if (e.pointerType === 'mouse') mouse = null; });
+      ctx.on(S.cv, 'pointerdown', e => {
+        e.preventDefault();
+        if (e.button && e.button !== 0) return;
+        const p = S.pos(e); mouse = p;
+        if (t >= T) return;
+        shots++; SFX.shot(); kick = 7; shake = .05;
+        const h = hitTest(p);
+        if (!h) {
+          raw = Math.max(0, raw - 5); ctx.combo.miss();
+          holes.push({ x: p.x, y: p.y, t }); if (holes.length > 40) holes.shift();
+          return;
+        }
+        const b = h.b, age = t - b.born, fast = clamp(1 - age / b.life, 0, 1);
+        hits++; reacts.push(age * 1000);
+        let base;
+        if (h.part === 'disc') base = 30 + 20 * fast;
+        else if (h.part === 'head') base = (b.strafe ? 70 : 60) + 15 * fast;
+        else base = (b.strafe ? 35 : 30) + 15 * fast;
+        const pts = Math.round(base * Math.min(1.5, ctx.combo.hit()));
+        raw += pts;
+        const head = h.part === 'head';
+        if (head) { heads++; SFX.head(); } else SFX.hit();
+        hm = .15; hmHead = head;
+        fx.burst(p.x, p.y, head ? '#ef4444' : h.part === 'disc' ? '#fbbf24' : '#cbd5e1', head ? 24 : 14);
+        fx.text(p.x, p.y - 22, (head ? 'HEADSHOT +' : '+') + pts, head ? '#f87171' : '#fde68a', head ? 22 : 18);
+        feed.unshift({ txt: head ? 'HEADSHOT' : h.part === 'disc' ? 'Mishen' : 'Bot', pts, head, t });
+        if (feed.length > 5) feed.length = 5;
+        targets.splice(targets.indexOf(b), 1);
+        if (b.kind === 'bot') { b.deadT = t; b.deadX = botGeo(b).x; dead.push(b); }
+        if (wave === 0) nextSpawn = t + .12;
+      });
+
+      function update(dt) {
+        t += dt;
+        const w = t < 15 ? 0 : t < 30 ? 1 : 2;
+        if (w !== wave) { wave = w; banner = 1.5; targets = []; nextSpawn = t + .9; }
+        // nishonlar holati
+        for (let i = targets.length - 1; i >= 0; i--) {
+          const b = targets[i], age = t - b.born;
+          if (b.kind === 'bot' && b.crate) b.rise = age < .18 ? age / .18 : age > b.life - .18 ? Math.max(0, (b.life - age) / .18) : 1;
+          if (b.strafe) {
+            b.alpha = Math.min(1, age / .2, Math.max(0, (b.life - age) / .2));
+            b.x += b.vx * dt;
+            if (t > b.turn) { b.vx = -b.vx * rand(.8, 1.2); b.turn = t + rand(.3, .8); }
+            if (b.x < 40) b.vx = Math.abs(b.vx); if (b.x > S.W - 40) b.vx = -Math.abs(b.vx);
+          }
+          if (age > b.life) { targets.splice(i, 1); expired++; ctx.combo.miss(); if (wave === 0) nextSpawn = t + .12; }
+        }
+        // yangi nishonlar
+        if (t < T && t >= nextSpawn) {
+          if (wave === 0 && !targets.length) spawnDisc();
+          else if (wave === 1 && targets.length < 2) { spawnCrateBot(); nextSpawn = t + rand(.3, .6); }
+          else if (wave === 2 && targets.length < 2) { spawnStrafe(); nextSpawn = t + rand(.25, .5); }
+        }
+        dead = dead.filter(b => t - b.deadT < .4);
+        holes = holes.filter(h => t - h.t < 3);
+        feed = feed.filter(f => t - f.t < 3);
+        kick = Math.max(0, kick - dt * 40); shake = Math.max(0, shake - dt); hm = Math.max(0, hm - dt); banner = Math.max(0, banner - dt);
+      }
+
+      function drawCrate(cr) {
+        const R = crateRect(cr), d = R.w * .12, sx = R.x + R.w / 2 < S.W / 2 ? 1 : -1;
+        // yon va ust tomoni
+        c.fillStyle = '#4a2f18';
+        c.beginPath();
+        if (sx > 0) { c.moveTo(R.x + R.w, R.y); c.lineTo(R.x + R.w + d, R.y - d); c.lineTo(R.x + R.w + d, R.y + R.h - d); c.lineTo(R.x + R.w, R.y + R.h); }
+        else { c.moveTo(R.x, R.y); c.lineTo(R.x - d, R.y - d); c.lineTo(R.x - d, R.y + R.h - d); c.lineTo(R.x, R.y + R.h); }
+        c.fill();
+        c.fillStyle = '#b07a45';
+        c.beginPath(); c.moveTo(R.x, R.y); c.lineTo(R.x + R.w, R.y); c.lineTo(R.x + R.w + d * sx, R.y - d); c.lineTo(R.x + d * sx, R.y - d); c.fill();
+        // old tomoni
+        const gr = c.createLinearGradient(0, R.y, 0, R.y + R.h);
+        gr.addColorStop(0, '#9a6b3f'); gr.addColorStop(1, '#6b4423');
+        c.fillStyle = gr; c.fillRect(R.x, R.y, R.w, R.h);
+        const fw = Math.max(3, R.w * .07);
+        c.strokeStyle = '#3d2614'; c.lineWidth = fw;
+        c.strokeRect(R.x + fw / 2, R.y + fw / 2, R.w - fw, R.h - fw);
+        c.lineWidth = fw * .8;
+        c.beginPath(); c.moveTo(R.x + fw, R.y + fw); c.lineTo(R.x + R.w - fw, R.y + R.h - fw); c.stroke();
+        // shablon belgisi
+        c.fillStyle = 'rgba(245,158,11,.8)'; c.fillRect(R.x + R.w * .62, R.y + R.h * .12, R.w * .22, R.h * .12);
+      }
+
+      function drawBot(b, k) {
+        const G = botGeo(b), h = G.h, x = b.deadT != null ? b.deadX : G.x;
+        c.save();
+        c.beginPath(); c.rect(0, 0, S.W, G.base + 1); c.clip();
+        let a = b.strafe ? b.alpha : 1;
+        if (k != null) { a *= 1 - k; c.translate(x, G.base); c.rotate(-k * .6 * (b.strafe && b.vx < 0 ? -1 : 1)); c.translate(-x, -G.base); }
+        c.globalAlpha = a;
+        const flash = k != null && k < .35;
+        const body = flash ? '#fca5a5' : '#56634d', limb = flash ? '#f87171' : '#46523f';
+        const o = G.off;
+        if (b.strafe) {
+          c.fillStyle = 'rgba(0,0,0,.35)';
+          c.beginPath(); c.ellipse(x, G.base, h * .2, h * .035, 0, 0, TAU); c.fill();
+        }
+        c.fillStyle = limb;
+        const step = b.strafe ? Math.sin(t * 18) * h * .03 : 0;
+        c.fillRect(x - h * .11 + step, G.base - h * .42 + o, h * .09, h * .42);
+        c.fillRect(x + h * .02 - step, G.base - h * .42 + o, h * .09, h * .42);
+        c.fillRect(x - G.bodyW / 2 - h * .07, G.bodyTop + h * .03, h * .065, h * .3);
+        c.fillRect(x + G.bodyW / 2 + h * .005, G.bodyTop + h * .03, h * .065, h * .3);
+        c.fillStyle = body;
+        rr(c, x - G.bodyW / 2, G.bodyTop, G.bodyW, h * .37, h * .05); c.fill();
+        c.strokeStyle = flash ? '#fff' : '#f59e0b'; c.lineWidth = Math.max(1.5, h * .012);
+        c.beginPath(); c.arc(x, G.bodyTop + h * .15, h * .07, 0, TAU); c.stroke();
+        c.beginPath(); c.arc(x, G.bodyTop + h * .15, h * .025, 0, TAU); c.stroke();
+        c.fillStyle = limb; c.fillRect(x - h * .035, G.headY + G.headR * .7, h * .07, h * .06);
+        c.fillStyle = flash ? '#fecaca' : '#d6c7a9';
+        c.beginPath(); c.arc(x, G.headY, G.headR, 0, TAU); c.fill();
+        c.fillStyle = flash ? '#ef4444' : '#39432f';
+        c.beginPath(); c.arc(x, G.headY - G.headR * .1, G.headR * 1.08, Math.PI, TAU); c.fill();
+        c.fillStyle = '#111'; c.fillRect(x - G.headR * .75, G.headY - G.headR * .05, G.headR * 1.5, G.headR * .3);
+        c.restore();
+      }
+
+      function drawDisc(d) {
+        const r = discR(d);
+        c.save();
+        c.shadowColor = 'rgba(0,0,0,.5)'; c.shadowBlur = 8;
+        [[1, '#fff'], [.78, '#dc2626'], [.56, '#fff'], [.34, '#dc2626']].forEach(([f, col]) => {
+          c.fillStyle = col; c.beginPath(); c.arc(d.x, d.y, r * f, 0, TAU); c.fill(); c.shadowBlur = 0;
+        });
+        c.restore();
+        const left = 1 - Math.min(1, (t - d.born) / d.life);
+        c.strokeStyle = 'rgba(255,255,255,.7)'; c.lineWidth = 2;
+        c.beginPath(); c.arc(d.x, d.y, d.r0 + 5, -Math.PI / 2, -Math.PI / 2 + TAU * left); c.stroke();
+      }
+
+      function draw(dt) {
+        c.save();
+        if (shake > 0) c.translate(rand(-2, 2), rand(-2, 2));
+        c.drawImage(bg, 0, 0, S.W, S.H);
+        targets.filter(b => b.kind === 'disc').forEach(drawDisc);
+        const items = crates.map(cr => ({ z: cr.z, f: () => drawCrate(cr) }));
+        targets.filter(b => b.kind === 'bot').forEach(b => items.push({ z: b.z - .001, f: () => drawBot(b) }));
+        dead.forEach(b => items.push({ z: b.z - .001, f: () => drawBot(b, (t - b.deadT) / .4) }));
+        items.sort((a, b) => a.z - b.z).forEach(it => it.f());
+        holes.forEach(h => {
+          c.globalAlpha = 1 - (t - h.t) / 3;
+          c.fillStyle = '#0b0b0b'; c.beginPath(); c.arc(h.x, h.y, 2.6, 0, TAU); c.fill();
+          c.strokeStyle = 'rgba(255,255,255,.18)'; c.lineWidth = 1; c.beginPath(); c.arc(h.x, h.y, 4, 0, TAU); c.stroke();
+        });
+        c.globalAlpha = 1;
+        fx.draw(c, dt);
+        c.restore();
+
+        // vaqt
+        const left = Math.max(0, T - t);
+        c.fillStyle = 'rgba(0,0,0,.6)'; rr(c, S.W / 2 - 62, 10, 124, 46, 10); c.fill();
+        c.textAlign = 'center'; c.textBaseline = 'middle';
+        c.fillStyle = left < 5 ? '#f87171' : '#fff'; c.font = `800 22px ${MONO}`;
+        c.fillText(`0:${String(Math.ceil(left)).padStart(2, '0')}`, S.W / 2, 27);
+        c.fillStyle = '#fbbf24'; c.font = `700 10px ${FONT}`;
+        c.fillText(WAVES[Math.max(0, wave)], S.W / 2, 46);
+
+        // kill-feed
+        c.textAlign = 'right';
+        feed.forEach((f, i) => {
+          const y = 16 + i * 30, txt = `${f.txt}  +${f.pts}`;
+          c.font = `700 13px ${FONT}`;
+          const w = c.measureText(txt).width + 20;
+          c.globalAlpha = Math.min(1, (3 - (t - f.t)) * 2);
+          c.fillStyle = 'rgba(0,0,0,.6)'; rr(c, S.W - 12 - w, y, w, 24, 6); c.fill();
+          if (f.head) { c.strokeStyle = '#ef4444'; c.lineWidth = 1.5; c.stroke(); }
+          c.fillStyle = f.head ? '#fca5a5' : '#e5e7eb'; c.fillText(txt, S.W - 22, y + 12);
+        });
+        c.globalAlpha = 1;
+
+        // to'lqin banneri
+        if (banner > 0) {
+          c.globalAlpha = Math.min(1, banner * 2);
+          c.fillStyle = 'rgba(0,0,0,.55)'; c.fillRect(0, S.H * .3, S.W, 64);
+          c.textAlign = 'center'; c.fillStyle = '#fbbf24'; c.font = `900 ${Math.min(30, S.W / 16)}px ${FONT}`;
+          c.fillText(WAVES[wave], S.W / 2, S.H * .3 + 32);
+          c.globalAlpha = 1;
+        }
+
+        // pritsel
+        if (mouse) {
+          drawCross(c, mouse.x, mouse.y, cs, kick);
+          if (hm > 0) {
+            c.strokeStyle = hmHead ? '#ef4444' : '#fff'; c.lineWidth = 2;
+            const a = cs.gap + 6, b2 = a + 7;
+            c.beginPath();
+            [[1, 1], [1, -1], [-1, 1], [-1, -1]].forEach(([sx, sy]) => { c.moveTo(mouse.x + sx * a, mouse.y + sy * a); c.lineTo(mouse.x + sx * b2, mouse.y + sy * b2); });
+            c.stroke();
+          }
+        }
+      }
+
+      function pushStats() {
+        const avg = reacts.length ? Math.round(reacts.reduce((a, b) => a + b, 0) / reacts.length) : 0;
+        ctx.stats({ 'Vaqt': Math.ceil(Math.max(0, T - t)) + ' s', 'Tegdi': hits, 'Headshot': heads, 'Aniqlik': (shots ? Math.round(hits / shots * 100) : 0) + '%', 'Reaksiya': avg + ' ms', 'Ball': finalScore() });
+      }
+
+      pushStats();
+      ctx.loop(dt => {
+        update(dt);
+        draw(dt);
+        statT += dt;
+        if (statT > .12) { statT = 0; pushStats(); }
+        if (t >= T) {
+          const acc = shots ? hits / shots : 0;
+          const avg = reacts.length ? Math.round(reacts.reduce((a, b) => a + b, 0) / reacts.length) : 0;
+          const badges = [];
+          if (acc >= .9 && hits >= 15) badges.push('snayper');
+          if (heads >= 5) badges.push('headshot');
+          ctx.finish(finalScore(), [
+            `Tegdi: ${hits} (headshot: ${heads})`,
+            `Aniqlik: ${Math.round(acc * 100)}% (${shots} o‘q)`,
+            `O‘rtacha reaksiya: ${avg} ms`,
+            `O‘tkazib yuborilgan nishonlar: ${expired}`,
+            `Eng uzun kombo: ${ctx.combo.best}`
+          ], badges);
+        }
+      });
+    }
+
+    /* ================================================================
+       2-BOSQICH: BASKETBOL
+       ================================================================ */
+    function runHoops(ctx) {
+      const fx = makeFx(), N = 10;
+      let u = 1, R = 12, floorY = 0, G = 0, boardX = 0, rimBase = 0, rimY = 0, rimW = 0, t = 0, bg = null;
+      let shot = 0, made = 0, sw = 0, streak = 0, bestStreak = 0, score = 0;
+      const resultsLog = [];
+      let phase = 'aim', ball = { x: 0, y: 0, vx: 0, vy: 0, rot: 0 }, drag = null, flyT = 0, touched = false, scored = false, bounces = 0, netW = 0, startX = .5, startH = 130;
+
+      const S = makeCanvas(ctx);
+      const c = S.g;
+      S.cv.classList.add('hand');
+
+      function layout() {
+        u = Math.max(.45, Math.min(S.W / 900, S.H / 560));
+        R = Math.max(10, 15 * u); floorY = S.H - 34 * u; G = 1500 * u;
+        boardX = S.W - 34 * u; rimW = R * 2 * 1.75; rimBase = S.H * .38;
+        if (!rimY) rimY = rimBase;
+        bg = renderCourt();
+        if (phase === 'aim' || phase === 'wait') placeBall();
+      }
+      function choosePos() {
+        if (shot < 3) { startX = .5; startH = 130; }
+        else if (shot < 6) { startX = .26; startH = 170; }
+        else { startX = pick([.18, .32, .44]); startH = 110 + Math.random() * 90; }
+      }
+      function placeBall() { ball.x = S.W * startX; ball.y = floorY - startH * u; ball.vx = ball.vy = 0; }
+      function rim() { const back = { x: boardX - 5 * u, y: rimY }; return { back, front: { x: back.x - rimW, y: rimY } }; }
+      const maxPull = () => Math.max(70, 150 * u);
+      function launchK() {
+        const r = rim();
+        const dx = Math.max(50 * u, (r.front.x + r.back.x) / 2 - ball.x), dy = Math.max(0, ball.y - rimY);
+        return 1.5 * Math.sqrt(G * (dx + dy)) / maxPull();
+      }
+      function pullVec(p) {
+        let dx = ball.x - p.x, dy = ball.y - p.y;
+        const L = Math.hypot(dx, dy), m = maxPull();
+        if (L > m) { dx *= m / L; dy *= m / L; }
+        return { dx, dy, L: Math.min(L, m) };
+      }
+
+      function renderCourt() {
+        const off = document.createElement('canvas');
+        off.width = Math.round(S.W * S.dpr); off.height = Math.round(S.H * S.dpr);
+        const g = off.getContext('2d'); g.setTransform(S.dpr, 0, 0, S.dpr, 0, 0);
+        let gr = g.createLinearGradient(0, 0, 0, floorY);
+        gr.addColorStop(0, '#0b1220'); gr.addColorStop(1, '#1e293b');
+        g.fillStyle = gr; g.fillRect(0, 0, S.W, floorY);
+        // tribuna
+        for (let row = 0; row < 4; row++) {
+          const y = floorY * (.62 + row * .07);
+          for (let x = (row % 2) * 9; x < S.W; x += 18) {
+            g.fillStyle = `rgba(${120 + Math.random() * 80},${120 + Math.random() * 60},${150 + Math.random() * 60},.10)`;
+            g.beginPath(); g.arc(x, y, 6 * u + 2, 0, TAU); g.fill();
+          }
+        }
+        [.15, .5, .85].forEach(f => {
+          const lg = g.createRadialGradient(S.W * f, 0, 0, S.W * f, 0, S.H * .7);
+          lg.addColorStop(0, 'rgba(255,255,255,.12)'); lg.addColorStop(1, 'rgba(255,255,255,0)');
+          g.fillStyle = lg; g.fillRect(0, 0, S.W, floorY);
+        });
+        // yog'och pol
+        gr = g.createLinearGradient(0, floorY, 0, S.H);
+        gr.addColorStop(0, '#c2803d'); gr.addColorStop(1, '#8a5524');
+        g.fillStyle = gr; g.fillRect(0, floorY, S.W, S.H - floorY);
+        g.strokeStyle = 'rgba(0,0,0,.18)'; g.lineWidth = 1;
+        for (let x = 0; x < S.W; x += 46 * u + 10) { g.beginPath(); g.moveTo(x, floorY); g.lineTo(x - 12, S.H); g.stroke(); }
+        g.fillStyle = 'rgba(255,255,255,.85)'; g.fillRect(0, floorY, S.W, 3);
+        g.fillStyle = 'rgba(255,255,255,.5)'; g.fillRect(S.W * .55, floorY + 4, 3, S.H - floorY);
+        // ustun
+        g.fillStyle = '#334155'; g.fillRect(S.W - 14 * u, 0, 14 * u, floorY);
+        return off;
+      }
+
+      function physics(h) {
+        const py = ball.y;
+        ball.vy += G * h; ball.x += ball.vx * h; ball.y += ball.vy * h; ball.rot += ball.vx * h / R;
+        const r = rim();
+        for (const p of [r.front, r.back]) {
+          const dx = ball.x - p.x, dy = ball.y - p.y, d = Math.hypot(dx, dy), min = R + 2.5 * u;
+          if (d < min && d > 0) {
+            const nx = dx / d, ny = dy / d;
+            ball.x = p.x + nx * min; ball.y = p.y + ny * min;
+            const vn = ball.vx * nx + ball.vy * ny;
+            if (vn < 0) { ball.vx -= 1.55 * vn * nx; ball.vy -= 1.55 * vn * ny; if (-vn > 80 * u) SFX.rim(); touched = true; }
+          }
+        }
+        const bTop = rimY - 115 * u, bBot = rimY + 25 * u;
+        if (ball.x + R > boardX && ball.x < boardX + 4 * u && ball.y > bTop && ball.y < bBot && ball.vx > 0) {
+          ball.x = boardX - R; ball.vx = -ball.vx * .62; touched = true; SFX.board();
+        }
+        if (!scored && py < rimY && ball.y >= rimY && ball.vy > 0 && ball.x > r.front.x && ball.x < r.back.x) { scored = true; onScore(); }
+        if (ball.y + R > floorY) {
+          ball.y = floorY - R;
+          if (ball.vy > 0) { if (ball.vy > 120 * u) SFX.bounce(); ball.vy = -ball.vy * .55; ball.vx *= .82; bounces++; }
+        }
+        if (ball.x - R < 0) { ball.x = R; ball.vx = Math.abs(ball.vx) * .5; }
+      }
+
+      function onScore() {
+        made++; streak++; bestStreak = Math.max(bestStreak, streak);
+        let pts = 80;
+        const swish = !touched;
+        if (swish) { pts += 40; sw++; }
+        if (streak >= 2) pts += Math.min(40, (streak - 1) * 10);
+        score += pts; netW = 1;
+        const r = rim();
+        fx.text((r.front.x + r.back.x) / 2 - 30 * u, rimY - 40 * u, (swish ? 'SWISH! +' : '+') + pts, swish ? '#a3e635' : '#fde68a', swish ? 26 : 22);
+        fx.burst((r.front.x + r.back.x) / 2, rimY + 20 * u, swish ? '#a3e635' : '#fbbf24', 26, 260);
+        swish ? SFX.swish() : SFX.ok();
+      }
+
+      function resolve() {
+        phase = 'wait';
+        resultsLog[shot] = scored;
+        if (!scored) { streak = 0; fx.text(ball.x < S.W - 40 ? ball.x : S.W - 80, Math.min(ball.y, floorY - 30) - 20, 'Tushmadi', '#f87171', 18); }
+        shot++;
+        pushStats();
+        ctx.timeout(() => {
+          if (shot >= N) return end();
+          choosePos(); placeBall(); phase = 'aim'; touched = false; scored = false; bounces = 0; flyT = 0;
+          pushStats();
+          if (shot === 3) fx.text(S.W / 2, S.H * .2, 'Joy o‘zgardi: uzoqroqdan!', '#7dd3fc', 20);
+          if (shot === 6) fx.text(S.W / 2, S.H * .2, 'Endi halqa harakatlanadi!', '#7dd3fc', 20);
+        }, 550);
+      }
+
+      function end() {
+        const badges = sw >= 3 ? ['swish'] : [];
+        ctx.finish(Math.min(1000, score), [`Tushdi: ${made} / ${N}`, `Swish: ${sw}`, `Eng uzun seriya: ${bestStreak}`, `Ochko: ${score}`], badges);
+      }
+
+      ctx.on(S.cv, 'pointerdown', e => {
+        e.preventDefault();
+        if (phase !== 'aim') return;
+        const p = S.pos(e);
+        if (Math.hypot(p.x - ball.x, p.y - ball.y) > Math.max(R * 3, 34)) { fx.text(ball.x, ball.y - R - 22, 'To‘pni bosing!', '#7dd3fc', 15); return; }
+        drag = { id: e.pointerId, p };
+        try { S.cv.setPointerCapture(e.pointerId); } catch (err) {}
+      });
+      ctx.on(S.cv, 'pointermove', e => { if (drag && e.pointerId === drag.id) drag.p = S.pos(e); });
+      const release = e => {
+        if (!drag || e.pointerId !== drag.id) return;
+        const v = pullVec(S.pos(e)); drag = null;
+        if (v.L < 12) return;
+        const k = launchK();
+        ball.vx = v.dx * k; ball.vy = v.dy * k;
+        phase = 'fly'; flyT = 0; touched = false; scored = false; bounces = 0;
+        SFX.tick();
+      };
+      ctx.on(S.cv, 'pointerup', release);
+      ctx.on(S.cv, 'pointercancel', () => { drag = null; });
+
+      function drawBall(x, y, rot) {
+        c.save(); c.translate(x, y); c.rotate(rot);
+        const gr = c.createRadialGradient(-R * .35, -R * .35, R * .1, 0, 0, R);
+        gr.addColorStop(0, '#fdba74'); gr.addColorStop(1, '#c2410c');
+        c.fillStyle = gr; c.beginPath(); c.arc(0, 0, R, 0, TAU); c.fill();
+        c.strokeStyle = '#431407'; c.lineWidth = Math.max(1, 1.4 * u);
+        c.beginPath(); c.moveTo(-R, 0); c.lineTo(R, 0); c.moveTo(0, -R); c.lineTo(0, R); c.stroke();
+        c.beginPath(); c.arc(-R * 1.25, 0, R * .9, -.75, .75); c.stroke();
+        c.beginPath(); c.arc(R * 1.25, 0, R * .9, Math.PI - .75, Math.PI + .75); c.stroke();
+        c.restore();
+      }
+
+      function draw(dt) {
+        c.drawImage(bg, 0, 0, S.W, S.H);
+        const r = rim(), bTop = rimY - 115 * u, bBot = rimY + 25 * u;
+        // ustun ushlagichi va shit
+        c.fillStyle = '#475569'; c.fillRect(boardX + 6 * u, rimY - 50 * u, S.W - boardX, 8 * u);
+        c.fillStyle = '#e2e8f0'; c.fillRect(boardX, bTop, 8 * u, bBot - bTop);
+        c.fillStyle = '#ef4444'; c.fillRect(boardX, rimY - 50 * u, 8 * u, 30 * u);
+        // soya
+        const sh = clamp(1 - (floorY - ball.y) / S.H, .2, 1);
+        c.fillStyle = `rgba(0,0,0,${.35 * sh})`;
+        c.beginPath(); c.ellipse(ball.x, floorY + 2, R * 1.1 * sh, R * .3 * sh, 0, 0, TAU); c.fill();
+
+        // otish yo'li
+        if (phase === 'aim' && drag) {
+          const v = pullVec(drag.p), k = launchK();
+          let x = ball.x, y = ball.y, vx = v.dx * k, vy = v.dy * k;
+          const dots = shot < 6 ? 14 : 7;
+          for (let i = 0; i < dots; i++) {
+            // Haqiqiy fizika bilan bir xil qadam: nuqtalar to'pning aynan o'tadigan yo'lini ko'rsatadi
+            for (let s = 0; s < 16; s++) { vy += G / 240; x += vx / 240; y += vy / 240; }
+            c.globalAlpha = 1 - i / dots; c.fillStyle = '#fff';
+            c.beginPath(); c.arc(x, y, Math.max(2, 3.2 * u), 0, TAU); c.fill();
+          }
+          c.globalAlpha = 1;
+          c.strokeStyle = 'rgba(253,186,116,.7)'; c.lineWidth = 2; c.setLineDash([5, 5]);
+          c.beginPath(); c.moveTo(ball.x, ball.y); c.lineTo(ball.x - v.dx, ball.y - v.dy); c.stroke(); c.setLineDash([]);
+          c.fillStyle = '#fff'; c.font = `800 14px ${FONT}`; c.textAlign = 'center'; c.textBaseline = 'middle';
+          c.fillText(`Kuch ${Math.round(v.L / maxPull() * 100)}%`, ball.x, ball.y - R - 18);
+        }
+        if (phase === 'aim' && !drag) {
+          const pulse = 1 + Math.sin(t * 6) * .12;
+          c.strokeStyle = 'rgba(163,230,53,.8)'; c.lineWidth = 2;
+          c.beginPath(); c.arc(ball.x, ball.y, R * 1.7 * pulse, 0, TAU); c.stroke();
+          if (shot === 0) {
+            c.fillStyle = '#d9f99d'; c.font = `700 14px ${FONT}`; c.textAlign = 'center'; c.textBaseline = 'middle';
+            c.fillText('To‘pni bosib turing va orqaga torting', ball.x, ball.y + R * 2.6 + 10);
+          }
+        }
+
+        drawBall(ball.x, ball.y, ball.rot);
+
+        // to'r
+        const sway = Math.sin(t * 28) * netW * 6 * u;
+        const nb = rimY + 44 * u + netW * 8 * u, inset = rimW * .22;
+        c.strokeStyle = 'rgba(255,255,255,.85)'; c.lineWidth = Math.max(1, 1.3 * u);
+        c.beginPath();
+        for (let i = 0; i <= 4; i++) {
+          const tx = r.front.x + (r.back.x - r.front.x) * i / 4;
+          const bx = r.front.x + inset + (r.back.x - r.front.x - inset * 2) * i / 4 + sway;
+          c.moveTo(tx, rimY); c.lineTo(bx, nb);
+        }
+        [.45, 1].forEach(f => {
+          const y = rimY + (nb - rimY) * f, ins = inset * f;
+          c.moveTo(r.front.x + ins + sway * f, y); c.lineTo(r.back.x - ins + sway * f, y);
+        });
+        c.stroke();
+        // halqa
+        c.strokeStyle = '#f97316'; c.lineWidth = Math.max(3, 4 * u); c.lineCap = 'round';
+        c.beginPath(); c.moveTo(r.front.x, rimY); c.lineTo(boardX, rimY); c.stroke(); c.lineCap = 'butt';
+
+        fx.draw(c, dt);
+
+        // otishlar hisoblagichi
+        c.textAlign = 'left'; c.textBaseline = 'middle';
+        for (let i = 0; i < N; i++) {
+          c.fillStyle = i < shot ? (resultsLog[i] ? '#a3e635' : '#f87171') : 'rgba(255,255,255,.18)';
+          c.beginPath(); c.arc(18 + i * 18, 20, 6, 0, TAU); c.fill();
+        }
+      }
+      function pushStats() {
+        ctx.stats({ 'Otish': `${Math.min(shot + (phase === 'wait' ? 0 : 1), N)}/${N}`, 'Tushdi': made, 'Swish': sw, 'Seriya': streak, 'Ball': Math.min(1000, score) });
+      }
+
+      S.onResize = layout;
+      layout(); choosePos(); placeBall(); pushStats();
+      ctx.loop(dt => {
+        t += dt;
+        rimY = shot >= 6 ? rimBase + Math.sin(t * 1.5) * 55 * u : rimBase;
+        if (phase === 'fly') {
+          for (let s = 0; s < 4; s++) physics(dt / 4);
+          flyT += dt;
+          if (ball.x - R > S.W || ball.y - R > S.H || flyT > 5 || bounces >= 3 || (bounces >= 1 && Math.abs(ball.vy) < 40 * u)) resolve();
+        }
+        netW = Math.max(0, netW - dt * 1.6);
+        draw(dt);
+      });
+    }
+
+    /* ================================================================
+       3-BOSQICH: BIR, IKKI YOKI O'NG
+       ================================================================ */
+    function runClicks(ctx) {
+      const A = ctx.area;
+      A.classList.add('desk-bg');
+      A.insertAdjacentHTML('beforeend', `<div class="legend"><span>${ic('dot')} Tugma: 1 marta bosing</span><span>${ic('folder')} Papka: 2 marta bosing</span><span>${ic('gear')} Sozlama: o‘ng tugma</span></div>`);
+      const TYPES = { single: { i: 'dot', l: 'Tugma', need: '1 marta bosish' }, double: { i: 'folder', l: 'Papka', need: '2 marta bosish' }, right: { i: 'gear', l: 'Sozlama', need: 'o‘ng tugma' } };
+      const seq = shuffle([...Array(7).fill('single'), ...Array(7).fill('double'), ...Array(6).fill('right')]);
+      const N = seq.length;
+      let idx = 0, score = 0, ok = 0, bad = 0, missed = 0, cur = null;
+
+      function stats() { ctx.stats({ 'Ikonka': `${Math.min(idx, N)}/${N}`, 'To‘g‘ri': ok, 'Xato': bad, 'Ulgurmadi': missed, 'Ball': Math.min(1000, score) }); }
+
+      function spawn() {
+        if (idx >= N) return end();
+        const type = seq[idx++], life = 2.4 - 1.1 * ((idx - 1) / (N - 1));
+        const el = document.createElement('div');
+        el.className = 'ci'; el.dataset.t = type;
+        el.innerHTML = `<div class="ci-ic">${ic(TYPES[type].i)}</div><div class="ci-lb">${TYPES[type].l}</div><div class="ci-bar"><i style="animation-duration:${life}s"></i></div>`;
+        const w = A.clientWidth, h = A.clientHeight;
+        el.style.left = rand(12, Math.max(14, w - 110)) + 'px';
+        el.style.top = rand(64, Math.max(66, h - 120)) + 'px';
+        A.appendChild(el);
+        const me = { el, type, born: performance.now(), life };
+        cur = me;
+        ctx.timeout(() => {
+          if (cur !== me) return;
+          cur = null; missed++; ctx.combo.miss();
+          el.classList.add('gone'); setTimeout(() => el.remove(), 200);
+          ctx.popup(el.offsetLeft + 48, el.offsetTop + 20, 'Ulgurmadingiz', 'bad');
+          stats(); ctx.timeout(spawn, 250);
+        }, life * 1000);
+        stats();
+      }
+
+      function act(e, kind) {
+        if (kind === 'right') e.preventDefault();
+        if (!cur || !cur.el.contains(e.target)) return;
+        const me = cur, x = me.el.offsetLeft + 48, y = me.el.offsetTop + 20;
+        if (kind === 'single' && me.type === 'double') return; // ikkinchi bosishni kutamiz
+        cur = null;
+        if (kind === me.type) {
+          const age = (performance.now() - me.born) / 1000;
+          const pts = Math.round((25 + 15 * clamp(1 - age / me.life, 0, 1)) * ctx.combo.hit());
+          score += pts; ok++; SFX.ok();
+          me.el.classList.add('ok');
+          ctx.popup(x, y, '+' + pts);
+        } else {
+          score = Math.max(0, score - 15); bad++; ctx.combo.miss(); SFX.bad();
+          me.el.classList.add('bad');
+          ctx.popup(x, y, `−15 · kerak: ${TYPES[me.type].need}`, 'bad');
+        }
+        setTimeout(() => me.el.remove(), 260);
+        stats(); ctx.timeout(spawn, 300);
+      }
+
+      ctx.on(A, 'click', e => act(e, 'single'));
+      ctx.on(A, 'dblclick', e => act(e, 'double'));
+      ctx.on(A, 'contextmenu', e => act(e, 'right'));
+
+      function end() {
+        ctx.finish(Math.min(1000, score), [`To‘g‘ri: ${ok} / ${N}`, `Noto‘g‘ri usul: ${bad}`, `Ulgurmadi: ${missed}`, `Eng uzun kombo: ${ctx.combo.best}`]);
+      }
+      stats(); spawn();
+    }
+
+    /* ================================================================
+       4-BOSQICH: FAYLLARNI SARALASH (DRAG & DROP)
+       ================================================================ */
+    function runDrag(ctx) {
+      const A = ctx.area, TL = 70;
+      A.classList.add('desk-bg');
+      A.insertAdjacentHTML('beforeend', `<div class="zones">${ZONES.map(z => `<div class="dz" data-k="${z.k}"><div class="dz-ic">${ic(z.i)}</div><div class="dz-t">${z.t}</div><div class="dz-n">0</div></div>`).join('')}</div><div class="desk-hint">Faylni bosib turing va tegishli papkaga sudrab tashlang</div>`);
+      const zoneEls = [...A.querySelectorAll('.dz')];
+      const files = shuffle(FILES);
+      let t = 0, idx = 0, sorted = 0, wrong = 0, score = 0, onDesk = [], drag = null, statT = 0, over = false;
+
+      function stats() { ctx.stats({ 'Vaqt': Math.ceil(Math.max(0, TL - t)) + ' s', 'Saralandi': `${sorted}/${files.length}`, 'Xato': wrong, 'Ball': Math.min(1000, score) }); }
+
+      function place(el) {
+        const top = A.querySelector('.zones').offsetHeight + 16;
+        const w = A.clientWidth, h = A.clientHeight, fw = el.offsetWidth || 112, fh = el.offsetHeight || 90;
+        let best = null, bd = -1;
+        for (let k = 0; k < 24; k++) {
+          const x = rand(10, Math.max(12, w - fw - 10)), y = rand(top, Math.max(top + 2, h - fh - 34));
+          let md = 1e9;
+          onDesk.forEach(o => { if (o !== el) md = Math.min(md, Math.hypot(o.offsetLeft - x, o.offsetTop - y)); });
+          if (md > bd) { bd = md; best = { x, y }; }
+        }
+        el.style.left = best.x + 'px'; el.style.top = best.y + 'px'; el._home = best;
+      }
+      function spawn() {
+        while (onDesk.length < 3 && idx < files.length) {
+          const f = files[idx++], el = document.createElement('div');
+          el.className = 'file in'; el.dataset.k = f.k;
+          el.innerHTML = `${fileIcon(f.n)}<div class="f-nm">${esc(f.n)}</div>`;
+          A.appendChild(el); place(el); onDesk.push(el);
+        }
+      }
+      const zoneAt = e => zoneEls.find(z => { const r = z.getBoundingClientRect(); return e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom; });
+      const flash = (z, cls) => { z.classList.add(cls); ctx.timeout(() => z.classList.remove(cls), 380); };
+      const goHome = el => { el.classList.add('back'); el.style.left = el._home.x + 'px'; el.style.top = el._home.y + 'px'; };
+      const zonePos = z => { const r = z.getBoundingClientRect(), a = A.getBoundingClientRect(); return { x: r.left - a.left + r.width / 2, y: r.bottom - a.top + 14 }; };
+
+      ctx.on(A, 'pointerdown', e => {
+        const el = e.target.closest('.file');
+        if (!el || drag || over) return;
+        e.preventDefault();
+        const r = el.getBoundingClientRect();
+        drag = { el, id: e.pointerId, ox: e.clientX - r.left, oy: e.clientY - r.top };
+        el.classList.remove('back', 'in'); el.classList.add('dragging');
+        try { el.setPointerCapture(e.pointerId); } catch (err) {}
+      });
+      ctx.on(A, 'pointermove', e => {
+        if (!drag || e.pointerId !== drag.id) return;
+        const a = A.getBoundingClientRect();
+        drag.el.style.left = (e.clientX - a.left - drag.ox) + 'px';
+        drag.el.style.top = (e.clientY - a.top - drag.oy) + 'px';
+        const z = zoneAt(e);
+        zoneEls.forEach(x => x.classList.toggle('hover', x === z));
+      });
+      const drop = (e, cancel) => {
+        if (!drag || e.pointerId !== drag.id) return;
+        const el = drag.el; drag = null;
+        el.classList.remove('dragging');
+        zoneEls.forEach(x => x.classList.remove('hover'));
+        const z = cancel ? null : zoneAt(e);
+        if (!z) return goHome(el); // papkadan tashqariga tashlangan fayl maydondan yo'qolib ketmasin
+        const zp = zonePos(z);
+        if (z.dataset.k === el.dataset.k) {
+          const pts = Math.round(35 * ctx.combo.hit());
+          score += pts; sorted++; SFX.ok(); flash(z, 'ok');
+          const n = z.querySelector('.dz-n'); n.textContent = +n.textContent + 1;
+          ctx.popup(zp.x, zp.y, '+' + pts);
+          el.classList.add('gone'); onDesk = onDesk.filter(o => o !== el);
+          setTimeout(() => el.remove(), 260);
+          if (sorted === files.length) return end();
+          ctx.timeout(spawn, 200);
+        } else {
+          wrong++; score = Math.max(0, score - 10); ctx.combo.miss(); SFX.bad(); flash(z, 'bad');
+          const right = ZONES.find(x => x.k === el.dataset.k);
+          ctx.popup(zp.x, zp.y, `−10 · bu «${right.t}»ga`, 'bad');
+          goHome(el);
+        }
+        stats();
+      };
+      ctx.on(A, 'pointerup', e => drop(e, false));
+      ctx.on(A, 'pointercancel', e => drop(e, true));
+
+      function end() {
+        over = true;
+        const bonus = sorted === files.length ? Math.round(Math.max(0, TL - t) * 5) : 0;
+        ctx.finish(Math.min(1000, score + bonus), [`Saralandi: ${sorted} / ${files.length}`, `Xato: ${wrong}`, `Vaqt bonusi: +${bonus}`, `Sarflangan vaqt: ${Math.round(t)} s`]);
+      }
+
+      spawn(); stats();
+      ctx.loop(dt => {
+        t += dt; statT += dt;
+        if (statT > .25) { statT = 0; stats(); }
+        if (t >= TL) end();
+      });
+    }
+
+    /* ================================================================
+       5-BOSQICH: SCROLL OVCHISI
+       ================================================================ */
+    function runScroll(ctx) {
+      const A = ctx.area, ROUNDS = [120, 160, 200];
+      A.innerHTML = `<div class="hunt"><div class="hunt-top"><div class="hunt-q"></div><div class="hunt-tip">${ic('mouse')} G‘ildirakni aylantiring · Ctrl+F ishlamaydi</div></div><div class="hunt-list"></div></div>`;
+      const list = A.querySelector('.hunt-list'), q = A.querySelector('.hunt-q');
+      let round = 0, score = 0, wrong = 0, tNow = 0, t0 = 0, target = -1, rows = [], active = false, times = [], statT = 0;
+
+      function patient(used) {
+        const f = Math.random() < .5;
+        let k; do { k = 1000 + Math.floor(Math.random() * 9000); } while (used.has(k));
+        used.add(k);
+        const sur = pick(SURNAMES);
+        return { fam: f ? sur + 'a' : sur, ism: f ? pick(NAMES_F) : pick(NAMES_M), k, dep: pick(DEPTS), age: 18 + Math.floor(Math.random() * 68) };
+      }
+      function stats() { ctx.stats({ 'Raund': `${Math.min(round + 1, 3)}/3`, 'Vaqt': active ? (tNow - t0).toFixed(1) + ' s' : '—', 'Xato': wrong, 'Ball': Math.min(1000, score) }); }
+
+      function genRound() {
+        const n = ROUNDS[round], used = new Set();
+        rows = Array.from({ length: n }, () => patient(used));
+        target = Math.floor(rand(n * .55, n - 3));
+        const T = rows[target];
+        for (let d = 0; d < 2; d++) {
+          let j; do { j = Math.floor(Math.random() * n); } while (j === target);
+          rows[j] = Object.assign({}, rows[j], { fam: T.fam, ism: T.ism });
+        }
+        list.innerHTML = '<div class="hrow head"><span class="h-n">№</span><span class="h-name">Bemor</span><span class="h-k">Karta</span><span class="h-dep">Bo‘lim</span><span class="h-age">Yosh</span></div>' + rows.map((r, i) => `<div class="hrow" data-i="${i}"><span class="h-n">${i + 1}</span><span class="h-name">${esc(r.fam)} ${esc(r.ism)}</span><span class="h-k">№${r.k}</span><span class="h-dep">${esc(r.dep)}</span><span class="h-age">${r.age} yosh</span></div>`).join('');
+        q.innerHTML = `<span class="hq-r">${round + 1}/3</span>Toping: <b>${esc(T.fam)} ${esc(T.ism)}</b> · karta <b class="mono">№${T.k}</b>`;
+        list.scrollTop = 0; t0 = tNow; active = true; stats();
+      }
+
+      ctx.on(list, 'click', e => {
+        const r = e.target.closest('.hrow[data-i]');
+        if (!r || !active) return;
+        const i = +r.dataset.i, a = A.getBoundingClientRect(), rr2 = r.getBoundingClientRect();
+        const px = rr2.left - a.left + rr2.width / 2, py = rr2.top - a.top + rr2.height / 2;
+        if (i === target) {
+          active = false;
+          const sec = tNow - t0; times.push(sec);
+          const pts = Math.round(Math.max(60, 340 - 12 * Math.max(0, sec - 2)));
+          score += pts; SFX.ok(); r.classList.add('ok');
+          ctx.popup(px, py, `Topildi! +${pts}`, 'gold');
+          round++; stats();
+          ctx.timeout(() => round < 3 ? genRound() : end(), 900);
+        } else {
+          wrong++; score = Math.max(0, score - 20); SFX.bad();
+          r.classList.add('bad'); ctx.timeout(() => r.classList.remove('bad'), 400);
+          const T = rows[target], R = rows[i];
+          ctx.popup(px, py, R.fam === T.fam && R.ism === T.ism ? '−20 · ismi to‘g‘ri, karta raqami boshqa!' : '−20', 'bad');
+          stats();
+        }
+      });
+      ctx.on(window, 'keydown', e => {
+        if (((e.ctrlKey || e.metaKey) && e.code === 'KeyF') || e.key === 'F3') {
+          e.preventDefault(); toast('Ctrl+F bu bosqichda ishlamaydi: g‘ildirak bilan scroll qiling');
+        }
+      });
+
+      function end() {
+        ctx.finish(Math.min(1000, score), [...times.map((s, i) => `${i + 1}-raund: ${s.toFixed(1)} s`), `Noto‘g‘ri bosishlar: ${wrong}`]);
+      }
+
+      genRound();
+      ctx.loop(dt => { tNow += dt; statT += dt; if (statT > .2) { statT = 0; stats(); } });
+    }
+
+    /* ================================================================
+       6-BOSQICH: TEZ YOZISH POYGASI
+       ================================================================ */
+    function runType(ctx) {
+      const A = ctx.area, T = pick(TEXTS), GHOST = 25, LIMIT = 150;
+      A.innerHTML = `<div class="typing">
+        <div class="race">
+          <div class="lane"><span class="lane-lb">${ic('user')} Siz</span><div class="track"><span class="car" id="car-me">${ic('car')}</span></div></div>
+          <div class="lane"><span class="lane-lb">${ic('bot')} Raqib · ${GHOST} WPM</span><div class="track"><span class="car ghost" id="car-gh">${ic('car')}</span></div></div>
+        </div>
+        <div class="type-text">${[...T].map(ch => `<span>${esc(ch)}</span>`).join('')}</div>
+        <textarea class="type-input" rows="3" placeholder="Shu yerga yozing: vaqt birinchi harfdan boshlanadi" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+        <div class="type-note">${ic('shield')} Nusxa ko‘chirish va joylashtirish (paste) o‘chirilgan · o‘zbekcha ‘ belgisini ' (apostrof) bilan yozing</div>
+      </div>`;
+      const inp = A.querySelector('.type-input'), spans = [...A.querySelectorAll('.type-text span')];
+      const me = A.querySelector('#car-me'), gh = A.querySelector('#car-gh');
+      inp.maxLength = T.length;
+      let started = false, t = 0, prev = '', keys = 0, good = 0, statT = 0, over = false;
+
+      const correctChars = v => { let n = 0; for (let i = 0; i < v.length; i++) if (v[i] === T[i]) n++; return n; };
+      const wpmOf = v => started && t > .5 ? (correctChars(v) / 5) / (t / 60) : 0;
+
+      function paint(v) {
+        spans.forEach((s, i) => { s.className = i < v.length ? (v[i] === T[i] ? 'ok' : 'bad') : i === v.length ? 'cur' : ''; });
+        me.style.left = (v.length / T.length * 92) + '%';
+      }
+      function stats() { ctx.stats({ 'Vaqt': Math.round(t) + ' s', 'WPM': Math.round(wpmOf(prev)), 'Aniqlik': (keys ? Math.round(good / keys * 100) : 100) + '%', 'Xato': keys - good, 'Matn': Math.round(prev.length / T.length * 100) + '%' }); }
+
+      ['paste', 'drop', 'copy', 'cut', 'contextmenu'].forEach(ev => ctx.on(inp, ev, e => {
+        e.preventDefault();
+        if (ev === 'paste' || ev === 'drop') toast('Joylashtirish taqiqlangan: o‘zingiz yozing');
+      }));
+      ctx.on(A, 'pointerup', () => { if (!over) inp.focus(); });
+      ctx.on(inp, 'beforeinput', e => { if (/^insertFrom(Paste|Drop)$|^insertLineBreak$/.test(e.inputType)) e.preventDefault(); });
+      ctx.on(inp, 'keydown', e => { if (e.key === 'Enter') e.preventDefault(); });
+      ctx.on(inp, 'input', () => {
+        if (over) return;
+        let v = inp.value.replace(/[‘’ʻʼ`´]/g, "'");
+        if (v.length - prev.length > 3) { inp.value = prev; toast('Bir vaqtda ko‘p matn qo‘shib bo‘lmaydi: harfma-harf yozing'); return; }
+        if (v !== inp.value) inp.value = v;
+        if (!started && v.length) started = true;
+        for (let j = prev.length; j < v.length; j++) { keys++; if (v[j] === T[j]) good++; }
+        if (v.length > prev.length) SFX.key();
+        prev = v; paint(v);
+        if (v.length >= T.length) end();
+      });
+
+      function end() {
+        if (over) return;
+        over = true;
+        const wpm = wpmOf(prev), acc = keys ? good / keys : 0;
+        const score = Math.min(1000, Math.round(wpm * 25 * acc * acc));
+        const badges = [];
+        if (wpm >= 35 && acc >= .9) badges.push('raketa');
+        if (acc === 1 && prev.length >= T.length) badges.push('xatosiz');
+        const ghostTime = T.length / (GHOST * 5 / 60);
+        const finished = prev.length >= T.length;
+        ctx.finish(score, [
+          `Tezlik: ${Math.round(wpm)} WPM`,
+          `Aniqlik: ${Math.round(acc * 100)}% (${keys - good} ta xato bosish)`,
+          `Vaqt: ${Math.round(t)} s · matn: ${Math.round(prev.length / T.length * 100)}%`,
+          finished && t < ghostTime ? 'Raqibni quvib o‘tdingiz!' : 'Raqib birinchi keldi. Yana mashq qiling!'
+        ], badges);
+      }
+
+      paint(''); stats(); inp.focus();
+      ctx.loop(dt => {
+        if (started) t += dt;
+        gh.style.left = (Math.min(1, t * GHOST * 5 / 60 / T.length) * 92) + '%';
+        statT += dt;
+        if (statT > .25) { statT = 0; stats(); }
+        if (t >= LIMIT) end();
+      });
+    }
+
+    /* ================================================================
+       7-BOSQICH: TEZKOR TUGMALAR VA SAVOLLAR
+       ================================================================ */
+    function runKeys(ctx) {
+      const A = ctx.area, TL = 15;
+      const qs = shuffle([...shuffle(KEYQ).slice(0, 6).map(x => Object.assign({ type: 'key' }, x)), ...shuffle(MCQ).slice(0, 6).map(x => Object.assign({ type: 'mcq' }, x))]);
+      A.innerHTML = `<div class="quiz"><div class="q-dots">${qs.map(() => '<i></i>').join('')}</div><div class="q-timer"><i></i></div><div class="q-card"></div></div>`;
+      const dots = [...A.querySelectorAll('.q-dots i')], bar = A.querySelector('.q-timer i'), card = A.querySelector('.q-card');
+      let i = -1, qt = 0, answered = true, score = 0, right = 0, keyRight = 0, keyTotal = 0, statT = 0;
+
+      function stats() { ctx.stats({ 'Savol': `${Math.min(i + 1, qs.length)}/${qs.length}`, 'To‘g‘ri': right, 'Vaqt': Math.ceil(Math.max(0, TL - qt)) + ' s', 'Ball': Math.min(1000, score) }); }
+
+      function next() {
+        i++;
+        if (i >= qs.length) return end();
+        const q = qs[i];
+        qt = 0; answered = false;
+        dots[i].className = 'cur';
+        if (q.type === 'key') {
+          keyTotal++;
+          card.innerHTML = `<div class="q-kind">${ic('keyboard')} Amaliy topshiriq: klaviaturada bajaring</div>
+            <div class="q-text">${esc(q.a)}</div>
+            <div class="q-keys"><kbd>Ctrl</kbd> + <kbd class="q-live">?</kbd></div>
+            <div class="q-hint">Ctrl tugmasini bosib turib, kerakli harfni bosing</div>
+            <div class="q-fb"></div>`;
+        } else {
+          q.opts = shuffle(q.o.map((txt, j) => ({ txt, ok: j === 0 })));
+          card.innerHTML = `<div class="q-kind">${ic('help')} Test savoli</div>
+            <div class="q-text">${esc(q.q)}</div>
+            <div class="q-opts">${q.opts.map((o, j) => `<button class="q-opt" data-j="${j}"><kbd>${j + 1}</kbd>${esc(o.txt)}</button>`).join('')}</div>
+            <div class="q-fb"></div>`;
+        }
+        stats();
+      }
+
+      function answer(ok, msg) {
+        if (answered) return;
+        answered = true;
+        const q = qs[i], fb = card.querySelector('.q-fb');
+        dots[i].className = ok ? 'ok' : 'bad';
+        if (ok) {
+          right++; if (q.type === 'key') keyRight++;
+          const pts = Math.round((60 + 25 * Math.max(0, TL - qt) / TL) * ctx.combo.hit());
+          score += pts; SFX.ok();
+          fb.className = 'q-fb ok'; fb.innerHTML = `${ic('check')} To‘g‘ri! +${pts}`;
+        } else {
+          ctx.combo.miss(); SFX.bad();
+          fb.className = 'q-fb bad';
+          fb.innerHTML = `${ic('x')} ${esc(`${msg ? msg + ' · ' : ''}To‘g‘ri javob: ${q.type === 'key' ? q.k : q.o[0]}`)}`;
+        }
+        if (q.type === 'mcq') card.querySelectorAll('.q-opt').forEach(b => { b.disabled = true; if (q.opts[+b.dataset.j].ok) b.classList.add('ok'); });
+        stats();
+        ctx.timeout(next, ok ? 900 : 1900);
+      }
+
+      function choose(j) {
+        const q = qs[i];
+        if (answered || q.type !== 'mcq' || !q.opts[j]) return;
+        const b = card.querySelector(`.q-opt[data-j="${j}"]`);
+        if (!q.opts[j].ok) b.classList.add('bad');
+        answer(q.opts[j].ok);
+      }
+
+      ctx.on(card, 'click', e => { const b = e.target.closest('.q-opt'); if (b) choose(+b.dataset.j); });
+      ctx.on(window, 'keydown', e => {
+        const q = qs[i]; if (!q) return;
+        const mod = e.ctrlKey || e.metaKey;
+        if (mod && /^Key[A-Z]$/.test(e.code)) {
+          e.preventDefault(); e.stopPropagation();
+          if (answered || q.type !== 'key') return;
+          const L = e.code.slice(3), live = card.querySelector('.q-live');
+          if (live) live.textContent = L;
+          if (e.code === q.code) answer(true);
+          else answer(false, `Siz Ctrl + ${L} bosdingiz`);
+          return;
+        }
+        if (!mod && q.type === 'mcq' && /^(Digit|Numpad)[1-4]$/.test(e.code)) { e.preventDefault(); choose(+e.code.slice(-1) - 1); }
+      }, true);
+
+      function end() {
+        const badges = keyRight === keyTotal && keyTotal > 0 ? ['tezkor'] : [];
+        ctx.finish(Math.min(1000, score), [`To‘g‘ri javoblar: ${right} / ${qs.length}`, `Amaliy (tugmalar): ${keyRight} / ${keyTotal}`, `Test savollari: ${right - keyRight} / ${qs.length - keyTotal}`, `Eng uzun kombo: ${ctx.combo.best}`], badges);
+      }
+
+      next();
+      ctx.loop(dt => {
+        if (!answered) {
+          qt += dt;
+          bar.style.width = (Math.max(0, 1 - qt / TL) * 100) + '%';
+          statT += dt;
+          if (statT > .25) { statT = 0; stats(); }
+          if (qt >= TL) answer(false, 'Vaqt tugadi');
+        }
+      });
+    }
+
+    /* ================================================================
+       Ishga tushirish
+       ================================================================ */
+    updateHeader();
+    if (DB.player) openMap(); else renderLogin();
+  })();
+  </script>
+</body>
+</html>

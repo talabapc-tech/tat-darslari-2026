@@ -16,6 +16,7 @@ Ushbu platforma talabalar va o'qituvchilar uchun mo'ljallangan bo'lib, 100% offl
 - 8-Dars: Microsoft Office dasturlari paketi va Word matn muharriri bilan tanishuv.
 - 9-Dars: Word'da matn kiritish, belgilash va rasmiy tibbiy hujjat talablari.
 - 10-Dars: Microsoft Word — Tezkor klavishlar va sichqoncha amallari (33 ta amal, interaktiv trenajyor va 20 talik nazorat testi).
+- O'yin markazi: "Kompyuter ustasi" — sichqoncha va klaviatura bo'yicha 7 bosqichli o'yin (nishon arenasi, basketbol, sudrab tashlash, scroll, tez yozish, tezkor tugmalar), ball, yulduz va sertifikat.
 - Word amaliyoti: MS Word bo'yicha 6 ta to'liq amaliy mashg'ulot darslari va tarqatma materiallar (PDF).
 - Testlar banki: 200 ta saralangan test savollari (JSON, Excel, MyTestX va matnli formatlarda).
 

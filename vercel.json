@@ -96,6 +96,11 @@
       "permanent": false
     },
     {
+      "source": "/oyin",
+      "destination": "/TAT%20darslar/Oyin%20markazi/oyin.html",
+      "permanent": false
+    },
+    {
       "source": "/tezkor-klavishlar",
       "destination": "/TAT%20darslar/10.%20MS%20Word%20tezkor%20tugmalari%20va%20sichqoncha%20amallari/dars.html",
       "permanent": false
