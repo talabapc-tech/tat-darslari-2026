@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Bilimni Sinash Testi: 10-Dars: MS Word tezkor klavishlar va sichqoncha amallari</title>
+  <link rel="icon" type="image/svg+xml" href="./images/logos/word.svg">
+  <style>
+    :root {
+      --bg-page: #07090e;
+      --bg-card: rgba(14, 18, 26, 0.85);
+      --bg-card-hover: rgba(22, 29, 43, 0.95);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(0, 120, 212, 0.45);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-subtle: #64748b;
+      --win-blue: #0078d4;
+      --win-cyan: #38bdf8;
+      --win-green: #10b981;
+      --win-red: #ef4444;
+      --win-amber: #f59e0b;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ANTI-CHEAT & ANTI-COPY ENFORCEMENT */
+    html, body, .test-screen, .q-card, .opt-card, .reg-card, .stepper-wrap {
+      -webkit-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+      user-select: none !important;
+      -webkit-touch-callout: none !important;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-page);
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(0, 120, 212, 0.16) 0%, transparent 55%),
+        radial-gradient(circle at 85% 30%, rgba(56, 189, 248, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 15% 70%, rgba(139, 92, 246, 0.07) 0%, transparent 40%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      width: 100%;
+    }
+
+    /* TOP BAR */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 9, 14, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .top-nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.85rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .lesson-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+      background: rgba(0, 120, 212, 0.2);
+      color: var(--win-cyan);
+      border: 1px solid rgba(0, 120, 212, 0.4);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* HERO HEADER */
+    .test-hero {
+      text-align: center;
+      padding: 2.25rem 0 1.5rem;
+    }
+    .test-hero h1 {
+      font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .test-hero p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* REGISTRATION CARD */
+    .reg-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 1rem auto 2.5rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+    .reg-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .reg-title svg {
+      color: var(--win-cyan);
+    }
+    .reg-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.1rem;
+    }
+    @media (min-width: 600px) {
+      .reg-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .field-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+    .field-group input, .field-group select {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 0.65rem 0.95rem;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      outline: none;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .field-group input:focus, .field-group select:focus {
+      border-color: var(--win-cyan);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+      background: rgba(255, 255, 255, 0.07);
+    }
+    .field-group select option {
+      background: #0e121a;
+      color: #fff;
+    }
+
+    .btn-start {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      width: 100%;
+      margin-top: 1.25rem;
+      padding: 0.85rem 1.5rem;
+      background: linear-gradient(135deg, #0078d4 0%, #0284c7 100%);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 12px;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0, 120, 212, 0.35);
+    }
+    .btn-start:hover {
+      background: linear-gradient(135deg, #106ebe 0%, #0369a1 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(0, 120, 212, 0.5);
+    }
+
+    .err-banner {
+      display: none;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-radius: 8px;
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      color: #fca5a5;
+      margin-top: 1rem;
+    }
+    .err-banner.show {
+      display: block;
+    }
+
+    /* STEPPER TEST SCREEN */
+    .test-screen {
+      display: none;
+      margin: 1.5rem auto 3rem;
+    }
+    .test-screen.active {
+      display: block;
+    }
+
+    /* STEPPER HEADER */
+    .stepper-header {
+      background: var(--bg-card);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .stepper-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .stepper-progress-wrap {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 0.85rem;
+    }
+    .stepper-progress-bar {
+      height: 100%;
+      width: 10%;
+      background: linear-gradient(90deg, #0078d4, #38bdf8);
+      border-radius: 999px;
+      transition: width 0.35s ease;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+    }
+    .stepper-dots {
+      display: flex;
+      gap: 0.45rem;
+      justify-content: space-between;
+    }
+    .s-dot {
+      flex: 1;
+      height: 28px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-subtle);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .s-dot:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-main);
+    }
+    .s-dot.active {
+      background: rgba(0, 120, 212, 0.3);
+      border-color: var(--win-cyan);
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.35);
+    }
+    .s-dot.answered {
+      background: rgba(16, 185, 129, 0.18);
+      border-color: rgba(16, 185, 129, 0.4);
+      color: #34d399;
+    }
+
+    .timer-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--win-cyan);
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+    }
+    .timer-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #38bdf8;
+      animation: pulseDot 1.4s infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.8); }
+    }
+
+    /* QUESTION CARD */
+    .q-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+      animation: fadeInQ 0.3s ease;
+    }
+    @keyframes fadeInQ {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .q-number {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--win-cyan);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .q-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+    }
+
+    /* OPTIONS LIST */
+    .opts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .opt-card {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 0.95rem 1.15rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .opt-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateX(4px);
+    }
+    .opt-card.selected {
+      background: rgba(0, 120, 212, 0.2);
+      border-color: var(--win-cyan);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
+    }
+    .opt-letter {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-color);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .opt-card.selected .opt-letter {
+      background: #0078d4;
+      border-color: var(--win-cyan);
+      color: #ffffff;
+    }
+    .opt-text {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      line-height: 1.45;
+      flex: 1;
+    }
+    .opt-check {
+      opacity: 0;
+      color: var(--win-cyan);
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+    .opt-card.selected .opt-check {
+      opacity: 1;
+    }
+
+    /* BOTTOM NAV CONTROLS */
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .btn-prev {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.75rem 1.25rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-prev:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+    }
+    .btn-prev:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .btn-next {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.75rem 1.6rem;
+      background: #0078d4;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 10px;
+      color: #ffffff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(0, 120, 212, 0.35);
+      margin-left: auto;
+    }
+    .btn-next:hover {
+      background: #106ebe;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 120, 212, 0.5);
+    }
+    .btn-finish {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      border-color: rgba(52, 211, 153, 0.4);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+    }
+    .btn-finish:hover {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      box-shadow: 0 6px 18px rgba(16, 185, 129, 0.5);
+    }
+
+    /* RESULTS SCREEN */
+    .result-screen {
+      display: none;
+      margin: 1.5rem auto 3rem;
+      animation: fadeInQ 0.4s ease;
+    }
+    .result-screen.active {
+      display: block;
+    }
+    .result-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 2.25rem 2rem;
+      text-align: center;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      margin-bottom: 2rem;
+    }
+    .result-score-ring {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid var(--win-cyan);
+      background: rgba(56, 189, 248, 0.08);
+      box-shadow: 0 0 24px rgba(56, 189, 248, 0.3);
+      margin-bottom: 1.25rem;
+    }
+    .res-score-num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+    }
+    .res-score-total {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .result-grade-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1.1rem;
+      border-radius: 999px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .res-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 1.5rem;
+    }
+
+    /* REVIEW SECTION */
+    .review-wrap {
+      margin-top: 2rem;
+      text-align: left;
+    }
+    .review-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .review-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .review-item.is-correct {
+      border-left: 4px solid var(--win-green);
+    }
+    .review-item.is-wrong {
+      border-left: 4px solid var(--win-red);
+    }
+    .review-q {
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.6rem;
+      font-size: 0.96rem;
+    }
+    .review-answers {
+      font-size: 0.88rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      margin-bottom: 0.6rem;
+    }
+    .review-ans-row {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .ans-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+    }
+    .ans-tag.your {
+      background: rgba(239, 68, 68, 0.2);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.4);
+    }
+    .ans-tag.correct {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+    .review-exp {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.03);
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      line-height: 1.5;
+    }
+
+    /* ANTI-COPY TOAST ALERT */
+    .anti-copy-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #0f172a;
+      border: 1px solid rgba(239, 68, 68, 0.5);
+      color: #f87171;
+      padding: 0.75rem 1.4rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+    .anti-copy-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body oncontextmenu="return false;" oncopy="return false;" oncut="return false;">
+
+  <!-- ANTI-COPY TOAST -->
+  <div id="antiCopyToast" class="anti-copy-toast">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+    <span>Savollardan nusxa olish taqiqlangan! Testni o‘z bilimingiz bilan yeching.</span>
+  </div>
+
+  <!-- TOP NAV -->
+  <nav class="top-nav">
+    <div class="container top-nav-inner">
+      <div style="display:flex; align-items:center; gap:0.6rem;">
+        <a href="./dars.html" class="nav-btn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          <span>Darsga qaytish</span>
+        </a>
+        <span class="lesson-badge">Nazorat Testi</span>
+      </div>
+      <div id="topTimerBox" style="display:none;">
+        <div class="timer-pill">
+          <span class="timer-dot"></span>
+          <span id="timerText">00:00</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- REGISTRATION SCREEN -->
+    <section id="regScreen" class="test-hero">
+      <h1>10-Dars: MS Word tezkor klavishlar va sichqoncha amallari</h1>
+      <p>Testda jami 10 ta savol bitta-bitta taqdim etiladi. Natija darhol ekranda tahlili bilan ko‘rsatiladi.</p>
+
+      <div class="reg-card">
+        <div class="reg-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Talaba ma‘lumotlari</span>
+        </div>
+
+        <form onsubmit="startTest(event)">
+          <div class="reg-grid">
+            <div class="field-group">
+              <label for="inp-lastname">Familiya</label>
+              <input type="text" id="inp-lastname" placeholder="Masalan: Valiyev" autocomplete="family-name" maxlength="40" >
+            </div>
+            <div class="field-group">
+              <label for="inp-firstname">Ism</label>
+              <input type="text" id="inp-firstname" placeholder="Masalan: Ali" autocomplete="given-name" maxlength="40" >
+            </div>
+            <div class="field-group" style="grid-column: 1 / -1;">
+              <label for="inp-group">Guruh</label>
+              <select id="inp-group" >
+                <option value="" selected disabled>Guruhni tanlang...</option>
+                <option value="Hi-26-02">Hi-26-02 guruhi</option>
+                <option value="Hi-26-03">Hi-26-03 guruhi</option>
+                <option value="Hi-26-04">Hi-26-04 guruhi</option>
+                <option value="Hi-26-05">Hi-26-05 guruhi</option>
+                <option value="Hi-26-06">Hi-26-06 guruhi</option>
+                <option value="Hi-26-07">Hi-26-07 guruhi</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="regError" class="err-banner"></div>
+
+          <button type="submit" class="btn-start">
+            <span>Testni boshlash</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- STEPPER TEST SCREEN (1 BY 1) -->
+    <section id="testScreen" class="test-screen">
+      <!-- STEPPER HEADER -->
+      <div class="stepper-header">
+        <div class="stepper-meta">
+          <span style="font-size:0.85rem; font-weight:700; color:var(--text-main);" id="stepQuestionNum">Savol 1 / 10</span>
+          <span style="font-size:0.8rem; color:var(--text-subtle);" id="studentBadge">Talaba</span>
+        </div>
+
+        <div class="stepper-progress-wrap">
+          <div class="stepper-progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="stepper-dots" id="dotsContainer">
+          <!-- 10 Dots dynamically injected -->
+        </div>
+      </div>
+
+      <!-- ACTIVE QUESTION CARD -->
+      <div class="q-card" id="questionCard">
+        <div class="q-number" id="qBadge">SAVOL #01</div>
+        <div class="q-title" id="qText">Savol matni yuklanmoqda...</div>
+
+        <div class="opts-list" id="optsList">
+          <!-- 4 Options dynamically injected -->
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="nav-controls">
+          <button type="button" class="btn-prev" id="btnPrev" onclick="navigateStep(-1)" disabled>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            <span>Oldingi</span>
+          </button>
+
+          <button type="button" class="btn-next" id="btnNext" onclick="navigateStep(1)">
+            <span id="btnNextText">Keyingi savol</span>
+            <svg id="btnNextIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS SCREEN -->
+    <section id="resultScreen" class="result-screen">
+      <div class="result-card">
+        <div class="result-score-ring">
+          <div class="res-score-num" id="resScore">0</div>
+          <div class="res-score-total">/ 10 ta to‘g‘ri</div>
+        </div>
+
+        <div class="result-grade-badge" id="resGradeBadge" style="background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4);">
+          Baho: 5 (A‘lo)
+        </div>
+
+        <p class="res-desc" id="resSummary">Test muvaffaqiyatli topshirildi.</p>
+
+        <div style="margin-top:1.5rem; display:flex; gap:0.75rem; justify-content:center; flex-wrap:wrap;">
+          <button type="button" class="nav-btn" onclick="restartTest()">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            <span>Qayta topshirish</span>
+          </button>
+          <a href="./dars.html" class="nav-btn" style="background:#0078d4; color:#fff; border-color:#0078d4;">
+            <span>Darsga qaytish</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- DETAILED REVIEW -->
+      <div class="review-wrap">
+        <div class="review-title">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span>Savollar tahlili va to‘g‘ri javoblar</span>
+        </div>
+        <div id="reviewContainer">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    /* ====================================================================== */
+    /* SOZLAMALAR                                                             */
+    /* ====================================================================== */
+    var LESSON_NAME = "10-Dars: MS Word tezkor klavishlar va sichqoncha amallari";
+    var QUESTIONS_PER_TEST = 10;
+
+    var QUESTION_BANK = [
+      { q: "Microsoft Word dasturida yangi bo'sh hujjat yaratish uchun qaysi tezkor tugmalar birikmasi bosiladi?",
+        opts: ["Ctrl + N", "Ctrl + O", "Ctrl + S", "Ctrl + W"], ans: 0,
+        exp: "Ctrl + N (New) — yangi toza, bo'sh hujjat oynasini ochadi. Yangi ish boshlashda ishlatiladi." },
+      { q: "Oldin saqlangan hujjatni Word dasturida ochish uchun qaysi tezkor tugma ishlatiladi?",
+        opts: ["Ctrl + O", "Ctrl + N", "Ctrl + P", "Ctrl + F"], ans: 0,
+        exp: "Ctrl + O (Open) — kompyuter xotirasida saqlangan fayllarni ochish oynasini chaqiradi." },
+      { q: "Yozilayotgan yoki tahrirlanayotgan hujjatdagi o'zgarishlarni zudlik bilan saqlash uchun qaysi tugmalar bosiladi?",
+        opts: ["Ctrl + S", "Ctrl + Z", "Ctrl + C", "Ctrl + V"], ans: 0,
+        exp: "Ctrl + S (Save) — hujjatga kiritilgan o'zgarishlarni darhol saqlaydi. Matn yozish va tahrirlash davomida tez-tez bosib turish tavsiya etiladi." },
+      { q: "Mavjud hujjatning nusxasini boshqa nom yoki boshqa papkaga yangitdan saqlash (Сохранить как) qaysi klavish bilan bajariladi?",
+        opts: ["F12", "Ctrl + S", "F4", "F1"], ans: 0,
+        exp: "F12 klavishi — faylni yangi nom yoki yangi joyga nusxa qilib saqlash (Save As) oynasini to'g'ridan-to'g'ri ochadi." },
+      { q: "Tayyor bo'lgan tibbiy hujjatni printerda chop etish oynasini ochish uchun qaysi tugmalar bosiladi?",
+        opts: ["Ctrl + P", "Ctrl + S", "Ctrl + O", "Ctrl + F"], ans: 0,
+        exp: "Ctrl + P (Print) — chop etish parametrlarini va hujjatning qog'ozdagi ko'rinishini ochadi." },
+      { q: "Word dasturida ochiq turgan joriy hujjatni yopish uchun qaysi tezkor tugma qo'llaniladi?",
+        opts: ["Ctrl + W", "Ctrl + Z", "Ctrl + Q", "Ctrl + S"], ans: 0,
+        exp: "Ctrl + W — joriy ochiq hujjatni yopadi. Ishni tugatganda Ctrl+S bilan saqlab, so'ng Ctrl+W bosiladi." },
+      { q: "Hujjatda xato qilinganda yoki adashib o'chirilgan matnni o'z holiga qaytarish (oxirgi amalni bekor qilish) qaysi tugma bilan bajariladi?",
+        opts: ["Ctrl + Z", "Ctrl + Y", "Ctrl + X", "Backspace"], ans: 0,
+        exp: "Ctrl + Z (Undo) — oxirgi bajarilgan amalni darhol bekor qiladi." },
+      { q: "Ctrl + Z orqali bekor qilingan amalni qayta tiklash (oldinga qaytarish) qaysi tugma yordamida amalga oshiriladi?",
+        opts: ["Ctrl + Y", "Ctrl + Z", "Ctrl + R", "Ctrl + Shift + Z"], ans: 0,
+        exp: "Ctrl + Y (Redo) — bekor qilingan amalni qaytaradi. Ctrl+Z dan keyin adashib bekor qilinganini tiklashda ishlatiladi." },
+      { q: "Word dasturida oxirgi bajarilgan yozish yoki formatlash amalini boshqa joyda xuddi shunday takrorlash uchun qaysi klavish bosiladi?",
+        opts: ["F4", "F1", "F12", "Ctrl + R"], ans: 0,
+        exp: "F4 klavishi — Wordda oxirgi bajarilgan amalni (masalan, rang berish yoki qator qo'shish) qayta-qayta takrorlaydi." },
+      { q: "Katta hajmdagi hujjat ichidan kerakli so'z yoki familiyani tezda topish (Qidiruv oynasi) qaysi tugmalar bilan ochiladi?",
+        opts: ["Ctrl + F", "Ctrl + H", "Ctrl + S", "Ctrl + G"], ans: 0,
+        exp: "Ctrl + F (Find) — hujjat bo'ylab so'z yoki iborani tezkor qidirish panelini ochadi." },
+      { q: "Hujjatdagi bir xil xato so'zni (masalan, noto'g'ri yozilgan dori nomini) hamma joyda birdan boshqasiga almashtirish qaysi tugma bilan chaqiriladi?",
+        opts: ["Ctrl + H", "Ctrl + F", "Ctrl + R", "Ctrl + A"], ans: 0,
+        exp: "Ctrl + H (Replace) — so'zni topib boshqasiga almashtirish oynasini ochadi." },
+      { q: "Word dasturi funksiyalari bo'yicha yordam (Справка / Help) oynasini chaqirish qaysi klavish orqali amalga oshiriladi?",
+        opts: ["F1", "F2", "F5", "F12"], ans: 0,
+        exp: "F1 klavishi — deyarli barcha Windows dasturlarida, jumladan Wordda ham ma'lumotnoma va yordam oynasini ochadi." },
+      { q: "Belgilangan matnni QALIN (Bold, jirnoviy) qilish uchun qaysi tugmalar birikmasi bosiladi?",
+        opts: ["Ctrl + B", "Ctrl + I", "Ctrl + U", "Ctrl + Q"], ans: 0,
+        exp: "Ctrl + B (Bold) — ajratilgan matn harflarini to'q qalin ko'rinishga keltiradi. Sarlavha va asosiy atamalar uchun qo'llaniladi." },
+      { q: "Belgilangan so'zni QIYSHIQ (kursiv / Italic) ko'rinishga o'tkazish qaysi tugma bilan bajariladi?",
+        opts: ["Ctrl + I", "Ctrl + B", "Ctrl + U", "Ctrl + K"], ans: 0,
+        exp: "Ctrl + I (Italic) — tanlangan matnni kursiv (qiya) shriftga aylantiradi. Tibbiyotda lotincha dori nomlari yoki iqtiboslarda ishlatiladi." },
+      { q: "Belgilangan matn ostiga chiziq tortish (Underline) uchun qaysi tugmalar bosiladi?",
+        opts: ["Ctrl + U", "Ctrl + L", "Ctrl + D", "Ctrl + B"], ans: 0,
+        exp: "Ctrl + U (Underline) — matn tagiga chiziq chizadi." },
+      { q: "Hujjat sarlavhasi yoki markaziy yozuvni sahifaning O'RTAGA tekislash uchun qaysi tugmalar birikmasi qo'llaniladi?",
+        opts: ["Ctrl + E", "Ctrl + C", "Ctrl + M", "Ctrl + O"], ans: 0,
+        exp: "Ctrl + E (Center align) — sarlavhalar va alohida ajratiladigan yozuvlarni sahifa markaziga (o'rtasiga) tekislaydi." },
+      { q: "Matnni sahifaning chap chetiga tekislash (Left align) qaysi tugma bilan bajariladi?",
+        opts: ["Ctrl + L", "Ctrl + C", "Ctrl + J", "Ctrl + E"], ans: 0,
+        exp: "Ctrl + L (Left) — matnni chap chet bo'yicha tekislaydi." },
+      { q: "Hujjat oxiridagi sana va imzo qo'yiladigan joyni O'NG chetga tekislash uchun qaysi tugma bosiladi?",
+        opts: ["Ctrl + R", "Ctrl + O", "Ctrl + E", "Ctrl + J"], ans: 0,
+        exp: "Ctrl + R (Right) — sana, muallif imzosi yoki tashkilot rekvizitlarini sahifaning o'ng chetiga tekislashda ishlatiladi." },
+      { q: "Ariza, buyruq yoki rasmiy tibbiy hisobotlarning asosiy matnini IKKI CHETGA TENG (Justify) tekislash qaysi tugma orqali bajariladi?",
+        opts: ["Ctrl + J", "Ctrl + E", "Ctrl + T", "Ctrl + L"], ans: 0,
+        exp: "Ctrl + J (Justify) — matnning chap va o'ng chegaralarini kitobdagidek tekis qilib taqsimlaydi. Rasmiy hujjatlar talabi hisoblanadi." },
+      { q: "Tanlangan matndan nusxa olish (xotiraga ko'chirish / Copy) uchun qaysi tugmalar bosiladi?",
+        opts: ["Ctrl + C", "Ctrl + V", "Ctrl + X", "Ctrl + N"], ans: 0,
+        exp: "Ctrl + C (Copy) — belgilangan matnni o'z joyida qoldirgan holda almashish buferiga nusxasini oladi." },
+      { q: "Tanlangan matnni o'z joyidan KESIB OLISH (Cut) qaysi tugma bilan amalga oshiriladi?",
+        opts: ["Ctrl + X", "Ctrl + C", "Ctrl + K", "Delete"], ans: 0,
+        exp: "Ctrl + X (Cut) — matnni o'chirib olib, boshqa joyga ko'chirish uchun almashish buferiga vaqtinchalik saqlaydi." },
+      { q: "Nusxa olingan (Ctrl+C) yoki kesib olingan (Ctrl+X) matnni kursor turgan yangi joyga QO'YISH (Joylashtirish / Paste) qaysi tugma bilan bo'ladi?",
+        opts: ["Ctrl + V", "Ctrl + P", "Ctrl + J", "Ctrl + C"], ans: 0,
+        exp: "Ctrl + V (Paste) — buferdagi nusxani kursor ko'rsatib turgan joyga qo'yadi." },
+      { q: "Hujjatdagi barcha matn, jadval va rasmlarni birdaniga to'liq tanlash (Select All) uchun qaysi tugmalar bosiladi?",
+        opts: ["Ctrl + A", "Ctrl + H", "Ctrl + T", "Ctrl + Shift + A"], ans: 0,
+        exp: "Ctrl + A (All) — hujjatdagi barcha obyektlarni bir vaqtda to'liq tanlaydi." },
+      { q: "Kursor oldida turgan butun boshli bitta so'zni bir martada o'chirish uchun qaysi tugmalar birikmasi bosiladi?",
+        opts: ["Ctrl + Backspace", "Backspace", "Delete", "Ctrl + Delete"], ans: 0,
+        exp: "Ctrl + Backspace — harfma-harf emas, kursor oldidagi butun so'zni bir bosishda to'liq o'chiradi." },
+      { q: "Hujjatda sun'iy yangi sahifa boshlash (Sahifa uzilishi / Page Break) qaysi tugmalar yordamida hosil qilinadi?",
+        opts: ["Ctrl + Enter", "Shift + Enter", "Enter", "Alt + Enter"], ans: 0,
+        exp: "Ctrl + Enter — Enter tugmasini ko'p marta bosmasdan, yangi bo'lim yoki ilovani darhol yangi sahifadan boshlash imkonini beradi." },
+      { q: "Matndagi bitta so'zni sichqoncha bilan tezkor belgilash (tanlash) qanday amalga oshiriladi?",
+        opts: ["So'z ustiga chap tugmani ikki marta tez bosish (Double-click)", "So'z ustiga chap tugmani bir marta bosish", "So'z ustiga o'ng tugmani ikki marta bosish", "So'z ustiga uch marta bosish"], ans: 0,
+        exp: "So'z ustida chap tugmani ikki marta tez chertish aynan shu bitta so'zni darhol ajratib beradi." },
+      { q: "Butun boshli bitta abzatsni (xatboshini) to'liq belgilash uchun sichqoncha qanday harakatlantiriladi?",
+        opts: ["Abzats ichida chap tugmani uch marta tez bosish (Triple-click)", "Abzats ustiga ikki marta bosish", "Abzats boshiga bir marta bosish", "Sichqoncha g'ildiragini bosish"], ans: 0,
+        exp: "Abzats matni ichida chap tugmani ketma-ket 3 marta tez bosish butun abzatsni to'liq belgilaydi." },
+      { q: "Matnning bitta butun qatorini bitta bosishda belgilash uchun sichqoncha qayerga olib boriladi?",
+        opts: ["Qatorning chap chetidagi oq hoshiyaga (kursor o'ngga qaraganda) bir marta bosiladi", "Qatorning o'ng chetiga olib borib ikki marta bosiladi", "Qator o'rtasiga olib borib o'ng tugma bosiladi", "Hujjat sarlavhasi ustiga bosiladi"], ans: 0,
+        exp: "Qatorning chap hoshiyasiga sichqoncha ko'rsatkichi keltirilganda (u o'ngga qaragan oq strelkaga aylanadi) bir marta chertilsa, butun qator belgilanadi." },
+      { q: "Word matnidagi aynan bitta butun GAPNI (bosh harfdan nuqtagacha) tezkor belgilash uchun nima qilinadi?",
+        opts: ["Ctrl tugmasini bosib turib, gap ichidagi istalgan so'z ustiga chap tugma bosiladi", "Shift tugmasini bosib ikki marta chertiladi", "Alt tugmasini bosib turib uch marta chertiladi", "Sichqoncha g'ildiragi gap ustida bosiladi"], ans: 0,
+        exp: "Ctrl + chap tugma bir marta bosilsa — Word gapning boshlanishidan to yakuniy tinish belgisigacha (nuqta, so'roq, undov) butun gapni aniq belgilab oladi." },
+      { q: "Katta matn qismini (boshlang'ich nuqtadan oxirgi nuqtagacha) aniq belgilab olish uchun sichqonchaning qaysi klavish bilan birikmasi qo'llaniladi?",
+        opts: ["Shift + chap tugma bosish", "Ctrl + chap tugma bosish", "Alt + chap tugma bosish", "Tab + chap tugma bosish"], ans: 0,
+        exp: "Kursor boshlang'ich joyga qo'yiladi, so'ng Shift tugmasi bosib turilgan holda oxirgi so'z ustiga bosilsa, oraliqdagi barcha matn belgilanadi." },
+      { q: "Hujjatning sahifa masshtabini (Zoom — yaqinlashtirish yoki uzoqlashtirishni) sichqoncha yordamida qanday tez o'zgartirish mumkin?",
+        opts: ["Ctrl tugmasini bosib turib, sichqoncha g'ildiragini oldinga yoki orqaga aylantirish", "Shift tugmasini bosib g'ildirakni aylantirish", "Faqat sichqoncha g'ildiragini aylantirish", "Alt tugmasi bilan chap tugmani bosish"], ans: 0,
+        exp: "Ctrl + sichqoncha g'ildiragi aylantirilsa, hujjat ekranda kattalashadi (yaqinlashadi) yoki kichrayadi (uzoqlashadi)." },
+      { q: "Wordda 'Ctrl + S' va 'F12' tugmalari o'rtasidagi asosiy farq nima?",
+        opts: ["Ctrl+S o'zgarishlarni mavjud fayl ustiga saqlaydi, F12 esa faylni boshqa nom bilan nusxa qilib saqlash oynasini ochadi", "Ctrl+S faylni chop etadi, F12 esa faylni yopadi", "Ctrl+S yangi bo'sh fayl ochadi, F12 esa faylni o'chiradi", "Ikkalasi ham mutlaqo bir xil vazifani bajaradi, hech qanday farqi yo'q"], ans: 0,
+        exp: "Ctrl+S o'zgarishlarni faylga tezkor saqlash (Save) amali, F12 esa faylning nusxasini boshqa nom yoki formatda saqlash (Save As) oynasidir." }
+    ];
+
+    /* STATE */
+    var student = { lastName: '', firstName: '', group: '', fullName: '' };
+    var selectedQuestions = []; // 10 chosen questions with shuffled options
+    var userAnswers = new Array(10).fill(-1);
+    var currentIndex = 0;
+    var startedAt = null;
+    var timerInterval = null;
+    var isSubmitted = false;
+
+    /* ANTI-CHEAT & ANTI-COPY PROTECTION */
+    function triggerAntiCopy() {
+      var toast = document.getElementById('antiCopyToast');
+      toast.classList.add('show');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(function() {
+        toast.classList.remove('show');
+      }, 2600);
+    }
+
+    document.addEventListener('copy', function(e) {
+      e.preventDefault();
+      triggerAntiCopy();
+    });
+    document.addEventListener('cut', function(e) { e.preventDefault(); });
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      triggerAntiCopy();
+    });
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && ['c','C','a','A','x','X','u','U','p','P'].includes(e.key)) {
+        e.preventDefault();
+        triggerAntiCopy();
+        return false;
+      }
+      if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I','i','J','j','C','c'].includes(e.key))) {
+        e.preventDefault();
+        triggerAntiCopy();
+        return false;
+      }
+    });
+
+    function cleanName(str) {
+      return (str || '').trim().replace(/\s+/g, ' ');
+    }
+
+    function shuffleArray(arr) {
+      var copy = arr.slice();
+      for (var i = copy.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = copy[i];
+        copy[i] = copy[j];
+        copy[j] = temp;
+      }
+      return copy;
+    }
+
+    /* BUILD 10 QUESTIONS */
+    function build10Questions() {
+      var pool = shuffleArray(QUESTION_BANK).slice(0, QUESTIONS_PER_TEST);
+      return pool.map(function(item, idx) {
+        var origOpts = item.opts.map(function(t, i) { return { text: t, isCorrect: i === item.ans }; });
+        var shuffledOpts = shuffleArray(origOpts);
+        var correctIdx = shuffledOpts.findIndex(function(o) { return o.isCorrect; });
+        return {
+          id: idx + 1,
+          q: item.q,
+          opts: shuffledOpts.map(function(o) { return o.text; }),
+          ans: correctIdx,
+          exp: item.exp
+        };
+      });
+    }
+
+    /* START TEST */
+    function startTest(e) {
+      e.preventDefault();
+      var last = cleanName(document.getElementById('inp-lastname').value);
+      var first = cleanName(document.getElementById('inp-firstname').value);
+      var grp = document.getElementById('inp-group').value;
+      var err = document.getElementById('regError');
+
+      var displayName = (last || first) ? cleanName(last + ' ' + first) : 'Talaba';
+      student = {
+        lastName: last,
+        firstName: first,
+        group: grp || 'TAT',
+        fullName: displayName
+      };
+
+      selectedQuestions = build10Questions();
+      userAnswers = new Array(QUESTIONS_PER_TEST).fill(-1);
+      currentIndex = 0;
+      isSubmitted = false;
+      startedAt = Date.now();
+
+      // UI Switch
+      document.getElementById('regScreen').style.display = 'none';
+      document.getElementById('testScreen').classList.add('active');
+      document.getElementById('topTimerBox').style.display = 'block';
+      document.getElementById('studentBadge').textContent = student.fullName + ' (' + student.group + ')';
+
+      // Start live timer
+      startTimer();
+      renderDots();
+      renderCurrentQuestion();
+    }
+
+    function startTimer() {
+      clearInterval(timerInterval);
+      timerInterval = setInterval(function() {
+        var diff = Math.floor((Date.now() - startedAt) / 1000);
+        var m = Math.floor(diff / 60);
+        var s = diff % 60;
+        document.getElementById('timerText').textContent = 
+          (m < 10 ? '0' + m : m) + ':' + (s < 10 ? '0' + s : s);
+      }, 1000);
+    }
+
+    /* RENDER DOTS */
+    function renderDots() {
+      var container = document.getElementById('dotsContainer');
+      container.innerHTML = '';
+      for (var i = 0; i < QUESTIONS_PER_TEST; i++) {
+        var dot = document.createElement('div');
+        dot.className = 's-dot' + (i === currentIndex ? ' active' : '') + (userAnswers[i] !== -1 ? ' answered' : '');
+        dot.textContent = (i + 1);
+        (function(step) {
+          dot.onclick = function() { jumpToStep(step); };
+        })(i);
+        container.appendChild(dot);
+      }
+    }
+
+    /* RENDER CURRENT QUESTION */
+    function renderCurrentQuestion() {
+      var q = selectedQuestions[currentIndex];
+      document.getElementById('stepQuestionNum').textContent = 'Savol ' + (currentIndex + 1) + ' / ' + QUESTIONS_PER_TEST;
+      document.getElementById('qBadge').textContent = 'SAVOL #' + ((currentIndex + 1) < 10 ? '0' + (currentIndex + 1) : (currentIndex + 1));
+      document.getElementById('qText').textContent = q.q;
+
+      // Progress bar
+      var pct = ((currentIndex + 1) / QUESTIONS_PER_TEST) * 100;
+      document.getElementById('progressBar').style.width = pct + '%';
+
+      // Dots highlight
+      renderDots();
+
+      // Render options
+      var list = document.getElementById('optsList');
+      list.innerHTML = '';
+      var letters = ['A', 'B', 'C', 'D'];
+      q.opts.forEach(function(optText, optIdx) {
+        var card = document.createElement('div');
+        card.className = 'opt-card' + (userAnswers[currentIndex] === optIdx ? ' selected' : '');
+        card.innerHTML = 
+          '<div class="opt-letter">' + letters[optIdx] + '</div>' +
+          '<div class="opt-text">' + optText + '</div>' +
+          '<svg class="opt-check" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
+        card.onclick = function() {
+          selectOption(optIdx);
+        };
+        list.appendChild(card);
+      });
+
+      // Update Prev / Next buttons
+      document.getElementById('btnPrev').disabled = (currentIndex === 0);
+
+      var nextBtn = document.getElementById('btnNext');
+      var nextText = document.getElementById('btnNextText');
+      if (currentIndex === QUESTIONS_PER_TEST - 1) {
+        nextBtn.className = 'btn-next btn-finish';
+        nextText.textContent = 'Testni yakunlash';
+      } else {
+        nextBtn.className = 'btn-next';
+        nextText.textContent = 'Keyingi savol';
+      }
+    }
+
+    function selectOption(optIdx) {
+      userAnswers[currentIndex] = optIdx;
+      renderCurrentQuestion();
+    }
+
+    function jumpToStep(step) {
+      if (step >= 0 && step < QUESTIONS_PER_TEST) {
+        currentIndex = step;
+        renderCurrentQuestion();
+      }
+    }
+
+    function navigateStep(delta) {
+      if (delta === 1 && currentIndex === QUESTIONS_PER_TEST - 1) {
+        finishTest();
+        return;
+      }
+      var target = currentIndex + delta;
+      if (target >= 0 && target < QUESTIONS_PER_TEST) {
+        currentIndex = target;
+        renderCurrentQuestion();
+      }
+    }
+
+    /* FINISH TEST */
+    function finishTest() {
+      var unanswered = userAnswers.filter(function(a) { return a === -1; }).length;
+      if (unanswered > 0) {
+        var conf = confirm('Siz ' + QUESTIONS_PER_TEST + ' ta savoldan ' + (QUESTIONS_PER_TEST - unanswered) + ' tasiga javob berdingiz. ' + unanswered + ' ta savol qoldi. Testni baribir yakunlaysizmi?');
+        if (!conf) return;
+      }
+
+      clearInterval(timerInterval);
+      isSubmitted = true;
+
+      // Calculate score
+      var correctCount = 0;
+      selectedQuestions.forEach(function(q, i) {
+        if (userAnswers[i] === q.ans) correctCount++;
+      });
+
+      var pct = Math.round((correctCount / QUESTIONS_PER_TEST) * 100);
+      var grade = 2, gradeLabel = "Qoniqarsiz", gradeColor = "#ef4444", gradeBg = "rgba(239,68,68,0.2)";
+      if (pct >= 85) {
+        grade = 5; gradeLabel = "A‘lo"; gradeColor = "#34d399"; gradeBg = "rgba(16,185,129,0.2)";
+      } else if (pct >= 70) {
+        grade = 4; gradeLabel = "Yaxshi"; gradeColor = "#38bdf8"; gradeBg = "rgba(56,189,248,0.2)";
+      } else if (pct >= 50) {
+        grade = 3; gradeLabel = "Qoniqarli"; gradeColor = "#f59e0b"; gradeBg = "rgba(245,158,11,0.2)";
+      }
+
+      var timeDiff = Math.max(1, Math.floor((Date.now() - startedAt) / 1000));
+      var timeMin = Math.floor(timeDiff / 60);
+      var timeSec = timeDiff % 60;
+      var timeStr = (timeMin > 0 ? timeMin + ' daqiqa ' : '') + timeSec + ' soniya';
+
+      // UI Switch to Results
+      document.getElementById('testScreen').classList.remove('active');
+      document.getElementById('topTimerBox').style.display = 'none';
+      document.getElementById('resultScreen').classList.add('active');
+
+      document.getElementById('resScore').textContent = correctCount;
+      var b = document.getElementById('resGradeBadge');
+      b.textContent = 'Baho: ' + grade + ' (' + gradeLabel + ')';
+      b.style.color = gradeColor;
+      b.style.background = gradeBg;
+      b.style.border = '1px solid ' + gradeColor;
+
+      document.getElementById('resSummary').textContent = 
+        student.fullName + ' (' + student.group + '). Sarflangan vaqt: ' + timeStr + '. Natija: ' + pct + '%.';
+
+      // Build Review Items
+      renderReview();
+
+      }
+
+    function renderReview() {
+      var rev = document.getElementById('reviewContainer');
+      rev.innerHTML = '';
+      var letters = ['A', 'B', 'C', 'D'];
+
+      selectedQuestions.forEach(function(q, i) {
+        var userAnsIdx = userAnswers[i];
+        var isCorrect = (userAnsIdx === q.ans);
+        var item = document.createElement('div');
+        item.className = 'review-item ' + (isCorrect ? 'is-correct' : 'is-wrong');
+
+        var userAnsText = (userAnsIdx !== -1) ? (letters[userAnsIdx] + ') ' + q.opts[userAnsIdx]) : 'Javob berilmadi';
+        var correctAnsText = letters[q.ans] + ') ' + q.opts[q.ans];
+
+        item.innerHTML = 
+          '<div class="review-q">' + (i + 1) + '. ' + q.q + '</div>' +
+          '<div class="review-answers">' +
+            '<div class="review-ans-row">' +
+              '<span class="ans-tag ' + (isCorrect ? 'correct' : 'your') + '">' + (isCorrect ? 'To‘g‘ri' : 'Sizning javobingiz') + ':</span>' +
+              '<span>' + userAnsText + '</span>' +
+            '</div>' +
+            (!isCorrect ? (
+              '<div class="review-ans-row">' +
+                '<span class="ans-tag correct">To‘g‘ri javob:</span>' +
+                '<span>' + correctAnsText + '</span>' +
+              '</div>'
+            ) : '') +
+          '</div>' +
+          '<div class="review-exp">' + q.exp + '</div>';
+
+        rev.appendChild(item);
+      });
+    }
+
+    function restartTest() {
+      if (confirm('Testni qaytadan boshlashni xohlaysizmi?')) {
+        window.location.reload();
+      }
+    }
+  </script>
+</body>
+</html>

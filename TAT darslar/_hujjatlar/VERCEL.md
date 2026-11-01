@@ -6,7 +6,7 @@ HTML fayllarni shundayligicha tarqatadi.
 ## Bir marta qilinadigan sozlash
 
 1. [vercel.com](https://vercel.com) ga GitHub akkaunti bilan kiring.
-2. **Add New → Project** → `TAT-darslar-new` repozitoriyasini **Import** qiling.
+2. **Add New → Project** → `tat-darslari-2026` repozitoriyasini **Import** qiling.
 3. Sozlash oynasida:
 
    | Maydon | Qiymat |
