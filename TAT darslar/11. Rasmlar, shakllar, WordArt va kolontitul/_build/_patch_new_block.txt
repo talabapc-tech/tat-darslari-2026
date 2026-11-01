@@ -1,0 +1,85 @@
+def hf_html(d, V, markers):
+    out = ''
+    for k in ('l', 'c', 'r'):
+        t = esc(d.get(k, ''))
+        t = t.replace('{p}', '<span class="fld">1</span>').replace('{n}', '<span class="fld">1</span>')
+        out += '<span>%s</span>' % t
+    return out
+
+
+def poster_body(V, img_base, markers=True):
+    cc, sc = V['shape_colors']
+    mk = (lambda n: '<span class="mk">%d</span>' % n) if markers else (lambda n: '')
+    wa = V['wa']
+    war = wordart(wa['text'], wa['effect'], wa['c1'], wa['c2'], wa['stroke'], uid='v%d' % V['n'])
+    paras = ''.join('<p>%s</p>' % esc(p) for p in V['paras'])
+    star = ('<svg viewBox="0 0 100 100"><polygon points="50,4 61,36 95,37 68,57 78,92 50,71 22,92 32,57 5,37 39,36" '
+            'fill="%s" stroke="rgba(0,0,0,0.35)" stroke-width="2"/></svg><span>%s</span>' % (sc, esc(V['star'])))
+    hf = V['hf']
+    lis = ''.join('<li>%s</li>' % esc(x) for x in V['items'])
+    return '''<div class="hdr%(hl)s%(it)s">%(m4)s%(hh)s</div><div class="ftr%(it)s">%(ff)s</div>
+<div class="wa">%(m1)s%(war)s</div>
+<div class="body"><div class="pic st-%(n)d">%(m2)s<img src="%(img)s" alt=""></div>%(paras)s</div>
+<div class="shp">%(m3)s<div class="callout" style="background:%(cc)s;--cc:%(cc)s">%(call)s</div><div class="star">%(star)s</div></div>
+<div class="sa"><p class="lh">Bosqichlar:</p><ol>%(lis)s</ol></div>''' % dict(
+        hl=' line' if hf['line'] else '', it=' it' if hf['it'] else '', m4=mk(4), hh=hf_html(hf['h'], V, markers), ff=hf_html(hf['f'], V, markers),
+        m1=mk(1), war=war, n=V['n'], m2=mk(2), img=image_ref(img_base, V['pic']['file']), paras=paras,
+        m3=mk(3), cc=cc, call=esc(V['callout']), star=star, lis=lis)
+
+
+def sample_sheet(V, img_base, label=True, markers=True):
+    lab = '<span class="sheet-label">Namuna • %d-variant</span>' % V['n'] if label else ''
+    leg = ('<div class="legend">1 — WordArt • 2 — Rasm • 3 — Shakllar (guruhlangan) • 4 — Kolontitul (yuqori va pastki). '
+           'Raqamlar faqat izoh: hujjatga yozilmaydi. Kulrang fon — avtomatik maydon.</div>') if markers else ''
+    return '<div class="sheet poster">%s%s%s</div>' % (lab, poster_body(V, img_base, markers), leg)
+
+
+# ----------------------------------------------------------------------------
+# TOPSHIRIQ VARAG'I
+# ----------------------------------------------------------------------------
+def steps(V):
+    wa, st, hf = V['wa'], V['pic']['style'], V['hf']
+    return [
+        'Word → <b>Yangi hujjat</b>. Darhol [[Ctrl]]+[[S]]: nom <b>Familiya_V%d</b>. <b>Maket → Maydonlar → Maxsus maydonlar</b>: to‘rt tomondan <b>2 sm</b>. '
+        'Shrift: Times New Roman, 14 pt.' % V['n'],
+        'Namunadagi <b>ikki abzats</b>ni tering ([[Ctrl]]+[[J]], xatboshi 1,25 sm), so‘ng <b>«Bosqichlar»</b> ro‘yxatini <b>raqamlab</b> yozing (Bosh sahifa → Raqamlash). Yuqorida WordArt uchun bo‘sh qator qoldirmang.',
+        '<b>WordArt:</b> <b>Qo‘shish → WordArt</b> → istalgan uslub. «TEXT» ni o‘chirib yozing: <b>%s</b>. Sarlavhani varaq tepasiga, o‘rtaga qo‘ying.' % esc(wa['text']),
+        '<b>WordArt effekti:</b> <b>Shakl formati → Matn effektlari → Transformatsiya</b>: <b>%s</b>. Matn to‘ldirish va konturni <b>%s</b> ranglarda o‘zgartiring.' % (wa['tr'], wa['color']),
+        '<b>Rasm:</b> <b>Qo‘shish → Rasmlar → Bu qurilma</b> → <b>rasmlar</b> papkasidan <b>%s</b>. Eni <b>5,5 sm</b>: faqat <u>burchakdagi</u> nuqtadan torting (yon nuqtadan tortsangiz, rasm cho‘ziladi).' % V['pic']['file'],
+        '<b>Matn bilan o‘rash:</b> <b>Rasm formati → Matn bilan o‘rash → Kvadrat</b>. Rasmni birinchi abzats boshiga, chap tomonga sudrab qo‘ying: matn uni aylanib o‘tsin.',
+        '<b>Rasm uslubi:</b> <b>Rasm formati → Rasm uslublari</b> → <b>%s</b>.' % st,
+        '<b>Shakllar:</b> <b>Qo‘shish → Shakllar → Izohlar</b> → «Yumaloq to‘rtburchak izoh», ichiga «<b>%s</b>». Ikkinchisi: <b>Yulduzlar va lentalar</b> → «5 uchli yulduz» ([[Shift]] ni bosib turib chizing), ichiga «<b>!</b>». '
+        'Ranglar: <b>Shakl formati → Shakl to‘ldirish</b>.' % esc(V['callout']),
+        '<b>Guruhlash:</b> [[Ctrl]] ni bosib turib ikkala shaklni tanlang → o‘ng tugma → <b>Guruhlash → Guruhlash</b>. Guruhni namunadagidek, matn tagiga joylang.',
+        '<b>Yuqori kolontitul:</b> <b>Qo‘shish → Yuqori kolontitul → Bo‘sh</b> (yoki varaq yuqori chetiga ikki marta bosing). Yozing: %s. Shrift 10 pt%s.' % (hf['how_h'], ', <b>chiziq</b> bilan' if hf['line'] else ''),
+        '<b>Pastki kolontitul va avtomatik sahifa raqami:</b> %s. Raqam <b>qo‘lda yozilmaydi</b> — bosganda kulrang fon (maydon) ko‘rinsin. [[Esc]] — kolontitulni yopish.' % hf['how_f'],
+        'Hammasi <b>bitta betga</b> sig‘sin, hech narsa boshqasini yopmasin. [[Ctrl]]+[[S]] va o‘qituvchini chaqiring.',
+    ]
+
+
+def info_sheet(V, rel_pics):
+    tools = [('1', 'WordArt', 'bezakli sarlavha'), ('2', 'Rasm', 'tayyor rasm fayli'), ('3', 'Shakllar', 'izoh va yulduz'), ('4', 'Kolontitul', 'yuqori va pastki')]
+    crit = ''.join('<tr><td class="cn">%d</td><td><b>%s</b> — %s</td><td class="cb">0,5</td><td class="cg"></td></tr>'
+                   % (i + 1, a, b.replace('Familiya_V№', 'Familiya_V%d' % V['n'])) for i, (a, b) in enumerate(CRITERIA))
+    grades = '; '.join('%s → %s' % (a, b.split()[0]) for a, b in GRADES)
+    return '''<div class="sheet info">
+  <div class="info-top"><div><b>Tibbiyotda axborot texnologiyalari</b><br>Word 3-dars: rasm, shakl, WordArt va kolontitul • amaliy ish</div><span class="info-num">%(n)d-variant</span></div>
+  <div class="info-fio"><span>F.I.O.:</span><span>Guruh:</span><span>Sana:</span></div>
+  <h1>%(n)d-variant: %(title)s</h1>
+  <p class="info-goal"><b>Hujjat:</b> %(about)s Keyingi betdagi namunani Word’da xuddi shunday tayyorlang. Namunadagi raqamlar vositani bildiradi: %(tools)s. Rasm fayli: <b>rasmlar / %(pic)s</b>.</p>
+  <h2>Topshiriq sharti</h2>
+  <ol class="steps">%(steps)s</ol>
+  <h2>Baholash (o‘qituvchi to‘ldiradi)</h2>
+  <table class="crit"><thead><tr><th>№</th><th>Mezon</th><th>Maks.</th><th>Ball</th></tr></thead><tbody>%(crit)s
+    <tr class="tot"><td></td><td>Jami</td><td class="cb">5</td><td class="cg"></td></tr></tbody></table>
+  <div class="info-sign"><span><b>Baho:</b> ______ <span class="gr">(%(grades)s)</span></span><span>O‘qituvchi imzosi: __________</span></div>
+  <div class="info-foot"><span>%(tex)s</span><span>1-bet: topshiriq • 2-bet: namuna</span></div>
+</div>''' % dict(n=V['n'], title=V['title'], about=V['about'], pic=V['pic']['file'],
+                 tools=', '.join('<b>%s</b> — %s' % (a, b) for _, a, b in tools),
+                 steps=''.join('<li>%s</li>' % kc(x) for x in steps(V)),
+                 crit=crit, grades=grades, tex=TEXNIKUM)
+
+
+# ----------------------------------------------------------------------------
+# O'QITUVCHI VARAQLARI
+# ----------------------------------------------------------------------------
