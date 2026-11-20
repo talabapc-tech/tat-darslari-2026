@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>10-Dars: Microsoft Word — Tezkor klavishlar va sichqoncha amallari | Tibbiyotda Axborot Texnologiyalari</title>
-  <meta name="description" content="Microsoft Word dasturida tezkor klavishlar, fayl amallari, matnni formatlash, tahrirlash va sichqoncha texnikasi bo'yicha to'liq interaktiv qo'llanma va trenajyor.">
+  <meta name="description" content="Microsoft Word dasturida 33 ta tezkor klavish va sichqoncha amallari uchun jonli real Word animatsiyalari, 3D klaviatura namoyishi va interaktiv trenajyor.">
   <link rel="icon" type="image/svg+xml" href="./images/logos/word.svg">
   <script>
     try {
@@ -16,17 +16,19 @@
   <style>
     :root {
       --bg-page: #07090e;
-      --bg-card: #0e121a;
-      --bg-card-hover: #131926;
-      --border-color: #1e2638;
-      --border-accent: rgba(0, 120, 212, 0.4);
+      --bg-card: #0e131d;
+      --bg-card-hover: #141b2a;
+      --border-color: #1e293b;
+      --border-accent: rgba(56, 189, 248, 0.45);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --text-subtle: #64748b;
 
-      --word-blue: #2b579a;
-      --word-accent: #0078d4;
+      --word-blue: #185abd;
+      --word-dark: #103f91;
+      --word-sel: #b4d5fe;
       --win-blue: #0078d4;
+      --cyan: #38bdf8;
       --green: #10b981;
       --amber: #f59e0b;
       --rose: #f43f5e;
@@ -34,6 +36,7 @@
 
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --font-doc: "Calibri", "Segoe UI", Arial, sans-serif;
     }
 
     html:not([data-role="teacher"]) .teacher-only {
@@ -46,17 +49,15 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: var(--font-sans);
       background-color: var(--bg-page);
       background-image:
-        radial-gradient(circle at 50% 0%, rgba(43, 87, 154, 0.18) 0%, transparent 50%),
-        radial-gradient(circle at 85% 20%, rgba(0, 120, 212, 0.1) 0%, transparent 40%),
-        radial-gradient(circle at 10% 40%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+        radial-gradient(circle at 50% 0%, rgba(24, 90, 189, 0.22) 0%, transparent 50%),
+        radial-gradient(circle at 85% 22%, rgba(56, 189, 248, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 12% 45%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
       background-attachment: fixed;
       color: var(--text-main);
       line-height: 1.6;
@@ -64,22 +65,17 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-    }
-
-    html, body {
       overflow-x: hidden;
-      max-width: 100vw;
-      width: 100%;
     }
 
     .container {
-      max-width: 1080px;
+      max-width: 1160px;
       margin: 0 auto;
       padding: 0 1.25rem;
       width: 100%;
     }
 
-    /* TOP BAR */
+    /* TOP NAV */
     .top-nav {
       position: sticky;
       top: 0;
@@ -96,41 +92,40 @@
       height: 60px;
       gap: 0.75rem;
     }
-    .nav-left {
+    .nav-left, .nav-right {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.6rem;
     }
     .nav-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-      padding: 0.45rem 0.85rem;
+      padding: 0.44rem 0.85rem;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-color);
       border-radius: 8px;
       color: var(--text-muted);
       font-size: 0.82rem;
-      font-weight: 500;
+      font-weight: 600;
       text-decoration: none;
       transition: all 0.2s ease;
       cursor: pointer;
+      white-space: nowrap;
     }
     .nav-btn:hover {
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--text-main);
-      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.09);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.22);
     }
     .nav-btn-primary {
       background: #0078d4;
       border-color: #0078d4;
       color: #fff;
-      font-weight: 600;
     }
     .nav-btn-primary:hover {
       background: #106ebe;
       border-color: #106ebe;
-      color: #fff;
     }
     .lesson-badge {
       display: inline-flex;
@@ -138,16 +133,15 @@
       gap: 0.35rem;
       font-size: 0.72rem;
       font-weight: 700;
-      padding: 0.2rem 0.55rem;
+      padding: 0.22rem 0.58rem;
       border-radius: 6px;
-      background: rgba(43, 87, 154, 0.35);
+      background: rgba(24, 90, 189, 0.32);
       color: #60a5fa;
-      border: 1px solid rgba(43, 87, 154, 0.5);
+      border: 1px solid rgba(56, 189, 248, 0.35);
       letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
-    /* SEARCH BAR IN NAV */
     .search-box {
       position: relative;
       flex: 1;
@@ -158,16 +152,16 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-color);
       border-radius: 8px;
-      padding: 0.42rem 0.75rem 0.42rem 2.1rem;
+      padding: 0.44rem 0.75rem 0.44rem 2.15rem;
       font-size: 0.82rem;
       color: var(--text-main);
       outline: none;
-      transition: all 0.2s ease;
+      transition: all 0.2s;
     }
     .search-input:focus {
       background: rgba(255, 255, 255, 0.08);
-      border-color: var(--word-accent);
-      box-shadow: 0 0 0 3px rgba(0, 120, 212, 0.25);
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.18);
     }
     .search-icon {
       position: absolute;
@@ -178,100 +172,132 @@
       pointer-events: none;
     }
 
-    /* HERO SECTION */
+    /* HERO */
     .hero {
-      padding: 3rem 0 2rem;
-      position: relative;
+      padding: 2.75rem 0 1.75rem;
     }
     .hero-eyebrow {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.65rem;
       margin-bottom: 0.85rem;
       flex-wrap: wrap;
     }
     .hero-title {
-      font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+      font-size: clamp(1.75rem, 3.6vw, 2.55rem);
       font-weight: 800;
-      line-height: 1.2;
-      color: #ffffff;
+      line-height: 1.18;
+      color: #fff;
       margin-bottom: 0.85rem;
       letter-spacing: -0.02em;
     }
     .hero-title span {
-      background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+      background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 55%, #818cf8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .hero-desc {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: var(--text-muted);
-      max-width: 780px;
-      line-height: 1.6;
-      margin-bottom: 1.6rem;
+      max-width: 800px;
+      margin-bottom: 1.4rem;
     }
-    .hero-stats {
+    .hero-actions {
       display: flex;
       gap: 0.75rem;
       flex-wrap: wrap;
       margin-bottom: 1.5rem;
     }
+    .hero-cta-cinema {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #185abd 0%, #0284c7 100%);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      transition: all 0.2s;
+    }
+    .hero-cta-cinema:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(2, 132, 199, 0.5);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.4rem;
+    }
     .stat-pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.4rem 0.85rem;
+      gap: 0.45rem;
+      padding: 0.38rem 0.8rem;
       border-radius: 9999px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-color);
       color: var(--text-muted);
     }
-    .stat-pill strong {
-      color: var(--text-main);
-    }
-    .stat-pill svg {
-      color: #60a5fa;
-    }
+    .stat-pill strong { color: #fff; }
+    .stat-pill svg { color: var(--cyan); }
 
-    /* QUICK NAVIGATION PILLS */
     .quick-nav {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.45rem;
       flex-wrap: wrap;
-      margin-bottom: 2rem;
       padding: 0.5rem;
-      background: rgba(14, 18, 26, 0.6);
+      background: rgba(14, 19, 29, 0.75);
       border: 1px solid var(--border-color);
       border-radius: 12px;
+      margin-bottom: 1.5rem;
     }
     .q-pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      padding: 0.45rem 0.85rem;
+      gap: 0.4rem;
+      padding: 0.42rem 0.82rem;
       border-radius: 8px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
       text-decoration: none;
       color: var(--text-muted);
-      background: transparent;
       transition: all 0.2s;
     }
     .q-pill:hover, .q-pill.active {
-      color: #ffffff;
-      background: rgba(0, 120, 212, 0.25);
-      border-color: rgba(0, 120, 212, 0.5);
+      color: #fff;
+      background: rgba(0, 120, 212, 0.28);
     }
 
-    /* CARDS & SECTIONS */
+    .tip-box {
+      background: rgba(24, 90, 189, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      border-left: 3px solid var(--cyan);
+      border-radius: 10px;
+      padding: 0.9rem 1.1rem;
+      margin-bottom: 2.25rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .tip-icon { color: var(--cyan); flex-shrink: 0; margin-top: 2px; }
+    .tip-text { font-size: 0.88rem; color: #dbeafe; line-height: 1.55; }
+    .tip-text strong { color: #fff; }
+
+    /* SECTION HEADERS */
     .section-block {
-      margin-bottom: 3rem;
-      scroll-margin-top: 80px;
+      margin-bottom: 3.25rem;
+      scroll-margin-top: 78px;
     }
     .section-header {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
       gap: 1rem;
       margin-bottom: 1.25rem;
@@ -280,59 +306,61 @@
     .section-title-wrap {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: 0.7rem;
     }
     .section-number {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: rgba(0, 120, 212, 0.2);
-      border: 1px solid rgba(0, 120, 212, 0.4);
-      color: #60a5fa;
-      font-size: 0.85rem;
-      font-weight: 700;
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: rgba(0, 120, 212, 0.22);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      color: var(--cyan);
+      font-size: 0.88rem;
+      font-weight: 800;
     }
     .section-title {
       font-size: 1.45rem;
-      font-weight: 700;
-      color: #ffffff;
+      font-weight: 800;
+      color: #fff;
     }
     .section-count {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--text-subtle);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
       background: rgba(255, 255, 255, 0.05);
-      padding: 0.2rem 0.6rem;
+      padding: 0.24rem 0.68rem;
       border-radius: 9999px;
       border: 1px solid var(--border-color);
     }
 
-    /* SHORTCUT GRID */
+    /* SHORTCUT CARD GRID */
     .shortcut-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.15rem;
     }
+
     .shortcut-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.15rem;
+      border-radius: 14px;
+      padding: 1.1rem;
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
-      transition: all 0.2s ease;
+      transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
       position: relative;
+      overflow: hidden;
     }
     .shortcut-card:hover {
-      border-color: rgba(0, 120, 212, 0.5);
-      background: var(--bg-card-hover);
+      border-color: rgba(56, 189, 248, 0.55);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.42);
     }
+
     .sc-header {
       display: flex;
       align-items: center;
@@ -342,154 +370,1434 @@
     .sc-badge {
       display: inline-flex;
       align-items: center;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+    }
+    .sc-expand-btn {
+      display: inline-flex;
+      align-items: center;
       gap: 0.35rem;
+      padding: 0.28rem 0.62rem;
+      border-radius: 7px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.32);
+      color: #7dd3fc;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .sc-expand-btn:hover {
+      background: rgba(56, 189, 248, 0.25);
+      color: #fff;
     }
 
-    /* KBD KEY STYLING */
+    /* 3D PHYSICAL KEYCAP */
     kbd {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       min-width: 28px;
-      height: 28px;
-      padding: 0 0.45rem;
-      background: #1e2638;
-      border: 1px solid #334155;
-      border-bottom: 2px solid #0f172a;
+      height: 27px;
+      padding: 0 0.48rem;
+      background: linear-gradient(180deg, #273247 0%, #192131 100%);
+      border: 1px solid #3b4b68;
+      border-bottom: 3px solid #0d1320;
       border-radius: 6px;
       font-family: var(--font-mono);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
-      color: #f1f5f9;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      color: #f8fafc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255,255,255,0.12);
       user-select: none;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
     }
     .plus-sign {
       color: var(--text-subtle);
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       user-select: none;
     }
 
-    .sc-title {
-      font-size: 0.95rem;
-      font-weight: 700;
+    /* LIVE KEY PRESS STATE ON CARD */
+    .shortcut-card[data-phase="1"] .sc-badge kbd,
+    .mw-stage[data-phase="1"] .stage-kbd kbd {
+      transform: translateY(2.5px);
+      border-bottom-width: 1px;
+      background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%);
+      border-color: #38bdf8;
       color: #ffffff;
-      line-height: 1.4;
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.65), inset 0 1px 2px rgba(255,255,255,0.3);
+    }
+
+    .sc-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
     }
     .sc-desc {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.48;
     }
     .sc-meta {
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
-      padding-top: 0.6rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      font-size: 0.78rem;
+      gap: 0.32rem;
+      padding-top: 0.55rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.76rem;
     }
     .sc-meta-row {
       display: flex;
-      align-items: flex-start;
-      gap: 0.45rem;
+      gap: 0.4rem;
       color: var(--text-muted);
     }
     .sc-meta-label {
       color: var(--text-subtle);
       font-weight: 600;
-      min-width: 95px;
+      min-width: 82px;
       flex-shrink: 0;
     }
-    .sc-meta-val {
-      color: #cbd5e1;
+    .sc-meta-val { color: #cbd5e1; }
+
+    /* ====================================================================== */
+    /* REALISTIC MINI MICROSOFT WORD STAGE (INSIDE CARDS & FULL MODAL)        */
+    /* ====================================================================== */
+    .mw-stage {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #1b2230;
+      border: 1px solid #28354d;
+      cursor: pointer;
+      user-select: none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 4px 14px rgba(0,0,0,0.35);
+    }
+    .mw-stage.is-mini {
+      height: 162px;
+    }
+    .mw-stage.is-modal {
+      height: 290px;
+      cursor: default;
+      border-radius: 12px;
+      border-color: #334155;
     }
 
-    /* MEDICAL TIP BOX */
-    .tip-box {
-      background: rgba(43, 87, 154, 0.12);
-      border: 1px solid rgba(43, 87, 154, 0.35);
-      border-left: 3px solid #0078d4;
-      border-radius: 8px;
-      padding: 0.85rem 1rem;
-      margin: 1.5rem 0;
+    /* Authentic Word Titlebar */
+    .mw-titlebar {
+      height: 22px;
+      background: linear-gradient(90deg, #103f91 0%, #185abd 100%);
       display: flex;
-      gap: 0.75rem;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px;
+      color: #fff;
+      font-size: 10px;
+      font-family: var(--font-sans);
+      position: relative;
+      z-index: 5;
+    }
+    .mw-stage.is-modal .mw-titlebar {
+      height: 30px;
+      padding: 0 12px;
+      font-size: 12px;
+    }
+    .mw-tb-left {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 600;
+    }
+    .mw-w-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      background: #fff;
+      color: #185abd;
+      font-weight: 900;
+      font-size: 9px;
+      line-height: 1;
+    }
+    .mw-stage.is-modal .mw-w-logo {
+      width: 18px;
+      height: 18px;
+      font-size: 11px;
+    }
+    .mw-tb-dots {
+      display: flex;
+      gap: 4px;
+      opacity: 0.75;
+    }
+    .mw-tb-dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.65);
+    }
+
+    /* Authentic Word Mini Ribbon */
+    .mw-ribbon {
+      height: 20px;
+      background: #f3f4f6;
+      border-bottom: 1px solid #d1d5db;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0 8px;
+      color: #374151;
+      font-size: 9px;
+      font-weight: 700;
+      position: relative;
+      z-index: 4;
+    }
+    .mw-stage.is-modal .mw-ribbon {
+      height: 30px;
+      padding: 0 12px;
+      gap: 6px;
+      font-size: 11px;
+    }
+    .mw-rbtn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: #4b5563;
+      transition: all 0.2s;
+      line-height: 1.2;
+    }
+    .mw-rbtn.lit {
+      background: #185abd;
+      color: #fff;
+      box-shadow: 0 0 8px rgba(24, 90, 189, 0.55);
+      transform: scale(1.08);
+    }
+    .mw-rsep {
+      width: 1px;
+      height: 11px;
+      background: #d1d5db;
+      margin: 0 2px;
+    }
+
+    /* Word Canvas (Gray Desk + Crisp White A4 Paper) */
+    .mw-canvas {
+      position: relative;
+      height: calc(100% - 42px);
+      background: #cfd5df;
+      padding: 8px 12px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
       align-items: flex-start;
     }
-    .tip-icon {
-      color: #60a5fa;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .tip-text {
-      font-size: 0.88rem;
-      color: #e2e8f0;
-      line-height: 1.55;
-    }
-    .tip-text strong {
-      color: #ffffff;
+    .mw-stage.is-modal .mw-canvas {
+      height: calc(100% - 60px);
+      padding: 14px 22px;
     }
 
-    /* INTERACTIVE SIMULATOR (TRENAJYOR) */
+    .mw-paper {
+      width: 100%;
+      max-width: 280px;
+      min-height: 98px;
+      background: #ffffff;
+      color: #111827;
+      border-radius: 2px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.22);
+      padding: 9px 12px;
+      font-family: var(--font-doc);
+      font-size: 10.5px;
+      line-height: 1.42;
+      position: relative;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+    }
+    .mw-stage.is-modal .mw-paper {
+      max-width: 480px;
+      min-height: 182px;
+      padding: 16px 22px;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    /* Word Blinking Caret */
+    .mw-caret {
+      display: inline-block;
+      width: 1.5px;
+      height: 1.08em;
+      background: #111827;
+      vertical-align: -0.15em;
+      margin: 0 1px;
+      animation: caretBlink 0.9s infinite;
+    }
+    @keyframes caretBlink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    /* Word Selection Highlight */
+    .mw-sel {
+      background: transparent;
+      border-radius: 2px;
+      padding: 0 1px;
+      transition: background-color 0.28s ease, font-weight 0.2s, font-style 0.2s;
+    }
+    .mw-sel.on {
+      background: var(--word-sel);
+    }
+
+    /* Floating Phase Pill Overlay inside Mini Stage */
+    .mw-phase-pill {
+      position: absolute;
+      bottom: 6px;
+      left: 8px;
+      right: 8px;
+      z-index: 12;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      pointer-events: none;
+    }
+    .mw-caption {
+      background: rgba(10, 15, 26, 0.88);
+      backdrop-filter: blur(6px);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 6px;
+      padding: 2px 7px;
+      font-size: 10px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 72%;
+      transition: all 0.25s;
+    }
+    .mw-stage[data-phase="1"] .mw-caption {
+      border-color: rgba(56, 189, 248, 0.65);
+      color: #7dd3fc;
+    }
+    .mw-stage[data-phase="2"] .mw-caption {
+      border-color: rgba(16, 185, 129, 0.65);
+      color: #6ee7b7;
+    }
+    .mw-stage.is-modal .mw-phase-pill {
+      display: none;
+    }
+
+    .mw-key-toast {
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 5px;
+      opacity: 0;
+      transform: translateY(4px) scale(0.92);
+      transition: all 0.22s ease;
+    }
+    .mw-stage[data-phase="1"] .mw-key-toast {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      background: #0284c7;
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+    }
+
+    /* Animated Mouse Pointer Inside Word Canvas */
+    .mw-pointer {
+      position: absolute;
+      z-index: 10;
+      width: 18px;
+      height: 18px;
+      pointer-events: none;
+      transition: left 0.45s cubic-bezier(0.22, 1, 0.36, 1), top 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.2s ease;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.4));
+    }
+    .mw-ripple {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid #0284c7;
+      background: rgba(56, 189, 248, 0.25);
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 9;
+    }
+    .mw-stage[data-phase="1"] .mw-ripple.r1 {
+      animation: clickRipple 0.65s ease-out forwards;
+    }
+    .mw-stage[data-phase="1"] .mw-ripple.r2 {
+      animation: clickRipple 0.65s 0.24s ease-out forwards;
+    }
+    .mw-stage[data-phase="1"] .mw-ripple.r3 {
+      animation: clickRipple 0.65s 0.48s ease-out forwards;
+    }
+    @keyframes clickRipple {
+      0% { transform: translate(-50%, -50%) scale(0.2); opacity: 0.95; }
+      100% { transform: translate(-50%, -50%) scale(1.65); opacity: 0; }
+    }
+
+    /* ====================================================================== */
+    /* INDIVIDUAL REALISTIC WORD SCENE ANIMATIONS (33 SCENES)                 */
+    /* ====================================================================== */
+
+    /* 1. Ctrl+N: New blank doc slides over existing doc */
+    .sc-new-overlay {
+      position: absolute;
+      inset: 8px 12px;
+      max-width: 280px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 2px;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.38);
+      padding: 9px 12px;
+      color: #111827;
+      font-family: var(--font-doc);
+      font-size: 10.5px;
+      opacity: 0;
+      transform: translate(22px, 16px) scale(0.92);
+      transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: 6;
+    }
+    .mw-stage.is-modal .sc-new-overlay {
+      inset: 14px 22px;
+      max-width: 480px;
+      padding: 16px 22px;
+      font-size: 14px;
+    }
+    .mw-stage[data-phase="2"] .sc-new-overlay {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+    .sc-new-tag {
+      font-size: 9px;
+      color: #185abd;
+      font-weight: 700;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    /* 2. Ctrl+O: Open file dialog -> file loads */
+    .sc-dialog {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%) scale(0.88);
+      width: 84%;
+      max-width: 260px;
+      background: #ffffff;
+      border: 1px solid #94a3b8;
+      border-radius: 6px;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.42);
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: 8;
+      color: #111827;
+      font-size: 9.5px;
+    }
+    .mw-stage.is-modal .sc-dialog {
+      top: 18px;
+      max-width: 380px;
+      font-size: 12px;
+    }
+    .sc-dialog-hd {
+      background: #185abd;
+      color: #fff;
+      padding: 4px 8px;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+    }
+    .sc-dialog-bd {
+      padding: 6px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .sc-file-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 5px;
+      border-radius: 4px;
+    }
+    .sc-file-row.picked {
+      background: #dbeafe;
+      color: #1e40af;
+      font-weight: 700;
+    }
+    .mw-stage[data-anim="ctrl_o"][data-phase="1"] .sc-dialog {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+    .sc-opened-body {
+      opacity: 0;
+      transform: translateY(6px);
+      transition: all 0.35s ease;
+    }
+    .mw-stage[data-anim="ctrl_o"][data-phase="2"] .sc-opened-body {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 3. Ctrl+S: Save badge + asterisk disappears */
+    .sc-unsaved-star {
+      color: #fde047;
+      font-weight: 900;
+      transition: opacity 0.25s;
+    }
+    .mw-stage[data-anim="ctrl_s"][data-phase="2"] .sc-unsaved-star {
+      opacity: 0;
+    }
+    .sc-save-banner {
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      background: #10b981;
+      color: #fff;
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 99px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: all 0.32s ease;
+      z-index: 8;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.45);
+    }
+    .mw-stage.is-modal .sc-save-banner { font-size: 12px; padding: 4px 11px; }
+    .mw-stage[data-anim="ctrl_s"][data-phase="2"] .sc-save-banner {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .sc-save-bar {
+      height: 3px;
+      background: #e2e8f0;
+      border-radius: 99px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+    .sc-save-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #185abd, #10b981);
+      transition: width 0.55s ease;
+    }
+    .mw-stage[data-anim="ctrl_s"][data-phase="1"] .sc-save-fill { width: 65%; }
+    .mw-stage[data-anim="ctrl_s"][data-phase="2"] .sc-save-fill { width: 100%; }
+
+    /* 4. F12: Save As dialog with filename change */
+    .mw-stage[data-anim="f12"][data-phase="1"] .sc-dialog,
+    .mw-stage[data-anim="f12"][data-phase="2"] .sc-dialog {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+    .sc-input-mock {
+      border: 1px solid #3b82f6;
+      border-radius: 3px;
+      padding: 2px 5px;
+      background: #eff6ff;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: #1e3a8a;
+      font-weight: 700;
+    }
+    .mw-stage.is-modal .sc-input-mock { font-size: 11.5px; padding: 4px 7px; }
+    .sc-f12-old { display: inline; }
+    .sc-f12-new { display: none; color: #059669; }
+    .mw-stage[data-anim="f12"][data-phase="2"] .sc-f12-old { display: none; }
+    .mw-stage[data-anim="f12"][data-phase="2"] .sc-f12-new { display: inline; }
+
+    /* 5. Ctrl+P: Print Backstage View */
+    .sc-print-ui {
+      position: absolute;
+      inset: 0;
+      background: #f3f4f6;
+      display: grid;
+      grid-template-columns: 42% 58%;
+      opacity: 0;
+      transform: scale(0.96);
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: 7;
+      color: #1f2937;
+    }
+    .mw-stage[data-anim="ctrl_p"][data-phase="2"] .sc-print-ui {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .sc-print-side {
+      background: #ffffff;
+      border-right: 1px solid #d1d5db;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 9px;
+    }
+    .mw-stage.is-modal .sc-print-side { padding: 14px; font-size: 11.5px; gap: 8px; }
+    .sc-print-btn {
+      background: #185abd;
+      color: #fff;
+      border-radius: 4px;
+      padding: 4px 7px;
+      font-weight: 700;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+    .sc-print-preview {
+      background: #cbd5e1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+    }
+    .sc-print-sheet {
+      width: 66px;
+      height: 86px;
+      background: #fff;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.28);
+      padding: 6px;
+      font-size: 6px;
+      line-height: 1.35;
+      color: #334155;
+    }
+    .mw-stage.is-modal .sc-print-sheet {
+      width: 120px;
+      height: 160px;
+      padding: 12px;
+      font-size: 9px;
+    }
+
+    /* 6. Ctrl+W: Document closes while Word stays open */
+    .mw-stage[data-anim="ctrl_w"][data-phase="2"] .mw-paper {
+      opacity: 0;
+      transform: scale(0.75) translateY(10px);
+    }
+    .sc-closed-note {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #475569;
+      font-size: 10px;
+      font-weight: 700;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .mw-stage.is-modal .sc-closed-note { font-size: 13px; }
+    .mw-stage[data-anim="ctrl_w"][data-phase="2"] .sc-closed-note {
+      opacity: 1;
+    }
+
+    /* 7. Ctrl+Z: Undo restores deleted word */
+    .sc-undo-word {
+      display: inline-block;
+      transition: all 0.35s ease;
+      padding: 0 3px;
+      border-radius: 3px;
+    }
+    .mw-stage[data-anim="ctrl_z"][data-phase="0"] .sc-undo-word {
+      opacity: 0;
+      max-width: 0;
+      overflow: hidden;
+      padding: 0;
+    }
+    .mw-stage[data-anim="ctrl_z"][data-phase="1"] .sc-undo-word {
+      opacity: 0.4;
+      background: #fef08a;
+    }
+    .mw-stage[data-anim="ctrl_z"][data-phase="2"] .sc-undo-word {
+      opacity: 1;
+      background: #bbf7d0;
+      color: #065f46;
+      font-weight: 700;
+    }
+    .sc-err-badge {
+      display: inline-block;
+      font-size: 8.5px;
+      background: #fee2e2;
+      color: #b91c1c;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-weight: 700;
+      transition: opacity 0.25s;
+    }
+    .mw-stage[data-anim="ctrl_z"][data-phase="2"] .sc-err-badge { opacity: 0; display: none; }
+
+    /* 8. Ctrl+Y: Redo reapplies undone heading style */
+    .sc-redo-target {
+      transition: all 0.35s ease;
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+    .mw-stage[data-anim="ctrl_y"][data-phase="2"] .sc-redo-target {
+      font-weight: 800;
+      color: #185abd;
+      background: #dbeafe;
+    }
+
+    /* 9. F4: Repeat formatting onto next items */
+    .sc-f4-1 { font-weight: 800; color: #185abd; background: #dbeafe; padding: 0 4px; border-radius: 3px; }
+    .sc-f4-2, .sc-f4-3 { padding: 0 4px; border-radius: 3px; transition: all 0.32s ease; }
+    .mw-stage[data-anim="f4"][data-phase="1"] .sc-f4-2 { background: var(--word-sel); }
+    .mw-stage[data-anim="f4"][data-phase="2"] .sc-f4-2,
+    .mw-stage[data-anim="f4"][data-phase="2"] .sc-f4-3 {
+      font-weight: 800;
+      color: #185abd;
+      background: #dbeafe;
+    }
+
+    /* 10. Ctrl+F: Find navigation sidebar + yellow highlights */
+    .sc-find-pane {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 38%;
+      background: #f8fafc;
+      border-right: 1px solid #cbd5e1;
+      padding: 6px;
+      font-size: 8.5px;
+      color: #1e293b;
+      transform: translateX(-105%);
+      transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: 7;
+    }
+    .mw-stage.is-modal .sc-find-pane { padding: 12px; font-size: 11px; }
+    .mw-stage[data-anim="ctrl_f"][data-phase="1"] .sc-find-pane,
+    .mw-stage[data-anim="ctrl_f"][data-phase="2"] .sc-find-pane {
+      transform: translateX(0);
+    }
+    .mw-stage[data-anim="ctrl_f"][data-phase="2"] .mw-paper {
+      transform: translateX(22%);
+    }
+    .sc-hl {
+      border-radius: 2px;
+      padding: 0 2px;
+      transition: background-color 0.3s ease;
+    }
+    .mw-stage[data-anim="ctrl_f"][data-phase="2"] .sc-hl {
+      background: #fde047;
+      color: #000;
+      font-weight: 700;
+    }
+
+    /* 11. Ctrl+H: Replace dialog swaps typo -> correct */
+    .mw-stage[data-anim="ctrl_h"][data-phase="1"] .sc-dialog {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+    .sc-rep-old {
+      background: #fecaca;
+      color: #991b1b;
+      padding: 0 2px;
+      border-radius: 2px;
+      text-decoration: line-through;
+    }
+    .sc-rep-new {
+      display: none;
+      background: #bbf7d0;
+      color: #065f46;
+      font-weight: 700;
+      padding: 0 3px;
+      border-radius: 2px;
+    }
+    .mw-stage[data-anim="ctrl_h"][data-phase="2"] .sc-rep-old { display: none; }
+    .mw-stage[data-anim="ctrl_h"][data-phase="2"] .sc-rep-new { display: inline; }
+
+    /* 12. F1: Help sidebar slides in from right */
+    .sc-help-pane {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 44%;
+      background: #ffffff;
+      border-left: 1px solid #cbd5e1;
+      padding: 7px;
+      font-size: 8.5px;
+      color: #1e293b;
+      transform: translateX(105%);
+      transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: 7;
+      box-shadow: -4px 0 14px rgba(0,0,0,0.12);
+    }
+    .mw-stage.is-modal .sc-help-pane { padding: 12px; font-size: 11px; }
+    .mw-stage[data-anim="f1"][data-phase="2"] .sc-help-pane {
+      transform: translateX(0);
+    }
+
+    /* 13-15. Bold / Italic / Underline */
+    .mw-stage[data-anim="ctrl_b"][data-phase="2"] .sc-fmt-target { font-weight: 900; color: #0f172a; }
+    .mw-stage[data-anim="ctrl_i"][data-phase="2"] .sc-fmt-target { font-style: italic; color: #185abd; }
+    .sc-u-wrap { position: relative; display: inline-block; }
+    .sc-u-line {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 1.8px;
+      width: 0%;
+      background: #185abd;
+      transition: width 0.42s ease;
+    }
+    .mw-stage[data-anim="ctrl_u"][data-phase="2"] .sc-u-line { width: 100%; }
+
+    /* 16-19. Smooth Gliding Alignments (Center, Left, Right, Justify) */
+    .sc-align-box {
+      position: relative;
+      width: 100%;
+      min-height: 22px;
+    }
+    .sc-align-glide {
+      position: relative;
+      display: inline-block;
+      left: 0%;
+      transform: translateX(0%);
+      transition: left 0.58s cubic-bezier(0.22, 1, 0.36, 1), transform 0.58s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .mw-stage[data-anim="ctrl_e"][data-phase="2"] .sc-align-glide {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .mw-stage[data-anim="ctrl_e"][data-phase="2"] .sc-align-bar { opacity: 1; }
+    .sc-align-bar {
+      position: absolute;
+      top: -2px;
+      bottom: -2px;
+      left: 50%;
+      width: 1px;
+      border-left: 1px dashed #10b981;
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
+    .mw-stage[data-anim="ctrl_l"][data-phase="0"] .sc-align-glide,
+    .mw-stage[data-anim="ctrl_l"][data-phase="1"] .sc-align-glide {
+      left: 100%;
+      transform: translateX(-100%);
+    }
+    .mw-stage[data-anim="ctrl_l"][data-phase="2"] .sc-align-glide {
+      left: 0%;
+      transform: translateX(0%);
+    }
+    .mw-stage[data-anim="ctrl_r"][data-phase="2"] .sc-align-glide {
+      left: 100%;
+      transform: translateX(-100%);
+    }
+
+    .sc-just-para {
+      border-left: 2px solid #cbd5e1;
+      border-right: 2px dashed #f87171;
+      padding: 2px 5px;
+      transition: border-color 0.4s ease;
+    }
+    .sc-just-line {
+      word-spacing: 0px;
+      letter-spacing: 0px;
+      transition: word-spacing 0.55s cubic-bezier(0.22, 1, 0.36, 1), letter-spacing 0.55s ease;
+      white-space: nowrap;
+    }
+    .mw-stage[data-anim="ctrl_j"][data-phase="2"] .sc-just-para {
+      border-left-color: #10b981;
+      border-right: 2px solid #10b981;
+    }
+    .mw-stage[data-anim="ctrl_j"][data-phase="2"] .sc-just-line.expand {
+      word-spacing: 11px;
+      letter-spacing: 0.35px;
+    }
+    .mw-stage.is-modal[data-anim="ctrl_j"][data-phase="2"] .sc-just-line.expand {
+      word-spacing: 20px;
+      letter-spacing: 0.55px;
+    }
+
+    /* Flying Ghost Copy Animation for Ctrl+C & Ctrl+X */
+    .sc-ghost-fly {
+      position: absolute;
+      left: 16%;
+      top: 22%;
+      background: rgba(56, 189, 248, 0.25);
+      border: 1px solid #0284c7;
+      color: #0369a1;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 1px 5px;
+      border-radius: 4px;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 9;
+      transition: all 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .mw-stage[data-anim="ctrl_c"][data-phase="1"] .sc-ghost-fly,
+    .mw-stage[data-anim="ctrl_x"][data-phase="1"] .sc-ghost-fly {
+      opacity: 1;
+      left: 20%;
+      top: 22%;
+      transform: scale(1);
+    }
+    .mw-stage[data-anim="ctrl_c"][data-phase="2"] .sc-ghost-fly,
+    .mw-stage[data-anim="ctrl_x"][data-phase="2"] .sc-ghost-fly {
+      opacity: 0;
+      left: 72%;
+      top: 5%;
+      transform: scale(0.75);
+    }
+
+    /* Animated Mouse Pointer Movement */
+    .mw-stage[data-anim="m_click"][data-phase="0"] .mw-pointer { left: 16%; top: 55%; }
+    .mw-stage[data-anim="m_click"][data-phase="1"] .mw-pointer,
+    .mw-stage[data-anim="m_click"][data-phase="2"] .mw-pointer { left: 41%; top: 24%; }
+
+    .mw-stage[data-anim="m_dbl"][data-phase="0"] .mw-pointer { left: 18%; top: 54%; }
+    .mw-stage[data-anim="m_dbl"][data-phase="1"] .mw-pointer,
+    .mw-stage[data-anim="m_dbl"][data-phase="2"] .mw-pointer { left: 45%; top: 24%; }
+
+    .mw-stage[data-anim="m_tpl"][data-phase="0"] .mw-pointer { left: 20%; top: 62%; }
+    .mw-stage[data-anim="m_tpl"][data-phase="1"] .mw-pointer,
+    .mw-stage[data-anim="m_tpl"][data-phase="2"] .mw-pointer { left: 48%; top: 30%; }
+
+    .mw-stage[data-anim="m_line"][data-phase="0"] .mw-pointer { left: 36%; top: 36%; }
+    .mw-stage[data-anim="m_line"][data-phase="1"] .mw-pointer,
+    .mw-stage[data-anim="m_line"][data-phase="2"] .mw-pointer { left: 9%; top: 36%; }
+
+    .mw-stage[data-anim="m_shift"][data-phase="0"] .mw-pointer { left: 26%; top: 24%; }
+    .mw-stage[data-anim="m_shift"][data-phase="1"] .mw-pointer,
+    .mw-stage[data-anim="m_shift"][data-phase="2"] .mw-pointer { left: 68%; top: 36%; }
+
+    .mw-stage[data-anim="m_ctrl"][data-phase="0"] .mw-pointer { left: 16%; top: 56%; }
+    .mw-stage[data-anim="m_ctrl"][data-phase="1"] .mw-pointer,
+    .mw-stage[data-anim="m_ctrl"][data-phase="2"] .mw-pointer { left: 48%; top: 28%; }
+
+    /* Modal scroll container height */
+    .sc-scroll-box {
+      position: relative;
+      height: 68px;
+      overflow: hidden;
+    }
+    .mw-stage.is-modal .sc-scroll-box {
+      height: 142px;
+    }
+
+    /* Staggered yellow search highlights for Ctrl+F */
+    .mw-stage[data-anim="ctrl_f"][data-phase="2"] .sc-hl:nth-of-type(2) { transition-delay: 0.12s; }
+    .mw-stage[data-anim="ctrl_f"][data-phase="2"] .sc-hl:nth-of-type(3) { transition-delay: 0.24s; }
+
+    /* 20-22. Copy / Cut / Paste with Floating Clipboard Chip */
+    .sc-clip-badge {
+      position: absolute;
+      top: 5px;
+      right: 6px;
+      background: #0f172a;
+      color: #38bdf8;
+      border: 1px solid #38bdf8;
+      border-radius: 5px;
+      padding: 2px 6px;
+      font-size: 8.5px;
+      font-weight: 700;
+      opacity: 0;
+      transform: translateY(6px) scale(0.85);
+      transition: all 0.35s ease;
+      z-index: 8;
+    }
+    .mw-stage.is-modal .sc-clip-badge { font-size: 11px; padding: 3px 9px; top: 8px; right: 10px; }
+    .mw-stage[data-anim="ctrl_c"][data-phase="2"] .sc-clip-badge,
+    .mw-stage[data-anim="ctrl_x"][data-phase="2"] .sc-clip-badge,
+    .mw-stage[data-anim="ctrl_v"] .sc-clip-badge {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .sc-cut-target {
+      transition: all 0.35s ease;
+    }
+    .mw-stage[data-anim="ctrl_x"][data-phase="2"] .sc-cut-target {
+      opacity: 0;
+      text-decoration: line-through;
+      max-height: 0;
+      overflow: hidden;
+      margin: 0;
+    }
+    .sc-paste-result {
+      opacity: 0;
+      transform: translateY(-8px);
+      background: #dbeafe;
+      color: #1e40af;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 3px;
+      display: inline-block;
+      transition: all 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .mw-stage[data-anim="ctrl_v"][data-phase="2"] .sc-paste-result {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 23. Ctrl+A: Select all sweep */
+    .sc-all-block {
+      padding: 2px 4px;
+      border-radius: 3px;
+      transition: background-color 0.32s ease;
+    }
+    .mw-stage[data-anim="ctrl_a"][data-phase="2"] .sc-all-block {
+      background: var(--word-sel);
+    }
+
+    /* 24. Ctrl+Backspace: Whole word vanishes */
+    .sc-del-word {
+      display: inline-block;
+      transition: all 0.35s ease;
+      padding: 0 2px;
+      border-radius: 3px;
+    }
+    .mw-stage[data-anim="ctrl_bs"][data-phase="1"] .sc-del-word {
+      background: #fecaca;
+      color: #b91c1c;
+    }
+    .mw-stage[data-anim="ctrl_bs"][data-phase="2"] .sc-del-word {
+      opacity: 0;
+      max-width: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    /* 25. Ctrl+Enter: Page Break splits into Page 2 */
+    .sc-pages-stack {
+      width: 100%;
+      max-width: 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: transform 0.45s ease;
+    }
+    .mw-stage.is-modal .sc-pages-stack { max-width: 480px; gap: 10px; }
+    .sc-page-break-line {
+      border-top: 1.5px dashed #185abd;
+      text-align: center;
+      font-size: 8px;
+      color: #185abd;
+      font-weight: 700;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.35s ease;
+    }
+    .sc-page-2 {
+      background: #fff;
+      border-radius: 2px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.22);
+      padding: 7px 12px;
+      color: #111827;
+      font-family: var(--font-doc);
+      font-size: 10px;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .mw-stage.is-modal .sc-page-2 { padding: 14px 22px; font-size: 13.5px; }
+    .mw-stage[data-anim="ctrl_enter"][data-phase="2"] .sc-page-break-line {
+      opacity: 1;
+      max-height: 18px;
+    }
+    .mw-stage[data-anim="ctrl_enter"][data-phase="2"] .sc-page-2 {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .mw-stage[data-anim="ctrl_enter"][data-phase="2"] .sc-pages-stack {
+      transform: translateY(-18px);
+    }
+
+    /* 26-31. Mouse Clicks & Selection */
+    .mw-stage[data-anim="m_click"][data-phase="0"] .sc-c0 { display: inline-block; }
+    .mw-stage[data-anim="m_click"][data-phase="0"] .sc-c2 { display: none; }
+    .mw-stage[data-anim="m_click"][data-phase="1"] .sc-c0 { display: inline-block; }
+    .mw-stage[data-anim="m_click"][data-phase="1"] .sc-c2 { display: none; }
+    .mw-stage[data-anim="m_click"][data-phase="2"] .sc-c0 { display: none; }
+    .mw-stage[data-anim="m_click"][data-phase="2"] .sc-c2 { display: inline-block; }
+
+    .mw-stage[data-anim="m_dbl"][data-phase="2"] .sc-target,
+    .mw-stage[data-anim="m_tpl"][data-phase="2"] .sc-target,
+    .mw-stage[data-anim="m_line"][data-phase="2"] .sc-target,
+    .mw-stage[data-anim="m_shift"][data-phase="2"] .sc-target,
+    .mw-stage[data-anim="m_ctrl"][data-phase="2"] .sc-target {
+      background: var(--word-sel);
+      border-radius: 2px;
+    }
+
+    /* 32. Scroll wheel */
+    .sc-scroll-content {
+      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .mw-stage[data-anim="m_scroll"][data-phase="2"] .sc-scroll-content {
+      transform: translateY(-42px);
+    }
+    .mw-stage.is-modal[data-anim="m_scroll"][data-phase="2"] .sc-scroll-content {
+      transform: translateY(-68px);
+    }
+    .sc-scrollbar {
+      position: absolute;
+      right: 3px;
+      top: 4px;
+      bottom: 4px;
+      width: 5px;
+      background: #e2e8f0;
+      border-radius: 99px;
+    }
+    .sc-scrollthumb {
+      width: 100%;
+      height: 36%;
+      background: #64748b;
+      border-radius: 99px;
+      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .mw-stage[data-anim="m_scroll"][data-phase="2"] .sc-scrollthumb {
+      transform: translateY(150%);
+      background: #185abd;
+    }
+
+    /* 33. Ctrl + Scroll Zoom */
+    .mw-stage[data-anim="m_zoom"][data-phase="2"] .sc-zoom-paper {
+      transform: scale(1.26);
+    }
+    .sc-zoom-bar {
+      position: absolute;
+      bottom: 4px;
+      right: 8px;
+      background: rgba(15, 23, 42, 0.88);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      z-index: 9;
+    }
+    .mw-stage.is-modal .sc-zoom-bar { font-size: 11px; padding: 3px 10px; bottom: 8px; right: 12px; }
+    .sc-zoom-track {
+      width: 36px;
+      height: 3px;
+      background: #475569;
+      border-radius: 99px;
+      position: relative;
+    }
+    .sc-zoom-knob {
+      position: absolute;
+      top: -2.5px;
+      left: 38%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #38bdf8;
+      transition: left 0.45s ease;
+    }
+    .mw-stage[data-anim="m_zoom"][data-phase="2"] .sc-zoom-knob { left: 82%; }
+    .sc-z100 { display: inline; }
+    .sc-z150 { display: none; color: #38bdf8; }
+    .mw-stage[data-anim="m_zoom"][data-phase="2"] .sc-z100 { display: none; }
+    .mw-stage[data-anim="m_zoom"][data-phase="2"] .sc-z150 { display: inline; }
+
+    /* ====================================================================== */
+    /* FULL CINEMA ANIMATION MODAL (REAL WORD + 3D KEYBOARD & 3D MOUSE)       */
+    /* ====================================================================== */
+    .cinema-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(3, 6, 12, 0.86);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .cinema-backdrop.open {
+      display: flex;
+      animation: modalFade 0.2s ease;
+    }
+    @keyframes modalFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .cinema-modal {
+      width: 100%;
+      max-width: 860px;
+      max-height: 94vh;
+      overflow-y: auto;
+      background: #0d121c;
+      border: 1px solid #26344d;
+      border-radius: 18px;
+      padding: 1.35rem;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.72);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .cm-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .cm-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+    .cm-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .cm-close {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .cm-close:hover { background: rgba(244, 63, 94, 0.2); color: #fda4af; border-color: rgba(244,63,94,0.45); }
+
+    /* Step Pills in Modal */
+    .cm-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.55rem;
+    }
+    .cm-step {
+      padding: 0.55rem 0.75rem;
+      border-radius: 9px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      transition: all 0.22s;
+      text-align: left;
+    }
+    .cm-step-num {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-subtle);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .cm-step-txt {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      line-height: 1.3;
+    }
+    .cm-step.active {
+      background: rgba(2, 132, 199, 0.18);
+      border-color: var(--cyan);
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.2);
+    }
+    .cm-step.active .cm-step-num { color: var(--cyan); }
+    .cm-step.active .cm-step-txt { color: #fff; }
+    .cm-step.done {
+      border-color: rgba(16, 185, 129, 0.45);
+    }
+
+    /* 3D PHYSICAL KEYBOARD & MOUSE HARDWARE STAGE */
+    .cm-hardware {
+      background: #080b12;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .kb-board {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      background: #111827;
+      border: 1px solid #243249;
+      border-radius: 10px;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.6);
+    }
+    .kb-row {
+      display: flex;
+      gap: 4px;
+      justify-content: center;
+    }
+    .kb-key {
+      min-width: 28px;
+      height: 27px;
+      padding: 0 6px;
+      border-radius: 5px;
+      background: linear-gradient(180deg, #253045 0%, #171f2e 100%);
+      border: 1px solid #334155;
+      border-bottom: 3px solid #0a0f1a;
+      color: #94a3b8;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.14s ease;
+    }
+    .kb-key.wide { min-width: 48px; }
+    .kb-key.xwide { min-width: 68px; }
+    .kb-key.space { min-width: 130px; }
+    .kb-key.target-hint {
+      border-color: rgba(56, 189, 248, 0.55);
+      color: #e0f2fe;
+    }
+    .kb-key.pressed {
+      transform: translateY(2.5px);
+      border-bottom-width: 1px;
+      background: linear-gradient(180deg, #0ea5e9 0%, #0284c7 100%);
+      border-color: #7dd3fc;
+      color: #fff;
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.85), inset 0 1px 2px rgba(255,255,255,0.4);
+    }
+
+    /* 3D MOUSE VISUAL */
+    .mouse-hw {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .mouse-svg {
+      width: 66px;
+      height: 104px;
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,0.5));
+    }
+    .mouse-btn-l, .mouse-wheel {
+      transition: all 0.18s ease;
+    }
+    .mouse-hw.click-1 .mouse-btn-l { fill: #0ea5e9; filter: drop-shadow(0 0 8px #38bdf8); }
+    .mouse-hw.click-2 .mouse-btn-l { animation: mPulse 0.34s ease 2; }
+    .mouse-hw.click-3 .mouse-btn-l { animation: mPulse 0.24s ease 3; }
+    .mouse-hw.scroll-on .mouse-wheel { fill: #38bdf8; animation: wheelSpin 0.45s linear infinite; }
+    @keyframes mPulse {
+      0%, 100% { fill: #1e293b; }
+      50% { fill: #38bdf8; }
+    }
+    @keyframes wheelSpin {
+      0% { transform: translateY(-2px); }
+      50% { transform: translateY(2px); }
+      100% { transform: translateY(-2px); }
+    }
+    .mouse-hw-label {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #7dd3fc;
+      font-family: var(--font-mono);
+    }
+
+    /* Modal Footer Controls */
+    .cm-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      padding-top: 0.4rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .cm-ctrl-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .cm-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.46rem 0.85rem;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .cm-btn:hover { background: rgba(255,255,255,0.11); border-color: rgba(255,255,255,0.22); }
+    .cm-btn.active { background: #0284c7; border-color: #38bdf8; color: #fff; }
+
+    /* ====================================================================== */
+    /* INTERACTIVE TRAINER, CHEAT TABLE & CTA                                 */
+    /* ====================================================================== */
     .trainer-card {
-      background: #0e121a;
-      border: 1px solid #1e2638;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
       border-radius: 16px;
-      padding: 1.75rem;
-      margin-bottom: 3rem;
+      padding: 1.6rem;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
     .trainer-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.15rem;
       flex-wrap: wrap;
       gap: 0.75rem;
     }
     .trainer-title {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 700;
-      color: #ffffff;
+      color: #fff;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.55rem;
     }
-    .trainer-title svg {
-      color: #60a5fa;
-    }
-    .trainer-tabs {
-      display: flex;
-      gap: 0.5rem;
-    }
+    .trainer-title svg { color: var(--cyan); }
+    .trainer-tabs { display: flex; gap: 0.45rem; }
     .trainer-tab {
-      padding: 0.35rem 0.75rem;
-      border-radius: 6px;
+      padding: 0.38rem 0.82rem;
+      border-radius: 7px;
       font-size: 0.8rem;
       font-weight: 600;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255,255,255,0.05);
       border: 1px solid var(--border-color);
       color: var(--text-muted);
       cursor: pointer;
-      transition: all 0.2s;
     }
-    .trainer-tab.active {
-      background: #0078d4;
-      border-color: #0078d4;
-      color: #ffffff;
-    }
-
-    /* SIMULATOR WORKSPACE */
+    .trainer-tab.active { background: #0078d4; border-color: #0078d4; color: #fff; }
     .sim-screen {
       background: #07090e;
       border: 1px solid var(--border-color);
       border-radius: 10px;
-      padding: 1.25rem;
-      margin-bottom: 1.25rem;
-      min-height: 140px;
-      position: relative;
+      padding: 1.15rem;
+      margin-bottom: 1rem;
     }
     .sim-toolbar {
       display: flex;
@@ -497,32 +1805,20 @@
       gap: 0.4rem;
       padding-bottom: 0.75rem;
       margin-bottom: 0.75rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
       flex-wrap: wrap;
     }
     .sim-btn {
-      padding: 0.35rem 0.65rem;
-      background: rgba(255, 255, 255, 0.05);
+      padding: 0.34rem 0.65rem;
+      background: rgba(255,255,255,0.05);
       border: 1px solid var(--border-color);
       border-radius: 6px;
       color: var(--text-muted);
       font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      transition: all 0.15s;
     }
-    .sim-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-    }
-    .sim-btn.active {
-      background: #0078d4;
-      border-color: #0078d4;
-      color: #fff;
-    }
+    .sim-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
     .sim-editor {
       width: 100%;
       min-height: 100px;
@@ -530,40 +1826,32 @@
       border: none;
       outline: none;
       color: #f8fafc;
-      font-size: 1rem;
+      font-size: 0.98rem;
       line-height: 1.6;
-      resize: vertical;
-      font-family: inherit;
     }
     .sim-feedback {
       background: rgba(0, 120, 212, 0.15);
-      border: 1px solid rgba(0, 120, 212, 0.35);
+      border: 1px solid rgba(56, 189, 248, 0.35);
       border-radius: 8px;
-      padding: 0.75rem 1rem;
+      padding: 0.7rem 1rem;
       font-size: 0.85rem;
-      color: #93c5fd;
+      color: #bae6fd;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 0.75rem;
     }
-    .sim-feedback strong {
-      color: #ffffff;
-    }
-
-    /* MOUSE PLAYGROUND */
     .mouse-playground {
       background: #07090e;
       border: 1px solid var(--border-color);
       border-radius: 10px;
-      padding: 1.25rem;
-      position: relative;
+      padding: 1.15rem;
     }
     .mouse-sample-text {
-      background: #0e121a;
-      border: 1px solid #1e2638;
+      background: #0e131d;
+      border: 1px solid var(--border-color);
       border-radius: 8px;
-      padding: 1.25rem;
+      padding: 1.15rem;
       font-size: 0.95rem;
       line-height: 1.7;
       color: #e2e8f0;
@@ -571,113 +1859,79 @@
       cursor: text;
     }
     .mouse-status-bar {
-      margin-top: 1rem;
+      margin-top: 0.9rem;
       padding: 0.65rem 1rem;
       background: rgba(16, 185, 129, 0.1);
       border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 6px;
-      font-size: 0.82rem;
+      border-radius: 7px;
+      font-size: 0.83rem;
       color: #34d399;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
 
-    /* TABLE LAYOUT FOR CHEAT-SHEET */
+    /* CHEAT TABLE */
     .table-wrap {
       overflow-x: auto;
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      margin-bottom: 2rem;
     }
     table.cheat-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       text-align: left;
     }
     table.cheat-table th {
-      background: rgba(255, 255, 255, 0.04);
-      padding: 0.85rem 1rem;
+      background: rgba(255,255,255,0.04);
+      padding: 0.82rem 1rem;
       font-weight: 700;
-      color: #ffffff;
+      color: #fff;
       border-bottom: 1px solid var(--border-color);
       white-space: nowrap;
     }
     table.cheat-table td {
-      padding: 0.85rem 1rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 0.76rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
       color: var(--text-muted);
-      vertical-align: top;
+      vertical-align: middle;
     }
-    table.cheat-table tr:hover td {
-      background: rgba(255, 255, 255, 0.02);
-    }
-    table.cheat-table tr:last-child td {
-      border-bottom: none;
-    }
+    table.cheat-table tr:hover td { background: rgba(255,255,255,0.025); }
+    table.cheat-table tr:last-child td { border-bottom: none; }
 
-    /* CTA CARD (TESTGA CHAQIRUV) */
+    /* CTA CARD */
     .cta-card {
-      background: linear-gradient(135deg, rgba(43, 87, 154, 0.3) 0%, rgba(14, 18, 26, 0.8) 100%);
-      border: 1px solid rgba(0, 120, 212, 0.4);
+      background: linear-gradient(135deg, rgba(24, 90, 189, 0.32) 0%, rgba(14, 19, 29, 0.85) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.38);
       border-radius: 16px;
-      padding: 2.25rem 2rem;
+      padding: 2.2rem 1.75rem;
       text-align: center;
-      margin: 3rem 0;
-      position: relative;
-      overflow: hidden;
+      margin: 2.5rem 0;
     }
-    .cta-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 400px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(0, 120, 212, 0.25) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .cta-title {
-      font-size: 1.6rem;
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 0.6rem;
-    }
-    .cta-desc {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      max-width: 580px;
-      margin: 0 auto 1.5rem;
-      line-height: 1.6;
-    }
+    .cta-title { font-size: 1.55rem; font-weight: 800; color: #fff; margin-bottom: 0.55rem; }
+    .cta-desc { font-size: 0.94rem; color: var(--text-muted); max-width: 560px; margin: 0 auto 1.4rem; }
     .cta-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.85rem;
+      gap: 0.55rem;
+      padding: 0.78rem 1.8rem;
       background: #0078d4;
-      border: 1px solid #2b579a;
+      border: 1px solid #38bdf8;
       border-radius: 10px;
-      color: #ffffff;
-      font-size: 0.95rem;
+      color: #fff;
+      font-size: 0.94rem;
       font-weight: 700;
       text-decoration: none;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 16px rgba(0, 120, 212, 0.4);
+      box-shadow: 0 4px 16px rgba(0, 120, 212, 0.45);
+      transition: all 0.2s;
     }
-    .cta-btn:hover {
-      background: #106ebe;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 120, 212, 0.6);
-    }
+    .cta-btn:hover { background: #106ebe; transform: translateY(-2px); }
 
-    /* FOOTER */
     .page-footer {
       border-top: 1px solid var(--border-color);
-      padding: 2rem 0;
+      padding: 1.8rem 0;
       margin-top: auto;
       text-align: center;
       font-size: 0.8rem;
@@ -685,22 +1939,12 @@
     }
 
     @media (max-width: 768px) {
-      .top-nav-inner {
-        height: auto;
-        padding: 0.6rem 0;
-        flex-wrap: wrap;
-      }
-      .search-box {
-        order: 3;
-        max-width: 100%;
-        width: 100%;
-      }
-      .hero-title {
-        font-size: 1.65rem;
-      }
-      .shortcut-grid {
-        grid-template-columns: 1fr;
-      }
+      .top-nav-inner { height: auto; padding: 0.6rem 0; flex-wrap: wrap; }
+      .search-box { order: 3; max-width: 100%; width: 100%; }
+      .shortcut-grid { grid-template-columns: 1fr; }
+      .cm-steps { grid-template-columns: 1fr; }
+      .kb-key { min-width: 22px; height: 24px; font-size: 9px; padding: 0 4px; }
+      .kb-key.space { min-width: 80px; }
     }
   </style>
 </head>
@@ -722,11 +1966,11 @@
         <input type="text" id="shortcutSearch" class="search-input" placeholder="Tezkor tugmani qidirish (Ctrl+S, qalin, abzats...)" oninput="filterShortcuts(this.value)">
       </div>
 
-      <div style="display:flex; gap:0.5rem; align-items:center;">
-        <a href="#trenajyor" class="nav-btn" style="display:none; @media(min-width:640px){display:inline-flex;}">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6" y2="8"/><line x1="10" y1="8" x2="10" y2="8"/><line x1="14" y1="8" x2="14" y2="8"/><line x1="18" y1="8" x2="18" y2="8"/><line x1="6" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="18" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg>
-          <span>Trenajyor</span>
-        </a>
+      <div class="nav-right">
+        <button type="button" class="nav-btn" onclick="openCinemaModal(0)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <span>Jonli kino-dars</span>
+        </button>
         <a href="./test.html" class="nav-btn nav-btn-primary">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
           <span>Test (10 ta)</span>
@@ -736,30 +1980,36 @@
   </nav>
 
   <main class="container">
-
     <!-- HERO -->
     <header class="hero">
       <div class="hero-eyebrow">
-        <span class="lesson-badge">10-Mavzu • Word amaliyoti</span>
+        <span class="lesson-badge">10-Mavzu • Jonli Word animatsiyasi</span>
         <span style="font-size:0.8rem; color:var(--text-subtle);">Shahrisabz Tibbiyot Texnikumi</span>
       </div>
       <h1 class="hero-title">Microsoft Word: <span>Tezkor klavishlar va sichqoncha amallari</span></h1>
       <p class="hero-desc">
-        Hujjatlar, hisobotlar, arizalar va tibbiy ma'lumotnomalarni yozishda sichqonchaga ortiqcha chalg'imasdan, klaviatura orqali tezkor va professional ishlash usullari to'plami.
+        Har bir tezkor tugma va sichqoncha amali real Microsoft Word oynasida jonli animatsiya bilan ko‘rsatilgan. Istalgan kartochka ustiga bosib, katta ekranda 3D klaviatura bilan qadamma-qadam tomosha qiling.
       </p>
+
+      <div class="hero-actions">
+        <button type="button" class="hero-cta-cinema" onclick="openCinemaModal(0)">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <span>33 ta animatsiyani ketma-ket ko‘rish (Proyektor rejimi)</span>
+        </button>
+        <a href="#trenajyor" class="nav-btn" style="padding:0.65rem 1.15rem; font-size:0.86rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6" y2="8"/><line x1="10" y1="8" x2="10" y2="8"/><line x1="14" y1="8" x2="14" y2="8"/><line x1="18" y1="8" x2="18" y2="8"/><line x1="9" y1="16" x2="15" y2="16"/></svg>
+          <span>O‘zingiz sinab ko‘ring (Trenajyor)</span>
+        </a>
+      </div>
 
       <div class="hero-stats">
         <div class="stat-pill">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6" y2="8"/><line x1="10" y1="8" x2="10" y2="8"/><line x1="14" y1="8" x2="14" y2="8"/><line x1="18" y1="8" x2="18" y2="8"/><line x1="6" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="18" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg>
-          <strong>33 ta</strong> asosiy amal
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <strong>33 ta</strong> real Word animatsiyasi
         </div>
         <div class="stat-pill">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-          <strong>4 ta</strong> mavzuviy guruh
-        </div>
-        <div class="stat-pill">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
-          <strong>2 soat</strong> amaliy mashg'ulot
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6" y2="8"/><line x1="10" y1="8" x2="10" y2="8"/><line x1="14" y1="8" x2="14" y2="8"/><line x1="18" y1="8" x2="18" y2="8"/></svg>
+          <strong>3D</strong> jonli klaviatura &amp; sichqoncha
         </div>
         <div class="stat-pill">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -767,744 +2017,67 @@
         </div>
       </div>
 
-      <!-- QUICK NAV PILLS -->
       <div class="quick-nav">
         <a href="#fayl" class="q-pill active">1. Fayl amallari (12)</a>
         <a href="#formatlash" class="q-pill">2. Matnni formatlash (7)</a>
         <a href="#tahrirlash" class="q-pill">3. Tahrirlash (6)</a>
         <a href="#sichqoncha" class="q-pill">4. Sichqoncha amallari (8)</a>
-        <a href="#trenajyor" class="q-pill">Interaktiv trenajyor</a>
-        <a href="#jadval" class="q-pill">Shpargalka jadval</a>
+        <a href="#trenajyor" class="q-pill">Trenajyor</a>
+        <a href="#jadval" class="q-pill">Shpargalka</a>
       </div>
     </header>
 
-    <!-- PEDAGOGIK TUSHUNTIRISH -->
     <div class="tip-box">
       <svg class="tip-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
       <div class="tip-text">
-        <strong>Tibbiyot xodimi uchun tezkor klavishlarning amaliy foydasi:</strong>
-        Kasalxona va poliklinikalarda kasallik tarixi, epikriz, tibbiy hisobotlar va retseptlar tayyorlashda sichqonchaga doimiy qo'l uzatish daqiqasiga 2-3 soniya yo'qotadi. Bir ish kunida bu 30-40 daqiqa behuda vaqtga aylanadi. Tezkor tugmalarni o'rganish diqqatni faqat hujjat mazmuniga qaratishga yordam beradi.
+        <strong>Qanday o‘rganish kerak:</strong>
+        Har bir kartochkadagi kichik Word oynasida amal qanday ishlashi jonli ravishda aylanib turadi. Batafsil ko‘rish va 3D klaviaturada qaysi tugmalar bosilishini sekinlashtirib kuzatish uchun istalgan kartochkadagi <strong>"Katta ko‘rish"</strong> tugmasini bosing.
       </div>
     </div>
 
-    <!-- 1-BO'LIM: FAYL VA UMUMIY AMALLAR -->
+    <!-- 4 DYNAMIC SECTIONS RENDERED BY JS WITH REAL ANIMATED MINI-WORD STAGES -->
     <section id="fayl" class="section-block">
       <div class="section-header">
         <div class="section-title-wrap">
           <span class="section-number">1</span>
           <h2 class="section-title">Fayl va umumiy amallar</h2>
         </div>
-        <span class="section-count">12 ta amal</span>
+        <span class="section-count">12 ta jonli animatsiya</span>
       </div>
-
-      <div class="shortcut-grid">
-
-        <!-- Ctrl+N -->
-        <div class="shortcut-card" data-shortcut="ctrl+n new yangi fayl ochish">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>N</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">New</span>
-          </div>
-          <div class="sc-title">Yangi bo‘sh hujjat ochadi</div>
-          <div class="sc-desc">Oldingi faylni yopmasdan, toza oq qog'ozli yangi Word oynasini ishga tushiradi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Yangi topshiriq yoki yangi bemor kartasi boshlaganda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Word ochilgandan so‘ng istalgan vaqtda.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+O -->
-        <div class="shortcut-card" data-shortcut="ctrl+o open ochish saqlangan fayl">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>O</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Open</span>
-          </div>
-          <div class="sc-title">Saqlangan hujjatni ochadi</div>
-          <div class="sc-desc">Kompyuter diskidagi mavjud hujjatlarni tanlash va ochish oynasini chaqiradi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Oldin yozilgan hisobot yoki faylni davom ettirishda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Word ochilgandan keyin.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+S -->
-        <div class="shortcut-card" data-shortcut="ctrl+s save saqlash xavfsizlik">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>S</kbd></div>
-            <span style="font-size:0.75rem; color:#10b981; font-weight:700;">Eng muhim</span>
-          </div>
-          <div class="sc-title">Hujjatni saqlaydi (Save)</div>
-          <div class="sc-desc">Kiritilgan har qanday o'zgarishni darhol xotiraga yozadi. Elektr o'chganda matn yo'qolishidan asraydi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Har 2-3 daqiqada, matn kiritgandan yoki tahrirdan so'ng.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Matn yozish yoki tahrirlashdan keyin.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- F12 -->
-        <div class="shortcut-card" data-shortcut="f12 save as yangi nom bilan saqlash nusxa">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>F12</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Save As</span>
-          </div>
-          <div class="sc-title">Yangi nom bilan saqlaydi</div>
-          <div class="sc-desc">Hujjatning asl nusxasiga tegmasdan, uni yangi nom yoki yangi papkaga nusxa qilib saqlaydi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Hujjat nusxasini boshqa nom yoki formatda saqlaganda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Ctrl+S dan keyin (yangi nusxa zarur bo'lganda).</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+P -->
-        <div class="shortcut-card" data-shortcut="ctrl+p print chop etish printer">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>P</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Print</span>
-          </div>
-          <div class="sc-title">Chop etish oynasini ochadi</div>
-          <div class="sc-desc">Hujjatning qog'ozdagi ko'rinishini tekshirish va printerga chiqarish oynasini ochadi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Hujjatni qog‘ozga chiqarmoqchi bo‘lganda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Hujjat to'liq saqlangandan so'ng.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+W -->
-        <div class="shortcut-card" data-shortcut="ctrl+w close yopish hujjat">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>W</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Close</span>
-          </div>
-          <div class="sc-title">Hujjatni yopadi</div>
-          <div class="sc-desc">Word dasturini to'liq yopmasdan, faqat joriy tahrirlanayotgan faylni yopadi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Hujjatdagi ish tugatilganda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Ctrl+S bilan saqlangandan keyin.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+Z -->
-        <div class="shortcut-card" data-shortcut="ctrl+z undo bekor qilish ortga">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>Z</kbd></div>
-            <span style="font-size:0.75rem; color:#f59e0b; font-weight:700;">Qutqaruvchi</span>
-          </div>
-          <div class="sc-title">Oxirgi amalni bekor qiladi</div>
-          <div class="sc-desc">Adashib matn o'chib ketsa yoki noto'g'ri format berilsa, uni darhol ortga qaytaradi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Xato qilinganda yoki o'chirilgan matnni qaytarishda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Xato sodir bo'lishi bilanoq darhol.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+Y -->
-        <div class="shortcut-card" data-shortcut="ctrl+y redo qaytarish oldinga">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>Y</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Redo</span>
-          </div>
-          <div class="sc-title">Bekor qilingan amalni qaytaradi</div>
-          <div class="sc-desc">Agar Ctrl+Z ni ortiqcha bosib yuborsangiz, bekor qilingan amalni yana oldinga tiklaydi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Ctrl+Z ni ortga qaytarmoqchi bo‘lganda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Ctrl+Z bosilgandan keyin.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- F4 -->
-        <div class="shortcut-card" data-shortcut="f4 repeat takrorlash oxirgi amal">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>F4</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Repeat</span>
-          </div>
-          <div class="sc-title">Oxirgi amalni takrorlaydi</div>
-          <div class="sc-desc">Oldingi bajarilgan formatlash yoki jadval amalining o'zini yangi joyda bir tugmada takrorlaydi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Oldingi formatlashni boshqa joyda qo'llashda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Boshlang'ich amal bajarilgandan keyin.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+F -->
-        <div class="shortcut-card" data-shortcut="ctrl+f find qidirish izlash">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>F</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Find</span>
-          </div>
-          <div class="sc-title">So‘zni hujjatdan qidiradi</div>
-          <div class="sc-desc">Hujjat ichidan kerakli so'z, sana yoki bemor familiyasini darhol topib ko'rsatadi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Hujjat ichidan kerakli joyni tez topishda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Istalgan vaqtda.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+H -->
-        <div class="shortcut-card" data-shortcut="ctrl+h replace almashtirish qidirib topish">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>H</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Replace</span>
-          </div>
-          <div class="sc-title">So‘zni topib, almashtiradi</div>
-          <div class="sc-desc">Hujjatdagi bir xil xato so'zni butun matn bo'ylab birdaniga yangisiga almashtirish oynasini ochadi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Bir xil so'zni hamma joyda o'zgartirish kerak bo'lganda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Ctrl+F dan keyin yoki to'g'ridan-to'g'ri.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- F1 -->
-        <div class="shortcut-card" data-shortcut="f1 help yordam malumotnoma">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>F1</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Help</span>
-          </div>
-          <div class="sc-title">Yordam oynasini ochadi</div>
-          <div class="sc-desc">Word dasturining rasmiy yo'riqnomasi va qidiruv ma'lumotnomasini ochadi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Biror funksiya vazifasini aniqlash kerak bo'lganda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Istalgan vaqtda.</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <div class="shortcut-grid" id="grid-fayl"></div>
     </section>
 
-    <!-- 2-BO'LIM: MATNNI FORMATLASH -->
     <section id="formatlash" class="section-block">
       <div class="section-header">
         <div class="section-title-wrap">
           <span class="section-number">2</span>
           <h2 class="section-title">Matnni formatlash</h2>
         </div>
-        <span class="section-count">7 ta amal</span>
+        <span class="section-count">7 ta jonli animatsiya</span>
       </div>
-
-      <div class="shortcut-grid">
-
-        <!-- Ctrl+B -->
-        <div class="shortcut-card" data-shortcut="ctrl+b bold qalin jirnoviy">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>B</kbd></div>
-            <span style="font-size:0.75rem; color:#60a5fa; font-weight:700;">Bold</span>
-          </div>
-          <div class="sc-title">Matnni qalin qiladi (Bold)</div>
-          <div class="sc-desc">Tanlangan matnni qalinlashtiradi. Qayta bosilsa oddiy holiga qaytadi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Sarlavha, kasallik tashxisi yoki muhim atamani ajratishda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Matnni belgilagandan keyin.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+I -->
-        <div class="shortcut-card" data-shortcut="ctrl+i italic kursiv qiya qiyshiq">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>I</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Italic</span>
-          </div>
-          <div class="sc-title">Matnni qiyshiq (kursiv) qiladi</div>
-          <div class="sc-desc">Matnga qiyalik (kursiv) beradi. Lotincha tibbiy atamalar uchun keng qo'llaniladi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Lotincha dori nomlari, iqtibos va izohlarda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Matnni belgilagandan keyin.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+U -->
-        <div class="shortcut-card" data-shortcut="ctrl+u underline tagiga chizish chiziq">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>U</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Underline</span>
-          </div>
-          <div class="sc-title">Matn ostiga chiziq tortadi</div>
-          <div class="sc-desc">Belgilangan matn ostiga uzluksiz chiziq tortadi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Muhim joyni ajratishda (rasmiy hujjatlarda kam ishlatiladi).</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Matnni belgilagandan keyin.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+E -->
-        <div class="shortcut-card" data-shortcut="ctrl+e center ortaga tekislash sarlavha">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>E</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Center</span>
-          </div>
-          <div class="sc-title">Matnni o‘rtaga tekislaydi</div>
-          <div class="sc-desc">Abzatsni varaqning o'rtasiga markazlashtiradi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Hujjat sarlavhasi (masalan, ARIZA, BILDIRISHNOMA) uchun.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Sarlavha yozilgach yoki belgilangach.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+L -->
-        <div class="shortcut-card" data-shortcut="ctrl+l left chapga tekislash">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>L</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Left</span>
-          </div>
-          <div class="sc-title">Matnni chapga tekislaydi</div>
-          <div class="sc-desc">Matn qatorlarini sahifaning chap hoshiyasiga tekislaydi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Oddiy yozuvlar, ro'yxatlar va izohlar uchun.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Matnni belgilagandan keyin.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+R -->
-        <div class="shortcut-card" data-shortcut="ctrl+r right ongga tekislash sana imzo">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>R</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Right</span>
-          </div>
-          <div class="sc-title">Matnni o‘ngga tekislaydi</div>
-          <div class="sc-desc">Qatorni sahifaning o'ng hoshiyasi bo'yicha tekislaydi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Ariza bosh qismi («shapka»), sana yoki imzoni o‘ngga qo‘yishda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Matnni belgilagandan keyin.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+J -->
-        <div class="shortcut-card" data-shortcut="ctrl+j justify ikki chetga tekislash rasmiy">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>J</kbd></div>
-            <span style="font-size:0.75rem; color:#10b981; font-weight:700;">Standart</span>
-          </div>
-          <div class="sc-title">Matnni ikki chetga tekislaydi</div>
-          <div class="sc-desc">Qatorlarning chap va o'ng qirralarini kitobdagidek tekis qiladi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Rasmiy tibbiy hujjatlar va arizaning asosiy mazmuni uchun.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Matn to'liq yozilib belgilangandan so'ng.</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <div class="shortcut-grid" id="grid-formatlash"></div>
     </section>
 
-    <!-- 3-BO'LIM: TAHRIRLASH VA MATN BO'YLAB HARAKATLANISH -->
     <section id="tahrirlash" class="section-block">
       <div class="section-header">
         <div class="section-title-wrap">
           <span class="section-number">3</span>
           <h2 class="section-title">Tahrirlash va matn bo‘ylab harakatlanish</h2>
         </div>
-        <span class="section-count">6 ta amal</span>
+        <span class="section-count">6 ta jonli animatsiya</span>
       </div>
-
-      <div class="shortcut-grid">
-
-        <!-- Ctrl+C -->
-        <div class="shortcut-card" data-shortcut="ctrl+c copy nusxalash nusxa">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>C</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Copy</span>
-          </div>
-          <div class="sc-title">Tanlangan matnni nusxalaydi</div>
-          <div class="sc-desc">Matnni o'z joyida qoldirib, xotira buferiga nusxa oladi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Bir xil tibbiy matnni boshqa joyga ko'chirishda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Matnni belgilagandan keyin.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+X -->
-        <div class="shortcut-card" data-shortcut="ctrl+x cut kesib olish kochirish">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>X</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Cut</span>
-          </div>
-          <div class="sc-title">Tanlangan matnni kesib oladi</div>
-          <div class="sc-desc">Matnni eski joyidan olib tashlaydi va yangi joyga qo'yish uchun xotirada saqlaydi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Abzats yoki jumlani boshqa joyga ko‘chirganda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Matnni belgilagandan keyin.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+V -->
-        <div class="shortcut-card" data-shortcut="ctrl+v paste joylashtirish qoyish">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>V</kbd></div>
-            <span style="font-size:0.75rem; color:#10b981; font-weight:700;">Joylashtirish</span>
-          </div>
-          <div class="sc-title">Nusxani kursor joyiga qo‘yadi</div>
-          <div class="sc-desc">Ctrl+C yoki Ctrl+X orqali olingan matnni yangi o'rinda paydo qiladi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Matnni yangi o'ringa joylashtirmoqchi bo'lganda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Ctrl+C yoki Ctrl+X dan keyin.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+A -->
-        <div class="shortcut-card" data-shortcut="ctrl+a select all hamma matnni tanlash ajratish">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>A</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Select All</span>
-          </div>
-          <div class="sc-title">Hujjatning hammasini tanlaydi</div>
-          <div class="sc-desc">Butun fayldagi barcha sahifalar, jadvallar va rasmlarni birdaniga to'liq belgilaydi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Shrift yoki oraliqni hamma joyda birdan o'zgartirishda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Istalgan vaqtda.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+Backspace -->
-        <div class="shortcut-card" data-shortcut="ctrl+backspace sozni ochirish toliq ochirish">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>Backspace</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Delete Word</span>
-          </div>
-          <div class="sc-title">Kursor oldidagi so‘zni o‘chiradi</div>
-          <div class="sc-desc">Harfma-harf emas, kursorning chapidagi butun bitta so'zni bir bosishda yo'qotadi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">So'z noto'g'ri yozilganda uni tezkor tozalash uchun.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Xato yozilgandan darhol keyin.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl+Enter -->
-        <div class="shortcut-card" data-shortcut="ctrl+enter page break yangi sahifa boshlash">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>Enter</kbd></div>
-            <span style="font-size:0.75rem; color:#60a5fa; font-weight:700;">Sahifa uzilishi</span>
-          </div>
-          <div class="sc-title">Yangi sahifa boshlaydi (Page Break)</div>
-          <div class="sc-desc">Enter tugmasini ko'p marta bosmasdan, yangi bo'limni darhol keyingi toza varaqdan boshlaydi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Ilova, yangi bo'lim yoki yangi hisobot boshlanganda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Joriy sahifa matni tugagandan keyin.</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <div class="shortcut-grid" id="grid-tahrirlash"></div>
     </section>
 
-    <!-- 4-BO'LIM: SICHQONCHA AMALLARI -->
     <section id="sichqoncha" class="section-block">
       <div class="section-header">
         <div class="section-title-wrap">
           <span class="section-number">4</span>
           <h2 class="section-title">Sichqoncha amallari</h2>
         </div>
-        <span class="section-count">8 ta amal</span>
+        <span class="section-count">8 ta jonli animatsiya</span>
       </div>
-
-      <div class="shortcut-grid">
-
-        <!-- Chap tugma -->
-        <div class="shortcut-card" data-shortcut="chap tugma kursor qoyish">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Chap tugma</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">1 marta bosish</span>
-          </div>
-          <div class="sc-title">Kursorni kerakli joyga qo‘yadi</div>
-          <div class="sc-desc">Matn ichidagi ixtiyoriy nuqtaga kursorni o'rnatadi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Shu joydan yozish yoki tahrir qilishni boshlashda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Istalgan vaqtda.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 2 marta bosish -->
-        <div class="shortcut-card" data-shortcut="ikki marta bosish double click sozni tanlash">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>2x chertish</kbd></div>
-            <span style="font-size:0.75rem; color:#60a5fa; font-weight:700;">Bitta so'z</span>
-          </div>
-          <div class="sc-title">Bitta so‘zni tanlaydi</div>
-          <div class="sc-desc">So'z ustiga chap tugmani ikki marta tez bosish aynan shu so'zni to'liq belgilaydi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">So'zni tez almashtirish, o'chirish yoki qalin qilishda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Sichqoncha ko'rsatkichi so'z ustida turganda.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3 marta bosish -->
-        <div class="shortcut-card" data-shortcut="uch marta bosish triple click butun abzatsni tanlash">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>3x chertish</kbd></div>
-            <span style="font-size:0.75rem; color:#10b981; font-weight:700;">Butun abzats</span>
-          </div>
-          <div class="sc-title">Butun abzatsni tanlaydi</div>
-          <div class="sc-desc">Abzats ichida 3 marta tez chertilsa, butun xatboshi boshidan oxirigacha belgilanadi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Butun xatboshini tekislash yoki shriftini o'zgartirishda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Sichqoncha abzats ichida turganda.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Qator chetida bosish -->
-        <div class="shortcut-card" data-shortcut="qator chetida chap hoshiya bitta qatorni tanlash">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Chap hoshiya</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Bitta qator</span>
-          </div>
-          <div class="sc-title">Bitta qatorni tanlaydi</div>
-          <div class="sc-desc">Chap oq maydonga olib borganda kursor o'ngga qaragan oq strelkaga aylanadi; 1 marta bosilsa butun qator belgilanadi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Qatorni o‘chirish, bo'yash yoki ko‘chirish uchun.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Sichqoncha matnning chap chetiga yetganda.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Shift + bosish -->
-        <div class="shortcut-card" data-shortcut="shift bosish oraliq tanlash blok tanlash">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Shift</kbd><span class="plus-sign">+</span><kbd>Chertish</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Oraliq</span>
-          </div>
-          <div class="sc-title">Oraliqdagi matnni tanlaydi</div>
-          <div class="sc-desc">Kursorni boshiga qo'yib, Shift bosgan holda oxiriga bosilsa, oraliqdagi barcha matn belgilanadi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Uzun matn parchasi yoki jadval qismini aniq tanlashda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Boshlang‘ich nuqtaga kursor qo‘yilgandan so'ng.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl + bosish -->
-        <div class="shortcut-card" data-shortcut="ctrl bosish bitta gapni tanlash ajratish nuqtagacha">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>Chertish</kbd></div>
-            <span style="font-size:0.75rem; color:#f59e0b; font-weight:700;">Bitta gap</span>
-          </div>
-          <div class="sc-title">Bitta butun gapni belgilaydi</div>
-          <div class="sc-desc">Ctrl tugmasini bosib turib matn ustiga 1 marta bosilsa, gap boshidan to yakuniy nuqtagacha avtomatik belgilanadi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Aynan bitta gapni ko'chirib olish yoki o'chirishda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Ctrl tugmasi bosib turilgan holda.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- G'ildirak aylantirish -->
-        <div class="shortcut-card" data-shortcut="gildirak aylantirish scroll varaq surish">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>G‘ildirak</kbd></div>
-            <span style="font-size:0.75rem; color:var(--text-subtle);">Scroll</span>
-          </div>
-          <div class="sc-title">Hujjatni yuqori yoki pastga suradi</div>
-          <div class="sc-desc">Sichqoncha g'ildiragini (skroll) aylantirib sahifalar bo'ylab erkin harakatlanish.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Hujjatni tez ko‘zdan kechirish va o'qishda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Hujjat ochilgandan so'ng istalgan paytda.</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ctrl + G'ildirak -->
-        <div class="shortcut-card" data-shortcut="ctrl gildirak zoom masshtab kattalashtirish">
-          <div class="sc-header">
-            <div class="sc-badge"><kbd>Ctrl</kbd><span class="plus-sign">+</span><kbd>G‘ildirak</kbd></div>
-            <span style="font-size:0.75rem; color:#60a5fa; font-weight:700;">Masshtab (Zoom)</span>
-          </div>
-          <div class="sc-title">Matnni kattalashtiradi / kichraytiradi</div>
-          <div class="sc-desc">Ctrl bosib g'ildirak aylantirilsa, shrift o'lchamini o'zgartirmasdan faqat ekrandagi masshtab (Zoom) o'zgaradi.</div>
-          <div class="sc-meta">
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Qachon:</span>
-              <span class="sc-meta-val">Kichik harflarni yaqindan aniq ko‘rmoqchi bo‘lganda.</span>
-            </div>
-            <div class="sc-meta-row">
-              <span class="sc-meta-label">Ketma-ketlik:</span>
-              <span class="sc-meta-val">Ctrl tugmasi bosib turilgan holda.</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <div class="shortcut-grid" id="grid-sichqoncha"></div>
     </section>
 
     <!-- INTERAKTIV TRENAJYOR -->
@@ -1521,62 +2094,47 @@
           </div>
         </div>
 
-        <!-- 1. KLAVIATURA TRENAJYORI -->
         <div id="keyboardTrainer">
-          <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">
-            Quyidagi matn maydoniga cherting va kompyuteringiz klaviaturasida <kbd>Ctrl+B</kbd>, <kbd>Ctrl+I</kbd>, <kbd>Ctrl+U</kbd>, <kbd>Ctrl+E</kbd>, <kbd>Ctrl+J</kbd>, <kbd>Ctrl+S</kbd> yoki <kbd>Ctrl+Enter</kbd> tugmalarini bosib ko'ring:
+          <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:0.9rem;">
+            Quyidagi matn maydoniga cherting va kompyuteringiz klaviaturasida <kbd>Ctrl</kbd>+<kbd>B</kbd>, <kbd>Ctrl</kbd>+<kbd>I</kbd>, <kbd>Ctrl</kbd>+<kbd>U</kbd>, <kbd>Ctrl</kbd>+<kbd>E</kbd>, <kbd>Ctrl</kbd>+<kbd>J</kbd>, <kbd>Ctrl</kbd>+<kbd>S</kbd> yoki <kbd>Ctrl</kbd>+<kbd>Enter</kbd> tugmalarini bosib sinab ko‘ring:
           </p>
-
           <div class="sim-screen">
             <div class="sim-toolbar">
-              <button type="button" class="sim-btn" onclick="applyTrainerStyle('bold')" title="Ctrl+B"><b>B</b> (Ctrl+B)</button>
-              <button type="button" class="sim-btn" onclick="applyTrainerStyle('italic')" title="Ctrl+I"><i>I</i> (Ctrl+I)</button>
-              <button type="button" class="sim-btn" onclick="applyTrainerStyle('underline')" title="Ctrl+U"><u>U</u> (Ctrl+U)</button>
-              <span style="width:1px; height:18px; background:rgba(255,255,255,0.1); margin:0 4px;"></span>
-              <button type="button" class="sim-btn" onclick="applyTrainerAlign('left')" title="Ctrl+L">Chap (Ctrl+L)</button>
-              <button type="button" class="sim-btn" onclick="applyTrainerAlign('center')" title="Ctrl+E">O'rta (Ctrl+E)</button>
-              <button type="button" class="sim-btn" onclick="applyTrainerAlign('right')" title="Ctrl+R">O'ng (Ctrl+R)</button>
-              <button type="button" class="sim-btn" onclick="applyTrainerAlign('justify')" title="Ctrl+J">Ikkala chet (Ctrl+J)</button>
+              <button type="button" class="sim-btn" onclick="applyTrainerStyle('bold')"><b>B</b> (Ctrl+B)</button>
+              <button type="button" class="sim-btn" onclick="applyTrainerStyle('italic')"><i>I</i> (Ctrl+I)</button>
+              <button type="button" class="sim-btn" onclick="applyTrainerStyle('underline')"><u>U</u> (Ctrl+U)</button>
+              <span style="width:1px; height:18px; background:rgba(255,255,255,0.1); margin:0 3px;"></span>
+              <button type="button" class="sim-btn" onclick="applyTrainerAlign('left')">Chap (Ctrl+L)</button>
+              <button type="button" class="sim-btn" onclick="applyTrainerAlign('center')">O‘rta (Ctrl+E)</button>
+              <button type="button" class="sim-btn" onclick="applyTrainerAlign('right')">O‘ng (Ctrl+R)</button>
+              <button type="button" class="sim-btn" onclick="applyTrainerAlign('justify')">Ikki chet (Ctrl+J)</button>
             </div>
-
-            <div id="trainerEditor" contenteditable="true" class="sim-editor" spellcheck="false">
-              Bemor: Karimov Jasur Aliyevich. 
-Tashxis: O'tkir respirator virusli infeksiya (O'RVI), o'rta og'ir darajasi.
-Tavsiya: Yotoq rejimi, ko'p miqdorda iliq suyuqlik ichish, vitamin C va paratsetamol 500 mg.
-Shifokor: Dr. O.Z. Napasov (Imzo)
-            </div>
+            <div id="trainerEditor" contenteditable="true" class="sim-editor" spellcheck="false">Bemor: Karimov Jasur Aliyevich.
+Tashxis: O‘tkir respirator virusli infeksiya (O‘RVI), o‘rta og‘ir darajasi.
+Tavsiya: Yotoq rejimi, ko‘p miqdorda iliq suyuqlik ichish, vitamin C va paratsetamol 500 mg.
+Shifokor: Dr. O.Z. Napasov (Imzo)</div>
           </div>
-
-          <div class="sim-feedback" id="keyboardFeedback">
+          <div class="sim-feedback">
             <div>
-              <span style="color:var(--text-subtle); font-size:0.78rem; display:block;">Oxirgi aniqlangan kombinatsiya:</span>
-              <strong id="lastComboName">Klaviaturadan biror bir tezkor tugmani bosing...</strong>
+              <span style="color:var(--text-subtle); font-size:0.76rem; display:block;">Oxirgi aniqlangan kombinatsiya:</span>
+              <strong id="lastComboName">Klaviaturadan biror tezkor tugmani bosing...</strong>
             </div>
-            <span id="comboBadge" style="padding:0.25rem 0.6rem; border-radius:6px; background:rgba(255,255,255,0.08); font-size:0.8rem; font-family:var(--font-mono);">Kutilyapti</span>
+            <span id="comboBadge" style="padding:0.25rem 0.6rem; border-radius:6px; background:rgba(255,255,255,0.08); font-size:0.78rem; font-family:var(--font-mono);">Kutilyapti</span>
           </div>
         </div>
 
-        <!-- 2. SICHQONCHA TRENAJYORI -->
         <div id="mouseTrainer" style="display:none;">
-          <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">
-            Sichqonchaning tezkor belgilash sirlarini sinab ko'ring:
-            <br>• <strong>2 marta tez bosing:</strong> faqat bitta so'z belgilanadi.
-            <br>• <strong>3 marta tez bosing:</strong> butun boshli abzats belgilanadi.
-            <br>• <strong>Ctrl tugmasini bosib turib cherting:</strong> nuqtagacha bo'lgan to'liq GAP belgilanadi!
+          <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:0.9rem;">
+            Sichqoncha tezkor belgilash usullarini sinab ko‘ring: <strong>2 marta tez bosing</strong> (bitta so‘z), <strong>3 marta tez bosing</strong> (butun abzats) yoki <strong>oraliqni belgilang</strong>.
           </p>
-
           <div class="mouse-playground">
-            <div class="mouse-sample-text" id="mouseTargetText">
-              Shahrisabz Tibbiyot Texnikumida talabalar zamonaviy axborot texnologiyalarini chuqur o'rganmoqdalar. Ushbu amaliy ko'nikmalar kelajakda shifoxonalarda elektron tibbiy kartalar bilan ishlashda katta yordam beradi. Har bir hamshira va feldsher kompyuterda tezkor hujjat rasmiylashtirish mahoratiga ega bo'lishi shart.
-            </div>
-
-            <div class="mouse-status-bar" id="mouseStatus">
+            <div class="mouse-sample-text" id="mouseTargetText">Shahrisabz Tibbiyot Texnikumida talabalar zamonaviy axborot texnologiyalarini chuqur o‘rganmoqdalar. Ushbu amaliy ko‘nikmalar kelajakda shifoxonalarda elektron tibbiy kartalar bilan ishlashda katta yordam beradi. Har bir hamshira va feldsher kompyuterda tezkor hujjat rasmiylashtirish mahoratiga ega bo‘lishi shart.</div>
+            <div class="mouse-status-bar">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
-              <span id="mouseStatusText">Matn ustida 2 marta yoki 3 marta tez chertib sinab ko'ring...</span>
+              <span id="mouseStatusText">Matn ustida 2 marta yoki 3 marta tez chertib sinab ko‘ring...</span>
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -1589,72 +2147,38 @@ Shifokor: Dr. O.Z. Napasov (Imzo)
         </div>
         <span class="section-count">33 ta amal</span>
       </div>
-
       <div class="table-wrap">
         <table class="cheat-table" id="fullCheatTable">
           <thead>
             <tr>
-              <th style="width:170px;">Tugma / Amal</th>
+              <th style="width:165px;">Tugma / Amal</th>
               <th>Vazifasi</th>
               <th>Qachon ishlatiladi</th>
               <th>Qaysidan keyin ishlatiladi</th>
+              <th style="width:105px;">Animatsiya</th>
             </tr>
           </thead>
-          <tbody>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>N</kbd></td><td>Yangi bo‘sh hujjat ochadi.</td><td>Yangi ish boshlaganda.</td><td>Word ochilgandan keyin istalgan vaqtda.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>O</kbd></td><td>Saqlangan hujjatni ochadi.</td><td>Oldingi faylni davom ettirganda.</td><td>Word ochilgandan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>S</kbd></td><td>Hujjatni saqlaydi.</td><td>Tez-tez, ayniqsa o‘zgarish kiritgandan keyin.</td><td>Matn yozish yoki tahrirlashdan keyin.</td></tr>
-            <tr><td><kbd>F12</kbd></td><td>Hujjatni yangi nom bilan saqlaydi.</td><td>Faylning nusxasini boshqa nom bilan saqlaganda.</td><td>Ctrl+S dan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>P</kbd></td><td>Chop etish oynasini ochadi.</td><td>Hujjatni qog‘ozga chiqarmoqchi bo‘lganda.</td><td>Hujjat saqlangandan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>W</kbd></td><td>Hujjatni yopadi.</td><td>Ishni tugatganda.</td><td>Ctrl+S dan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd></td><td>Oxirgi amalni bekor qiladi.</td><td>Xato qilganda yoki o‘chirilgan matnni qaytarmoqchi bo‘lganda.</td><td>Xato qilingandan darhol keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>Y</kbd></td><td>Bekor qilingan amalni qaytaradi.</td><td>Ctrl+Z ni ortga qaytarmoqchi bo‘lganda.</td><td>Ctrl+Z dan keyin.</td></tr>
-            <tr><td><kbd>F4</kbd></td><td>Oxirgi amalni takrorlaydi.</td><td>Oldingi yozish yoki formatlash amalini boshqa joyda takrorlaganda.</td><td>Oxirgi amal bajarilgandan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>F</kbd></td><td>So‘zni hujjatdan qidiradi.</td><td>Kerakli joyni tez topmoqchi bo‘lganda.</td><td>Istalgan vaqtda.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>H</kbd></td><td>So‘zni topib, boshqasiga almashtiradi.</td><td>Bir xil so‘zni hamma joyda o‘zgartirmoqchi bo‘lganda.</td><td>Ctrl+F dan keyin yoki o‘zi.</td></tr>
-            <tr><td><kbd>F1</kbd></td><td>Yordam oynasini ochadi.</td><td>Biror funksiya nimaga kerakligini bilmasangiz.</td><td>Istalgan vaqtda.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>B</kbd></td><td>Matnni qalin qiladi.</td><td>Sarlavha yoki muhim so‘zni ajratmoqchi bo‘lganda.</td><td>Matnni belgilagandan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>I</kbd></td><td>Matnni qiyshiq (kursiv) qiladi.</td><td>Chet tilidagi so‘z yoki iqtibosni ajratganda.</td><td>Matnni belgilagandan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>U</kbd></td><td>Matn ostiga chiziq tortadi.</td><td>Muhim joyni belgilash kerak bo‘lganda (rasmiy hujjatda kam ishlatiladi).</td><td>Matnni belgilagandan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>E</kbd></td><td>Matnni o‘rtaga tekislaydi.</td><td>Sarlavha yoki imzo uchun.</td><td>Matnni belgilagandan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>L</kbd></td><td>Matnni chapga tekislaydi.</td><td>Oddiy matn uchun.</td><td>Matnni belgilagandan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>R</kbd></td><td>Matnni o‘ngga tekislaydi.</td><td>Sana yoki imzoni o‘ng tomonga qo‘yganda.</td><td>Matnni belgilagandan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>J</kbd></td><td>Matnni ikki chetga teng tekislaydi.</td><td>Ariza yoki rasmiy matn uchun.</td><td>Matnni belgilagandan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>Tanlangan matnni nusxalaydi.</td><td>Matnni boshqa joyga nusxa qilmoqchi bo‘lganda.</td><td>Matnni belgilagandan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>X</kbd></td><td>Tanlangan matnni kesib oladi.</td><td>Matnni boshqa joyga ko‘chirmoqchi bo‘lganda.</td><td>Matnni belgilagandan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>V</kbd></td><td>Nusxalangan yoki kesilgan matnni kursor turgan joyga qo‘yadi.</td><td>Matnni yangi joyga joylashtirmoqchi bo‘lganda.</td><td>Ctrl+C yoki Ctrl+X dan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>A</kbd></td><td>Hujjatning hammasini tanlaydi.</td><td>Hammasini birdan o‘zgartirmoqchi bo‘lganda.</td><td>Istalgan vaqtda.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>Backspace</kbd></td><td>Kursor oldidagi so‘zni o‘chiradi.</td><td>Butun so‘zni bir marta o‘chirmoqchi bo‘lganda.</td><td>Xato yozilgandan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd>+<kbd>Enter</kbd></td><td>Yangi sahifa boshlaydi.</td><td>Yangi sahifadan yozmoqchi bo‘lganda (masalan, ilova).</td><td>Joriy sahifa matni tugagandan keyin.</td></tr>
-            <tr><td><kbd>Chap tugma</kbd></td><td>Sichqoncha bosilgan joyga kursorni qo‘yadi.</td><td>Shu joydan yozish yoki tahrirlashni davom ettirganda.</td><td>Istalgan vaqtda.</td></tr>
-            <tr><td><kbd>2 marta bosish</kbd></td><td>Bitta so‘zni tanlaydi.</td><td>So‘zni tez belgilash uchun.</td><td>Sichqoncha so‘z ustida turganda.</td></tr>
-            <tr><td><kbd>3 marta bosish</kbd></td><td>Butun abzatsni tanlaydi.</td><td>Abzatsni to‘liq belgilash uchun.</td><td>Sichqoncha abzats ichida turganda.</td></tr>
-            <tr><td><kbd>Qator chetida</kbd></td><td>Bitta qatorni tanlaydi.</td><td>Qatorni o‘chirish yoki ko‘chirish uchun.</td><td>Sichqoncha matn chap chetiga yetganda.</td></tr>
-            <tr><td><kbd>Shift</kbd> + bosish</td><td>Sichqoncha va bosilgan joy orasini tanlaydi.</td><td>Uzun matn qismini belgilaganda.</td><td>Sichqoncha boshlang‘ich joyda turganda.</td></tr>
-            <tr><td><kbd>Ctrl</kbd> + bosish</td><td>Bitta gapni belgilaydi.</td><td>Gapni tez belgilash uchun.</td><td>Ctrl tugmasi bosib turilganda.</td></tr>
-            <tr><td><kbd>G‘ildirak</kbd></td><td>Hujjatni yuqoriga yoki pastga suradi.</td><td>Hujjatni tez ko‘zdan kechirganda.</td><td>Hujjat ochilgandan keyin.</td></tr>
-            <tr><td><kbd>Ctrl</kbd> + g‘ildirak</td><td>Matnni kattalashtiradi yoki kichraytiradi.</td><td>Matnni yaqindan ko‘rmoqchi bo‘lganda.</td><td>G‘ildirak aylantirishdan keyin (Ctrl bosib turgan holda).</td></tr>
-          </tbody>
+          <tbody id="cheatTableBody"></tbody>
         </table>
       </div>
     </section>
 
     <!-- O'QITUVCHI BO'LIMI -->
-    <div class="teacher-only section-block" style="background:#0e121a; border:1px solid #f59e0b; border-radius:12px; padding:1.5rem; margin-bottom:2rem;">
+    <div class="teacher-only section-block" style="background:#0e131d; border:1px solid #f59e0b; border-radius:12px; padding:1.4rem;">
       <div style="display:flex; align-items:center; gap:0.5rem; color:#f59e0b; font-weight:700; margin-bottom:0.75rem;">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span>O'qituvchi uchun metodik savol-javoblar (Dars davomida blitz-so'rov)</span>
+        <span>O‘qituvchi uchun metodik savol-javoblar (Dars davomida blitz-so‘rov)</span>
       </div>
-      <ol style="margin-left:1.5rem; line-height:1.8; font-size:0.88rem; color:#cbd5e1;">
-        <li><strong>Ctrl+S bilan F12 farqi:</strong> Ctrl+S mavjud fayl ustiga o'zgarishni yozadi. F12 esa yangi fayl nomi berib nusxa saqlash oynasini ochadi.</li>
+      <ol style="margin-left:1.4rem; line-height:1.8; font-size:0.88rem; color:#cbd5e1;">
+        <li><strong>Ctrl+S bilan F12 farqi:</strong> Ctrl+S mavjud fayl ustiga o‘zgarishni yozadi. F12 esa yangi fayl nomi berib nusxa saqlash oynasini ochadi.</li>
         <li><strong>Ctrl+Z va Ctrl+Y munosabati:</strong> Ctrl+Z amalni bekor qiladi, Ctrl+Y bekor qilinganini qaytaradi.</li>
         <li><strong>F4 amali:</strong> Oxirgi qilingan formatlash yoki amalni yangi joyda takrorlaydi.</li>
         <li><strong>Sichqoncha bilan bitta gapni tanlash:</strong> Ctrl tugmasini bosib turib gap ustiga 1 marta chap tugma chertiladi.</li>
-        <li><strong>Shift+chertish vazifasi:</strong> Kursor turgan joydan yangi chertilgan nuqtagacha bo'lgan barcha matn oraliq tarzida belgilanadi.</li>
+        <li><strong>Shift+chertish vazifasi:</strong> Kursor turgan joydan yangi chertilgan nuqtagacha bo‘lgan barcha matn oraliq tarzida belgilanadi.</li>
       </ol>
     </div>
 
-    <!-- CTA TESTGA CHAQIRUV -->
+    <!-- CTA -->
     <section class="cta-card">
       <h2 class="cta-title">Mavzuni to‘liq o‘zlashtirdingizmi?</h2>
       <p class="cta-desc">
@@ -1665,42 +2189,982 @@ Shifokor: Dr. O.Z. Napasov (Imzo)
         <span>Bilimni Sinash Testini Boshlash (10 ta savol)</span>
       </a>
     </section>
-
   </main>
 
   <footer class="page-footer">
     <div class="container">
       <p>Shahrisabz Tibbiyot Texnikumi — "Tibbiyotda axborot texnologiyalari" (TAT) fani</p>
-      <p style="margin-top:0.35rem; color:var(--text-subtle);">O'qituvchi: O.Z. Napasov • 2026-2027 o'quv yili</p>
+      <p style="margin-top:0.35rem; color:var(--text-subtle);">O‘qituvchi: O.Z. Napasov • 2026-2027 o‘quv yili</p>
     </div>
   </footer>
 
+  <!-- ====================================================================== -->
+  <!-- FULL-SCREEN INTERACTIVE CINEMA ANIMATION MODAL                         -->
+  <!-- ====================================================================== -->
+  <div class="cinema-backdrop" id="cinemaBackdrop" onclick="if(event.target===this) closeCinemaModal()">
+    <div class="cinema-modal" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
+      <div class="cm-top">
+        <div class="cm-title-group">
+          <span class="lesson-badge" id="cmCounter">1 / 33</span>
+          <div class="sc-badge" id="cmKeyBadge"></div>
+          <h3 class="cm-title" id="cmTitle">Yangi bo‘sh hujjat ochadi</h3>
+        </div>
+        <button type="button" class="cm-close" onclick="closeCinemaModal()" title="Yopish (Esc)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- 3-STEP INTERACTIVE TIMELINE -->
+      <div class="cm-steps" id="cmSteps">
+        <button type="button" class="cm-step" data-s="0" onclick="setModalPhase(0)">
+          <span class="cm-step-num">1-qadam: Oldingi holat</span>
+          <span class="cm-step-txt" id="cmStep0">...</span>
+        </button>
+        <button type="button" class="cm-step" data-s="1" onclick="setModalPhase(1)">
+          <span class="cm-step-num">2-qadam: Amal bajarilishi</span>
+          <span class="cm-step-txt" id="cmStep1">...</span>
+        </button>
+        <button type="button" class="cm-step" data-s="2" onclick="setModalPhase(2)">
+          <span class="cm-step-num">3-qadam: Natija</span>
+          <span class="cm-step-txt" id="cmStep2">...</span>
+        </button>
+      </div>
+
+      <!-- FULL SIZE REALISTIC WORD STAGE -->
+      <div id="cmStageHost"></div>
+
+      <!-- REALISTIC 3D KEYBOARD & 3D MOUSE HARDWARE VISUALIZER -->
+      <div class="cm-hardware" id="cmHardware"></div>
+
+      <!-- INFO BAR -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:0.65rem; font-size:0.82rem; background:rgba(255,255,255,0.03); border:1px solid var(--border-color); border-radius:10px; padding:0.75rem 0.95rem;">
+        <div><span style="color:var(--text-subtle); font-weight:700;">Qachon ishlatiladi: </span><span id="cmWhen" style="color:#e2e8f0;"></span></div>
+        <div><span style="color:var(--text-subtle); font-weight:700;">Qaysidan keyin: </span><span id="cmAfter" style="color:#e2e8f0;"></span></div>
+      </div>
+
+      <!-- CONTROLS -->
+      <div class="cm-controls">
+        <div class="cm-ctrl-group">
+          <button type="button" class="cm-btn" onclick="stepCinema(-1)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="15 18 9 12 15 6"/></svg>
+            <span>Oldingi</span>
+          </button>
+          <button type="button" class="cm-btn" onclick="stepCinema(1)">
+            <span>Keyingi</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+
+        <div class="cm-ctrl-group">
+          <button type="button" class="cm-btn" id="cmPlayPauseBtn" onclick="toggleModalPlay()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+            <span>Pauza</span>
+          </button>
+          <button type="button" class="cm-btn" onclick="replayModal()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+            <span>Qayta</span>
+          </button>
+          <button type="button" class="cm-btn" id="cmSpeedBtn" onclick="toggleModalSpeed()">
+            <span>Tezlik: 1x</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Qidiruv filtri
-    function filterShortcuts(query) {
-      var q = query.toLowerCase().trim();
-      var cards = document.querySelectorAll('.shortcut-card');
-      cards.forEach(function(card) {
-        var text = (card.getAttribute('data-shortcut') || '') + ' ' + card.innerText.toLowerCase();
-        if (!q || text.indexOf(q) !== -1) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
+    /* ====================================================================== */
+    /* 33 TA TEZKOR AMAL MA'LUMOTLARI VA REAL ANIMATSIYA SENARIYLARI          */
+    /* ====================================================================== */
+    var SHORTCUTS = [
+      // 1. FAYL VA UMUMIY AMALLAR (12)
+      {
+        id: 'ctrl_n', cat: 'fayl', keys: ['Ctrl', 'N'], hwKeys: ['Ctrl', 'N'], mouse: null,
+        title: 'Yangi bo‘sh hujjat ochadi',
+        desc: 'Oldingi faylni yopmasdan, toza oq qog‘ozli yangi Word oynasini ochadi.',
+        when: 'Yangi ish yoki yangi bemor kartasi boshlaganda.',
+        after: 'Word ochilgandan keyin istalgan vaqtda.',
+        search: 'ctrl+n new yangi fayl bosh hujjat ochish',
+        steps: ['Joriy hujjat ochiq turibdi', 'Ctrl + N tugmalari bosildi', 'Yangi bo‘sh Hujjat2.docx ochildi!']
+      },
+      {
+        id: 'ctrl_o', cat: 'fayl', keys: ['Ctrl', 'O'], hwKeys: ['Ctrl', 'O'], mouse: null,
+        title: 'Saqlangan hujjatni ochadi',
+        desc: 'Kompyuter xotirasidagi mavjud hujjatlarni tanlash va ochish oynasini chaqiradi.',
+        when: 'Oldingi faylni davom ettirganda.',
+        after: 'Word ochilgandan keyin.',
+        search: 'ctrl+o open ochish saqlangan fayl',
+        steps: ['Word oynasi tayyor', 'Ctrl + O: Fayl tanlash oynasi ochildi', 'Epikriz_2026.docx ekranga yuklandi!']
+      },
+      {
+        id: 'ctrl_s', cat: 'fayl', keys: ['Ctrl', 'S'], hwKeys: ['Ctrl', 'S'], mouse: null,
+        title: 'Hujjatni saqlaydi',
+        desc: 'Kiritilgan o‘zgarishlarni darhol xotiraga yozib, ma‘lumot yo‘qolishidan saqlaydi.',
+        when: 'Tez-tez, ayniqsa o‘zgarish kiritgandan keyin.',
+        after: 'Matn yozish yoki tahrirlashdan keyin.',
+        search: 'ctrl+s save saqlash xavfsizlik',
+        steps: ['Hujjatda saqlanmagan o‘zgarish (*) bor', 'Ctrl + S bosildi — saqlanmoqda...', 'Hujjat muvaffaqiyatli saqlandi!']
+      },
+      {
+        id: 'f12', cat: 'fayl', keys: ['F12'], hwKeys: ['F12'], mouse: null,
+        title: 'Hujjatni yangi nom bilan saqlaydi',
+        desc: 'Faylning asl nusxasini buzmasdan, uni boshqa nom yoki joyga nusxa qilib saqlaydi.',
+        when: 'Faylning nusxasini boshqa nom bilan saqlaganda.',
+        after: 'Ctrl+S dan keyin.',
+        search: 'f12 save as yangi nom bilan saqlash nusxa',
+        steps: ['Hisobot.docx ochiq turibdi', 'F12: Boshqa nom bilan saqlash oynasi', 'Hisobot_2026.docx sifatida saqlandi!']
+      },
+      {
+        id: 'ctrl_p', cat: 'fayl', keys: ['Ctrl', 'P'], hwKeys: ['Ctrl', 'P'], mouse: null,
+        title: 'Chop etish oynasini ochadi',
+        desc: 'Hujjatning qog‘ozdagi ko‘rinishini tekshirish va printerga yuborish oynasini ochadi.',
+        when: 'Hujjatni qog‘ozga chiqarmoqchi bo‘lganda.',
+        after: 'Hujjat saqlangandan keyin.',
+        search: 'ctrl+p print chop etish printer',
+        steps: ['Hujjat chop etishga tayyor', 'Ctrl + P tugmalari bosildi', 'Printer va A4 oldindan ko‘rish ochildi!']
+      },
+      {
+        id: 'ctrl_w', cat: 'fayl', keys: ['Ctrl', 'W'], hwKeys: ['Ctrl', 'W'], mouse: null,
+        title: 'Hujjatni yopadi',
+        desc: 'Word dasturidan chiqmasdan, faqat ochiq turgan joriy hujjat oynasini yopadi.',
+        when: 'Ishni tugatganda.',
+        after: 'Ctrl+S dan keyin.',
+        search: 'ctrl+w close yopish hujjat',
+        steps: ['Ariza.docx hujjati ochiq', 'Ctrl + W tugmalari bosildi', 'Faqat hujjat yopildi, Word ochiq qoldi!']
+      },
+      {
+        id: 'ctrl_z', cat: 'fayl', keys: ['Ctrl', 'Z'], hwKeys: ['Ctrl', 'Z'], mouse: null,
+        title: 'Oxirgi amalni bekor qiladi',
+        desc: 'Adashib o‘chirib yuborilgan matn yoki noto‘g‘ri amalni darhol ortga qaytaradi.',
+        when: 'Xato qilganda yoki o‘chirilgan matnni qaytarmoqchi bo‘lganda.',
+        after: 'Xato qilingandan darhol keyin.',
+        search: 'ctrl+z undo bekor qilish ortga',
+        steps: ['"bronxit" so‘zi adashib o‘chib ketdi', 'Ctrl + Z (Bekor qilish) bosildi', 'O‘chirilgan so‘z darhol joyiga qaytdi!']
+      },
+      {
+        id: 'ctrl_y', cat: 'fayl', keys: ['Ctrl', 'Y'], hwKeys: ['Ctrl', 'Y'], mouse: null,
+        title: 'Bekor qilingan amalni qaytaradi',
+        desc: 'Ctrl+Z bilan ortiqcha bekor qilingan amalni qayta oldinga tiklaydi.',
+        when: 'Ctrl+Z ni ortga qaytarmoqchi bo‘lganda.',
+        after: 'Ctrl+Z dan keyin.',
+        search: 'ctrl+y redo qaytarish oldinga',
+        steps: ['Sarlavha bezagi bekor qilingan edi', 'Ctrl + Y (Qaytarish) bosildi', 'Bekor qilingan amal qayta tiklandi!']
+      },
+      {
+        id: 'f4', cat: 'fayl', keys: ['F4'], hwKeys: ['F4'], mouse: null,
+        title: 'Oxirgi amalni takrorlaydi',
+        desc: 'Oldingi formatlash yoki tahrir amalini yangi joyda bitta bosishda takrorlaydi.',
+        when: 'Oldingi yozish yoki formatlash amalini boshqa joyda takrorlaganda.',
+        after: 'Oxirgi amal bajarilgandan keyin.',
+        search: 'f4 repeat takrorlash oxirgi amal',
+        steps: ['1-band ko‘k qalin qilindi, 2-band tanlandi', 'F4 klavishi bosildi', 'Xuddi shu format boshqa bandlarga qo‘llandi!']
+      },
+      {
+        id: 'ctrl_f', cat: 'fayl', keys: ['Ctrl', 'F'], hwKeys: ['Ctrl', 'F'], mouse: null,
+        title: 'So‘zni hujjatdan qidiradi',
+        desc: 'Katta matn ichidan kerakli so‘z, sana yoki bemor familiyasini bir zumda topadi.',
+        when: 'Kerakli joyni tez topmoqchi bo‘lganda.',
+        after: 'Istalgan vaqtda.',
+        search: 'ctrl+f find qidirish izlash',
+        steps: ['Katta tibbiy matn ochiq', 'Ctrl + F: "bemor" so‘zi qidirildi', 'Barcha 3 ta natija sariq rangda ajraldi!']
+      },
+      {
+        id: 'ctrl_h', cat: 'fayl', keys: ['Ctrl', 'H'], hwKeys: ['Ctrl', 'H'], mouse: null,
+        title: 'So‘zni topib, boshqasiga almashtiradi',
+        desc: 'Butun hujjat bo‘ylab bir xil so‘zni birdaniga yangisiga almashtiradi.',
+        when: 'Bir xil so‘zni hamma joyda o‘zgartirmoqchi bo‘lganda.',
+        after: 'Ctrl+F dan keyin yoki o‘zi.',
+        search: 'ctrl+h replace almashtirish',
+        steps: ['Matnda "pasiyent" xato yozilgan', 'Ctrl + H: "pasiyent" -> "bemor"', 'Hamma joyda avtomatik almashtirildi!']
+      },
+      {
+        id: 'f1', cat: 'fayl', keys: ['F1'], hwKeys: ['F1'], mouse: null,
+        title: 'Yordam oynasini ochadi',
+        desc: 'Microsoft Word rasmiy yo‘riqnomasi va qidiruv yordam panelini ochadi.',
+        when: 'Biror funksiya nimaga kerakligini bilmasangiz.',
+        after: 'Istalgan vaqtda.',
+        search: 'f1 help yordam malumotnoma',
+        steps: ['Funksiya bo‘yicha savol tug‘ildi', 'F1 klavishi bosildi', 'O‘ng tomonda Word Yordam paneli ochildi!']
+      },
+
+      // 2. MATNNI FORMATLASH (7)
+      {
+        id: 'ctrl_b', cat: 'formatlash', keys: ['Ctrl', 'B'], hwKeys: ['Ctrl', 'B'], mouse: null,
+        title: 'Matnni qalin qiladi (Bold)',
+        desc: 'Tanlangan matn harflarini to‘q va qalin ko‘rinishga keltiradi.',
+        when: 'Sarlavha yoki muhim so‘zni ajratmoqchi bo‘lganda.',
+        after: 'Matnni belgilagandan keyin.',
+        search: 'ctrl+b bold qalin jirnoviy',
+        steps: ['"TASHXIS:" so‘zi belgilandi', 'Ctrl + B tugmalari bosildi', 'Matn qalin (Bold) ko‘rinishga o‘tdi!']
+      },
+      {
+        id: 'ctrl_i', cat: 'formatlash', keys: ['Ctrl', 'I'], hwKeys: ['Ctrl', 'I'], mouse: null,
+        title: 'Matnni qiyshiq (kursiv) qiladi',
+        desc: 'Tanlangan so‘zga kursiv qiyalik beradi (tibbiyotda lotincha atamalar uchun).',
+        when: 'Chet tilidagi so‘z yoki iqtibosni ajratganda.',
+        after: 'Matnni belgilagandan keyin.',
+        search: 'ctrl+i italic kursiv qiyshiq qiya',
+        steps: ['Lotincha dori nomi belgilandi', 'Ctrl + I tugmalari bosildi', 'Matn kursiv (qiyshiq) shriftga o‘tdi!']
+      },
+      {
+        id: 'ctrl_u', cat: 'formatlash', keys: ['Ctrl', 'U'], hwKeys: ['Ctrl', 'U'], mouse: null,
+        title: 'Matn ostiga chiziq tortadi',
+        desc: 'Belgilangan so‘z yoki ibora ostidan uzluksiz chiziq chizadi.',
+        when: 'Muhim joyni belgilash kerak bo‘lganda (rasmiy hujjatda kam ishlatiladi).',
+        after: 'Matnni belgilagandan keyin.',
+        search: 'ctrl+u underline ostiga chiziq tagiga',
+        steps: ['"Muhim eslatma" iborasi belgilandi', 'Ctrl + U tugmalari bosildi', 'Iboraning ostiga chiziq tortildi!']
+      },
+      {
+        id: 'ctrl_e', cat: 'formatlash', keys: ['Ctrl', 'E'], hwKeys: ['Ctrl', 'E'], mouse: null,
+        title: 'Matnni o‘rtaga tekislaydi',
+        desc: 'Sarlavha yoki alohida qatorni varaqning aniq markaziga joylashtiradi.',
+        when: 'Sarlavha yoki imzo uchun.',
+        after: 'Matnni belgilagandan keyin.',
+        search: 'ctrl+e center ortaga tekislash sarlavha',
+        steps: ['"ARIZA" sarlavhasi chap chetda', 'Ctrl + E tugmalari bosildi', 'Sarlavha sahifa markaziga o‘tdi!']
+      },
+      {
+        id: 'ctrl_l', cat: 'formatlash', keys: ['Ctrl', 'L'], hwKeys: ['Ctrl', 'L'], mouse: null,
+        title: 'Matnni chapga tekislaydi',
+        desc: 'Qatorlarni sahifaning chap hoshiyasi bo‘yicha tekislaydi.',
+        when: 'Oddiy matn uchun.',
+        after: 'Matnni belgilagandan keyin.',
+        search: 'ctrl+l left chapga tekislash',
+        steps: ['Matn o‘ng chetda turibdi', 'Ctrl + L tugmalari bosildi', 'Matn chap chetga tekislandi!']
+      },
+      {
+        id: 'ctrl_r', cat: 'formatlash', keys: ['Ctrl', 'R'], hwKeys: ['Ctrl', 'R'], mouse: null,
+        title: 'Matnni o‘ngga tekislaydi',
+        desc: 'Sana, imzo yoki ariza bosh qismini ("shapka") o‘ng chetga joylashtiradi.',
+        when: 'Sana yoki imzoni o‘ng tomonga qo‘yganda.',
+        after: 'Matnni belgilagandan keyin.',
+        search: 'ctrl+r right ongga tekislash sana imzo',
+        steps: ['Sana va imzo chap chetda turibdi', 'Ctrl + R tugmalari bosildi', 'Yozuv o‘ng hoshiyaga tekislandi!']
+      },
+      {
+        id: 'ctrl_j', cat: 'formatlash', keys: ['Ctrl', 'J'], hwKeys: ['Ctrl', 'J'], mouse: null,
+        title: 'Matnni ikki chetga teng tekislaydi',
+        desc: 'Qatorlarning chap va o‘ng chetlarini kitobdagidek chizg‘ichday tekis qiladi.',
+        when: 'Ariza yoki rasmiy matn uchun.',
+        after: 'Matnni belgilagandan keyin.',
+        search: 'ctrl+j justify ikki chetga tekislash rasmiy',
+        steps: ['Abzatsning o‘ng cheti notekis', 'Ctrl + J tugmalari bosildi', 'Ikkala chet mukammal tekislandi!']
+      },
+
+      // 3. TAHRIRLASH VA MATN BO'YLAB HARAKATLANISH (6)
+      {
+        id: 'ctrl_c', cat: 'tahrirlash', keys: ['Ctrl', 'C'], hwKeys: ['Ctrl', 'C'], mouse: null,
+        title: 'Tanlangan matnni nusxalaydi',
+        desc: 'Matnni o‘z joyida qoldirgan holda almashish buferiga nusxasini oladi.',
+        when: 'Matnni boshqa joyga nusxa qilmoqchi bo‘lganda.',
+        after: 'Matnni belgilagandan keyin.',
+        search: 'ctrl+c copy nusxalash nusxa',
+        steps: ['"Paratsetamol 500 mg" belgilandi', 'Ctrl + C tugmalari bosildi', 'Asl matn qoldi, nusxasi buferga olindi!']
+      },
+      {
+        id: 'ctrl_x', cat: 'tahrirlash', keys: ['Ctrl', 'X'], hwKeys: ['Ctrl', 'X'], mouse: null,
+        title: 'Tanlangan matnni kesib oladi',
+        desc: 'Matnni eski joyidan olib tashlab, boshqa joyga ko‘chirish uchun buferga oladi.',
+        when: 'Matnni boshqa joyga ko‘chirmoqchi bo‘lganda.',
+        after: 'Matnni belgilagandan keyin.',
+        search: 'ctrl+x cut kesib olish kochirish',
+        steps: ['"2-bo‘lim" satri belgilandi', 'Ctrl + X tugmalari bosildi', 'Satr o‘z joyidan qirqilib buferga o‘tdi!']
+      },
+      {
+        id: 'ctrl_v', cat: 'tahrirlash', keys: ['Ctrl', 'V'], hwKeys: ['Ctrl', 'V'], mouse: null,
+        title: 'Nusxalangan matnni qo‘yadi',
+        desc: 'Buferdagi nusxalangan yoki kesilgan matnni kursor turgan joyga joylashtiradi.',
+        when: 'Matnni yangi joyga joylashtirmoqchi bo‘lganda.',
+        after: 'Ctrl+C yoki Ctrl+X dan keyin.',
+        search: 'ctrl+v paste joylashtirish qoyish',
+        steps: ['Buferda matn bor, kursor yangi satrda', 'Ctrl + V tugmalari bosildi', 'Matn kursor turgan joyga qo‘yildi!']
+      },
+      {
+        id: 'ctrl_a', cat: 'tahrirlash', keys: ['Ctrl', 'A'], hwKeys: ['Ctrl', 'A'], mouse: null,
+        title: 'Hujjatning hammasini tanlaydi',
+        desc: 'Fayldagi barcha matn, sarlavha va abzatslarni birdaniga to‘liq belgilaydi.',
+        when: 'Hammasini birdan o‘zgartirmoqchi bo‘lganda.',
+        after: 'Istalgan vaqtda.',
+        search: 'ctrl+a select all hammasini tanlash ajratish',
+        steps: ['Ko‘p qismli hujjat ochiq', 'Ctrl + A tugmalari bosildi', 'Butun hujjat to‘liq belgilandi!']
+      },
+      {
+        id: 'ctrl_bs', cat: 'tahrirlash', keys: ['Ctrl', 'Backspace'], hwKeys: ['Ctrl', 'Bksp'], mouse: null,
+        title: 'Kursor oldidagi so‘zni o‘chiradi',
+        desc: 'Harfma-harf emas, kursor oldidagi butun so‘zni bir martada o‘chiradi.',
+        when: 'Butun so‘zni bir marta o‘chirmoqchi bo‘lganda.',
+        after: 'Xato yozilgandan keyin.',
+        search: 'ctrl+backspace sozni ochirish toliq ochirish',
+        steps: ['"yuqoriiiii" so‘zi xato yozildi', 'Ctrl + Backspace bosildi', 'Butun xato so‘z bir zarbada o‘chdi!']
+      },
+      {
+        id: 'ctrl_enter', cat: 'tahrirlash', keys: ['Ctrl', 'Enter'], hwKeys: ['Ctrl', 'Enter'], mouse: null,
+        title: 'Yangi sahifa boshlaydi',
+        desc: 'Enter ni ko‘p bosmasdan, darhol yangi toza sahifadan yozishni boshlaydi.',
+        when: 'Yangi sahifadan yozmoqchi bo‘lganda (masalan, ilova).',
+        after: 'Joriy sahifa matni tugagandan keyin.',
+        search: 'ctrl+enter page break yangi sahifa boshlash',
+        steps: ['1-sahifa matni yakunlandi', 'Ctrl + Enter (Sahifa uzilishi) bosildi', 'Pastda toza 2-sahifa ochildi!']
+      },
+
+      // 4. SICHQONCHA AMALLARI (8)
+      {
+        id: 'm_click', cat: 'sichqoncha', keys: ['Chap tugma (1x)'], hwKeys: [], mouse: 'click-1',
+        title: 'Bosilgan joyga kursorni qo‘yadi',
+        desc: 'Matn ichidagi istalgan nuqtaga yozish kursorini darhol ko‘chiradi.',
+        when: 'Shu joydan yozish yoki tahrirlashni davom ettirganda.',
+        after: 'Istalgan vaqtda.',
+        search: 'chap tugma bosish kursor qoyish sichqoncha',
+        steps: ['Kursor matn boshida turibdi', 'Kerakli joyga 1 marta chap tugma bosildi', 'Kursor aynan shu nuqtaga o‘tdi!']
+      },
+      {
+        id: 'm_dbl', cat: 'sichqoncha', keys: ['2 marta bosish'], hwKeys: [], mouse: 'click-2',
+        title: 'Bitta so‘zni tanlaydi',
+        desc: 'So‘z ustiga chap tugmani 2 marta tez bosilsa, aynan shu so‘z to‘liq belgilanadi.',
+        when: 'So‘zni tez belgilash uchun.',
+        after: 'Sichqoncha so‘z ustida turganda.',
+        search: 'ikki marta bosish double click bitta sozni tanlash',
+        steps: ['Sichqoncha "diagnostika" so‘zi ustida', 'Chap tugma 2 marta tez bosildi', 'Faqat bitta "diagnostika" so‘zi belgilandi!']
+      },
+      {
+        id: 'm_tpl', cat: 'sichqoncha', keys: ['3 marta bosish'], hwKeys: [], mouse: 'click-3',
+        title: 'Butun abzatsni tanlaydi',
+        desc: 'Abzats ichida 3 marta tez chertilsa, butun xatboshi boshidan oxirigacha tanlanadi.',
+        when: 'Abzatsni to‘liq belgilash uchun.',
+        after: 'Sichqoncha abzats ichida turganda.',
+        search: 'uch marta bosish triple click butun abzats',
+        steps: ['Sichqoncha 1-abzats ichida turibdi', 'Chap tugma 3 marta tez bosildi', 'Butun 1-abzats to‘liq belgilandi!']
+      },
+      {
+        id: 'm_line', cat: 'sichqoncha', keys: ['Qator chetida bosish'], hwKeys: [], mouse: 'click-1',
+        title: 'Bitta qatorni tanlaydi',
+        desc: 'Chap oq hoshiyaga keltirilganda strelka o‘ngga qaraydi; 1 marta bosilsa qator tanlanadi.',
+        when: 'Qatorni o‘chirish yoki ko‘chirish uchun.',
+        after: 'Sichqoncha matn chap chetiga yetganda.',
+        search: 'qator chetida chap hoshiya bitta qatorni tanlash',
+        steps: ['Kursor chap hoshiyada o‘ngga qaradi', '2-qator qarshisida 1 marta bosildi', 'Aynan 2-qator to‘liq belgilandi!']
+      },
+      {
+        id: 'm_shift', cat: 'sichqoncha', keys: ['Shift', 'Bosish'], hwKeys: ['Shift'], mouse: 'click-1',
+        title: 'Kursor va bosilgan joy orasini tanlaydi',
+        desc: 'Boshlang‘ich kursordan Shift bosib chertilgan nuqtagacha barcha matnni belgilaydi.',
+        when: 'Uzun matn qismini belgilaganda.',
+        after: 'Sichqoncha boshlang‘ich joyda turganda.',
+        search: 'shift bosish oraliq tanlash uzun matn',
+        steps: ['Kursor boshlang‘ich so‘zda turibdi', 'Shift ushlab oxirgi so‘zga bosildi', 'Ikki nuqta oralig‘i to‘liq belgilandi!']
+      },
+      {
+        id: 'm_ctrl', cat: 'sichqoncha', keys: ['Ctrl', 'Bosish'], hwKeys: ['Ctrl'], mouse: 'click-1',
+        title: 'Bitta gapni belgilaydi',
+        desc: 'Ctrl tugmasini bosib turib gap ichiga 1 marta bosilsa, nuqtagacha butun gap tanlanadi.',
+        when: 'Gapni tez belgilash uchun.',
+        after: 'Ctrl tugmasi bosib turilganda.',
+        search: 'ctrl bosish bitta gapni belgilash nuqtagacha',
+        steps: ['3 ta gapli abzats, kursor 2-gapda', 'Ctrl ushlab 1 marta bosildi', 'Aynan 2-gap nuqtasigacha belgilandi!']
+      },
+      {
+        id: 'm_scroll', cat: 'sichqoncha', keys: ['G‘ildirak aylantirish'], hwKeys: [], mouse: 'scroll-on',
+        title: 'Hujjatni yuqoriga yoki pastga suradi',
+        desc: 'Sichqoncha g‘ildiragini aylantirib sahifalar bo‘ylab tez ko‘zdan kechirish.',
+        when: 'Hujjatni tez ko‘zdan kechirganda.',
+        after: 'Hujjat ochilgandan keyin.',
+        search: 'gildirak aylantirish scroll varaq surish',
+        steps: ['Hujjatning yuqori qismi ko‘rinmoqda', 'Sichqoncha g‘ildiragi pastga aylantirildi', 'Hujjat pastki bo‘limlarga silliq surildi!']
+      },
+      {
+        id: 'm_zoom', cat: 'sichqoncha', keys: ['Ctrl', 'G‘ildirak'], hwKeys: ['Ctrl'], mouse: 'scroll-on',
+        title: 'Matnni kattalashtiradi / kichraytiradi',
+        desc: 'Ctrl ushlab g‘ildirak aylantirilsa, shriftni o‘zgartirmay sahifa masshtabi (Zoom) o‘zgaradi.',
+        when: 'Matnni yaqindan ko‘rmoqchi bo‘lganda.',
+        after: 'Ctrl bosib turgan holda g‘ildirak aylantiriladi.',
+        search: 'ctrl gildirak zoom masshtab kattalashtirish kichraytirish',
+        steps: ['Sahifa 100% oddiy masshtabda', 'Ctrl ushlab g‘ildirak oldinga aylantirildi', 'Hujjat 150% ga yaqinlashib kattalashdi!']
+      }
+    ];
+
+    /* ====================================================================== */
+    /* REALISTIC WORD WINDOW HTML GENERATOR FOR ALL 33 SCENES                 */
+    /* ====================================================================== */
+    var SVG_CURSOR_ARROW = '<svg viewBox="0 0 24 24" width="16" height="16" fill="#0f172a" stroke="#ffffff" stroke-width="1.6"><path d="M5 3l14 9-6.5 1.5L9 20z"/></svg>';
+    var SVG_CURSOR_RIGHT = '<svg viewBox="0 0 24 24" width="16" height="16" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"><path d="M19 3L5 12l6.5 1.5L15 20z"/></svg>';
+
+    function buildWordStageHTML(item, isModal) {
+      var docTitle = 'Kasallik_tarixi.docx';
+      var ribbonLit = '';
+      var bodyHTML = '';
+      var extraCanvas = '';
+
+      switch (item.id) {
+        case 'ctrl_n':
+          docTitle = 'Kasallik_tarixi.docx';
+          bodyHTML = '<div style="font-weight:700; color:#1e3a8a;">KASALLIK TARIXI #412</div><div>Bemor: Alimov S.</div><div style="color:#64748b;">Tashxis: O‘RVI...</div>';
+          extraCanvas = '<div class="sc-new-overlay" style="padding:0; overflow:hidden;"><div style="background:#185abd; color:#fff; font-size:9px; font-weight:700; padding:3px 8px; display:flex; justify-content:space-between;"><span>W  Hujjat2.docx — Yangi hujjat</span><span>— [] x</span></div><div style="padding:9px 12px;"><span class="mw-caret"></span></div></div>';
+          break;
+
+        case 'ctrl_o':
+          docTitle = 'Word';
+          bodyHTML = '<div style="color:#94a3b8; font-size:9px;">Fayl kutilmoqda...</div><div class="sc-opened-body" style="margin-top:3px;"><div style="font-weight:700; color:#185abd;">EPIKRIZ — 2026</div><div>Bemor: Rustamova M. to‘liq sog‘aydi.</div></div>';
+          extraCanvas = '<div class="sc-dialog"><div class="sc-dialog-hd"><span>Ochish (Open)</span><span>x</span></div><div class="sc-dialog-bd"><div class="sc-file-row picked"><span>[W]</span><span>Epikriz_2026.docx</span></div><div class="sc-file-row"><span>[W]</span><span>Ariza_namuna.docx</span></div></div></div>';
+          break;
+
+        case 'ctrl_s':
+          docTitle = 'Epikriz.docx <span class="sc-unsaved-star">*</span>';
+          ribbonLit = 'save';
+          bodyHTML = '<div style="font-weight:700;">TIBBIY XULOSA</div><div>Tavsiya: Paratsetamol 500 mg<span class="mw-caret"></span></div><div class="sc-save-bar"><div class="sc-save-fill"></div></div>';
+          extraCanvas = '<div class="sc-save-banner"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span>Saqlandi</span></div>';
+          break;
+
+        case 'f12':
+          docTitle = 'Hisobot.docx';
+          bodyHTML = '<div style="font-weight:700;">OYLIK HISOBOT</div><div>Bo‘lim: Terapiya, 2026-yil.</div>';
+          extraCanvas = '<div class="sc-dialog"><div class="sc-dialog-hd"><span>Boshqa nom bilan saqlash (F12)</span><span>x</span></div><div class="sc-dialog-bd"><div style="font-size:8.5px; color:#64748b;">Fayl nomi:</div><div class="sc-input-mock"><span class="sc-f12-old">Hisobot.docx</span><span class="sc-f12-new">Hisobot_2026_nusxa.docx</span></div></div></div>';
+          break;
+
+        case 'ctrl_p':
+          docTitle = 'Malumotnoma.docx';
+          bodyHTML = '<div style="font-weight:700; text-align:center;">MA‘LUMOTNOMA</div><div>Bemor sog‘lom, o‘qishga ruxsat etiladi.</div>';
+          extraCanvas = '<div class="sc-print-ui"><div class="sc-print-side"><div style="font-weight:800; color:#185abd;">Chop etish</div><div class="sc-print-btn">Chop etish (Print)</div><div style="color:#64748b;">Printer: HP LaserJet<br>Nusxa: 1 ta • A4</div></div><div class="sc-print-preview"><div class="sc-print-sheet"><div style="font-weight:800; text-align:center; margin-bottom:3px;">MA‘LUMOTNOMA</div><div>Bemor sog‘lom...<br>Shifokor imzosi.</div></div></div></div>';
+          break;
+
+        case 'ctrl_w':
+          docTitle = 'Ariza.docx';
+          bodyHTML = '<div style="font-weight:700; text-align:center;">ARIZA</div><div>Menga o‘quv ta‘tili berishingizni so‘rayman.</div>';
+          extraCanvas = '<div class="sc-closed-note"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#475569" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><line x1="9" y1="15" x2="15" y2="9"/><line x1="9" y1="9" x2="15" y2="15"/></svg><span style="margin-top:4px;">Ariza.docx yopildi (Word ochiq)</span></div>';
+          break;
+
+        case 'ctrl_z':
+          docTitle = 'Tashxis.docx';
+          ribbonLit = 'undo';
+          bodyHTML = '<div>Tashxis: O‘tkir <span class="sc-err-badge">[o‘chdi!]</span><span class="sc-undo-word">bronxit</span><span class="mw-caret"></span></div><div style="color:#64748b; margin-top:4px;">Holati: qoniqarli.</div>';
+          break;
+
+        case 'ctrl_y':
+          docTitle = 'Tashxis.docx';
+          ribbonLit = 'redo';
+          bodyHTML = '<div style="margin-bottom:4px;"><span class="sc-redo-target">KLINIK TASHXIS</span></div><div>Ctrl+Z bilan bekor qilingan bezak qaytarildi.</div>';
+          break;
+
+        case 'f4':
+          docTitle = 'Reja.docx';
+          bodyHTML = '<div>1. <span class="sc-f4-1">Tashxis qo‘yish</span></div><div style="margin-top:3px;">2. <span class="sc-f4-2">Tahlil olish</span></div><div style="margin-top:3px;">3. <span class="sc-f4-3">Davolash rejasi</span></div>';
+          break;
+
+        case 'ctrl_f':
+          docTitle = 'Karta.docx';
+          bodyHTML = '<div>Bugun <span class="sc-hl">bemor</span> qabul qilindi. Har <span class="sc-hl">bemor</span> tahlili tekshirilib, <span class="sc-hl">bemor</span>ga dori yozildi.</div>';
+          extraCanvas = '<div class="sc-find-pane"><div style="font-weight:800; color:#185abd; margin-bottom:3px;">Qidirish</div><div style="border:1px solid #3b82f6; background:#fff; padding:2px 4px; border-radius:3px; font-weight:700;">bemor</div><div style="color:#059669; font-weight:700; margin-top:4px;">3 ta natija</div></div>';
+          break;
+
+        case 'ctrl_h':
+          docTitle = 'Hisobot.docx';
+          bodyHTML = '<div>Bugun <span class="sc-rep-old">pasiyent</span><span class="sc-rep-new">bemor</span> ko‘rikdan o‘tdi. Ertalab <span class="sc-rep-old">pasiyent</span><span class="sc-rep-new">bemor</span> tekshirildi.</div>';
+          extraCanvas = '<div class="sc-dialog"><div class="sc-dialog-hd"><span>Almashtirish (Ctrl+H)</span><span>x</span></div><div class="sc-dialog-bd"><div>Topish: <b>pasiyent</b></div><div>Almashtirish: <b style="color:#059669;">bemor</b></div></div></div>';
+          break;
+
+        case 'f1':
+          docTitle = 'Hujjat1.docx';
+          bodyHTML = '<div style="font-weight:700;">TIBBIY HISOBOT</div><div>Jadval qanday tuziladi?<span class="mw-caret"></span></div>';
+          extraCanvas = '<div class="sc-help-pane"><div style="font-weight:800; color:#185abd; margin-bottom:4px;">Word Yordam</div><div style="border:1px solid #cbd5e1; padding:2px 4px; border-radius:3px; color:#64748b; margin-bottom:4px;">Savol yozing...</div><div>• Jadval yaratish<br>• Sahifa raqamlash<br>• Chop etish</div></div>';
+          break;
+
+        case 'ctrl_b':
+          docTitle = 'Tashxis.docx';
+          ribbonLit = 'B';
+          bodyHTML = '<div><span class="mw-sel on sc-fmt-target">TASHXIS:</span> O‘tkir tonzillit.</div><div style="color:#64748b; margin-top:4px;">Muhim so‘z qalinlashtiriladi.</div>';
+          break;
+
+        case 'ctrl_i':
+          docTitle = 'Retsept.docx';
+          ribbonLit = 'I';
+          bodyHTML = '<div>Dori: <span class="mw-sel on sc-fmt-target">Acidum acetylsalicylicum</span></div><div style="color:#64748b; margin-top:4px;">Lotincha atama kursiv bo‘ladi.</div>';
+          break;
+
+        case 'ctrl_u':
+          docTitle = 'Eslatma.docx';
+          ribbonLit = 'U';
+          bodyHTML = '<div><span class="sc-u-wrap mw-sel on">Muhim eslatma<span class="sc-u-line"></span></span>: ovqatdan so‘ng ichilsin.</div>';
+          break;
+
+        case 'ctrl_e':
+          docTitle = 'Ariza.docx';
+          ribbonLit = 'E';
+          bodyHTML = '<div class="sc-align-box"><span class="sc-align-bar"></span><span class="sc-align-glide" style="font-weight:800; color:#185abd;">ARIZA</span></div><div style="color:#64748b; margin-top:5px;">Texnikum direktoriga...</div>';
+          break;
+
+        case 'ctrl_l':
+          docTitle = 'Matn.docx';
+          ribbonLit = 'L';
+          bodyHTML = '<div class="sc-align-box"><div class="sc-align-glide" style="font-weight:700;">Oddiy xatboshi matni</div></div><div class="sc-align-box"><div class="sc-align-glide" style="color:#475569;">Chap chetga tekis.</div></div>';
+          break;
+
+        case 'ctrl_r':
+          docTitle = 'Ariza.docx';
+          ribbonLit = 'R';
+          bodyHTML = '<div class="sc-align-box"><div class="sc-align-glide" style="font-weight:700; color:#185abd;">20.11.2026 y.</div></div><div class="sc-align-box"><div class="sc-align-glide">Imzo: ________</div></div>';
+          break;
+
+        case 'ctrl_j':
+          docTitle = 'Rasmiy_xat.docx';
+          ribbonLit = 'J';
+          bodyHTML = '<div class="sc-just-para"><div class="sc-just-line expand">Ushbu tibbiy hujjat rasmiy</div><div class="sc-just-line expand">tartibda ikki chetga teng</div><div class="sc-just-line">tekislab tayyorlandi.</div></div>';
+          break;
+
+        case 'ctrl_c':
+          docTitle = 'Retsept.docx';
+          bodyHTML = '<div>1. <span class="mw-sel on">Paratsetamol 500 mg</span></div><div style="color:#64748b; margin-top:4px;">Asl matn joyida qoladi.</div>';
+          extraCanvas = '<div class="sc-ghost-fly">Paratsetamol 500 mg</div><div class="sc-clip-badge">Bufer: Paratsetamol 500 mg</div>';
+          break;
+
+        case 'ctrl_x':
+          docTitle = 'Hisobot.docx';
+          bodyHTML = '<div>1-bo‘lim: Bemor holati</div><div class="sc-cut-target"><span class="mw-sel on">2-bo‘lim: Tahlil natijasi</span></div><div>3-bo‘lim: Xulosa</div>';
+          extraCanvas = '<div class="sc-ghost-fly">2-bo‘lim: Tahlil</div><div class="sc-clip-badge">Kesildi -> Buferda</div>';
+          break;
+
+        case 'ctrl_v':
+          docTitle = 'Retsept.docx';
+          bodyHTML = '<div>1. Asosiy dori</div><div style="margin-top:4px;">2. <span class="sc-paste-result">Paratsetamol 500 mg</span><span class="mw-caret"></span></div>';
+          extraCanvas = '<div class="sc-clip-badge">Bufer: Paratsetamol</div>';
+          break;
+
+        case 'ctrl_a':
+          docTitle = 'Hujjat.docx';
+          bodyHTML = '<div class="sc-all-block"><div style="font-weight:800;">TIBBIY BAYONNOMA</div><div>1. Bemor ko‘rikdan o‘tdi.</div><div>2. Dori tavsiya qilindi.</div></div>';
+          break;
+
+        case 'ctrl_bs':
+          docTitle = 'Tahrir.docx';
+          bodyHTML = '<div>Bemor harorati <span class="sc-del-word">yuqoriiiii</span><span class="mw-caret"></span></div><div style="color:#64748b; margin-top:4px;">Butun so‘z birdan o‘chadi.</div>';
+          break;
+
+        case 'ctrl_enter':
+          docTitle = 'Ilova.docx';
+          // Custom multi-page paper structure
+          return buildMultiPageStage(item, isModal);
+
+        case 'm_click':
+          docTitle = 'Tahrir.docx';
+          bodyHTML = '<div><span class="mw-caret sc-c0"></span>Bemor <span class="mw-caret sc-c2"></span>harorati 37.5°C.</div>';
+          extraCanvas = '<div class="mw-pointer">' + SVG_CURSOR_ARROW + '</div><div class="mw-ripple r1" style="left:41%; top:24%;"></div>';
+          break;
+
+        case 'm_dbl':
+          docTitle = 'Tahrir.docx';
+          bodyHTML = '<div>Tibbiy <span class="sc-target" style="padding:0 2px;">diagnostika</span> natijasi tayyor.</div>';
+          extraCanvas = '<div class="mw-pointer">' + SVG_CURSOR_ARROW + '</div><div class="mw-ripple r1" style="left:45%; top:24%;"></div><div class="mw-ripple r2" style="left:45%; top:24%;"></div>';
+          break;
+
+        case 'm_tpl':
+          docTitle = 'Hisobot.docx';
+          bodyHTML = '<div class="sc-target" style="padding:2px;">Bemor shifoxonaga yotqizildi. Barcha qon tahlillari olindi va davolash boshlandi.</div><div style="color:#64748b; margin-top:4px;">2-abzats tanlanmaydi.</div>';
+          extraCanvas = '<div class="mw-pointer">' + SVG_CURSOR_ARROW + '</div><div class="mw-ripple r1" style="left:48%; top:30%;"></div><div class="mw-ripple r2" style="left:48%; top:30%;"></div><div class="mw-ripple r3" style="left:48%; top:30%;"></div>';
+          break;
+
+        case 'm_line':
+          docTitle = 'Ro‘yxat.docx';
+          bodyHTML = '<div>1-qator: Qon bosimi o‘lchandi.</div><div class="sc-target" style="padding:0 2px;">2-qator: Yurak urishi me‘yorda.</div><div>3-qator: Harorat tushdi.</div>';
+          extraCanvas = '<div class="mw-pointer">' + SVG_CURSOR_RIGHT + '</div><div class="mw-ripple r1" style="left:10%; top:38%;"></div>';
+          break;
+
+        case 'm_shift':
+          docTitle = 'Matn.docx';
+          bodyHTML = '<div>Bemor <span class="mw-caret"></span><span class="sc-target" style="padding:0 2px;">harorati 38.2°C bo‘lib, shifokor nazoratiga</span> olindi.</div>';
+          extraCanvas = '<div class="mw-pointer">' + SVG_CURSOR_ARROW + '</div><div class="mw-ripple r1" style="left:68%; top:36%;"></div>';
+          break;
+
+        case 'm_ctrl':
+          docTitle = 'Epikriz.docx';
+          bodyHTML = '<div>1-gap oddiy. <span class="sc-target" style="padding:0 2px;">Ikkinchi gap to‘liq nuqtagacha tanlanadi.</span> 3-gap tegilmaydi.</div>';
+          extraCanvas = '<div class="mw-pointer">' + SVG_CURSOR_ARROW + '</div><div class="mw-ripple r1" style="left:48%; top:28%;"></div>';
+          break;
+
+        case 'm_scroll':
+          docTitle = 'Katta_hujjat.docx';
+          bodyHTML = '<div class="sc-scroll-box"><div class="sc-scroll-content"><div><b>1-bo‘lim:</b> Kirish qismi...</div><div>Bemor shikoyatlari yozildi.</div><div><b>2-bo‘lim:</b> Tahlillar...</div><div>Qon tahlili me‘yorda.</div><div><b>3-bo‘lim:</b> Yakuniy xulosa...</div><div>Bemor uyga chiqarildi.</div><div><b>4-bo‘lim:</b> Tavsiyalar...</div><div>Dori vositalari qabul qilinsin.</div></div><div class="sc-scrollbar"><div class="sc-scrollthumb"></div></div></div>';
+          break;
+
+        case 'm_zoom':
+          docTitle = 'Retsept.docx';
+          bodyHTML = '<div class="sc-zoom-paper" style="transform-origin:top left; transition:transform 0.45s ease;"><div style="font-weight:700;">RETSEPT</div><div>Vitamin C — 200 mg</div></div>';
+          extraCanvas = '<div class="sc-zoom-bar"><span>-</span><div class="sc-zoom-track"><div class="sc-zoom-knob"></div></div><span>+</span><span class="sc-z100">100%</span><span class="sc-z150">150%</span></div>';
+          break;
+      }
+
+      var rbtn = function(code, label) {
+        var isLit = (ribbonLit === code) ? ' data-lit="1"' : '';
+        return '<span class="mw-rbtn"' + isLit + '>' + label + '</span>';
+      };
+
+      var keyToastText = item.keys.join(' + ');
+      return (
+        '<div class="mw-stage ' + (isModal ? 'is-modal' : 'is-mini') + '" data-anim="' + item.id + '" data-phase="0">' +
+          '<div class="mw-titlebar">' +
+            '<div class="mw-tb-left"><span class="mw-w-logo">W</span><span>' + docTitle + '</span></div>' +
+            '<div class="mw-tb-dots"><span></span><span></span><span></span></div>' +
+          '</div>' +
+          '<div class="mw-ribbon">' +
+            rbtn('save', 'Saqlash') +
+            rbtn('undo', 'Ortga') +
+            rbtn('redo', 'Oldinga') +
+            '<span class="mw-rsep"></span>' +
+            rbtn('B', '<b>B</b>') +
+            rbtn('I', '<i>I</i>') +
+            rbtn('U', '<u>U</u>') +
+            '<span class="mw-rsep"></span>' +
+            rbtn('L', 'Chap') +
+            rbtn('E', 'O‘rta') +
+            rbtn('R', 'O‘ng') +
+            rbtn('J', 'Teng') +
+          '</div>' +
+          '<div class="mw-canvas">' +
+            '<div class="mw-paper">' + bodyHTML + '</div>' +
+            extraCanvas +
+          '</div>' +
+          '<div class="mw-phase-pill">' +
+            '<span class="mw-caption">' + item.steps[0] + '</span>' +
+            '<span class="mw-key-toast">' + keyToastText + '</span>' +
+          '</div>' +
+        '</div>'
+      );
+    }
+
+    function buildMultiPageStage(item, isModal) {
+      var keyToastText = item.keys.join(' + ');
+      return (
+        '<div class="mw-stage ' + (isModal ? 'is-modal' : 'is-mini') + '" data-anim="ctrl_enter" data-phase="0">' +
+          '<div class="mw-titlebar">' +
+            '<div class="mw-tb-left"><span class="mw-w-logo">W</span><span>Ilova.docx</span></div>' +
+            '<div class="mw-tb-dots"><span></span><span></span><span></span></div>' +
+          '</div>' +
+          '<div class="mw-ribbon">' +
+            '<span class="mw-rbtn">Sahifa 1 / 2</span>' +
+            '<span class="mw-rsep"></span>' +
+            '<span class="mw-rbtn" data-lit="1">Sahifa uzilishi</span>' +
+          '</div>' +
+          '<div class="mw-canvas">' +
+            '<div class="sc-pages-stack">' +
+              '<div class="mw-paper" style="min-height:46px;"><div><b>1-sahifa:</b> Asosiy hisobot tugadi.</div></div>' +
+              '<div class="sc-page-break-line">--- Sahifa uzilishi (Ctrl+Enter) ---</div>' +
+              '<div class="sc-page-2"><b>2-sahifa (Yangi):</b> Ilova <span class="mw-caret"></span></div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="mw-phase-pill">' +
+            '<span class="mw-caption">' + item.steps[0] + '</span>' +
+            '<span class="mw-key-toast">' + keyToastText + '</span>' +
+          '</div>' +
+        '</div>'
+      );
+    }
+
+    function renderKeysHTML(keys) {
+      return keys.map(function(k, i) {
+        return (i > 0 ? '<span class="plus-sign">+</span>' : '') + '<kbd>' + k + '</kbd>';
+      }).join('');
+    }
+
+    /* ====================================================================== */
+    /* MOUNT ALL 33 ANIMATED CARDS + CHEAT SHEET TABLE                        */
+    /* ====================================================================== */
+    var visibleCards = new Set();
+    var cardStates = {}; // idx -> { phase, el, stageEl, capEl }
+
+    function initLessonCards() {
+      var grids = {
+        fayl: document.getElementById('grid-fayl'),
+        formatlash: document.getElementById('grid-formatlash'),
+        tahrirlash: document.getElementById('grid-tahrirlash'),
+        sichqoncha: document.getElementById('grid-sichqoncha')
+      };
+      var tbody = document.getElementById('cheatTableBody');
+
+      SHORTCUTS.forEach(function(item, idx) {
+        var card = document.createElement('div');
+        card.className = 'shortcut-card';
+        card.setAttribute('data-shortcut', item.search);
+        card.setAttribute('data-idx', idx);
+        card.setAttribute('data-phase', '0');
+
+        card.innerHTML =
+          '<div class="sc-header">' +
+            '<div class="sc-badge">' + renderKeysHTML(item.keys) + '</div>' +
+            '<button type="button" class="sc-expand-btn" onclick="openCinemaModal(' + idx + ')">' +
+              '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polygon points="5 3 19 12 5 21 5 3"/></svg>' +
+              '<span>Katta ko‘rish</span>' +
+            '</button>' +
+          '</div>' +
+          '<div onclick="openCinemaModal(' + idx + ')" title="Katta ekranda 3D klaviatura bilan ko‘rish">' +
+            buildWordStageHTML(item, false) +
+          '</div>' +
+          '<div class="sc-title">' + item.title + '</div>' +
+          '<div class="sc-desc">' + item.desc + '</div>' +
+          '<div class="sc-meta">' +
+            '<div class="sc-meta-row"><span class="sc-meta-label">Qachon:</span><span class="sc-meta-val">' + item.when + '</span></div>' +
+            '<div class="sc-meta-row"><span class="sc-meta-label">Ketma-ketlik:</span><span class="sc-meta-val">' + item.after + '</span></div>' +
+          '</div>';
+
+        grids[item.cat].appendChild(card);
+
+        cardStates[idx] = {
+          phase: 0,
+          cardEl: card,
+          stageEl: card.querySelector('.mw-stage'),
+          capEl: card.querySelector('.mw-caption'),
+          item: item
+        };
+
+        // Also populate Cheat Sheet Table row
+        var tr = document.createElement('tr');
+        tr.innerHTML =
+          '<td>' + renderKeysHTML(item.keys) + '</td>' +
+          '<td><strong style="color:#f8fafc;">' + item.title + '</strong></td>' +
+          '<td>' + item.when + '</td>' +
+          '<td>' + item.after + '</td>' +
+          '<td><button type="button" class="sc-expand-btn" onclick="openCinemaModal(' + idx + ')">Ko‘rish</button></td>';
+        tbody.appendChild(tr);
       });
-      // Jadvalni ham filtrlaymiz
-      var rows = document.querySelectorAll('#fullCheatTable tbody tr');
-      rows.forEach(function(row) {
-        var text = row.innerText.toLowerCase();
-        if (!q || text.indexOf(q) !== -1) {
-          row.style.display = '';
-        } else {
-          row.style.display = 'none';
-        }
+
+      // IntersectionObserver so ONLY visible cards animate (60 FPS smooth!)
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function(entries) {
+          entries.forEach(function(ent) {
+            var i = parseInt(ent.target.getAttribute('data-idx'), 10);
+            if (ent.isIntersecting) visibleCards.add(i);
+            else visibleCards.delete(i);
+          });
+        }, { threshold: 0.12 });
+
+        Object.keys(cardStates).forEach(function(k) {
+          io.observe(cardStates[k].cardEl);
+        });
+      } else {
+        Object.keys(cardStates).forEach(function(k) { visibleCards.add(parseInt(k, 10)); });
+      }
+
+      // Unified smooth animation loop for visible mini cards
+      var tick = 0;
+      setInterval(function() {
+        if (modalOpen) return; // Pause background cards while modal cinema is open
+        tick++;
+        var phase = tick % 3; // 0 -> 1 -> 2 -> 0
+        visibleCards.forEach(function(idx) {
+          applyStagePhase(cardStates[idx].stageEl, cardStates[idx].item, phase, cardStates[idx].cardEl, cardStates[idx].capEl);
+        });
+      }, 1550);
+    }
+
+    function applyStagePhase(stageEl, item, phase, cardEl, capEl) {
+      if (!stageEl) return;
+      stageEl.setAttribute('data-phase', String(phase));
+      if (cardEl) cardEl.setAttribute('data-phase', String(phase));
+      if (capEl) capEl.textContent = item.steps[phase];
+      // Highlight Ribbon button on phase 1 & 2
+      var litBtns = stageEl.querySelectorAll('.mw-rbtn[data-lit="1"]');
+      litBtns.forEach(function(b) {
+        if (phase >= 1) b.classList.add('lit');
+        else b.classList.remove('lit');
       });
     }
 
-    // Trenajyor tablarini almashtirish
+    /* ====================================================================== */
+    /* FULL CINEMA MODAL WITH 3D PHYSICAL KEYBOARD & 3D MOUSE                 */
+    /* ====================================================================== */
+    var modalOpen = false;
+    var modalIdx = 0;
+    var modalPhase = 0;
+    var modalPlaying = true;
+    var modalSlow = false;
+    var modalTimer = null;
+
+    var KB_ROWS = [
+      ['F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'],
+      ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'Bksp'],
+      ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Enter'],
+      ['Shift', 'Z', 'X', 'C', 'V', 'B', 'N', 'M'],
+      ['Ctrl', 'Alt', 'Space']
+    ];
+
+    function buildHardwareHTML(item) {
+      var html = '';
+      var hasKeys = item.hwKeys && item.hwKeys.length > 0;
+      var hasMouse = !!item.mouse;
+
+      if (hasKeys) {
+        html += '<div class="kb-board" id="cmKeyboard">';
+        KB_ROWS.forEach(function(row) {
+          html += '<div class="kb-row">';
+          row.forEach(function(k) {
+            var cls = 'kb-key';
+            if (k === 'Shift' || k === 'Ctrl' || k === 'Enter' || k === 'Bksp') cls += ' wide';
+            if (k === 'Space') cls += ' space';
+            if (item.hwKeys.indexOf(k) !== -1) cls += ' target-hint';
+            var label = (k === 'Bksp') ? 'Backspace' : k;
+            html += '<div class="' + cls + '" data-k="' + k + '">' + label + '</div>';
+          });
+          html += '</div>';
+        });
+        html += '</div>';
+      }
+
+      if (hasMouse) {
+        var mLabel = item.keys.join(' + ');
+        html +=
+          '<div class="mouse-hw" id="cmMouse" data-mtype="' + item.mouse + '">' +
+            '<svg class="mouse-svg" viewBox="0 0 80 124" fill="none">' +
+              '<rect x="6" y="4" width="68" height="116" rx="34" fill="#141c2b" stroke="#3b4c6b" stroke-width="2.5"/>' +
+              '<path class="mouse-btn-l" d="M8 38 C8 18 22 6 39 6 L39 50 L8 50 Z" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>' +
+              '<path d="M72 38 C72 18 58 6 41 6 L41 50 L72 50 Z" fill="#1a2233" stroke="#334155" stroke-width="1.5"/>' +
+              '<rect class="mouse-wheel" x="35" y="18" width="10" height="22" rx="5" fill="#64748b" stroke="#0f172a" stroke-width="1.5"/>' +
+              '<line x1="8" y1="50" x2="72" y2="50" stroke="#334155" stroke-width="1.5"/>' +
+            '</svg>' +
+            '<span class="mouse-hw-label">' + mLabel + '</span>' +
+          '</div>';
+      }
+      return html;
+    }
+
+    function openCinemaModal(idx) {
+      modalIdx = (idx + SHORTCUTS.length) % SHORTCUTS.length;
+      modalOpen = true;
+      modalPlaying = true;
+      modalPhase = 0;
+
+      var item = SHORTCUTS[modalIdx];
+      document.getElementById('cmCounter').textContent = (modalIdx + 1) + ' / ' + SHORTCUTS.length;
+      document.getElementById('cmKeyBadge').innerHTML = renderKeysHTML(item.keys);
+      document.getElementById('cmTitle').textContent = item.title;
+      document.getElementById('cmStep0').textContent = item.steps[0];
+      document.getElementById('cmStep1').textContent = item.steps[1];
+      document.getElementById('cmStep2').textContent = item.steps[2];
+      document.getElementById('cmWhen').textContent = item.when;
+      document.getElementById('cmAfter').textContent = item.after;
+
+      document.getElementById('cmStageHost').innerHTML = buildWordStageHTML(item, true);
+      document.getElementById('cmHardware').innerHTML = buildHardwareHTML(item);
+      document.getElementById('cinemaBackdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+
+      updatePlayPauseUI();
+      setModalPhase(0, true);
+      scheduleModalLoop();
+    }
+
+    function closeCinemaModal() {
+      modalOpen = false;
+      clearTimeout(modalTimer);
+      document.getElementById('cinemaBackdrop').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function stepCinema(delta) {
+      openCinemaModal(modalIdx + delta);
+    }
+
+    function setModalPhase(phase, fromAuto) {
+      modalPhase = phase;
+      var item = SHORTCUTS[modalIdx];
+      var stageEl = document.querySelector('#cmStageHost .mw-stage');
+      applyStagePhase(stageEl, item, phase, null, null);
+
+      // Update Step Pills
+      document.querySelectorAll('#cmSteps .cm-step').forEach(function(btn) {
+        var s = parseInt(btn.getAttribute('data-s'), 10);
+        btn.classList.toggle('active', s === phase);
+        btn.classList.toggle('done', s < phase);
+      });
+
+      // Update 3D Physical Keyboard pressed state
+      var kb = document.getElementById('cmKeyboard');
+      if (kb) {
+        kb.querySelectorAll('.kb-key').forEach(function(kEl) {
+          var k = kEl.getAttribute('data-k');
+          var shouldPress = (phase === 1) && (item.hwKeys.indexOf(k) !== -1);
+          kEl.classList.toggle('pressed', shouldPress);
+        });
+      }
+
+      // Update 3D Mouse pressed/scroll state
+      var mouseEl = document.getElementById('cmMouse');
+      if (mouseEl) {
+        var mtype = mouseEl.getAttribute('data-mtype');
+        mouseEl.classList.remove('click-1', 'click-2', 'click-3', 'scroll-on');
+        if (phase === 1 && mtype) {
+          void mouseEl.offsetWidth; // restart CSS animation cleanly
+          mouseEl.classList.add(mtype);
+        }
+      }
+
+      if (!fromAuto) {
+        modalPlaying = false;
+        clearTimeout(modalTimer);
+        updatePlayPauseUI();
+      }
+    }
+
+    function scheduleModalLoop() {
+      clearTimeout(modalTimer);
+      if (!modalOpen || !modalPlaying) return;
+      var baseMs = modalPhase === 2 ? 2300 : (modalPhase === 1 ? 1400 : 1200);
+      var delay = modalSlow ? baseMs * 1.85 : baseMs;
+      modalTimer = setTimeout(function() {
+        var next = (modalPhase + 1) % 3;
+        setModalPhase(next, true);
+        scheduleModalLoop();
+      }, delay);
+    }
+
+    function toggleModalPlay() {
+      modalPlaying = !modalPlaying;
+      updatePlayPauseUI();
+      if (modalPlaying) scheduleModalLoop();
+      else clearTimeout(modalTimer);
+    }
+
+    function updatePlayPauseUI() {
+      var btn = document.getElementById('cmPlayPauseBtn');
+      if (!btn) return;
+      btn.innerHTML = modalPlaying
+        ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg><span>Pauza</span>'
+        : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polygon points="5 3 19 12 5 21 5 3"/></svg><span>Davom</span>';
+    }
+
+    function replayModal() {
+      modalPlaying = true;
+      updatePlayPauseUI();
+      setModalPhase(0, true);
+      scheduleModalLoop();
+    }
+
+    function toggleModalSpeed() {
+      modalSlow = !modalSlow;
+      var btn = document.getElementById('cmSpeedBtn');
+      btn.classList.toggle('active', modalSlow);
+      btn.innerHTML = modalSlow ? '<span>Tezlik: 0.5x (Sekin)</span>' : '<span>Tezlik: 1x</span>';
+      if (modalPlaying) scheduleModalLoop();
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (!modalOpen) return;
+      if (e.key === 'Escape') closeCinemaModal();
+      else if (e.key === 'ArrowRight') stepCinema(1);
+      else if (e.key === 'ArrowLeft') stepCinema(-1);
+      else if (e.key === ' ') { e.preventDefault(); toggleModalPlay(); }
+    });
+
+    /* ====================================================================== */
+    /* SEARCH FILTER & INTERACTIVE TRAINER                                    */
+    /* ====================================================================== */
+    function filterShortcuts(query) {
+      var q = query.toLowerCase().trim();
+      document.querySelectorAll('.shortcut-card').forEach(function(card) {
+        var text = (card.getAttribute('data-shortcut') || '') + ' ' + card.innerText.toLowerCase();
+        card.style.display = (!q || text.indexOf(q) !== -1) ? 'flex' : 'none';
+      });
+      document.querySelectorAll('#cheatTableBody tr').forEach(function(row) {
+        row.style.display = (!q || row.innerText.toLowerCase().indexOf(q) !== -1) ? '' : 'none';
+      });
+    }
+
     function switchTrainer(tab) {
       var tabs = document.querySelectorAll('.trainer-tab');
       tabs.forEach(function(t) { t.classList.remove('active'); });
@@ -1715,19 +3179,16 @@ Shifokor: Dr. O.Z. Napasov (Imzo)
       }
     }
 
-    // Trenajyor stillarini qo'llash
     function applyTrainerStyle(command) {
       document.execCommand(command, false, null);
-      var editor = document.getElementById('trainerEditor');
-      editor.focus();
+      document.getElementById('trainerEditor').focus();
       updateLastCombo('Tugma orqali: ' + command.toUpperCase(), 'Formatlandi');
     }
 
     function applyTrainerAlign(align) {
-      var map = { 'left': 'justifyLeft', 'center': 'justifyCenter', 'right': 'justifyRight', 'justify': 'justifyFull' };
+      var map = { left: 'justifyLeft', center: 'justifyCenter', right: 'justifyRight', justify: 'justifyFull' };
       document.execCommand(map[align], false, null);
-      var editor = document.getElementById('trainerEditor');
-      editor.focus();
+      document.getElementById('trainerEditor').focus();
       updateLastCombo('Tekislash: ' + align.toUpperCase(), 'Tekislandi');
     }
 
@@ -1740,76 +3201,47 @@ Shifokor: Dr. O.Z. Napasov (Imzo)
       setTimeout(function() {
         badge.style.background = 'rgba(255, 255, 255, 0.08)';
         badge.style.color = 'var(--text-main)';
-      }, 2000);
+      }, 1800);
     }
 
-    // Klaviaturani tinglash
     var editor = document.getElementById('trainerEditor');
     editor.addEventListener('keydown', function(e) {
       var key = e.key.toUpperCase();
       var isCtrl = e.ctrlKey || e.metaKey;
-
       if (isCtrl) {
-        if (key === 'B') {
-          updateLastCombo('Ctrl + B', 'Matn qalinlashtirildi');
-        } else if (key === 'I') {
-          updateLastCombo('Ctrl + I', 'Kursiv qilindi');
-        } else if (key === 'U') {
-          updateLastCombo('Ctrl + U', 'Tagiga chizildi');
-        } else if (key === 'E') {
-          e.preventDefault();
-          applyTrainerAlign('center');
-          updateLastCombo('Ctrl + E', 'O‘rtaga tekislandi');
-        } else if (key === 'L') {
-          e.preventDefault();
-          applyTrainerAlign('left');
-          updateLastCombo('Ctrl + L', 'Chapga tekislandi');
-        } else if (key === 'R') {
-          e.preventDefault();
-          applyTrainerAlign('right');
-          updateLastCombo('Ctrl + R', 'O‘ngga tekislandi');
-        } else if (key === 'J') {
-          e.preventDefault();
-          applyTrainerAlign('justify');
-          updateLastCombo('Ctrl + J', 'Ikki chetga tekislandi');
-        } else if (key === 'S') {
-          e.preventDefault();
-          updateLastCombo('Ctrl + S', 'Hujjat saqlandi');
-        } else if (key === 'ENTER') {
-          e.preventDefault();
-          updateLastCombo('Ctrl + Enter', 'Yangi sahifaga o‘tildi (Page break)');
-        } else if (key === 'Z') {
-          updateLastCombo('Ctrl + Z', 'Bekor qilindi (Undo)');
-        } else if (key === 'Y') {
-          updateLastCombo('Ctrl + Y', 'Qaytarildi (Redo)');
-        }
-      } else if (e.key === 'F12') {
-        e.preventDefault();
-        updateLastCombo('F12', 'Yangi nom bilan saqlash (Save As)');
-      } else if (e.key === 'F4') {
-        e.preventDefault();
-        updateLastCombo('F4', 'Oxirgi amal takrorlandi');
-      }
+        if (key === 'B') updateLastCombo('Ctrl + B', 'Matn qalinlashtirildi');
+        else if (key === 'I') updateLastCombo('Ctrl + I', 'Kursiv qilindi');
+        else if (key === 'U') updateLastCombo('Ctrl + U', 'Tagiga chizildi');
+        else if (key === 'E') { e.preventDefault(); applyTrainerAlign('center'); updateLastCombo('Ctrl + E', 'O‘rtaga tekislandi'); }
+        else if (key === 'L') { e.preventDefault(); applyTrainerAlign('left'); updateLastCombo('Ctrl + L', 'Chapga tekislandi'); }
+        else if (key === 'R') { e.preventDefault(); applyTrainerAlign('right'); updateLastCombo('Ctrl + R', 'O‘ngga tekislandi'); }
+        else if (key === 'J') { e.preventDefault(); applyTrainerAlign('justify'); updateLastCombo('Ctrl + J', 'Ikki chetga tekislandi'); }
+        else if (key === 'S') { e.preventDefault(); updateLastCombo('Ctrl + S', 'Hujjat saqlandi'); }
+        else if (key === 'ENTER') { e.preventDefault(); updateLastCombo('Ctrl + Enter', 'Yangi sahifa ochildi'); }
+        else if (key === 'Z') updateLastCombo('Ctrl + Z', 'Bekor qilindi');
+        else if (key === 'Y') updateLastCombo('Ctrl + Y', 'Qaytarildi');
+      } else if (e.key === 'F12') { e.preventDefault(); updateLastCombo('F12', 'Yangi nom bilan saqlash'); }
+      else if (e.key === 'F4') { e.preventDefault(); updateLastCombo('F4', 'Oxirgi amal takrorlandi'); }
     });
 
-    // Sichqoncha mashqini kuzatish
     var mouseTarget = document.getElementById('mouseTargetText');
-    mouseTarget.addEventListener('mouseup', function(e) {
+    mouseTarget.addEventListener('mouseup', function() {
       var selection = window.getSelection().toString().trim();
       var status = document.getElementById('mouseStatusText');
       if (!selection) return;
-
       var words = selection.split(/\s+/);
       if (words.length === 1 && selection.length > 1) {
         status.innerHTML = '<strong>Ajoyib!</strong> Bitta so‘z belgilandi: "<em>' + selection + '</em>"';
       } else if (words.length > 15) {
         status.innerHTML = '<strong>Mukammal!</strong> Butun abzats to‘liq belgilandi (3 marta bosish).';
       } else if (selection.endsWith('.') || selection.endsWith('!') || selection.endsWith('?')) {
-        status.innerHTML = '<strong>Juda yaxshi!</strong> Bitta butun gap belgilandi (Ctrl+bosish): "<em>' + selection.substring(0, 35) + '...</em>"';
+        status.innerHTML = '<strong>Juda yaxshi!</strong> Bitta butun gap belgilandi: "<em>' + selection.substring(0, 38) + '...</em>"';
       } else {
         status.innerHTML = 'Belgilangan oraliq: ' + words.length + ' ta so‘z.';
       }
     });
+
+    initLessonCards();
   </script>
 </body>
 </html>
