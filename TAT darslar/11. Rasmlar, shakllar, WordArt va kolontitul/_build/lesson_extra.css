@@ -1,0 +1,133 @@
+
+    /* ====================================================================== */
+    /* 10-DARS: QO'SHIMCHA USLUBLAR                                           */
+    /* ====================================================================== */
+    .grid-4 { display: grid; grid-template-columns: 1fr; gap: 0.9rem; }
+    @media (min-width: 640px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1040px) { .grid-4 { grid-template-columns: repeat(4, 1fr); } }
+    .grid-4 > * { min-width: 0; }
+
+    .tool4 {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-top: 3px solid var(--tc, #60a5fa);
+      border-radius: 14px;
+      padding: 1.1rem 1.1rem 1rem;
+    }
+    .tool4 .t-ic {
+      width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      background: color-mix(in srgb, var(--tc, #60a5fa) 16%, transparent); color: var(--tc, #60a5fa); margin-bottom: 0.7rem;
+    }
+    .tool4 h3 { font-size: 1.12rem; margin-bottom: 0.1rem; }
+    .tool4 .t-en { font-size: 0.78rem; color: var(--text-subtle); margin-bottom: 0.6rem; }
+    .tool4 p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 0.55rem; }
+    .tool4 .t-tab {
+      display: inline-block; font-size: 0.76rem; font-weight: 700; padding: 0.18rem 0.55rem; border-radius: 6px;
+      background: color-mix(in srgb, var(--tc, #60a5fa) 14%, transparent); color: var(--tc, #60a5fa);
+    }
+
+    .lead-line {
+      background: linear-gradient(90deg, rgba(163, 230, 53, 0.1), rgba(163, 230, 53, 0.02));
+      border: 1px solid rgba(163, 230, 53, 0.3); border-left: 4px solid #a3e635;
+      border-radius: 12px; padding: 0.9rem 1.1rem; margin: 1rem 0; color: #d9f99d; line-height: 1.6; font-size: 0.97rem;
+    }
+    .lead-line strong { color: #ecfccb; }
+
+    /* Matn bilan o'rash laboratoriyasi */
+    .wl-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.1rem; margin-top: 1.1rem; }
+    .wl-modes { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 0.9rem; }
+    .wl-modes button {
+      font: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; padding: 0.45rem 0.8rem; border-radius: 9px;
+      background: var(--bg-page); color: var(--text-muted); border: 1px solid var(--border-color); transition: all 0.15s;
+    }
+    .wl-modes button:hover { border-color: #a3e635; color: var(--text-main); }
+    .wl-modes button.on { background: rgba(163, 230, 53, 0.16); border-color: #a3e635; color: #d9f99d; }
+    .wl-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    @media (min-width: 900px) { .wl-grid { grid-template-columns: 1.35fr 1fr; align-items: start; } }
+    .wl-page {
+      position: relative; background: #ffffff; color: #111; border-radius: 8px; padding: 1rem 1.2rem; overflow: hidden;
+      font: 15px/1.5 "Times New Roman", Times, serif; text-align: justify; min-height: 250px;
+    }
+    .wl-page p { margin: 0; text-indent: 1.25cm; position: relative; z-index: 1; color: #111; }
+    .wl-pic {
+      width: 124px; height: 93px; border-radius: 4px; background: url("./tarqatma/rasmlar/qol-yuvish.png") center / cover no-repeat;
+      border: 3px solid #fff; box-shadow: 0 0 0 1px #aaa, 0 1px 4px rgba(0, 0, 0, 0.3); position: relative; z-index: 0;
+    }
+    .wl-page[data-mode="inline"] .wl-pic { display: inline-block; vertical-align: bottom; margin: 0 0.3rem 0 0; text-indent: 0; }
+    .wl-page[data-mode="square"] .wl-pic { float: left; margin: 0.2rem 0.8rem 0.35rem 0; }
+    .wl-page[data-mode="tight"] .wl-pic { float: left; width: 112px; height: 112px; border-radius: 50%; shape-outside: circle(50%); margin: 0.2rem 0.8rem 0.35rem 0; }
+    .wl-page[data-mode="topbottom"] .wl-pic { display: block; margin: 0.3rem auto 0.5rem; }
+    .wl-page[data-mode="behind"] .wl-pic { position: absolute; left: 26%; top: 20%; width: 190px; height: 142px; opacity: 0.6; z-index: 0; }
+    .wl-page[data-mode="front"] .wl-pic { position: absolute; left: 26%; top: 20%; width: 190px; height: 142px; z-index: 2; }
+    .wl-info h4 { font-size: 1.05rem; margin-bottom: 0.4rem; color: #d9f99d; }
+    .wl-info p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.55rem; }
+    .wl-info .wl-tag { display: inline-block; font-size: 0.74rem; font-weight: 700; padding: 0.14rem 0.5rem; border-radius: 6px; margin-right: 0.35rem; }
+    .wl-tag.good { background: rgba(16, 185, 129, 0.16); color: #34d399; }
+    .wl-tag.bad { background: rgba(244, 63, 94, 0.16); color: #fb7185; }
+
+    /* SmartArt turlari galereyasi */
+    .sm-grid { display: grid; grid-template-columns: 1fr; gap: 0.9rem; margin-top: 1rem; }
+    @media (min-width: 640px) { .sm-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1040px) { .sm-grid { grid-template-columns: repeat(3, 1fr); } }
+    .sm-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; overflow: hidden; }
+    .sm-thumb { background: #fff; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--border-color); }
+    .sm-body { padding: 0.85rem 1rem 1rem; }
+    .sm-body h4 { font-size: 1rem; margin-bottom: 0.15rem; }
+    .sm-body .sm-en { font-size: 0.76rem; color: var(--text-subtle); margin-bottom: 0.45rem; }
+    .sm-body p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; }
+    .sm-body p b { color: var(--text-main); }
+
+    /* WordArt namunalari */
+    .wa-row { display: grid; grid-template-columns: 1fr; gap: 0.8rem; margin: 1rem 0; }
+    @media (min-width: 760px) { .wa-row { grid-template-columns: repeat(3, 1fr); } }
+    .wa-cell { background: #fff; border-radius: 12px; padding: 0.5rem 0.6rem 0.4rem; text-align: center; }
+    .wa-cell small { display: block; color: #556; font-size: 0.78rem; padding-bottom: 0.3rem; }
+    .wa-txt { font-family: "Arial Black", Impact, Arial, sans-serif; font-weight: 900; font-size: 1.9rem; line-height: 1.5; padding: 0.4rem 0 0.1rem; }
+    .wa-txt.a { background: linear-gradient(180deg, #5aa2ff, #1d4ed8); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-stroke: 1.5px #0b2a6b; filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.35)); }
+    .wa-txt.b { color: transparent; -webkit-text-stroke: 2px #d6246e; letter-spacing: 0.04em; }
+    .wa-txt.c { color: #e9a420; text-shadow: 2px 2px 0 #7a3a00, 4px 4px 0 rgba(122, 58, 0, 0.35); }
+
+    /* Shakllar ko'rgazmasi */
+    .shape-demo { background: #fff; border-radius: 12px; padding: 0.6rem; margin-top: 0.9rem; }
+
+    /* Dars rejasi (o'qituvchi) */
+    .plan-table td:first-child { white-space: nowrap; font-weight: 700; color: #d9f99d; }
+    .plan-table td .pl-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 0.1rem 0.45rem; border-radius: 5px; margin-right: 0.3rem; background: rgba(96, 165, 250, 0.16); color: #93c5fd; }
+    .plan-table td .pl-tag.pr { background: rgba(163, 230, 53, 0.16); color: #bef264; }
+    .say-box { background: var(--bg-card); border: 1px solid var(--border-color); border-left: 4px solid #a3e635; border-radius: 12px; padding: 0.9rem 1.1rem; margin-top: 0.8rem; }
+    .say-box h4 { font-size: 0.95rem; margin-bottom: 0.4rem; color: #d9f99d; }
+    .say-box p, .say-box li { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; }
+    .say-box ul { padding-left: 1.2rem; }
+    .say-box em { color: var(--text-main); font-style: normal; font-weight: 600; }
+
+    /* Qaysi vosita? trenajyori: 5 ta tugma */
+    .qz-btns { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.55rem; }
+    .qz-btns button {
+      font: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; padding: 0.4rem 0.8rem; border-radius: 8px;
+      background: var(--bg-page); color: var(--text-main); border: 1px solid var(--border-color);
+    }
+    .qz-btns button:hover { border-color: #a3e635; }
+    .fx-item.done .qz-btns button { cursor: default; opacity: 0.45; }
+    .fx-item.done .qz-btns button.picked { opacity: 1; }
+    .fx-item.ok .qz-btns button.picked { background: rgba(16, 185, 129, 0.2); border-color: #10b981; color: #34d399; }
+    .fx-item.bad .qz-btns button.picked { background: rgba(244, 63, 94, 0.18); border-color: #f43f5e; color: #fb7185; }
+    .qz-text { font-size: 0.97rem; line-height: 1.55; }
+
+    /* Namuna varag'i (A4 poster) oynada */
+    .var-card .var-sa { font-size: 0.78rem; color: var(--text-subtle); margin: -0.2rem 0 0.7rem; }
+    .var-card .var-sa b { color: var(--text-muted); }
+
+    /* Kolontitul laboratoriyasi */
+    .fig-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 0.8rem; margin: 0 0 1rem 0; }
+    .kl-box { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 1.1rem; margin-top: 1.1rem; }
+    .kl-pages { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-content: center; padding: 0.4rem 0 0.2rem; }
+    .kl-page { position: relative; width: 118px; aspect-ratio: 210 / 297; background: #fff; border-radius: 3px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4); color: #0b3d91; font: 700 7.5px Arial, sans-serif; }
+    .kl-page .kh, .kl-page .kf { position: absolute; left: 0; right: 0; height: 15%; background: #e8f0fe; display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; padding: 0 6px; gap: 2px; }
+    .kl-page .kh { top: 0; border-bottom: 1px dashed #7f9fd6; } .kl-page .kf { bottom: 0; border-top: 1px dashed #7f9fd6; }
+    .kl-page .kh span:nth-child(2), .kl-page .kf span:nth-child(2) { text-align: center; } .kl-page .kh span:nth-child(3), .kl-page .kf span:nth-child(3) { text-align: right; }
+    .kl-page .kb { position: absolute; left: 8px; right: 8px; top: 20%; bottom: 20%; background: repeating-linear-gradient(to bottom, #d3d9e5 0 3px, transparent 3px 9px); }
+    .kl-page.titul .kb { top: 34%; bottom: 36%; background: repeating-linear-gradient(to bottom, #aab4c6 0 5px, transparent 5px 14px); left: 22%; right: 22%; }
+    .kl-page .n { background: #d0d0d0; padding: 0 3px; border-radius: 2px; font-size: 8.5px; }
+    .kl-page .n.bad { background: #fecdd3; color: #be123c; }
+    .kl-page .kn { position: absolute; left: 0; right: 0; bottom: -17px; text-align: center; color: #94a3b8; font: 600 10px Arial, sans-serif; }
+    .kl-pages { padding-bottom: 1.4rem; }
