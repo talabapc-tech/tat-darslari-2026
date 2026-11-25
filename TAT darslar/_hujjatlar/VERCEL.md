@@ -39,7 +39,10 @@ yuborsangiz bo'ladi:
 | `/3-dars` | Avtomatlashtirilgan ishchi o'rinlar |
 | `/4-dars` | Klaviatura va sichqoncha |
 | `/5-dars` | Kompyuter va uning qurilmalari |
-| `/5-test` | 5-dars testi |
+
+> 5-dars testi (`test-5.html`) endi ochiq ro'yxatda yo'q — u talabalarga
+> Telegram/Google Sheets orqali natija yuboradigan nazorat vositasi, shuning
+> uchun faqat o'qituvchi rolida ("Nazorat testlari" bo'limida) ko'rinadi.
 
 Masalan: `https://<loyiha-nomi>.vercel.app/3-dars`
 

@@ -14,18 +14,17 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    {media: '(prefers-color-scheme: light)', color: '#f3f6fb'},
-    {media: '(prefers-color-scheme: dark)', color: '#060b15'},
-  ],
+  themeColor: '#060b15',
 };
 
 /**
- * Runs before first paint so the page never flashes the wrong theme.
- * It always resolves to a concrete light/dark value, which is why
- * globals.css only needs a [data-theme="dark"] block and no media query.
+ * Sayt doim tungi (dark) rejimda ishlaydi - yorug' yoki tizim rejimiga
+ * almashtirish imkoni ataylab olib tashlangan. Shunga qaramay bu skript
+ * birinchi chizishdan oldin ishlaydi, chunki eski qurilmalarda saqlanib
+ * qolgan "light" tanlovi bo'lsa ham, sahifa bir zum yorug' ko'rinib
+ * ketmasligi kerak.
  */
-const THEME_BOOT = `(function(){try{var m=localStorage.getItem('tat-theme');if(m!=='light'&&m!=='dark'&&m!=='system'){m='system'}var d=m==='dark'||(m==='system'&&window.matchMedia('(prefers-color-scheme: dark)').matches);var r=document.documentElement;r.dataset.theme=d?'dark':'light';r.dataset.themeMode=m}catch(e){document.documentElement.dataset.theme='light'}})()`;
+const THEME_BOOT = `(function(){try{localStorage.removeItem('tat-theme')}catch(e){}document.documentElement.dataset.theme='dark';document.documentElement.dataset.themeMode='dark'})()`;
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
