@@ -1,0 +1,1199 @@
+1. Haroratni o'lchash asboblarini sozlashda ko'rsatkichlar nima bilan solishtiriladi?
+-Asbobning oldingi qiyoslashdagi ko'rsatkichlari bilan
+-Asbob pasportida yozilgan nominal qiymatlar bilan
+-Shu turdagi boshqa ishchi asbob ko'rsatkichlari bilan
++Namunaviy (etalon) asbob ko'rsatkichlari bilan
+
+2. AutoCAD dasturida nisbiy koordinatalar qaysi belgi bilan kiritiladi?
++@
+-$
+-<
+-#
+
+3. AutoCAD dasturida obyektlarni to'g'ri burchakli yoki aylanma tartibda ko'paytirish buyrug'i qaysi?
++ARRAY
+-COPY
+-MIRROR
+-OFFSET
+
+4. Avtomatlashtirish sohasida «ESKD» qisqartmasi nimani bildiradi?
+-Energetika standartlari va konstruksiyalari doirasi
+-Ekspluatatsion hujjatlarning sanoat katalogi
++Konstruktorlik hujjatlarining yagona tizimi
+-Elektr sxemalarining kompyuterli dizayni
+
+5. TJABT tarkib chizmasida operator stansiyasi va SCADA tizimi odatda qaysi darajaga tegishli bo'ladi?
+-O'rta (dasturlanuvchi kontrollerlar) darajaga
+-Dala (texnologik obyekt) darajasiga
+-Quyi (datchiklar va ijrochi mexanizmlar) darajaga
++Yuqori (operator-dispetcherlik) darajaga
+
+6. Avtomatlashtirish loyihasining ishchi hujjatlari tarkibiga qaysi hujjat kiradi?
+-Buyurtmachi bergan loyihalashga topshiriq
+-Texnik-iqtisodiy asoslash hisob-kitobi
++Avtomatlashtirishning funksional chizmasi
+-Obyektning texnologik reglamenti
+
+7. Tashqi kabel va o'tkazgichlar shchitga qanday ulanadi?
+-Simlarni o'zaro burab, izolyatsiyalab
+-To'g'ridan-to'g'ri asbob qisqichlariga
++Klemma (qisqich) qatorlari orqali
+-Kavsharlab yoki payvandlab ulanadi
+
+8. AutoCAD dasturida faylni saqlash uchun qaysi tugmalar birikmasi ishlatiladi?
++Ctrl + S
+-Ctrl + P
+-Ctrl + O
+-Ctrl + N
+
+9. Prinsipial elektr chizmalarda «HL» harfiy belgisi nimani bildiradi?
+-Tovushli signal asbobi
++Yorug'lik signal asbobi
+-Tugmali boshqaruv kaliti
+-Vaqt relesi
+
+10. Prinsipial elektr chizmalarda «SA» harfiy belgisi nimani bildiradi?
+-Eruvchan saqlagich (predoxranitel)
+-Tugmali kalit (knopka)
++Kalit, almashlab ulagich
+-Avtomatik o'chirgich
+
+11. Funksional chizmada rostlovchi organ (klapan) qanday belgilanadi?
+-Diagonal chizilgan to'rtburchak
++Ikki uchburchak (qum soati)
+-Ichiga harf yozilgan aylana
+-Ichida aylana bo'lgan kvadrat
+
+12. AutoCAD dasturida CIRCLE buyrug'ining qisqa (klaviatura) ko'rinishi qaysi?
+-O
+-CI
++C
+-CR
+
+13. Avtomatik rostlash tizimida rostlovchi organni harakatga keltiruvchi qurilma qanday ataladi?
++Ijrochi mexanizm
+-Topshiriq beruvchi qurilma
+-Birlamchi o'zgartkich (datchik)
+-Avtomatik rostlagich
+
+14. AutoCAD dasturida blokni alohida obyektlarga ajratish buyrug'i qaysi?
+-TRIM
+-ERASE
+-BLOCK
++EXPLODE
+
+15. Texnologik jarayonning avtomatlashtirish darajasi qanday aniqlanadi?
+-Mahsulot tannarxining avtomatlashtirishdan keyingi o'zgarishi bilan
+-Jarayonga xizmat qiluvchi operatorlar sonining kamayishi bilan
+-O'rnatilgan datchik va asboblarning umumiy soniga qarab
++Avtomatlashtirilgan operatsiyalar ulushi bilan
+
+16. Boshqarish chizmalarida boshqarishning qanday rejimlari ko'zda tutiladi?
++Avtomatik, masofaviy va mahalliy
+-Uzluksiz, davriy va impulsli
+-Normal, avariya va ta'mirlash
+-Kunduzgi, tungi va dam olish kunlari
+
+17. Sathni avtomatik rostlash tizimida rostlovchi ta'sir odatda qanday amalga oshiriladi?
++Sarfni klapan bilan o'zgartirib
+-Idishdagi suyuqlik haroratini o'zgartirib
+-Idishdagi gaz bosimini o'zgartirib
+-Suyuqlikning zichligini o'zgartirib
+
+18. Funksional chizmada «A» harfi keyingi o'rinlarda qaysi funksiyani bildiradi?
+-Ko'rsatish
+-Qayd etish
+-Rostlash
++Signallash
+
+19. Elektromagnit relening asosiy qismlari qaysilar?
+-Tranzistor, mikrosxema va indikator
+-Transformator, to'g'rilagich va saqlagich
++G'altak, o'zak, yakor va kontaktlar
+-Rezistor, kondensator, diod va klemma
+
+20. Proporsional (P) rostlagichning asosiy kamchiligi nima?
+-Juda sekin ta'sir qilishi
++Statik xatolik qolishi
+-Tizimni beqaror qilishi
+-Qo'lda sozlanishi shartligi
+
+21. Funksional chizmada «F» harfi ikkinchi o'rinda nimani bildiradi?
+-Sarf (oqim)
+-Farq (ayirma)
++Nisbat (ulush)
+-Integrallash (yig'ish)
+
+22. GOST 2.701 bo'yicha elektr sxemalari qaysi harf bilan belgilanadi?
++E
+-P
+-G
+-K
+
+23. AutoCAD dasturida qulflangan (Lock) qatlam obyektlari qanday holatda bo'ladi?
++Ko'rinadi, lekin tahrirlanmaydi
+-Ko'rinmaydi va chop etilmaydi
+-Ko'rinmaydi, lekin tahrirlanadi
+-Ko'rinadi va erkin tahrirlanadi
+
+24. AutoCAD dasturida obyektdan nusxa olish buyrug'i qaysi?
++COPY
+-MOVE
+-PASTE
+-MIRROR
+
+25. Ikki bosqichli loyihalashda qaysi bosqichlar bajariladi?
+-Topshiriq va ekspertiza
++Loyiha va ishchi hujjatlar
+-Eskiz loyiha va montaj
+-Ishchi loyiha va ekspluatatsiya
+
+26. Avtomatik rostlash tizimida topshiriq qiymati bilan o'lchangan qiymat qayerda solishtiriladi?
+-Birlamchi datchikda
++Taqqoslash elementida
+-Ijrochi mexanizmda
+-Rostlovchi organda
+
+27. AutoCAD dasturida ikki obyektga urinma va berilgan radius bo'yicha aylana chizish opsiyasi qaysi?
+-2P
+-3P
+-TTT
++TTR
+
+28. Bir bosqichli loyihalashda qanday hujjat ishlab chiqiladi?
+-Texnik loyiha
++Ishchi loyiha
+-Eskiz loyiha
+-Loyiha oldi taklifi
+
+29. Sxema shifridagi «1» raqami qaysi sxema tipini bildiradi?
++Tarkib (strukturaviy)
+-Funksional
+-Ulanishlar (montaj)
+-Prinsipial (to'liq sxema)
+
+30. Issiqlik almashtirgichda haroratni rostlash odatda qanday amalga oshiriladi?
++Issiqlik tashuvchi sarfini o'zgartirib
+-Issiqlik almashtirgich yuzasini o'zgartirib
+-Mahsulot oqimini vaqti-vaqti bilan to'xtatib
+-Atrof-muhit havosi bilan qo'shimcha sovutib
+
+31. Avariya signallashida odatda qaysi rangdagi lampa ishlatiladi?
+-Yashil
++Qizil
+-Oq
+-Ko'k
+
+32. Loyihalashga topshiriq odatda kim tomonidan beriladi?
++Buyurtmachi
+-Sozlash-ishga tushirish tashkiloti
+-Montaj tashkiloti
+-Asbob ishlab chiqaruvchi zavod
+
+33. Avtomatlashtirish tizimlarida shchitlar korpusi xavfsizlik uchun nima bilan ta'minlanadi?
+-Qo'shimcha eruvchan saqlagich
+-Majburiy ventilyatsiya
+-Izolyatsion bo'yoq qoplamasi
++Himoya yerga ulash
+
+34. AutoCAD dasturida obyektning ortiqcha qismini kesuvchi chegara bo'yicha qirqish buyrug'i qaysi?
+-BREAK
+-EXTEND
++TRIM
+-ERASE
+
+35. Issiqlik relesi elektr dvigatelni asosan nimadan himoya qiladi?
+-Tarmoq kuchlanishining oshishidan
+-Qisqa tutashuv toklaridan
++O'ta yuklanishdan
+-Fazalar ketma-ketligi buzilishidan
+
+36. AutoCAD dasturida qatlamga qaysi xossalar beriladi?
+-Format, ramka va asosiy yozuv
++Rang, chiziq turi va qalinligi
+-Shrift, o'lcham uslubi va masshtab
+-Koordinata tizimi va ko'rinish
+
+37. Magnit ishga tushirgich tarkibiga odatda nimalar kiradi?
++Kontaktor va issiqlik relesi
+-Vaqt relesi va signal lampasi
+-Transformator va to'g'rilagich
+-Avtomat va eruvchan saqlagich
+
+38. O'zgaruvchan bosimlar farqi usulida sarf bosimlar farqiga qanday bog'langan?
+-Bosimlar farqining kvadratiga to'g'ri proporsional
++Bosimlar farqining kvadrat ildiziga proporsional
+-Bosimlar farqiga teskari proporsional
+-Bosimlar farqiga to'g'ri proporsional
+
+39. Eruvchan saqlagich asosan nimadan himoya qiladi?
+-Uzoq o'ta yuklanishdan
+-Kuchlanish pasayishidan
+-Atmosfera o'ta kuchlanishidan
++Qisqa tutashuv toklaridan
+
+40. Loyiha hujjatlarida izohlovchi yozuvda nima keltiriladi?
+-Montaj ishlari bajarilgan sanalar jadvali
+-Asbob va jihozlar narxlari hisob-kitobi
+-Kabel va trubalarning to'liq ro'yxati
++Qabul qilingan yechimlar asoslanishi
+
+41. Pnevmatik ta'minot tizimida resiverning vazifasi nima?
+-Iste'molchilar orasida havo sarfini teng taqsimlash
+-Havo bosimini kerakli qiymatga pasaytirish
++Havo zahirasini saqlash va bosimni tekislash
+-Havoni namlik va moydan tozalash
+
+42. AutoCAD dasturida aylanani uchta nuqta orqali chizish opsiyasi qaysi?
++3P
+-2P
+-Diameter
+-TTR
+
+43. GOST 2.701 bo'yicha pnevmatik sxemalar qaysi harf bilan belgilanadi?
+-G
+-X
++P
+-E
+
+44. 4–20 mA signalda boshlang'ich qiymatning 4 mA bo'lishining afzalligi nimada?
+-Signal uzoqroq masofaga uzatiladi
++Liniya uzilishini aniqlash mumkin
+-Elektr energiyasi kamroq sarflanadi
+-O'lchash aniqligi ikki baravar ortadi
+
+45. Avtomatlashtirish loyihasida asbob, jihoz va materiallar ro'yxati qanday hujjatda beriladi?
+-Kabel jurnalida
++Spetsifikatsiyada
+-Funksional chizmada
+-Izohlovchi yozuvda
+
+46. AutoCAD dasturida obyektlarga bog'lanish (OSNAP) rejimi qaysi tugma bilan yoqiladi?
+-F9
+-F8
++F3
+-F7
+
+47. Siqilgan havoning shudring nuqtasi qanday bo'lishi kerak?
+-Atrof-muhit o'rtacha haroratiga teng
+-Har doim 0 °C dan yuqori bo'lishi
++Eng past muhit haroratidan 10 °C past
+-Eng past muhit haroratidan 10 °C yuqori
+
+48. Funksional chizmada «Q» harfi birinchi o'rinda qaysi kattalikni bildiradi?
+-Miqdor (sanoq, son)
++Sifat (tarkib, konsentratsiya)
+-Sarf (hajmiy yoki massaviy)
+-Issiqlik miqdori (energiya)
+
+49. Avtomatlashtirish tizimlarida nazorat kabellariga misol qaysi?
+-SIP-2
++KVVG
+-APV
+-AVVG
+
+50. Prinsipial elektr chizmalarda «KM» harfiy belgisi nimani bildiradi?
+-Issiqlik relesi
+-Oraliq rele
+-Vaqt relesi
++Kontaktor
+
+51. Funksional chizmada «I» harfi keyingi o'rinlarda qaysi funksiyani bildiradi?
+-Rostlash
+-Signallash
+-Qayd etish
++Ko'rsatish
+
+52. Funksional chizmada «D» harfi ikkinchi o'rinda nimani bildiradi?
+-Nisbat
+-Zichlik
+-Integrallash
++Farq (ayirma)
+
+53. Vaqt relesining vazifasi nima?
++Kontaktlarni kechikish bilan almashtirish
+-Zanjirdagi tokni o'lchab, chegarada uzish
+-Kuchlanishni kerakli qiymatga o'zgartirish
+-Dvigatelni o'ta yuklanishdan himoya qilish
+
+54. Pnevmatik komanda liniyasi qanday vazifani bajaradi?
+-O'lchanayotgan muhit bosimini datchikka uzatadi
++Rostlagich signalini ijrochi mexanizmga uzatadi
+-Asboblarni siqilgan ta'minot havosi bilan ta'minlaydi
+-Trubalardagi kondensatni drenajga chiqaradi
+
+55. AutoCAD dasturida oxirgi bajarilgan amalni bekor qilish buyrug'i qaysi?
+-ERASE
++UNDO
+-REDO
+-OOPS
+
+56. Impuls hisoblagich qanday vazifani bajaradi?
+-Impulslar orasidagi vaqtni o'lchaydi
++Kelgan impulslar sonini sanaydi
+-Impulslar chastotasini o'zgartiradi
+-Impulslar amplitudasini kuchaytiradi
+
+57. Kontaktorlarda yoy so'ndirish kameralari nima uchun kerak?
++Elektr yoyini tez so'ndirish uchun
+-Kontaktor g'altagini qizishdan sovutish uchun
+-Kontaktlar orasidagi bosimni oshirish uchun
+-Kontaktorni chang va namlikdan himoyalash uchun
+
+58. AutoCAD dasturida o'ngdan chapga ramka (Crossing) bilan tanlashda qaysi obyektlar tanlanadi?
+-Faqat ramka ichida to'liq turganlar
++Ichidagi va ramkani kesib o'tganlar
+-Faqat ramka chegarasini kesganlar
+-Ramkadan tashqarida qolganlar
+
+59. Tashqi ulanishlar jadvalida nima keltiriladi?
+-Asboblarning o'lchash diapazoni va sinfi
+-Shchit ichidagi asboblarning joylashuvi
+-Trubali o'tkazishlarning uzunligi va diametri
++Kabel tomirlarining qaysi qisqichlarga ulanishi
+
+60. Funksional chizmada «M» harfi birinchi o'rinda qaysi kattalikni bildiradi?
+-Massa
+-Harakat
+-Moment
++Namlik
+
+61. Dvigatelni ishga tushirish chizmasida «Pusk» tugmasiga parallel ulangan kontaktor blok-kontakti qanday vazifani bajaradi?
+-Dvigatelni qisqa tutashuvdan himoya qiladi
+-«Stop» bosilganda zanjirni tezroq uzadi
+-Dvigatelning aylanish yo'nalishini o'zgartiradi
++O'zini o'zi ushlab turishni ta'minlaydi
+
+62. GOST 21.208-2013 standarti nimaga bag'ishlangan?
+-Elektr sxemalaridagi elementlarning harfiy-raqamli pozitsion belgilariga
++Asboblar va avtomatlashtirish vositalarining shartli belgilariga
+-Avtomatlashtirish ishchi hujjatlarini bajarish qoidalariga
+-Quvurlarning tanib olish ranglari va belgilariga
+
+63. Shchitning oldidan yoyilgan ko'rinish chizmasida nima ko'rsatiladi?
+-Shchitning tashqi o'lchamlari va og'irligi
++Panel va devorlardagi apparatlarning joylashuvi
+-Shchitga kiruvchi kabellarning yo'nalishi
+-Shchit ichidagi simlarning ulanish manzillari
+
+64. Chizma varag'ida asosiy yozuv (shtamp) qayerda joylashadi?
+-Chap pastki burchakda
++O'ng pastki burchakda
+-O'ng yuqori burchakda
+-Chap yuqori burchakda
+
+65. Prinsipial pnevmatik chizmalarning mazmuniga qo'yiladigan asosiy talab nima?
+-Barcha elementlarni masshtabda chizishi
+-Asboblarning shchitdagi joyini ko'rsatishi
++Ishlash prinsipini to'liq tushuntirishi
+-Trubalar uzunligini aniq ko'rsatishi
+
+66. O'lchash asbobining aniqlik sinfi nimani bildiradi?
++Ruxsat etilgan asosiy keltirilgan xatolikni
+-Asbob shkalasining bo'linmalar sonini
+-Asbob o'lchay oladigan diapazonning yuqori chegarasini
+-Asbobning sezgirlik chegarasini
+
+67. AutoCAD dasturida chapdan o'ngga ramka (Window) bilan tanlashda qaysi obyektlar tanlanadi?
+-Faqat ramka chegarasini kesganlar
+-Ichidagi va ramkani kesib o'tganlar
++Faqat ramka ichida to'liq turganlar
+-Ramkadan tashqarida qolganlar
+
+68. Optik kabellarning asosiy afzalligi nimada?
+-Mis kabellardan ancha arzonligi
+-Katta quvvatli tokni o'tkaza olishi
++Xalaqitlarga sezgir emasligi
+-Ulanishi va ta'mirlanishi osonligi
+
+69. «E3» shifri qanday chizmani bildiradi?
++Prinsipial elektr chizmasini
+-Funksional elektr chizmasini
+-Prinsipial pnevmatik chizmasini
+-Elektr ulanishlar chizmasini
+
+70. Bug' bosimini o'lchashda manometr oldiga nima o'rnatiladi?
++Sifon trubka
+-Toraytiruvchi diafragma
+-Membranali ajratgich
+-Termometr gilzasi
+
+71. Kabellarni ochiq yotqizishda keng qo'llaniladigan perforatsiyalangan konstruksiya qanday ataladi?
+-Himoya gilzasi
+-Kabel qutisi
++Kabel lotogi
+-Kabel kanali
+
+72. Pnevmatik ta'minot tizimida bosim reduktorining (stabilizatorining) vazifasi nima?
+-Havoni moy va namlikdan tozalab berish
++Bosimni pasaytirib, o'zgarmas ushlab turish
+-Havo zahirasini saqlab, tebranishni so'ndirish
+-Havo sarfini o'lchab, iste'molchiga taqsimlash
+
+73. Reversiv magnit ishga tushirgichda ikkala kontaktorning bir vaqtda ulanishiga nima yo'l qo'ymaydi?
+-Kuch zanjiridagi eruvchan saqlagichlar
+-Boshqaruv zanjiridagi vaqt relesi
++O'zaro elektr va mexanik blokirovka
+-Dvigatel zanjiridagi issiqlik relesi
+
+74. Funksional chizmada asbob va avtomatlashtirish vositalari qanday shaklda belgilanadi?
+-Oltiburchak
+-Romb
++Aylana
+-Uchburchak
+
+75. Detal chizmasida nima ko'rsatiladi?
++Detalning shakli, o'lchamlari va materiali
+-Detalning boshqa qismlar bilan ulanishi
+-Detal ishtirok etadigan elektr zanjiri
+-Detalni yig'ish ketma-ketligi va vaqti
+
+76. Prinsipial elektr chizmalarda kontaktlar qanday holatda tasvirlanadi?
+-Apparat ishlab turgan (ulangan) holatda
++Kuch ta'sir qilmagan (toksiz) holatda
+-Ishga tushirish paytidagi holatda
+-Avariya rejimidagi holatda
+
+77. Blok-sxemadagi bloklar orasidagi strelkali chiziqlar nimani ko'rsatadi?
+-Bloklarning ishga tushish tartibini
+-Texnologik oqim yo'nalishini
+-Elektr kabellarining yo'lini
++Signal uzatilish yo'nalishini
+
+78. Prinsipial elektr chizmalarda «FU» harfiy belgisi nimani bildiradi?
+-Avtomatik o'chirgich
++Eruvchan saqlagich
+-Razryadnik
+-Issiqlik relesi
+
+79. Impuls trubalarini qiyalik bilan yotqizishdan maqsad nima?
+-Trubani issiqlik kengayishidan saqlash
+-Truba uzunligini va narxini kamaytirish
+-Muhit bosimini asbobgacha oshirib berish
++Kondensat va gaz pufaklarini chiqarib yuborish
+
+80. Signallash tizimida yangi kelgan signal odatda qanday ajratib ko'rsatiladi?
++Lampaning miltillab yonishi bilan
+-Lampa rangining o'zgarishi bilan
+-Lampaning butunlay o'chishi bilan
+-Lampaning doimiy yonib turishi bilan
+
+81. Prinsipial elektr chizmalarda «KK» harfiy belgisi nimani bildiradi?
+-Kontaktor
++Issiqlik relesi
+-Kuchlanish relesi
+-Vaqt relesi
+
+82. Funksional chizmada «P» harfi birinchi o'rinda qaysi kattalikni bildiradi?
+-Harorat
+-Sath
+-Sarf
++Bosim
+
+83. Funksional chizmada «F» harfi birinchi o'rinda qaysi kattalikni bildiradi?
+-Bosim
+-Sath
++Sarf
+-Nisbat
+
+84. Funksional chizmada asbob belgisining yuqori qismiga nima yoziladi?
+-Asbob turi va markasi
+-O'lchash diapazoni
+-Pozitsion belgi (kontur raqami)
++Harfiy belgi
+
+85. Funksional chizmada texnologik kommunikatsiyalar (quvurlar) qanday ko'rsatiladi?
+-Shtrix-punktir chiziq va o'lcham raqamlari bilan
+-Aylana va harfiy belgilar bilan
+-Punktir chiziq va rangli bo'yoq bilan
++Chiziqlar va muhitning raqamli belgisi bilan
+
+86. Pultning shchitdan asosiy farqi nimada?
+-Pultda o'lchash asboblari umuman o'rnatilmaydi
++Boshqaruv organlari stol shaklidagi yuzada joylashgan
+-Pult texnologik jihoz yonida, ochiq joyda turadi
+-Pult faqat pnevmatik asboblar uchun mo'ljallangan
+
+87. Prinsipial elektr chizmalarda «QF» harfiy belgisi nimani bildiradi?
+-Kontaktor
++Avtomatik o'chirgich
+-Eruvchan saqlagich
+-Ajratgich (rubilnik)
+
+88. Loyihalash uchun dastlabki materiallarga nimalar kiradi?
+-Asboblar pasportlari va qiyoslash guvohnomalari
++Topshiriq, texnologik chizmalar va reglament
+-Kabel jurnali, spetsifikatsiya va smeta
+-Montaj chizmalari va sozlash protokollari
+
+89. Funksional chizmada harfiy belgining birinchi harfi nimani bildiradi?
+-Signal turini
+-Asbob o'rnatilgan joyni
+-Asbobning funksiyasini
++O'lchanadigan kattalikni
+
+90. Termometr gilzasining asosiy vazifasi nima?
+-Sezgir elementning sezgirligini oshirish
+-Termometr signalini kuchaytirib uzatish
++Sezgir elementni himoya qilish
+-Quvurdagi muhit oqimini tekislash
+
+91. Davlat asboblar tizimi (GSP) pnevmatik asboblarining unifikatsiyalangan signali diapazoni qanday?
+-0,1–0,5 MPa
+-0,14–1,4 MPa
+-0,2–1,0 MPa
++0,02–0,1 MPa
+
+92. Funksional chizmada «T» harfi keyingi o'rinlarda qaysi funksiyani bildiradi?
+-Harorat
+-Integrallash
++Masofaga uzatish
+-Vaqt
+
+93. Funksional chizmada pozitsion belgilar qanday yoziladi?
++Raqam va harf indeksi (1a, 1b)
+-Kasr ko'rinishida (1/1, 1/2)
+-Rim raqami va nuqta bilan (I.1, I.2)
+-Lotin bosh harfi va raqam bilan (A1, A2)
+
+94. Texnik vositalar kompleksini tanlashda nimalar hisobga olinadi?
+-Narx va kafolat muddatining uzunligi
+-Ishlab chiqaruvchi davlat va yetkazib berish muddati
+-Asboblarning rangi, og'irligi va o'lchamlari
++Jarayon talablari, muhit, aniqlik va ishonchlilik
+
+95. AutoCAD dasturida obyektni o'chirish buyrug'i qaysi?
++ERASE
+-PURGE
+-EXPLODE
+-TRIM
+
+96. AutoCAD dasturida chizma fayli qaysi kengaytma bilan saqlanadi?
+-.dxf
++.dwg
+-.dwt
+-.dws
+
+97. Avtomatik rostlash tizimida rostlanadigan parametrni o'lchab, signalga aylantiruvchi element qanday ataladi?
++Datchik
+-Ijrochi mexanizm
+-Taqqoslash elementi
+-Rostlovchi organ
+
+98. Yopiq avtomatik rostlash tizimining asosiy belgisi nima?
++Teskari aloqa mavjudligi
+-Topshiriq qurilmasi mavjudligi
+-Ijrochi mexanizm mavjudligi
+-G'alayon kompensatsiyasi
+
+99. Relening normal ochiq kontakti qanday ishlaydi?
+-Qo'lda yopilib turadi
+-Tok berilganda ochiladi
+-Doimo yopiq turadi
++Tok berilganda yopiladi
+
+100. Avtomatlashtirishning funksional chizmasi qanday maqsadda ishlab chiqiladi?
+-Asboblarni montaj qilish tartibini belgilash uchun
+-Kabellarning uzunligi va markasini hisoblash uchun
+-Shchit konstruksiyasi va o'lchamlarini ko'rsatish uchun
++Avtomatlashtirish hajmi va vositalarini aniqlash uchun
+
+101. Montaj chizmasida nima ko'rsatiladi?
+-Tizimning ishlash prinsipi va algoritmi
++Elementlar joylashuvi va ulanishlari
+-Asboblarning o'lchash diapazonlari
+-Texnologik jarayonning ketma-ketligi
+
+102. Avtomatlashtirish tizimlarining elektr ta'minoti ishonchliligi qanday oshiriladi?
++Ikki mustaqil manba va zahirani avtomatik ulash bilan
+-Ta'minot kuchlanishini 380 V gacha oshirish bilan
+-Kabel kesimini bir pog'ona katta olish bilan
+-Har bir iste'molchiga alohida saqlagich qo'yish bilan
+
+103. «SPDS» qisqartmasi nimani bildiradi?
+-Sxemalarni loyihalash dasturiy tizimi
+-Sanoat priborlari davlat standarti
+-Signallash va boshqarish dispetcherlik tizimi
++Qurilish uchun loyiha hujjatlari tizimi
+
+104. Pt100 qarshilik termometrining 0 °C dagi qarshiligi qancha?
+-1000 Om
++100 Om
+-50 Om
+-10 Om
+
+105. Funksional chizmadagi «PDI» harfiy belgisi nimani bildiradi?
+-Bosimni rostlovchi va ko'rsatuvchi asbob
+-Zichlikni ko'rsatuvchi asbob
+-Bosimni qayd etuvchi asbob
++Bosimlar farqini ko'rsatuvchi asbob
+
+106. PI rostlagichning P rostlagichga nisbatan afzalligi nimada?
+-O'zgarish tezligiga oldindan ta'sir qiladi
+-Sozlash parametrlari talab qilinmaydi
+-Tizimni har doim tebranishsiz qiladi
++Statik xatolikni bartaraf etadi
+
+107. Funksional chizmada «V» harfi birinchi o'rinda qaysi kattalikni bildiradi?
++Qovushqoqlik
+-Hajm
+-Kuchlanish
+-Tezlik
+
+108. Tizim modellarini ifodalovchi blok-sxemada har bir blok nimani ifodalaydi?
+-Shchitdagi alohida asbobni
+-Texnologik jihozning tashqi ko'rinishini
+-Tizimning elektr ta'minot manbasini
++Tizim elementini (uzatish funksiyasini)
+
+109. GOST 14202 bo'yicha suv o'tkazuvchi quvurlar qaysi rangda belgilanadi?
++Yashil
+-Sariq
+-Qizil
+-Ko'k
+
+110. Sxema shifridagi «3» raqami qaysi sxema tipini bildiradi?
+-Funksional
+-Tarkib (strukturaviy)
++Prinsipial (to'liq)
+-Joylashish
+
+111. Funksional chizmada «E» harfi birinchi o'rinda nimani bildiradi?
+-Ekologik ko'rsatkich
+-Energiya sarfi
++Elektr kattalik
+-Sezgir element
+
+112. AutoCAD dasturida bir nechta kesmadan iborat yaxlit chiziq (polilinya) chizish buyrug'i qaysi?
+-MLINE
+-LINE
+-SPLINE
++PLINE
+
+113. Funksional chizmada «H» harfi birinchi o'rinda nimani bildiradi?
+-Yuqori chegara
+-Balandlik
++Qo'lda ta'sir
+-Namlik
+
+114. Termojuftning ishlash prinsipi qaysi hodisaga asoslangan?
+-Pyezoelektrik effekt
+-Fotoelektrik effekt
+-Elektromagnit induksiya
++Zeebek effekti
+
+115. Avtomatika zanjirlarida keng qo'llaniladigan xavfsiz o'zgarmas kuchlanish qiymati qaysi?
++24 V
+-380 V
+-220 V
+-110 V
+
+116. GOST 14202 bo'yicha bug' o'tkazuvchi quvurlar qaysi rangda belgilanadi?
+-Yashil
+-Jigarrang
++Qizil
+-Ko'k
+
+117. Funksional chizmada shchitga o'rnatiladigan asbob qanday belgilanadi?
+-Ikki konsentrik aylana (ichma-ich)
++Gorizontal chiziqli aylana
+-Ichida aylanali kvadrat
+-Oddiy aylana
+
+118. Qarshilik termometrining ishlash prinsipi nimaga asoslangan?
++Qarshilikning haroratga bog'liqligiga
+-Jismning issiqlik nurlanishiga
+-Termo-EYuK hosil bo'lishiga
+-Suyuqlikning issiqlikdan kengayishiga
+
+119. Gidrostatik sath o'lchagichlarning ishlash prinsipi nimaga asoslangan?
+-Ultratovushning aks-sadosiga
+-Qalqovichning ko'tarilish kuchiga
+-Elektr sig'imining o'zgarishiga
++Suyuqlik ustuni bosimiga
+
+120. AutoCAD dasturida obyekt xossalari (Properties) oynasi qaysi tugmalar bilan ochiladi?
+-Ctrl + 9
++Ctrl + 1
+-Ctrl + 3
+-Ctrl + 2
+
+121. Pnevmatik komanda liniyalari uchun ko'pincha qanday trubkalar ishlatiladi?
+-4 mm li rezina yoki silikon shlanglar
++6–8 mm li polietilen yoki mis trubkalar
+-10–12 mm li zanglamas po'lat trubkalar
+-25–32 mm li po'lat suv-gaz quvurlari
+
+122. Elektr qurilmalarini loyihalash va montaj qilishda asosiy me'yoriy hujjat qaysi?
++PUE
+-ShNQ
+-ESKD
+-SPDS
+
+123. Jihoz va o'tkazishlarning joylashish chizmasi nimani ko'rsatadi?
++Asbob va o'tkazishlarning bino rejasidagi joylashuvi
+-Texnologik jarayonning funksional tuzilishi
+-Shchit ichidagi apparatlarning ulanish tartibi
+-Asboblar orasidagi elektr bog'lanishlar prinsipi
+
+124. Avtomatlashtirish tizimlarida blokirovka chizmalarining asosiy vazifasi nima?
+-Asboblar ko'rsatkichlarini qayd etib borish
+-Parametrlar haqida operatorga xabar berish
++Avariya va xato harakatlarning oldini olish
+-Parametrlarni berilgan qiymatda ushlab turish
+
+125. Taymer qanday vazifani bajaradi?
++Belgilangan vaqtda buyruq beradi
+-Parametrni chegaraga yetganda o'chiradi
+-Kelgan impulslar sonini sanaydi
+-Signalni unifikatsiyalangan signalga aylantiradi
+
+126. AutoCAD dasturida chizmaning barcha obyektlarini ekranga to'liq sig'dirib ko'rsatish buyrug'i qaysi?
++ZOOM Extents
+-ZOOM Window
+-PAN
+-REGEN
+
+127. Funksional chizmada asbob belgisining pastki qismiga nima yoziladi?
+-Asbob markasi
+-O'lchash diapazoni
++Pozitsion belgi
+-Harfiy belgi
+
+128. Signallash tizimlarida «kvitirlash» deganda nima tushuniladi?
+-Signallash zanjirini vaqtincha o'chirib qo'yish
++Signal qabul qilinganini tasdiqlash
+-Avariya signalini dispetcherga uzatish
+-Signal lampalarining sozligini tekshirish
+
+129. Avtomatlashtirish loyihalashda tipik loyiha yechimlaridan foydalanishning afzalligi nimada?
++Muddat va xarajatni kamaytirib, sifatni oshiradi
+-Har bir obyektga noyob yechim yaratishga imkon beradi
+-Zamonaviy asboblardan foydalanishni majburiy qiladi
+-Hujjatlarni ekspertizadan o'tkazishni talab qilmaydi
+
+130. AutoCAD dasturida berilgan masofada parallel nusxa hosil qilish buyrug'i qaysi?
+-COPY
+-MIRROR
+-ARRAY
++OFFSET
+
+131. AutoCAD dasturida obyektni bir joydan boshqa joyga ko'chirish buyrug'i qaysi?
+-STRETCH
+-ROTATE
+-COPY
++MOVE
+
+132. Funksional chizma asosida qaysi hujjat tuziladi?
+-Loyihalashga topshiriq
+-Texnik-iqtisodiy asoslash
++Asboblar spetsifikatsiyasi
+-Texnologik reglament
+
+133. Trubali o'tkazishlarda yopuvchi armaturaning vazifasi nima?
+-Muhit sarfini avtomatik rostlash
+-Kondensatni avtomatik chiqarib turish
+-Bosimni o'lchab, asbobga uzatish
++Asbobni jarayondan ajratib qo'yish
+
+134. Shchitning old panelida odatda nimalar joylashadi?
+-Klemma qatorlari va kabel kirishlari
++Asboblar, tugmalar, kalitlar va lampalar
+-Saqlagichlar va avtomatik o'chirgichlar
+-Ta'minot bloklari va transformatorlar
+
+135. Elektr o'tkazgich turini tanlashda nimalar hisobga olinadi?
+-Ishlab chiqaruvchi va kafolat muddati
++Tok, kuchlanish, muhit va yotqizish usuli
+-Izolyatsiya rangi, o'ram uzunligi va narxi
+-O'tkazgich og'irligi va narxi
+
+136. Pnevmatik ta'minot chizmalarining qaysi turi eng yuqori ishonchlilikka ega?
+-Radial
+-Magistral
+-Aralash
++Halqali
+
+137. PID rostlagichdagi differensial (D) tashkil etuvchi nimaga ta'sir qiladi?
++Og'ishning o'zgarish tezligiga
+-Og'ishning vaqt bo'yicha yig'indisiga
+-Og'ishning joriy qiymatiga
+-Topshiriq qiymatining o'ziga
+
+138. Funksional chizmada «L» harfi birinchi o'rinda qaysi kattalikni bildiradi?
+-Uzunlik
+-Yuklama
++Sath
+-Yorug'lik
+
+139. Shchitda asboblarni joylashtirishda qaysi talabga rioya qilinadi?
++Ko'rish va foydalanish qulayligi
+-Asboblar narxining kamayishi
+-Asboblarning og'irlik tartibi
+-Asboblarning alifbo tartibi
+
+140. Sarfni o'zgaruvchan bosimlar farqi usulida o'lchashda qanday qurilmalar ishlatiladi?
+-Sifon trubka va manometr
++Diafragma va difmanometr
+-Termojuft va milliampermetr
+-Qalqovich va potensiometr
+
+141. Avtomatlashtirishda keng qo'llaniladigan unifikatsiyalangan tok signali qaysi?
+-0–220 V
+-1–5 A
++4–20 mA
+-10–50 mA
+
+142. Avtomatlashtirish tizimlarida shchitning asosiy vazifasi nima?
++Nazorat va boshqaruvni bir joyda jamlash
+-Kabellarni mexanik shikastdan himoya qilish
+-Texnologik jihozlarni elektr bilan ta'minlash
+-Datchiklarni texnologik muhitdan ajratish
+
+143. Impuls trubasi qanday vazifani bajaradi?
+-Trubalardagi kondensatni drenajga chiqaradi
++Muhit bosimini o'lchash asbobiga uzatadi
+-Rostlagich buyrug'ini ijrochi mexanizmga uzatadi
+-Asboblarga ta'minot havosini yetkazadi
+
+144. AutoCAD dasturida chizma chegaralarini (format o'lchamlarini) belgilash buyrug'i qaysi?
+-ZOOM
++LIMITS
+-SCALE
+-UNITS
+
+145. Elektr ta'minot chizmasi nimani ko'rsatadi?
+-Shchit ichidagi asboblarning joylashuvini
+-Datchiklarning o'lchash zanjirlarini
++Ta'minot manbalari va taqsimlanishni
+-Signallash va blokirovka zanjirlarini
+
+146. Kabel va o'tkazgichlarning markasi, uzunligi, boshlanish va tugash nuqtalari qaysi hujjatda keltiriladi?
+-Funksional chizmada
+-Izohlovchi yozuvda
+-Spetsifikatsiyada
++Kabel jurnalida
+
+147. Prinsipial elektr chizmalarda zanjir uchastkalari qanday markalanadi?
+-Rangli chiziqlar bilan
++Arab raqamlari bilan
+-Rim raqamlari bilan
+-Lotin harflari bilan
+
+148. AutoCAD dasturida bir nechta obyektni yagona blokka birlashtirish buyrug'i qaysi?
+-INSERT
++BLOCK
+-JOIN
+-GROUP
+
+149. Texnologik signallash nima haqida xabar beradi?
+-Elektr ta'minot zanjirlarining sozligi
+-Operator tomonidan berilgan buyruqlar
++Parametrlarning ruxsat etilgan chegaradan chiqishi
+-Mexanizmlarning yoqilgan yoki o'chirilgan holati
+
+150. Pnevmatik asboblarni ta'minlovchi siqilgan havo nimalardan tozalanishi kerak?
+-Kislorod va azotdan
+-Karbonat angidrid va bug'dan
++Chang, moy va namlikdan
+-Ortiqcha issiqlik va shovqindan
+
+151. Prinsipial elektr chizmalarda «KT» harfiy belgisi nimani bildiradi?
++Vaqt relesi
+-Tok relesi
+-Issiqlik relesi
+-Kontaktor
+
+152. Prinsipial elektr chizmalarda «SB» harfiy belgisi nimani bildiradi?
+-Yo'l o'chirgichi
+-Avtomatik o'chirgich
+-Almashlab ulagich
++Tugmali kalit
+
+153. AutoCAD dasturida ORTHO (ortogonal) rejimi qaysi funksional tugma bilan yoqiladi?
+-F3
+-F7
++F8
+-F10
+
+154. Funksional chizmadagi «TE» harfiy belgisi qanday asbobni bildiradi?
++Harorat sezgir elementi
+-Haroratni ko'rsatuvchi asbob
+-Haroratni qayd etuvchi asbob
+-Haroratni rostlovchi asbob
+
+155. Trubali o'tkazishlar vazifasiga ko'ra qanday turlarga bo'linadi?
+-Po'lat, mis, plastik va rezina
+-Qisqa, o'rta, uzun va magistral
++Impuls, komanda, ta'minot va drenaj
+-Ochiq, yopiq, yer osti va havo
+
+156. Rostlash obyektiga tashqaridan ta'sir etib, rostlanadigan parametrni o'zgartiruvchi ta'sir qanday ataladi?
+-Teskari aloqa ta'siri
+-Topshiriq ta'siri
+-Rostlovchi ta'sir
++G'alayonlovchi ta'sir
+
+157. GSP pnevmatik asboblarining ta'minot havosi bosimi odatda qancha bo'ladi?
+-0,02 MPa
++0,14 MPa
+-1,0 MPa
+-0,6 MPa
+
+158. Kontaktorning oraliq reledan asosiy farqi nimada?
++Katta toklar uchun mo'ljallangan
+-O'zgarmas tokdagina ishlay oladi
+-Kontaktlari qo'lda almashtiriladi
+-Boshqaruv g'altagi bo'lmaydi
+
+159. Funksional chizmada «C» harfi keyingi o'rinlarda qaysi funksiyani bildiradi?
++Avtomatik rostlash
+-Signallash
+-Hisoblash
+-Ko'rsatish
+
+160. O'lchash zanjirlarida ekranlangan kabellar nima uchun qo'llaniladi?
+-Kabelning tok o'tkazuvchanligini oshirish uchun
++Elektromagnit xalaqitlardan himoya uchun
+-Kabelni mexanik shikastdan saqlash uchun
+-Kabelni namlik va changdan saqlash uchun
+
+161. Haroratni o'lchash vositasi quvurga o'rnatilganda sezgir element qayerda joylashishi kerak?
+-Quvurning eng pastki nuqtasida
++Quvur o'qida (oqim markazida)
+-Quvurning eng yuqori nuqtasida
+-Quvur devoriga tegib turgan holda
+
+162. AutoCAD dasturida chiziqli o'lcham qo'yish buyrug'i qaysi?
++DIMLINEAR
+-DIMDIAMETER
+-DIMRADIUS
+-DIMANGULAR
+
+163. GOST 14202 bo'yicha havo o'tkazuvchi quvurlar qaysi rangda belgilanadi?
+-Yashil
+-Qizil
++Ko'k
+-Sariq
+
+164. AutoCAD dasturida qaysi qatlamni o'chirib bo'lmaydi?
+-Bo'sh qatlamni
++«0» qatlamini
+-Qulflangan qatlamni
+-O'chirilgan (Off) qatlamni
+
+165. Texnologik jarayon parametrlarini tahlil qilishdan maqsad nima?
++Avtomatlashtirish hajmini aniqlash
+-Xodimlar sonini rejalashtirish
+-Mahsulot tannarxini hisoblash
+-Jihozlarni ta'mirlash muddatini belgilash
+
+166. Kabellarni po'lat qutilarda yotqizishning afzalligi nimada?
+-Ekranlangan kabel ishlatmaslik imkoniyati
+-Kabel kesimini kichikroq olish imkoniyati
+-Kabellarning tez sovishi va havo almashinuvi
++Mexanik himoya va ta'mirlash qulayligi
+
+167. Prinsipial elektr chizmalarda «HA» harfiy belgisi nimani bildiradi?
+-Avtomatik o'chirgich
++Tovushli signal asbobi
+-Yorug'lik signal asbobi
+-Ampermetr
+
+168. Prinsipial elektr chizmalarda zanjirlarni tasvirlashning qanday usullari mavjud?
+-Ochiq va yopiq
+-Ketma-ket va parallel
++Birlashtirilgan va yoyilgan
+-Bir chiziqli va ko'p chiziqli
+
+169. Prinsipial elektr chizmasi nimani ko'rsatadi?
+-Simlarning qaysi qisqichlarga ulanish manzilini
++Elementlar va ular orasidagi bog'lanishlarni
+-Kabellarning yotqizilish yo'li va uzunligini
+-Apparatlarning shchitdagi joylashuvi va o'lchamlarini
+
+170. Funksional chizmada «T» harfi birinchi o'rinda qaysi kattalikni bildiradi?
++Harorat
+-Tezlik
+-Vaqt
+-Masofaga uzatish
+
+171. Uch fazali kuch zanjirlarida fazalar odatda qanday belgilanadi?
+-X, Y, Z
++L1, L2, L3
+-N, PE, PEN
+-U, V, W
+
+172. Sxema shifridagi «2» raqami qaysi sxema tipini bildiradi?
++Funksional
+-Tarkib (strukturaviy)
+-Ulanishlar (montaj)
+-Prinsipial (to'liq)
+
+173. Funksional chizmadagi «PI» harfiy belgisi qanday asbobni bildiradi?
+-Bosim sezgir elementi
+-Bosimni rostlovchi asbob
++Bosimni ko'rsatuvchi asbob
+-Bosimni qayd etuvchi asbob
+
+174. Normallashtiruvchi o'zgartkichning vazifasi nima?
++Signalni unifikatsiyalangan signalga aylantirish
+-O'lchanayotgan kattalikning qiymatini ko'rsatish
+-Datchikni ortiqcha kuchlanishdan himoya qilish
+-Signalni elektr tarmog'idan galvanik ajratish
+
+175. Quvurdagi sarfni avtomatik rostlash tizimida rostlovchi organ sifatida ko'pincha nima ishlatiladi?
+-Saqlagich klapan
+-Teskari klapan
++Rostlovchi klapan
+-Toraytiruvchi diafragma
+
+176. AutoCAD dasturida kesma (to'g'ri chiziq) chizish buyrug'i qaysi?
+-XLINE
+-RAY
++LINE
+-PLINE
+
+177. Prinsipial pnevmatik chizmada nima ko'rsatiladi?
+-Trubalarning markasi, uzunligi va diametri
+-Trubalarning bino rejasidagi yotqizilish yo'li
++Elementlar va ular orasidagi bog'lanishlar
+-Pnevmatik asboblarning shchitdagi joylashuvi
+
+178. AutoCAD dasturida tayyor blokni chizmaga joylashtirish buyrug'i qaysi?
++INSERT
+-EXPLODE
+-BLOCK
+-WBLOCK
+
+179. Funksional chizmada «R» harfi keyingi o'rinlarda qaysi funksiyani bildiradi?
+-Rostlash
+-Nisbat
++Qayd etish
+-Radiatsiya
+
+180. AutoCAD dasturida o'lchov birliklari va aniqligini sozlash buyrug'i qaysi?
+-SCALE
++UNITS
+-DIMSTYLE
+-LIMITS
+
+181. AutoCAD dasturida muzlatilgan (Freeze) qatlam obyektlari qanday holatda bo'ladi?
+-Ko'rinadi, lekin chop etilmaydi
++Ko'rinmaydi va qayta hisoblanmaydi
+-Ko'rinadi, lekin tahrirlanmaydi
+-Ko'rinadi va erkin tahrirlanadi
+
+182. O'zbekiston Respublikasida qurilish me'yorlari qanday nomlanadi?
++ShNQ
+-QMQ
+-DIN
+-SNiP
+
+183. Avtomatlashtirish tizimlari chizmalarini kompyuterda bajarish uchun keng qo'llaniladigan dastur qaysi?
+-MS Excel
+-CorelDRAW
++AutoCAD
+-Photoshop
+
+184. Funksional chizmada texnologik jihozlar qanday tasvirlanadi?
+-Aylana va harfiy belgilar bilan
+-Matnli yozuvlar va jadval bilan
+-Masshtabdagi to'liq chizmalar bilan
++Soddalashtirilgan konturlar bilan
+
+185. Himoya chizmalari qanday holatda ishga tushadi?
+-Parametr nominal qiymatga yetganda
+-Operator «Pusk» tugmasini bosganda
++Parametr avariya qiymatiga yetganda
+-Har smenaning boshida va oxirida
+
+186. Impuls trubalari qanday qiyalik bilan yotqiziladi?
+-Kamida 1:2
++Kamida 1:50
+-Qiyaliksiz
+-Kamida 1:500
+
+187. Elektr ta'minot chizmalarini tuzishning qanday usullari mavjud?
+-Bir chiziqli va ko'p chiziqli
+-Ketma-ket, parallel va aralash
++Radial, magistral va aralash
+-Birlashtirilgan va yoyilgan
+
+188. Termojuftni ikkilamchi asbobga ulash uchun qanday simlar ishlatiladi?
+-Koaksial kabellar
+-Alyumin o'tkazgichlar
++Kompensatsion simlar
+-Ekranlangan mis simlar
+
+189. Umumiy ko'rinish chizmasi nimani ko'rsatadi?
+-Buyumga kiruvchi kabellarning ro'yxatini
++Buyum konstruksiyasi va o'lchamlarini
+-Buyumning elektr zanjirlari va ishlash prinsipini
+-Buyum ichidagi simlarning ulanish manzillarini
+
+190. Avtomatlashtirish tizimlarida signallash chizmalarining qanday turlari mavjud?
+-Analog, diskret, raqamli va impulsli
++Texnologik, avariya, holat va nazorat
+-Mahalliy, markaziy, guruhli va umumiy
+-Yorug'lik, tovush, matn va grafik
+
+191. Tashqi elektr o'tkazishlar chizmasi nimani ko'rsatadi?
++Shchitdan tashqaridagi kabel ulanishlari
+-Shchit ichidagi apparatlar orasidagi ulanishlar
+-Texnologik quvurlarning yotqizilish yo'li
+-Bino konstruksiyalarining tuzilishi
+
+192. GOST 21.408-2013 standarti nimaga bag'ishlangan?
++Avtomatlashtirish ishchi hujjatlarini bajarish qoidalariga
+-Sanoat quvurlarining tanib olish ranglariga
+-Asboblar va avtomatlashtirish vositalarining shartli belgilariga
+-Elektr sxemalaridagi elementlarning harfiy belgilariga
+
+193. Agressiv muhit bosimini o'lchashda asbobni himoya qilish uchun nima qo'llaniladi?
++Membranali ajratgich
+-Termometr gilzasi
+-Sifon trubka
+-Toraytiruvchi diafragma
+
+194. Funksional chizmada asbobni ifodalovchi aylananing diametri odatda necha mm qilib olinadi?
+-15 mm
++10 mm
+-5 mm
+-20 mm
+
+195. AutoCAD dasturida bir obyektning xossalarini boshqa obyektlarga o'tkazish buyrug'i qaysi?
+-PROPERTIES
+-COPYCLIP
++MATCHPROP
+-CHANGE
+
+196. Barqaror bosimda ishchi bosim manometr shkalasining qancha qismidan oshmasligi kerak?
++3/4 qismidan
+-1/2 qismidan
+-2/3 qismidan
+-1/3 qismidan
+
+197. Chang va namlikdan yaxshi himoyalangan shchit turi qaysi?
+-Karkasli ochiq shchit
+-Panelli ochiq shchit
++Shkaf tipidagi yopiq shchit
+-Stol shaklidagi pult
+
+198. Zahiralashning asosiy maqsadi nima?
++Tizim ishonchliligini oshirish
+-Asboblar sonini kamaytirish
+-Loyihani soddalashtirish va arzonlashtirish
+-Elektr sarfini kamaytirish
+
+199. Funksional chizmadagi «FQ» harfiy belgisi qanday asbobni bildiradi?
+-Sarfni ko'rsatuvchi asbob
+-Sifat analizatori
++Sarf hisoblagichi
+-Sarfni rostlovchi asbob
+
+200. AutoCAD dasturida bajarilayotgan buyruqni to'xtatish uchun qaysi tugma bosiladi?
+-Tab
+-Enter
++Esc
+-Space

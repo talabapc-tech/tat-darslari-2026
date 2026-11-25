@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Avtomatlashtirish shpargalka</title>
+<style>
+@page{size:A4;margin:7mm}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:#111;font:8.3pt/1.28 "Segoe UI",Arial,sans-serif}
+.page{max-width:210mm;margin:0 auto;padding:6mm}
+h1{font-size:12pt;margin:0 0 1mm;text-align:center}
+.sub{text-align:center;font-size:7.5pt;color:#555;margin:0 0 3mm}
+.cols{column-count:3;column-gap:4mm;column-rule:1px dashed #bbb}
+.box{break-inside:avoid;border:1px solid #999;border-radius:3px;padding:1.6mm 2mm;margin:0 0 2.5mm}
+.box h2{font-size:8.6pt;margin:0 0 1mm;background:#1f3b6e;color:#fff;padding:.6mm 1.5mm;border-radius:2px}
+table{border-collapse:collapse;width:100%}
+td{padding:.25mm 1mm;vertical-align:top;border-bottom:1px dotted #ccc}
+td:first-child{font-weight:700;white-space:nowrap;color:#b3261e}
+.k{font-weight:700;color:#b3261e}
+ul{margin:0;padding-left:3.5mm}
+li{margin:0}
+h3{font-size:8.6pt;margin:2mm 0 1mm;padding:.5mm 1.5mm;background:#1f3b6e;color:#fff;border-radius:2px;break-after:avoid}
+h3 small{font-weight:400;opacity:.8}
+.qa p{margin:0 0 .9mm;break-inside:avoid}
+.qa .n{color:#777;font-weight:600}
+.qa b:not(.n){color:#b3261e}
+.brk{break-before:page;margin-top:4mm}
+.tools{text-align:center;margin:0 0 3mm}
+.tools button{font:inherit;font-size:10pt;padding:5px 14px;border-radius:6px;border:1px solid #1f3b6e;background:#1f3b6e;color:#fff;cursor:pointer}
+@media print{.tools{display:none}.page{padding:0}}
+@media (max-width:700px){.cols{column-count:1}body{font-size:10pt}}
+</style>
+</head>
+<body><div class="page">
+<h1>Avtomatlashtirish sistemalarini loyihalash, o'rnatish va sozlash — SHPARGALKA</h1>
+<p class="sub">1-qism: yodlash kerak bo'lgan jadvallar · 2-qism: 200 savolning qisqa javoblari (mavzular bo'yicha, raqam — PDF dagi savol raqami)</p>
+<div class="tools"><button onclick="print()">Chop etish / PDF saqlash</button></div>
+
+<div class="cols">
+
+<div class="box"><h2>GOST 21.208 — 1-harf: KATTALIK</h2><table>
+<tr><td>D</td><td>zichlik</td></tr>
+<tr><td>E</td><td>elektr kattalik (tok, kuchlanish)</td></tr>
+<tr><td>F</td><td>sarf</td></tr>
+<tr><td>H</td><td>qo'lda ta'sir</td></tr>
+<tr><td>L</td><td>sath</td></tr>
+<tr><td>M</td><td>namlik</td></tr>
+<tr><td>P</td><td>bosim (siyraklanish)</td></tr>
+<tr><td>Q</td><td>sifat, tarkib, konsentratsiya</td></tr>
+<tr><td>T</td><td>harorat</td></tr>
+<tr><td>V</td><td>qovushqoqlik</td></tr>
+</table></div>
+
+<div class="box"><h2>2-o'rin (aniqlovchi) va keyingi harflar: FUNKSIYA</h2><table>
+<tr><td>D (2-o'rin)</td><td>farq, ayirma</td></tr>
+<tr><td>F (2-o'rin)</td><td>nisbat, ulush</td></tr>
+<tr><td>Q (2-o'rin)</td><td>integrallash (hisoblagich)</td></tr>
+<tr><td>A</td><td>signallash</td></tr>
+<tr><td>C</td><td>avtomatik rostlash</td></tr>
+<tr><td>E</td><td>sezgir element</td></tr>
+<tr><td>I</td><td>ko'rsatish</td></tr>
+<tr><td>R</td><td>qayd etish (registratsiya)</td></tr>
+<tr><td>T</td><td>masofaga uzatish</td></tr>
+</table>
+<ul><li><span class="k">PI</span> — bosimni ko'rsatuvchi (manometr)</li>
+<li><span class="k">PDI</span> — bosimlar farqini ko'rsatuvchi</li>
+<li><span class="k">TE</span> — harorat sezgir elementi (termojuft)</li>
+<li><span class="k">FQ</span> — sarf hisoblagichi</li></ul></div>
+
+<div class="box"><h2>Funksional chizma belgilari</h2><ul>
+<li>Asbob — <span class="k">aylana, Ø10 mm</span></li>
+<li>Shchitdagi asbob — aylana <span class="k">+ gorizontal chiziq</span></li>
+<li>Yuqori qism — <span class="k">harfiy belgi</span>; pastki — <span class="k">pozitsiya</span> (1a, 1b)</li>
+<li>Klapan — <span class="k">ikki uchburchak</span> (qum soati)</li>
+<li>Jihozlar — soddalashtirilgan kontur; quvurlar — chiziq + raqamli belgi</li>
+<li>1-harf — kattalik, keyingilari — funksiya</li></ul></div>
+
+<div class="box"><h2>Elektr chizma harflari (GOST 2.710)</h2><table>
+<tr><td>HL</td><td>yorug'lik signali (lampa)</td></tr>
+<tr><td>HA</td><td>tovush signali (qo'ng'iroq)</td></tr>
+<tr><td>SA</td><td>kalit, almashlab ulagich</td></tr>
+<tr><td>SB</td><td>tugma (knopka)</td></tr>
+<tr><td>KM</td><td>kontaktor / magnit ishga tushirgich</td></tr>
+<tr><td>KK</td><td>issiqlik relesi</td></tr>
+<tr><td>KT</td><td>vaqt relesi</td></tr>
+<tr><td>QF</td><td>avtomatik o'chirgich</td></tr>
+<tr><td>FU</td><td>eruvchan saqlagich</td></tr>
+<tr><td>L1 L2 L3</td><td>fazalar (eski A, B, C)</td></tr>
+</table>
+<ul><li>Kontaktlar — <span class="k">toksiz (normal)</span> holatda chiziladi</li>
+<li>Zanjir uchastkasi — <span class="k">arab raqami</span> bilan markalanadi</li>
+<li>Tasvirlash: <span class="k">birlashtirilgan va yoyilgan</span> usul</li>
+<li>Pusk ga parallel KM — <span class="k">o'zini ushlab turish</span></li>
+<li>Reversda — <span class="k">NC blok-kontakt blokirovkasi</span></li></ul></div>
+
+<div class="box"><h2>Himoya apparatlari</h2><ul>
+<li>Saqlagich FU → <span class="k">qisqa tutashuv</span></li>
+<li>Issiqlik relesi KK → <span class="k">o'ta yuklanish</span></li>
+<li>Magnit ishga tushirgich = <span class="k">kontaktor + issiqlik relesi</span></li>
+<li>Kontaktor — katta tok + <span class="k">yoy so'ndirish kamerasi</span></li>
+<li>Rele: g'altak, o'zak, yakor, kontaktlar; NO — tok berilsa yopiladi</li></ul></div>
+
+<div class="box"><h2>Sxema shifri (GOST 2.701)</h2><table>
+<tr><td>E / P / G</td><td>elektr / pnevmatik / gidravlik</td></tr>
+<tr><td>1</td><td>tarkib (strukturaviy)</td></tr>
+<tr><td>2</td><td>funksional</td></tr>
+<tr><td>3</td><td>prinsipial</td></tr>
+<tr><td>4</td><td>ulanishlar (montaj)</td></tr>
+<tr><td>5 / 6 / 7</td><td>ulash / umumiy / joylashish</td></tr>
+<tr><td>E3</td><td>prinsipial elektr chizma</td></tr>
+</table></div>
+
+<div class="box"><h2>Quvur ranglari (GOST 14202)</h2><table>
+<tr><td>Suv</td><td>yashil</td></tr>
+<tr><td>Bug'</td><td>qizil</td></tr>
+<tr><td>Havo</td><td>ko'k</td></tr>
+<tr><td>Yonuvchi gaz</td><td>sariq</td></tr>
+</table></div>
+
+<div class="box"><h2>Qisqartmalar va standartlar</h2><table>
+<tr><td>ESKD</td><td>Konstruktorlik hujjatlarining yagona tizimi</td></tr>
+<tr><td>SPDS</td><td>Qurilish uchun loyiha hujjatlari tizimi</td></tr>
+<tr><td>ShNQ</td><td>O'zbekiston qurilish me'yorlari</td></tr>
+<tr><td>PUE</td><td>Elektr qurilmalarini o'rnatish qoidalari</td></tr>
+<tr><td>21.208</td><td>asboblar shartli belgilari</td></tr>
+<tr><td>21.408</td><td>avtomatlashtirish ishchi hujjatlari</td></tr>
+</table></div>
+
+<div class="box"><h2>AutoCAD — buyruqlar</h2><table>
+<tr><td>LINE / PLINE</td><td>kesma / polilinya</td></tr>
+<tr><td>CIRCLE = C</td><td>3P — 3 nuqta, TTR — 2 urinma+radius</td></tr>
+<tr><td>COPY / MOVE</td><td>nusxa / ko'chirish</td></tr>
+<tr><td>OFFSET</td><td>parallel nusxa</td></tr>
+<tr><td>ARRAY</td><td>massiv (to'g'ri burchakli, aylanma)</td></tr>
+<tr><td>TRIM</td><td>chegara bo'yicha qirqish</td></tr>
+<tr><td>ERASE</td><td>o'chirish</td></tr>
+<tr><td>EXPLODE</td><td>blokni ajratish</td></tr>
+<tr><td>BLOCK / INSERT</td><td>blok yaratish / joylash</td></tr>
+<tr><td>MATCHPROP</td><td>xossani o'tkazish</td></tr>
+<tr><td>DIMLINEAR</td><td>chiziqli o'lcham</td></tr>
+<tr><td>LIMITS / UNITS</td><td>format chegarasi / birliklar</td></tr>
+<tr><td>ZOOM Extents</td><td>hammasini ekranga sig'dirish</td></tr>
+<tr><td>UNDO (Ctrl+Z)</td><td>bekor qilish</td></tr>
+</table></div>
+
+<div class="box"><h2>AutoCAD — tugmalar va holatlar</h2><table>
+<tr><td>@</td><td>nisbiy koordinata</td></tr>
+<tr><td>F3</td><td>OSNAP</td></tr>
+<tr><td>F8</td><td>ORTHO</td></tr>
+<tr><td>Ctrl+S</td><td>saqlash</td></tr>
+<tr><td>Ctrl+1</td><td>Properties</td></tr>
+<tr><td>Esc</td><td>buyruqni to'xtatish</td></tr>
+<tr><td>.dwg</td><td>chizma fayli</td></tr>
+<tr><td>«0»</td><td>o'chirib bo'lmaydigan qatlam</td></tr>
+<tr><td>Lock</td><td>ko'rinadi, tahrirlanmaydi</td></tr>
+<tr><td>Freeze</td><td>ko'rinmaydi, regeneratsiyada yo'q</td></tr>
+<tr><td>Window →</td><td>faqat to'liq ichidagilar</td></tr>
+<tr><td>← Crossing</td><td>ichidagi + kesib o'tganlar</td></tr>
+<tr><td>Qatlam</td><td>rang, chiziq turi, qalinligi</td></tr>
+</table></div>
+
+<div class="box"><h2>Raqamlar — yodlang!</h2><table>
+<tr><td>Pt100</td><td>0 °C da 100 Om</td></tr>
+<tr><td>4–20 mA</td><td>unifikatsiyalangan tok; 4 mA — uzilishni aniqlash</td></tr>
+<tr><td>24 V</td><td>xavfsiz o'zgarmas kuchlanish</td></tr>
+<tr><td>0,02–0,1 MPa</td><td>GSP pnevmatik signal</td></tr>
+<tr><td>0,14 MPa</td><td>pnevmatik ta'minot bosimi</td></tr>
+<tr><td>−10 °C</td><td>shudring nuqtasi: eng past haroratdan 10° past</td></tr>
+<tr><td>3/4 · 2/3</td><td>manometr: barqaror · o'zgaruvchan bosimda</td></tr>
+<tr><td>1:50</td><td>impuls trubasi qiyaligi (kamida)</td></tr>
+<tr><td>Ø10 mm</td><td>asbob aylanasi</td></tr>
+<tr><td>6–8 mm</td><td>pnevmatik komanda trubkalari</td></tr>
+<tr><td>Q ~ √Δp</td><td>sarf — bosimlar farqining ildizi</td></tr>
+</table></div>
+
+<div class="box"><h2>Avtomatik rostlash</h2><ul>
+<li>Datchik — parametrni o'lchab signalga aylantiradi</li>
+<li>Taqqoslash elementi — topshiriq va o'lchanganni solishtiradi</li>
+<li>Ijrochi mexanizm — rostlovchi organni (klapanni) harakatlantiradi</li>
+<li>G'alayon — tashqi ta'sir; yopiq tizim belgisi — <span class="k">teskari aloqa</span></li>
+<li><span class="k">P</span> — statik xatolik bor; <span class="k">PI</span> — uni yo'qotadi; <span class="k">D</span> — o'zgarish tezligiga ta'sir</li>
+<li>Sath, sarf, harorat — <span class="k">klapan bilan sarfni o'zgartirib</span> rostlanadi</li>
+<li>Blok-sxema: blok — element (uzatish funksiyasi), strelka — signal yo'nalishi</li></ul></div>
+
+<div class="box"><h2>O'lchash asboblari</h2><ul>
+<li>Termojuft — <span class="k">Zeebek (termoelektrik) effekti</span>, ulanadi <span class="k">kompensatsion simlar</span> bilan</li>
+<li>Qarshilik termometri — qarshilik haroratga bog'liq</li>
+<li>Gidrostatik sath — p = ρgh</li>
+<li>Sarf: diafragma/soplo/Venturi + difmanometr</li>
+<li>Bug' — <span class="k">sifon trubka</span>; agressiv muhit — <span class="k">membranali ajratgich</span></li>
+<li>Gilza — sezgir elementni himoya qiladi; sezgir element — <span class="k">quvur o'qida</span></li>
+<li>Aniqlik sinfi — ruxsat etilgan keltirilgan xatolik, %</li>
+<li>Sozlash — <span class="k">namunaviy (etalon) asbob</span> bilan solishtirish</li></ul></div>
+
+<div class="box"><h2>Pnevmatika va trubalar</h2><ul>
+<li>Resiver — havo zahirasi, bosimni tekislaydi</li>
+<li>Reduktor — bosimni pasaytirib barqaror saqlaydi</li>
+<li>Havo tozalanadi: <span class="k">chang, moy, namlik</span></li>
+<li>Eng ishonchli ta'minot — <span class="k">halqali</span></li>
+<li>Trubalar: impuls, komanda, ta'minot, drenaj, yordamchi</li>
+<li>Impuls truba — bosimni asbobga; komanda — rostlagichdan IM ga</li></ul></div>
+
+<div class="box"><h2>Loyihalash</h2><ul>
+<li>Topshiriqni beradi — <span class="k">buyurtmachi</span></li>
+<li>2 bosqich: <span class="k">loyiha + ishchi hujjatlar</span>; 1 bosqich: <span class="k">ishchi loyiha</span></li>
+<li>Spetsifikatsiya — asbob, jihoz, materiallar ro'yxati</li>
+<li>Kabel jurnali — marka, uzunlik, qayerdan–qayerga</li>
+<li>Shtamp — <span class="k">o'ng pastki burchak</span></li>
+<li>TJABT yuqori darajasi — SCADA, operator stansiyasi</li>
+<li>Asosiy dastur — <span class="k">AutoCAD</span></li></ul></div>
+
+<div class="box"><h2>Shchit, kabel, signallash</h2><ul>
+<li>Tashqi kabellar shchitga — <span class="k">klemma qatorlari</span> orqali</li>
+<li>Korpus — <span class="k">himoya yerga ulash</span></li>
+<li>Chang/namlikdan himoyalangan — <span class="k">shkaf tipidagi</span> shchit</li>
+<li>Nazorat kabeli — <span class="k">KVVG</span>; ochiq yotqizish — <span class="k">lotok</span></li>
+<li>Ekranlangan kabel — xalaqitdan himoya; optik — xalaqitga sezgir emas</li>
+<li>Ishonchli ta'minot — 2 manba + <span class="k">AVR</span></li>
+<li>Avariya — <span class="k">qizil</span> lampa; yangi signal — <span class="k">miltillaydi</span></li>
+<li>Kvitirlash — operator signalni qabul qilganini tasdiqlashi</li></ul></div>
+
+</div>
+
+<div class="brk"></div>
+<h1>200 savolning qisqa javoblari</h1>
+<div class="cols qa">
+<!--SAVOLLAR-->
+</div>
+</div></body>
+</html>

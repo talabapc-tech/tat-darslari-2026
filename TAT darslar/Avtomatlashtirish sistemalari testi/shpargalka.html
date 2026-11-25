@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Avtomatlashtirish shpargalka</title>
+<style>
+@page{size:A4;margin:7mm}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:#111;font:8.3pt/1.28 "Segoe UI",Arial,sans-serif}
+.page{max-width:210mm;margin:0 auto;padding:6mm}
+h1{font-size:12pt;margin:0 0 1mm;text-align:center}
+.sub{text-align:center;font-size:7.5pt;color:#555;margin:0 0 3mm}
+.cols{column-count:3;column-gap:4mm;column-rule:1px dashed #bbb}
+.box{break-inside:avoid;border:1px solid #999;border-radius:3px;padding:1.6mm 2mm;margin:0 0 2.5mm}
+.box h2{font-size:8.6pt;margin:0 0 1mm;background:#1f3b6e;color:#fff;padding:.6mm 1.5mm;border-radius:2px}
+table{border-collapse:collapse;width:100%}
+td{padding:.25mm 1mm;vertical-align:top;border-bottom:1px dotted #ccc}
+td:first-child{font-weight:700;white-space:nowrap;color:#b3261e}
+.k{font-weight:700;color:#b3261e}
+ul{margin:0;padding-left:3.5mm}
+li{margin:0}
+h3{font-size:8.6pt;margin:2mm 0 1mm;padding:.5mm 1.5mm;background:#1f3b6e;color:#fff;border-radius:2px;break-after:avoid}
+h3 small{font-weight:400;opacity:.8}
+.qa p{margin:0 0 .9mm;break-inside:avoid}
+.qa .n{color:#777;font-weight:600}
+.qa b:not(.n){color:#b3261e}
+.brk{break-before:page;margin-top:4mm}
+.tools{text-align:center;margin:0 0 3mm}
+.tools button{font:inherit;font-size:10pt;padding:5px 14px;border-radius:6px;border:1px solid #1f3b6e;background:#1f3b6e;color:#fff;cursor:pointer}
+@media print{.tools{display:none}.page{padding:0}}
+@media (max-width:700px){.cols{column-count:1}body{font-size:10pt}}
+</style>
+</head>
+<body><div class="page">
+<h1>Avtomatlashtirish sistemalarini loyihalash, o'rnatish va sozlash — SHPARGALKA</h1>
+<p class="sub">1-qism: yodlash kerak bo'lgan jadvallar · 2-qism: 200 savolning qisqa javoblari (mavzular bo'yicha, raqam — PDF dagi savol raqami)</p>
+<div class="tools"><button onclick="print()">Chop etish / PDF saqlash</button></div>
+
+<div class="cols">
+
+<div class="box"><h2>GOST 21.208 — 1-harf: KATTALIK</h2><table>
+<tr><td>D</td><td>zichlik</td></tr>
+<tr><td>E</td><td>elektr kattalik (tok, kuchlanish)</td></tr>
+<tr><td>F</td><td>sarf</td></tr>
+<tr><td>H</td><td>qo'lda ta'sir</td></tr>
+<tr><td>L</td><td>sath</td></tr>
+<tr><td>M</td><td>namlik</td></tr>
+<tr><td>P</td><td>bosim (siyraklanish)</td></tr>
+<tr><td>Q</td><td>sifat, tarkib, konsentratsiya</td></tr>
+<tr><td>T</td><td>harorat</td></tr>
+<tr><td>V</td><td>qovushqoqlik</td></tr>
+</table></div>
+
+<div class="box"><h2>2-o'rin (aniqlovchi) va keyingi harflar: FUNKSIYA</h2><table>
+<tr><td>D (2-o'rin)</td><td>farq, ayirma</td></tr>
+<tr><td>F (2-o'rin)</td><td>nisbat, ulush</td></tr>
+<tr><td>Q (2-o'rin)</td><td>integrallash (hisoblagich)</td></tr>
+<tr><td>A</td><td>signallash</td></tr>
+<tr><td>C</td><td>avtomatik rostlash</td></tr>
+<tr><td>E</td><td>sezgir element</td></tr>
+<tr><td>I</td><td>ko'rsatish</td></tr>
+<tr><td>R</td><td>qayd etish (registratsiya)</td></tr>
+<tr><td>T</td><td>masofaga uzatish</td></tr>
+</table>
+<ul><li><span class="k">PI</span> — bosimni ko'rsatuvchi (manometr)</li>
+<li><span class="k">PDI</span> — bosimlar farqini ko'rsatuvchi</li>
+<li><span class="k">TE</span> — harorat sezgir elementi (termojuft)</li>
+<li><span class="k">FQ</span> — sarf hisoblagichi</li></ul></div>
+
+<div class="box"><h2>Funksional chizma belgilari</h2><ul>
+<li>Asbob — <span class="k">aylana, Ø10 mm</span></li>
+<li>Shchitdagi asbob — aylana <span class="k">+ gorizontal chiziq</span></li>
+<li>Yuqori qism — <span class="k">harfiy belgi</span>; pastki — <span class="k">pozitsiya</span> (1a, 1b)</li>
+<li>Klapan — <span class="k">ikki uchburchak</span> (qum soati)</li>
+<li>Jihozlar — soddalashtirilgan kontur; quvurlar — chiziq + raqamli belgi</li>
+<li>1-harf — kattalik, keyingilari — funksiya</li></ul></div>
+
+<div class="box"><h2>Elektr chizma harflari (GOST 2.710)</h2><table>
+<tr><td>HL</td><td>yorug'lik signali (lampa)</td></tr>
+<tr><td>HA</td><td>tovush signali (qo'ng'iroq)</td></tr>
+<tr><td>SA</td><td>kalit, almashlab ulagich</td></tr>
+<tr><td>SB</td><td>tugma (knopka)</td></tr>
+<tr><td>KM</td><td>kontaktor / magnit ishga tushirgich</td></tr>
+<tr><td>KK</td><td>issiqlik relesi</td></tr>
+<tr><td>KT</td><td>vaqt relesi</td></tr>
+<tr><td>QF</td><td>avtomatik o'chirgich</td></tr>
+<tr><td>FU</td><td>eruvchan saqlagich</td></tr>
+<tr><td>L1 L2 L3</td><td>fazalar (eski A, B, C)</td></tr>
+</table>
+<ul><li>Kontaktlar — <span class="k">toksiz (normal)</span> holatda chiziladi</li>
+<li>Zanjir uchastkasi — <span class="k">arab raqami</span> bilan markalanadi</li>
+<li>Tasvirlash: <span class="k">birlashtirilgan va yoyilgan</span> usul</li>
+<li>Pusk ga parallel KM — <span class="k">o'zini ushlab turish</span></li>
+<li>Reversda — <span class="k">NC blok-kontakt blokirovkasi</span></li></ul></div>
+
+<div class="box"><h2>Himoya apparatlari</h2><ul>
+<li>Saqlagich FU → <span class="k">qisqa tutashuv</span></li>
+<li>Issiqlik relesi KK → <span class="k">o'ta yuklanish</span></li>
+<li>Magnit ishga tushirgich = <span class="k">kontaktor + issiqlik relesi</span></li>
+<li>Kontaktor — katta tok + <span class="k">yoy so'ndirish kamerasi</span></li>
+<li>Rele: g'altak, o'zak, yakor, kontaktlar; NO — tok berilsa yopiladi</li></ul></div>
+
+<div class="box"><h2>Sxema shifri (GOST 2.701)</h2><table>
+<tr><td>E / P / G</td><td>elektr / pnevmatik / gidravlik</td></tr>
+<tr><td>1</td><td>tarkib (strukturaviy)</td></tr>
+<tr><td>2</td><td>funksional</td></tr>
+<tr><td>3</td><td>prinsipial</td></tr>
+<tr><td>4</td><td>ulanishlar (montaj)</td></tr>
+<tr><td>5 / 6 / 7</td><td>ulash / umumiy / joylashish</td></tr>
+<tr><td>E3</td><td>prinsipial elektr chizma</td></tr>
+</table></div>
+
+<div class="box"><h2>Quvur ranglari (GOST 14202)</h2><table>
+<tr><td>Suv</td><td>yashil</td></tr>
+<tr><td>Bug'</td><td>qizil</td></tr>
+<tr><td>Havo</td><td>ko'k</td></tr>
+<tr><td>Yonuvchi gaz</td><td>sariq</td></tr>
+</table></div>
+
+<div class="box"><h2>Qisqartmalar va standartlar</h2><table>
+<tr><td>ESKD</td><td>Konstruktorlik hujjatlarining yagona tizimi</td></tr>
+<tr><td>SPDS</td><td>Qurilish uchun loyiha hujjatlari tizimi</td></tr>
+<tr><td>ShNQ</td><td>O'zbekiston qurilish me'yorlari</td></tr>
+<tr><td>PUE</td><td>Elektr qurilmalarini o'rnatish qoidalari</td></tr>
+<tr><td>21.208</td><td>asboblar shartli belgilari</td></tr>
+<tr><td>21.408</td><td>avtomatlashtirish ishchi hujjatlari</td></tr>
+</table></div>
+
+<div class="box"><h2>AutoCAD — buyruqlar</h2><table>
+<tr><td>LINE / PLINE</td><td>kesma / polilinya</td></tr>
+<tr><td>CIRCLE = C</td><td>3P — 3 nuqta, TTR — 2 urinma+radius</td></tr>
+<tr><td>COPY / MOVE</td><td>nusxa / ko'chirish</td></tr>
+<tr><td>OFFSET</td><td>parallel nusxa</td></tr>
+<tr><td>ARRAY</td><td>massiv (to'g'ri burchakli, aylanma)</td></tr>
+<tr><td>TRIM</td><td>chegara bo'yicha qirqish</td></tr>
+<tr><td>ERASE</td><td>o'chirish</td></tr>
+<tr><td>EXPLODE</td><td>blokni ajratish</td></tr>
+<tr><td>BLOCK / INSERT</td><td>blok yaratish / joylash</td></tr>
+<tr><td>MATCHPROP</td><td>xossani o'tkazish</td></tr>
+<tr><td>DIMLINEAR</td><td>chiziqli o'lcham</td></tr>
+<tr><td>LIMITS / UNITS</td><td>format chegarasi / birliklar</td></tr>
+<tr><td>ZOOM Extents</td><td>hammasini ekranga sig'dirish</td></tr>
+<tr><td>UNDO (Ctrl+Z)</td><td>bekor qilish</td></tr>
+</table></div>
+
+<div class="box"><h2>AutoCAD — tugmalar va holatlar</h2><table>
+<tr><td>@</td><td>nisbiy koordinata</td></tr>
+<tr><td>F3</td><td>OSNAP</td></tr>
+<tr><td>F8</td><td>ORTHO</td></tr>
+<tr><td>Ctrl+S</td><td>saqlash</td></tr>
+<tr><td>Ctrl+1</td><td>Properties</td></tr>
+<tr><td>Esc</td><td>buyruqni to'xtatish</td></tr>
+<tr><td>.dwg</td><td>chizma fayli</td></tr>
+<tr><td>«0»</td><td>o'chirib bo'lmaydigan qatlam</td></tr>
+<tr><td>Lock</td><td>ko'rinadi, tahrirlanmaydi</td></tr>
+<tr><td>Freeze</td><td>ko'rinmaydi, regeneratsiyada yo'q</td></tr>
+<tr><td>Window →</td><td>faqat to'liq ichidagilar</td></tr>
+<tr><td>← Crossing</td><td>ichidagi + kesib o'tganlar</td></tr>
+<tr><td>Qatlam</td><td>rang, chiziq turi, qalinligi</td></tr>
+</table></div>
+
+<div class="box"><h2>Raqamlar — yodlang!</h2><table>
+<tr><td>Pt100</td><td>0 °C da 100 Om</td></tr>
+<tr><td>4–20 mA</td><td>unifikatsiyalangan tok; 4 mA — uzilishni aniqlash</td></tr>
+<tr><td>24 V</td><td>xavfsiz o'zgarmas kuchlanish</td></tr>
+<tr><td>0,02–0,1 MPa</td><td>GSP pnevmatik signal</td></tr>
+<tr><td>0,14 MPa</td><td>pnevmatik ta'minot bosimi</td></tr>
+<tr><td>−10 °C</td><td>shudring nuqtasi: eng past haroratdan 10° past</td></tr>
+<tr><td>3/4 · 2/3</td><td>manometr: barqaror · o'zgaruvchan bosimda</td></tr>
+<tr><td>1:50</td><td>impuls trubasi qiyaligi (kamida)</td></tr>
+<tr><td>Ø10 mm</td><td>asbob aylanasi</td></tr>
+<tr><td>6–8 mm</td><td>pnevmatik komanda trubkalari</td></tr>
+<tr><td>Q ~ √Δp</td><td>sarf — bosimlar farqining ildizi</td></tr>
+</table></div>
+
+<div class="box"><h2>Avtomatik rostlash</h2><ul>
+<li>Datchik — parametrni o'lchab signalga aylantiradi</li>
+<li>Taqqoslash elementi — topshiriq va o'lchanganni solishtiradi</li>
+<li>Ijrochi mexanizm — rostlovchi organni (klapanni) harakatlantiradi</li>
+<li>G'alayon — tashqi ta'sir; yopiq tizim belgisi — <span class="k">teskari aloqa</span></li>
+<li><span class="k">P</span> — statik xatolik bor; <span class="k">PI</span> — uni yo'qotadi; <span class="k">D</span> — o'zgarish tezligiga ta'sir</li>
+<li>Sath, sarf, harorat — <span class="k">klapan bilan sarfni o'zgartirib</span> rostlanadi</li>
+<li>Blok-sxema: blok — element (uzatish funksiyasi), strelka — signal yo'nalishi</li></ul></div>
+
+<div class="box"><h2>O'lchash asboblari</h2><ul>
+<li>Termojuft — <span class="k">Zeebek (termoelektrik) effekti</span>, ulanadi <span class="k">kompensatsion simlar</span> bilan</li>
+<li>Qarshilik termometri — qarshilik haroratga bog'liq</li>
+<li>Gidrostatik sath — p = ρgh</li>
+<li>Sarf: diafragma/soplo/Venturi + difmanometr</li>
+<li>Bug' — <span class="k">sifon trubka</span>; agressiv muhit — <span class="k">membranali ajratgich</span></li>
+<li>Gilza — sezgir elementni himoya qiladi; sezgir element — <span class="k">quvur o'qida</span></li>
+<li>Aniqlik sinfi — ruxsat etilgan keltirilgan xatolik, %</li>
+<li>Sozlash — <span class="k">namunaviy (etalon) asbob</span> bilan solishtirish</li></ul></div>
+
+<div class="box"><h2>Pnevmatika va trubalar</h2><ul>
+<li>Resiver — havo zahirasi, bosimni tekislaydi</li>
+<li>Reduktor — bosimni pasaytirib barqaror saqlaydi</li>
+<li>Havo tozalanadi: <span class="k">chang, moy, namlik</span></li>
+<li>Eng ishonchli ta'minot — <span class="k">halqali</span></li>
+<li>Trubalar: impuls, komanda, ta'minot, drenaj, yordamchi</li>
+<li>Impuls truba — bosimni asbobga; komanda — rostlagichdan IM ga</li></ul></div>
+
+<div class="box"><h2>Loyihalash</h2><ul>
+<li>Topshiriqni beradi — <span class="k">buyurtmachi</span></li>
+<li>2 bosqich: <span class="k">loyiha + ishchi hujjatlar</span>; 1 bosqich: <span class="k">ishchi loyiha</span></li>
+<li>Spetsifikatsiya — asbob, jihoz, materiallar ro'yxati</li>
+<li>Kabel jurnali — marka, uzunlik, qayerdan–qayerga</li>
+<li>Shtamp — <span class="k">o'ng pastki burchak</span></li>
+<li>TJABT yuqori darajasi — SCADA, operator stansiyasi</li>
+<li>Asosiy dastur — <span class="k">AutoCAD</span></li></ul></div>
+
+<div class="box"><h2>Shchit, kabel, signallash</h2><ul>
+<li>Tashqi kabellar shchitga — <span class="k">klemma qatorlari</span> orqali</li>
+<li>Korpus — <span class="k">himoya yerga ulash</span></li>
+<li>Chang/namlikdan himoyalangan — <span class="k">shkaf tipidagi</span> shchit</li>
+<li>Nazorat kabeli — <span class="k">KVVG</span>; ochiq yotqizish — <span class="k">lotok</span></li>
+<li>Ekranlangan kabel — xalaqitdan himoya; optik — xalaqitga sezgir emas</li>
+<li>Ishonchli ta'minot — 2 manba + <span class="k">AVR</span></li>
+<li>Avariya — <span class="k">qizil</span> lampa; yangi signal — <span class="k">miltillaydi</span></li>
+<li>Kvitirlash — operator signalni qabul qilganini tasdiqlashi</li></ul></div>
+
+</div>
+
+<div class="brk"></div>
+<h1>200 savolning qisqa javoblari</h1>
+<div class="cols qa">
+<h3>Funksional chizma (GOST 21.208) <small>(31)</small></h3><p><b class="n">11.</b> Funksional chizmada rostlovchi organ (klapan) qanday belgilanadi? — <b>Ikki uchburchak (qum soati)</b></p><p><b class="n">18.</b> Funksional chizmada «A» harfi keyingi o&#x27;rinlarda qaysi funksiyani bildiradi? — <b>Signallash</b></p><p><b class="n">21.</b> Funksional chizmada «F» harfi ikkinchi o&#x27;rinda nimani bildiradi? — <b>Nisbat (ulush)</b></p><p><b class="n">48.</b> Funksional chizmada «Q» harfi birinchi o&#x27;rinda qaysi kattalikni bildiradi? — <b>Sifat (tarkib, konsentratsiya)</b></p><p><b class="n">51.</b> Funksional chizmada «I» harfi keyingi o&#x27;rinlarda qaysi funksiyani bildiradi? — <b>Ko&#x27;rsatish</b></p><p><b class="n">52.</b> Funksional chizmada «D» harfi ikkinchi o&#x27;rinda nimani bildiradi? — <b>Farq (ayirma)</b></p><p><b class="n">60.</b> Funksional chizmada «M» harfi birinchi o&#x27;rinda qaysi kattalikni bildiradi? — <b>Namlik</b></p><p><b class="n">62.</b> GOST 21.208-2013 standarti nimaga bag&#x27;ishlangan? — <b>Asboblar va avtomatlashtirish vositalarining shartli belgilariga</b></p><p><b class="n">74.</b> Funksional chizmada asbob va avtomatlashtirish vositalari qanday shaklda belgilanadi? — <b>Aylana</b></p><p><b class="n">82.</b> Funksional chizmada «P» harfi birinchi o&#x27;rinda qaysi kattalikni bildiradi? — <b>Bosim</b></p><p><b class="n">83.</b> Funksional chizmada «F» harfi birinchi o&#x27;rinda qaysi kattalikni bildiradi? — <b>Sarf</b></p><p><b class="n">84.</b> Funksional chizmada asbob belgisining yuqori qismiga nima yoziladi? — <b>Harfiy belgi</b></p><p><b class="n">85.</b> Funksional chizmada texnologik kommunikatsiyalar (quvurlar) qanday ko&#x27;rsatiladi? — <b>Chiziqlar va muhitning raqamli belgisi bilan</b></p><p><b class="n">89.</b> Funksional chizmada harfiy belgining birinchi harfi nimani bildiradi? — <b>O&#x27;lchanadigan kattalikni</b></p><p><b class="n">92.</b> Funksional chizmada «T» harfi keyingi o&#x27;rinlarda qaysi funksiyani bildiradi? — <b>Masofaga uzatish</b></p><p><b class="n">93.</b> Funksional chizmada pozitsion belgilar qanday yoziladi? — <b>Raqam va harf indeksi (1a, 1b)</b></p><p><b class="n">105.</b> Funksional chizmadagi «PDI» harfiy belgisi nimani bildiradi? — <b>Bosimlar farqini ko&#x27;rsatuvchi asbob</b></p><p><b class="n">107.</b> Funksional chizmada «V» harfi birinchi o&#x27;rinda qaysi kattalikni bildiradi? — <b>Qovushqoqlik</b></p><p><b class="n">111.</b> Funksional chizmada «E» harfi birinchi o&#x27;rinda nimani bildiradi? — <b>Elektr kattalik</b></p><p><b class="n">113.</b> Funksional chizmada «H» harfi birinchi o&#x27;rinda nimani bildiradi? — <b>Qo&#x27;lda ta&#x27;sir</b></p><p><b class="n">117.</b> Funksional chizmada shchitga o&#x27;rnatiladigan asbob qanday belgilanadi? — <b>Gorizontal chiziqli aylana</b></p><p><b class="n">127.</b> Funksional chizmada asbob belgisining pastki qismiga nima yoziladi? — <b>Pozitsion belgi</b></p><p><b class="n">138.</b> Funksional chizmada «L» harfi birinchi o&#x27;rinda qaysi kattalikni bildiradi? — <b>Sath</b></p><p><b class="n">154.</b> Funksional chizmadagi «TE» harfiy belgisi qanday asbobni bildiradi? — <b>Harorat sezgir elementi</b></p><p><b class="n">159.</b> Funksional chizmada «C» harfi keyingi o&#x27;rinlarda qaysi funksiyani bildiradi? — <b>Avtomatik rostlash</b></p><p><b class="n">170.</b> Funksional chizmada «T» harfi birinchi o&#x27;rinda qaysi kattalikni bildiradi? — <b>Harorat</b></p><p><b class="n">173.</b> Funksional chizmadagi «PI» harfiy belgisi qanday asbobni bildiradi? — <b>Bosimni ko&#x27;rsatuvchi asbob</b></p><p><b class="n">179.</b> Funksional chizmada «R» harfi keyingi o&#x27;rinlarda qaysi funksiyani bildiradi? — <b>Qayd etish</b></p><p><b class="n">184.</b> Funksional chizmada texnologik jihozlar qanday tasvirlanadi? — <b>Soddalashtirilgan konturlar bilan</b></p><p><b class="n">194.</b> Funksional chizmada asbobni ifodalovchi aylananing diametri odatda necha mm qilib olinadi? — <b>10 mm</b></p><p><b class="n">199.</b> Funksional chizmadagi «FQ» harfiy belgisi qanday asbobni bildiradi? — <b>Sarf hisoblagichi</b></p><h3>Elektr chizmalar va apparatlar <small>(24)</small></h3><p><b class="n">9.</b> Prinsipial elektr chizmalarda «HL» harfiy belgisi nimani bildiradi? — <b>Yorug&#x27;lik signal asbobi</b></p><p><b class="n">10.</b> Prinsipial elektr chizmalarda «SA» harfiy belgisi nimani bildiradi? — <b>Kalit, almashlab ulagich</b></p><p><b class="n">19.</b> Elektromagnit relening asosiy qismlari qaysilar? — <b>G&#x27;altak, o&#x27;zak, yakor va kontaktlar</b></p><p><b class="n">37.</b> Magnit ishga tushirgich tarkibiga odatda nimalar kiradi? — <b>Kontaktor va issiqlik relesi</b></p><p><b class="n">50.</b> Prinsipial elektr chizmalarda «KM» harfiy belgisi nimani bildiradi? — <b>Kontaktor</b></p><p><b class="n">53.</b> Vaqt relesining vazifasi nima? — <b>Kontaktlarni kechikish bilan almashtirish</b></p><p><b class="n">57.</b> Kontaktorlarda yoy so&#x27;ndirish kameralari nima uchun kerak? — <b>Elektr yoyini tez so&#x27;ndirish uchun</b></p><p><b class="n">61.</b> Dvigatelni ishga tushirish chizmasida «Pusk» tugmasiga parallel ulangan kontaktor blok-kontakti qanday vazifani bajaradi? — <b>O&#x27;zini o&#x27;zi ushlab turishni ta&#x27;minlaydi</b></p><p><b class="n">73.</b> Reversiv magnit ishga tushirgichda ikkala kontaktorning bir vaqtda ulanishiga nima yo&#x27;l qo&#x27;ymaydi? — <b>O&#x27;zaro elektr va mexanik blokirovka</b></p><p><b class="n">76.</b> Prinsipial elektr chizmalarda kontaktlar qanday holatda tasvirlanadi? — <b>Kuch ta&#x27;sir qilmagan (toksiz) holatda</b></p><p><b class="n">78.</b> Prinsipial elektr chizmalarda «FU» harfiy belgisi nimani bildiradi? — <b>Eruvchan saqlagich</b></p><p><b class="n">81.</b> Prinsipial elektr chizmalarda «KK» harfiy belgisi nimani bildiradi? — <b>Issiqlik relesi</b></p><p><b class="n">87.</b> Prinsipial elektr chizmalarda «QF» harfiy belgisi nimani bildiradi? — <b>Avtomatik o&#x27;chirgich</b></p><p><b class="n">99.</b> Relening normal ochiq kontakti qanday ishlaydi? — <b>Tok berilganda yopiladi</b></p><p><b class="n">115.</b> Avtomatika zanjirlarida keng qo&#x27;llaniladigan xavfsiz o&#x27;zgarmas kuchlanish qiymati qaysi? — <b>24 V</b></p><p><b class="n">125.</b> Taymer qanday vazifani bajaradi? — <b>Belgilangan vaqtda buyruq beradi</b></p><p><b class="n">147.</b> Prinsipial elektr chizmalarda zanjir uchastkalari qanday markalanadi? — <b>Arab raqamlari bilan</b></p><p><b class="n">151.</b> Prinsipial elektr chizmalarda «KT» harfiy belgisi nimani bildiradi? — <b>Vaqt relesi</b></p><p><b class="n">152.</b> Prinsipial elektr chizmalarda «SB» harfiy belgisi nimani bildiradi? — <b>Tugmali kalit</b></p><p><b class="n">158.</b> Kontaktorning oraliq reledan asosiy farqi nimada? — <b>Katta toklar uchun mo&#x27;ljallangan</b></p><p><b class="n">167.</b> Prinsipial elektr chizmalarda «HA» harfiy belgisi nimani bildiradi? — <b>Tovushli signal asbobi</b></p><p><b class="n">168.</b> Prinsipial elektr chizmalarda zanjirlarni tasvirlashning qanday usullari mavjud? — <b>Birlashtirilgan va yoyilgan</b></p><p><b class="n">169.</b> Prinsipial elektr chizmasi nimani ko&#x27;rsatadi? — <b>Elementlar va ular orasidagi bog&#x27;lanishlarni</b></p><p><b class="n">171.</b> Uch fazali kuch zanjirlarida fazalar odatda qanday belgilanadi? — <b>L1, L2, L3</b></p><h3>AutoCAD <small>(34)</small></h3><p><b class="n">2.</b> AutoCAD dasturida nisbiy koordinatalar qaysi belgi bilan kiritiladi? — <b>@</b></p><p><b class="n">3.</b> AutoCAD dasturida obyektlarni to&#x27;g&#x27;ri burchakli yoki aylanma tartibda ko&#x27;paytirish buyrug&#x27;i qaysi? — <b>ARRAY</b></p><p><b class="n">8.</b> AutoCAD dasturida faylni saqlash uchun qaysi tugmalar birikmasi ishlatiladi? — <b>Ctrl + S</b></p><p><b class="n">12.</b> AutoCAD dasturida CIRCLE buyrug&#x27;ining qisqa (klaviatura) ko&#x27;rinishi qaysi? — <b>C</b></p><p><b class="n">14.</b> AutoCAD dasturida blokni alohida obyektlarga ajratish buyrug&#x27;i qaysi? — <b>EXPLODE</b></p><p><b class="n">23.</b> AutoCAD dasturida qulflangan (Lock) qatlam obyektlari qanday holatda bo&#x27;ladi? — <b>Ko&#x27;rinadi, lekin tahrirlanmaydi</b></p><p><b class="n">24.</b> AutoCAD dasturida obyektdan nusxa olish buyrug&#x27;i qaysi? — <b>COPY</b></p><p><b class="n">27.</b> AutoCAD dasturida ikki obyektga urinma va berilgan radius bo&#x27;yicha aylana chizish opsiyasi qaysi? — <b>TTR</b></p><p><b class="n">34.</b> AutoCAD dasturida obyektning ortiqcha qismini kesuvchi chegara bo&#x27;yicha qirqish buyrug&#x27;i qaysi? — <b>TRIM</b></p><p><b class="n">36.</b> AutoCAD dasturida qatlamga qaysi xossalar beriladi? — <b>Rang, chiziq turi va qalinligi</b></p><p><b class="n">42.</b> AutoCAD dasturida aylanani uchta nuqta orqali chizish opsiyasi qaysi? — <b>3P</b></p><p><b class="n">46.</b> AutoCAD dasturida obyektlarga bog&#x27;lanish (OSNAP) rejimi qaysi tugma bilan yoqiladi? — <b>F3</b></p><p><b class="n">55.</b> AutoCAD dasturida oxirgi bajarilgan amalni bekor qilish buyrug&#x27;i qaysi? — <b>UNDO</b></p><p><b class="n">58.</b> AutoCAD dasturida o&#x27;ngdan chapga ramka (Crossing) bilan tanlashda qaysi obyektlar tanlanadi? — <b>Ichidagi va ramkani kesib o&#x27;tganlar</b></p><p><b class="n">67.</b> AutoCAD dasturida chapdan o&#x27;ngga ramka (Window) bilan tanlashda qaysi obyektlar tanlanadi? — <b>Faqat ramka ichida to&#x27;liq turganlar</b></p><p><b class="n">95.</b> AutoCAD dasturida obyektni o&#x27;chirish buyrug&#x27;i qaysi? — <b>ERASE</b></p><p><b class="n">96.</b> AutoCAD dasturida chizma fayli qaysi kengaytma bilan saqlanadi? — <b>.dwg</b></p><p><b class="n">112.</b> AutoCAD dasturida bir nechta kesmadan iborat yaxlit chiziq (polilinya) chizish buyrug&#x27;i qaysi? — <b>PLINE</b></p><p><b class="n">120.</b> AutoCAD dasturida obyekt xossalari (Properties) oynasi qaysi tugmalar bilan ochiladi? — <b>Ctrl + 1</b></p><p><b class="n">126.</b> AutoCAD dasturida chizmaning barcha obyektlarini ekranga to&#x27;liq sig&#x27;dirib ko&#x27;rsatish buyrug&#x27;i qaysi? — <b>ZOOM Extents</b></p><p><b class="n">130.</b> AutoCAD dasturida berilgan masofada parallel nusxa hosil qilish buyrug&#x27;i qaysi? — <b>OFFSET</b></p><p><b class="n">131.</b> AutoCAD dasturida obyektni bir joydan boshqa joyga ko&#x27;chirish buyrug&#x27;i qaysi? — <b>MOVE</b></p><p><b class="n">144.</b> AutoCAD dasturida chizma chegaralarini (format o&#x27;lchamlarini) belgilash buyrug&#x27;i qaysi? — <b>LIMITS</b></p><p><b class="n">148.</b> AutoCAD dasturida bir nechta obyektni yagona blokka birlashtirish buyrug&#x27;i qaysi? — <b>BLOCK</b></p><p><b class="n">153.</b> AutoCAD dasturida ORTHO (ortogonal) rejimi qaysi funksional tugma bilan yoqiladi? — <b>F8</b></p><p><b class="n">162.</b> AutoCAD dasturida chiziqli o&#x27;lcham qo&#x27;yish buyrug&#x27;i qaysi? — <b>DIMLINEAR</b></p><p><b class="n">164.</b> AutoCAD dasturida qaysi qatlamni o&#x27;chirib bo&#x27;lmaydi? — <b>«0» qatlamini</b></p><p><b class="n">176.</b> AutoCAD dasturida kesma (to&#x27;g&#x27;ri chiziq) chizish buyrug&#x27;i qaysi? — <b>LINE</b></p><p><b class="n">178.</b> AutoCAD dasturida tayyor blokni chizmaga joylashtirish buyrug&#x27;i qaysi? — <b>INSERT</b></p><p><b class="n">180.</b> AutoCAD dasturida o&#x27;lchov birliklari va aniqligini sozlash buyrug&#x27;i qaysi? — <b>UNITS</b></p><p><b class="n">181.</b> AutoCAD dasturida muzlatilgan (Freeze) qatlam obyektlari qanday holatda bo&#x27;ladi? — <b>Ko&#x27;rinmaydi va qayta hisoblanmaydi</b></p><p><b class="n">183.</b> Avtomatlashtirish tizimlari chizmalarini kompyuterda bajarish uchun keng qo&#x27;llaniladigan dastur qaysi? — <b>AutoCAD</b></p><p><b class="n">195.</b> AutoCAD dasturida bir obyektning xossalarini boshqa obyektlarga o&#x27;tkazish buyrug&#x27;i qaysi? — <b>MATCHPROP</b></p><p><b class="n">200.</b> AutoCAD dasturida bajarilayotgan buyruqni to&#x27;xtatish uchun qaysi tugma bosiladi? — <b>Esc</b></p><h3>Loyihalash va hujjatlar <small>(36)</small></h3><p><b class="n">4.</b> Avtomatlashtirish sohasida «ESKD» qisqartmasi nimani bildiradi? — <b>Konstruktorlik hujjatlarining yagona tizimi</b></p><p><b class="n">5.</b> TJABT tarkib chizmasida operator stansiyasi va SCADA tizimi odatda qaysi darajaga tegishli bo&#x27;ladi? — <b>Yuqori (operator-dispetcherlik) darajaga</b></p><p><b class="n">6.</b> Avtomatlashtirish loyihasining ishchi hujjatlari tarkibiga qaysi hujjat kiradi? — <b>Avtomatlashtirishning funksional chizmasi</b></p><p><b class="n">15.</b> Texnologik jarayonning avtomatlashtirish darajasi qanday aniqlanadi? — <b>Avtomatlashtirilgan operatsiyalar ulushi bilan</b></p><p><b class="n">16.</b> Boshqarish chizmalarida boshqarishning qanday rejimlari ko&#x27;zda tutiladi? — <b>Avtomatik, masofaviy va mahalliy</b></p><p><b class="n">22.</b> GOST 2.701 bo&#x27;yicha elektr sxemalari qaysi harf bilan belgilanadi? — <b>E</b></p><p><b class="n">25.</b> Ikki bosqichli loyihalashda qaysi bosqichlar bajariladi? — <b>Loyiha va ishchi hujjatlar</b></p><p><b class="n">28.</b> Bir bosqichli loyihalashda qanday hujjat ishlab chiqiladi? — <b>Ishchi loyiha</b></p><p><b class="n">29.</b> Sxema shifridagi «1» raqami qaysi sxema tipini bildiradi? — <b>Tarkib (strukturaviy)</b></p><p><b class="n">32.</b> Loyihalashga topshiriq odatda kim tomonidan beriladi? — <b>Buyurtmachi</b></p><p><b class="n">40.</b> Loyiha hujjatlarida izohlovchi yozuvda nima keltiriladi? — <b>Qabul qilingan yechimlar asoslanishi</b></p><p><b class="n">43.</b> GOST 2.701 bo&#x27;yicha pnevmatik sxemalar qaysi harf bilan belgilanadi? — <b>P</b></p><p><b class="n">45.</b> Avtomatlashtirish loyihasida asbob, jihoz va materiallar ro&#x27;yxati qanday hujjatda beriladi? — <b>Spetsifikatsiyada</b></p><p><b class="n">64.</b> Chizma varag&#x27;ida asosiy yozuv (shtamp) qayerda joylashadi? — <b>O&#x27;ng pastki burchakda</b></p><p><b class="n">69.</b> «E3» shifri qanday chizmani bildiradi? — <b>Prinsipial elektr chizmasini</b></p><p><b class="n">75.</b> Detal chizmasida nima ko&#x27;rsatiladi? — <b>Detalning shakli, o&#x27;lchamlari va materiali</b></p><p><b class="n">88.</b> Loyihalash uchun dastlabki materiallarga nimalar kiradi? — <b>Topshiriq, texnologik chizmalar va reglament</b></p><p><b class="n">94.</b> Texnik vositalar kompleksini tanlashda nimalar hisobga olinadi? — <b>Jarayon talablari, muhit, aniqlik va ishonchlilik</b></p><p><b class="n">100.</b> Avtomatlashtirishning funksional chizmasi qanday maqsadda ishlab chiqiladi? — <b>Avtomatlashtirish hajmi va vositalarini aniqlash uchun</b></p><p><b class="n">101.</b> Montaj chizmasida nima ko&#x27;rsatiladi? — <b>Elementlar joylashuvi va ulanishlari</b></p><p><b class="n">103.</b> «SPDS» qisqartmasi nimani bildiradi? — <b>Qurilish uchun loyiha hujjatlari tizimi</b></p><p><b class="n">109.</b> GOST 14202 bo&#x27;yicha suv o&#x27;tkazuvchi quvurlar qaysi rangda belgilanadi? — <b>Yashil</b></p><p><b class="n">110.</b> Sxema shifridagi «3» raqami qaysi sxema tipini bildiradi? — <b>Prinsipial (to&#x27;liq)</b></p><p><b class="n">116.</b> GOST 14202 bo&#x27;yicha bug&#x27; o&#x27;tkazuvchi quvurlar qaysi rangda belgilanadi? — <b>Qizil</b></p><p><b class="n">122.</b> Elektr qurilmalarini loyihalash va montaj qilishda asosiy me&#x27;yoriy hujjat qaysi? — <b>PUE</b></p><p><b class="n">123.</b> Jihoz va o&#x27;tkazishlarning joylashish chizmasi nimani ko&#x27;rsatadi? — <b>Asbob va o&#x27;tkazishlarning bino rejasidagi joylashuvi</b></p><p><b class="n">129.</b> Avtomatlashtirish loyihalashda tipik loyiha yechimlaridan foydalanishning afzalligi nimada? — <b>Muddat va xarajatni kamaytirib, sifatni oshiradi</b></p><p><b class="n">132.</b> Funksional chizma asosida qaysi hujjat tuziladi? — <b>Asboblar spetsifikatsiyasi</b></p><p><b class="n">145.</b> Elektr ta&#x27;minot chizmasi nimani ko&#x27;rsatadi? — <b>Ta&#x27;minot manbalari va taqsimlanishni</b></p><p><b class="n">163.</b> GOST 14202 bo&#x27;yicha havo o&#x27;tkazuvchi quvurlar qaysi rangda belgilanadi? — <b>Ko&#x27;k</b></p><p><b class="n">165.</b> Texnologik jarayon parametrlarini tahlil qilishdan maqsad nima? — <b>Avtomatlashtirish hajmini aniqlash</b></p><p><b class="n">172.</b> Sxema shifridagi «2» raqami qaysi sxema tipini bildiradi? — <b>Funksional</b></p><p><b class="n">182.</b> O&#x27;zbekiston Respublikasida qurilish me&#x27;yorlari qanday nomlanadi? — <b>ShNQ</b></p><p><b class="n">187.</b> Elektr ta&#x27;minot chizmalarini tuzishning qanday usullari mavjud? — <b>Radial, magistral va aralash</b></p><p><b class="n">189.</b> Umumiy ko&#x27;rinish chizmasi nimani ko&#x27;rsatadi? — <b>Buyum konstruksiyasi va o&#x27;lchamlarini</b></p><p><b class="n">192.</b> GOST 21.408-2013 standarti nimaga bag&#x27;ishlangan? — <b>Avtomatlashtirish ishchi hujjatlarini bajarish qoidalariga</b></p><h3>Avtomatik rostlash <small>(13)</small></h3><p><b class="n">13.</b> Avtomatik rostlash tizimida rostlovchi organni harakatga keltiruvchi qurilma qanday ataladi? — <b>Ijrochi mexanizm</b></p><p><b class="n">17.</b> Sathni avtomatik rostlash tizimida rostlovchi ta&#x27;sir odatda qanday amalga oshiriladi? — <b>Sarfni klapan bilan o&#x27;zgartirib</b></p><p><b class="n">20.</b> Proporsional (P) rostlagichning asosiy kamchiligi nima? — <b>Statik xatolik qolishi</b></p><p><b class="n">26.</b> Avtomatik rostlash tizimida topshiriq qiymati bilan o&#x27;lchangan qiymat qayerda solishtiriladi? — <b>Taqqoslash elementida</b></p><p><b class="n">30.</b> Issiqlik almashtirgichda haroratni rostlash odatda qanday amalga oshiriladi? — <b>Issiqlik tashuvchi sarfini o&#x27;zgartirib</b></p><p><b class="n">77.</b> Blok-sxemadagi bloklar orasidagi strelkali chiziqlar nimani ko&#x27;rsatadi? — <b>Signal uzatilish yo&#x27;nalishini</b></p><p><b class="n">97.</b> Avtomatik rostlash tizimida rostlanadigan parametrni o&#x27;lchab, signalga aylantiruvchi element qanday ataladi? — <b>Datchik</b></p><p><b class="n">98.</b> Yopiq avtomatik rostlash tizimining asosiy belgisi nima? — <b>Teskari aloqa mavjudligi</b></p><p><b class="n">106.</b> PI rostlagichning P rostlagichga nisbatan afzalligi nimada? — <b>Statik xatolikni bartaraf etadi</b></p><p><b class="n">108.</b> Tizim modellarini ifodalovchi blok-sxemada har bir blok nimani ifodalaydi? — <b>Tizim elementini (uzatish funksiyasini)</b></p><p><b class="n">137.</b> PID rostlagichdagi differensial (D) tashkil etuvchi nimaga ta&#x27;sir qiladi? — <b>Og&#x27;ishning o&#x27;zgarish tezligiga</b></p><p><b class="n">156.</b> Rostlash obyektiga tashqaridan ta&#x27;sir etib, rostlanadigan parametrni o&#x27;zgartiruvchi ta&#x27;sir qanday ataladi? — <b>G&#x27;alayonlovchi ta&#x27;sir</b></p><p><b class="n">175.</b> Quvurdagi sarfni avtomatik rostlash tizimida rostlovchi organ sifatida ko&#x27;pincha nima ishlatiladi? — <b>Rostlovchi klapan</b></p><h3>O&#x27;lchash asboblari <small>(18)</small></h3><p><b class="n">1.</b> Haroratni o&#x27;lchash asboblarini sozlashda ko&#x27;rsatkichlar nima bilan solishtiriladi? — <b>Namunaviy (etalon) asbob ko&#x27;rsatkichlari bilan</b></p><p><b class="n">38.</b> O&#x27;zgaruvchan bosimlar farqi usulida sarf bosimlar farqiga qanday bog&#x27;langan? — <b>Bosimlar farqining kvadrat ildiziga proporsional</b></p><p><b class="n">44.</b> 4–20 mA signalda boshlang&#x27;ich qiymatning 4 mA bo&#x27;lishining afzalligi nimada? — <b>Liniya uzilishini aniqlash mumkin</b></p><p><b class="n">56.</b> Impuls hisoblagich qanday vazifani bajaradi? — <b>Kelgan impulslar sonini sanaydi</b></p><p><b class="n">66.</b> O&#x27;lchash asbobining aniqlik sinfi nimani bildiradi? — <b>Ruxsat etilgan asosiy keltirilgan xatolikni</b></p><p><b class="n">70.</b> Bug&#x27; bosimini o&#x27;lchashda manometr oldiga nima o&#x27;rnatiladi? — <b>Sifon trubka</b></p><p><b class="n">90.</b> Termometr gilzasining asosiy vazifasi nima? — <b>Sezgir elementni himoya qilish</b></p><p><b class="n">104.</b> Pt100 qarshilik termometrining 0 °C dagi qarshiligi qancha? — <b>100 Om</b></p><p><b class="n">114.</b> Termojuftning ishlash prinsipi qaysi hodisaga asoslangan? — <b>Zeebek effekti</b></p><p><b class="n">118.</b> Qarshilik termometrining ishlash prinsipi nimaga asoslangan? — <b>Qarshilikning haroratga bog&#x27;liqligiga</b></p><p><b class="n">119.</b> Gidrostatik sath o&#x27;lchagichlarning ishlash prinsipi nimaga asoslangan? — <b>Suyuqlik ustuni bosimiga</b></p><p><b class="n">140.</b> Sarfni o&#x27;zgaruvchan bosimlar farqi usulida o&#x27;lchashda qanday qurilmalar ishlatiladi? — <b>Diafragma va difmanometr</b></p><p><b class="n">141.</b> Avtomatlashtirishda keng qo&#x27;llaniladigan unifikatsiyalangan tok signali qaysi? — <b>4–20 mA</b></p><p><b class="n">161.</b> Haroratni o&#x27;lchash vositasi quvurga o&#x27;rnatilganda sezgir element qayerda joylashishi kerak? — <b>Quvur o&#x27;qida (oqim markazida)</b></p><p><b class="n">174.</b> Normallashtiruvchi o&#x27;zgartkichning vazifasi nima? — <b>Signalni unifikatsiyalangan signalga aylantirish</b></p><p><b class="n">188.</b> Termojuftni ikkilamchi asbobga ulash uchun qanday simlar ishlatiladi? — <b>Kompensatsion simlar</b></p><p><b class="n">193.</b> Agressiv muhit bosimini o&#x27;lchashda asbobni himoya qilish uchun nima qo&#x27;llaniladi? — <b>Membranali ajratgich</b></p><p><b class="n">196.</b> Barqaror bosimda ishchi bosim manometr shkalasining qancha qismidan oshmasligi kerak? — <b>3/4 qismidan</b></p><h3>Pnevmatika va trubalar <small>(16)</small></h3><p><b class="n">41.</b> Pnevmatik ta&#x27;minot tizimida resiverning vazifasi nima? — <b>Havo zahirasini saqlash va bosimni tekislash</b></p><p><b class="n">47.</b> Siqilgan havoning shudring nuqtasi qanday bo&#x27;lishi kerak? — <b>Eng past muhit haroratidan 10 °C past</b></p><p><b class="n">54.</b> Pnevmatik komanda liniyasi qanday vazifani bajaradi? — <b>Rostlagich signalini ijrochi mexanizmga uzatadi</b></p><p><b class="n">65.</b> Prinsipial pnevmatik chizmalarning mazmuniga qo&#x27;yiladigan asosiy talab nima? — <b>Ishlash prinsipini to&#x27;liq tushuntirishi</b></p><p><b class="n">72.</b> Pnevmatik ta&#x27;minot tizimida bosim reduktorining (stabilizatorining) vazifasi nima? — <b>Bosimni pasaytirib, o&#x27;zgarmas ushlab turish</b></p><p><b class="n">79.</b> Impuls trubalarini qiyalik bilan yotqizishdan maqsad nima? — <b>Kondensat va gaz pufaklarini chiqarib yuborish</b></p><p><b class="n">91.</b> Davlat asboblar tizimi (GSP) pnevmatik asboblarining unifikatsiyalangan signali diapazoni qanday? — <b>0,02–0,1 MPa</b></p><p><b class="n">121.</b> Pnevmatik komanda liniyalari uchun ko&#x27;pincha qanday trubkalar ishlatiladi? — <b>6–8 mm li polietilen yoki mis trubkalar</b></p><p><b class="n">133.</b> Trubali o&#x27;tkazishlarda yopuvchi armaturaning vazifasi nima? — <b>Asbobni jarayondan ajratib qo&#x27;yish</b></p><p><b class="n">136.</b> Pnevmatik ta&#x27;minot chizmalarining qaysi turi eng yuqori ishonchlilikka ega? — <b>Halqali</b></p><p><b class="n">143.</b> Impuls trubasi qanday vazifani bajaradi? — <b>Muhit bosimini o&#x27;lchash asbobiga uzatadi</b></p><p><b class="n">150.</b> Pnevmatik asboblarni ta&#x27;minlovchi siqilgan havo nimalardan tozalanishi kerak? — <b>Chang, moy va namlikdan</b></p><p><b class="n">155.</b> Trubali o&#x27;tkazishlar vazifasiga ko&#x27;ra qanday turlarga bo&#x27;linadi? — <b>Impuls, komanda, ta&#x27;minot va drenaj</b></p><p><b class="n">157.</b> GSP pnevmatik asboblarining ta&#x27;minot havosi bosimi odatda qancha bo&#x27;ladi? — <b>0,14 MPa</b></p><p><b class="n">177.</b> Prinsipial pnevmatik chizmada nima ko&#x27;rsatiladi? — <b>Elementlar va ular orasidagi bog&#x27;lanishlar</b></p><p><b class="n">186.</b> Impuls trubalari qanday qiyalik bilan yotqiziladi? — <b>Kamida 1:50</b></p><h3>Shchit, kabel, montaj <small>(18)</small></h3><p><b class="n">7.</b> Tashqi kabel va o&#x27;tkazgichlar shchitga qanday ulanadi? — <b>Klemma (qisqich) qatorlari orqali</b></p><p><b class="n">33.</b> Avtomatlashtirish tizimlarida shchitlar korpusi xavfsizlik uchun nima bilan ta&#x27;minlanadi? — <b>Himoya yerga ulash</b></p><p><b class="n">49.</b> Avtomatlashtirish tizimlarida nazorat kabellariga misol qaysi? — <b>KVVG</b></p><p><b class="n">59.</b> Tashqi ulanishlar jadvalida nima keltiriladi? — <b>Kabel tomirlarining qaysi qisqichlarga ulanishi</b></p><p><b class="n">63.</b> Shchitning oldidan yoyilgan ko&#x27;rinish chizmasida nima ko&#x27;rsatiladi? — <b>Panel va devorlardagi apparatlarning joylashuvi</b></p><p><b class="n">68.</b> Optik kabellarning asosiy afzalligi nimada? — <b>Xalaqitlarga sezgir emasligi</b></p><p><b class="n">71.</b> Kabellarni ochiq yotqizishda keng qo&#x27;llaniladigan perforatsiyalangan konstruksiya qanday ataladi? — <b>Kabel lotogi</b></p><p><b class="n">86.</b> Pultning shchitdan asosiy farqi nimada? — <b>Boshqaruv organlari stol shaklidagi yuzada joylashgan</b></p><p><b class="n">102.</b> Avtomatlashtirish tizimlarining elektr ta&#x27;minoti ishonchliligi qanday oshiriladi? — <b>Ikki mustaqil manba va zahirani avtomatik ulash bilan</b></p><p><b class="n">134.</b> Shchitning old panelida odatda nimalar joylashadi? — <b>Asboblar, tugmalar, kalitlar va lampalar</b></p><p><b class="n">135.</b> Elektr o&#x27;tkazgich turini tanlashda nimalar hisobga olinadi? — <b>Tok, kuchlanish, muhit va yotqizish usuli</b></p><p><b class="n">139.</b> Shchitda asboblarni joylashtirishda qaysi talabga rioya qilinadi? — <b>Ko&#x27;rish va foydalanish qulayligi</b></p><p><b class="n">142.</b> Avtomatlashtirish tizimlarida shchitning asosiy vazifasi nima? — <b>Nazorat va boshqaruvni bir joyda jamlash</b></p><p><b class="n">146.</b> Kabel va o&#x27;tkazgichlarning markasi, uzunligi, boshlanish va tugash nuqtalari qaysi hujjatda keltiriladi? — <b>Kabel jurnalida</b></p><p><b class="n">160.</b> O&#x27;lchash zanjirlarida ekranlangan kabellar nima uchun qo&#x27;llaniladi? — <b>Elektromagnit xalaqitlardan himoya uchun</b></p><p><b class="n">166.</b> Kabellarni po&#x27;lat qutilarda yotqizishning afzalligi nimada? — <b>Mexanik himoya va ta&#x27;mirlash qulayligi</b></p><p><b class="n">191.</b> Tashqi elektr o&#x27;tkazishlar chizmasi nimani ko&#x27;rsatadi? — <b>Shchitdan tashqaridagi kabel ulanishlari</b></p><p><b class="n">197.</b> Chang va namlikdan yaxshi himoyalangan shchit turi qaysi? — <b>Shkaf tipidagi yopiq shchit</b></p><h3>Signallash va himoya <small>(10)</small></h3><p><b class="n">31.</b> Avariya signallashida odatda qaysi rangdagi lampa ishlatiladi? — <b>Qizil</b></p><p><b class="n">35.</b> Issiqlik relesi elektr dvigatelni asosan nimadan himoya qiladi? — <b>O&#x27;ta yuklanishdan</b></p><p><b class="n">39.</b> Eruvchan saqlagich asosan nimadan himoya qiladi? — <b>Qisqa tutashuv toklaridan</b></p><p><b class="n">80.</b> Signallash tizimida yangi kelgan signal odatda qanday ajratib ko&#x27;rsatiladi? — <b>Lampaning miltillab yonishi bilan</b></p><p><b class="n">124.</b> Avtomatlashtirish tizimlarida blokirovka chizmalarining asosiy vazifasi nima? — <b>Avariya va xato harakatlarning oldini olish</b></p><p><b class="n">128.</b> Signallash tizimlarida «kvitirlash» deganda nima tushuniladi? — <b>Signal qabul qilinganini tasdiqlash</b></p><p><b class="n">149.</b> Texnologik signallash nima haqida xabar beradi? — <b>Parametrlarning ruxsat etilgan chegaradan chiqishi</b></p><p><b class="n">185.</b> Himoya chizmalari qanday holatda ishga tushadi? — <b>Parametr avariya qiymatiga yetganda</b></p><p><b class="n">190.</b> Avtomatlashtirish tizimlarida signallash chizmalarining qanday turlari mavjud? — <b>Texnologik, avariya, holat va nazorat</b></p><p><b class="n">198.</b> Zahiralashning asosiy maqsadi nima? — <b>Tizim ishonchliligini oshirish</b></p>
+</div>
+</div></body>
+</html>
