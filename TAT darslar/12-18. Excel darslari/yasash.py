@@ -741,33 +741,54 @@ def add_sparklines(path, names, sparks):
 # ======================================================================
 CSS = """
 @page { size: A4; margin: 0; }
+:root { --s: 1; }
 * { box-sizing: border-box; }
 body { margin: 0; font-family: "Times New Roman", Times, serif; color: #000; }
 .page { width: 210mm; height: 297mm; page-break-after: always; position: relative; }
 .page:last-child { page-break-after: auto; }
-.half { height: 148.5mm; padding: 7mm 10mm 5mm; overflow: hidden; }
+.half { height: 148.5mm; padding: 6mm 8mm 3mm; overflow: hidden; }
 .cut { position: absolute; left: 0; right: 0; top: 148.5mm; border-top: 1px dashed #000; }
-.cut span { position: absolute; left: 4mm; top: -2.6mm; background: #fff; font-size: 9pt; padding: 0 1mm; }
-.top { display: flex; justify-content: space-between; align-items: baseline; font-size: 10.5pt; }
-.top b { font-size: 11.5pt; }
-.var { border: 1.5px solid #000; padding: 0 6px; font-weight: bold; font-size: 12pt; }
-.who { font-size: 10pt; margin: 1.5mm 0 2.5mm; }
-table.x { border-collapse: collapse; font-size: 9.5pt; margin-bottom: 1.5mm; table-layout: fixed; }
-table.x td { padding: 0.6mm 1.2mm; white-space: nowrap; height: 5mm; overflow: hidden; }
+.cut span { position: absolute; left: 4mm; top: -2.6mm; background: #fff; font-size: calc(9pt * var(--s)); padding: 0 1mm; }
+.top { display: flex; justify-content: space-between; align-items: baseline; font-size: calc(13pt * var(--s)); }
+.top b { font-size: calc(14pt * var(--s)); }
+.var { border: 1.5px solid #000; padding: 0 8px; font-weight: bold; font-size: calc(14pt * var(--s)); }
+.who { font-size: calc(12pt * var(--s)); margin: 2mm 0 3mm; }
+table.x { border-collapse: collapse; font-size: calc(12.5pt * var(--s)); margin-bottom: 1.5mm; table-layout: fixed; }
+table.x td { padding: 0.6mm 1.5mm; white-space: nowrap; height: calc(6.3mm * var(--s)); overflow: hidden; }
 table.x td.b { border: 1px solid #000; }
 table.x td.h { font-weight: bold; text-align: center; white-space: normal; }
 table.x td.n { text-align: right; }
-table.x td.t { font-weight: bold; font-size: 11pt; text-align: center; }
-table.x td.rn, table.x tr.cl td { color: #555; font-size: 7.5pt; text-align: center; padding: 0 1mm; }
-table.x tr.cl td { height: 3.2mm; }
-.note { font-size: 9pt; font-style: italic; margin: 0 0 1.5mm; }
-.vz { font-size: 9.8pt; margin: 1mm 0 0; }
+table.x td.t { font-weight: bold; font-size: calc(14pt * var(--s)); text-align: center; }
+table.x td.rn, table.x tr.cl td { color: #555; font-size: calc(9pt * var(--s)); text-align: center; padding: 0 1mm; }
+table.x tr.cl td { height: calc(4mm * var(--s)); }
+.note { font-size: calc(11.5pt * var(--s)); font-style: italic; margin: 0 0 1.5mm; }
+.vz { font-size: calc(12.5pt * var(--s)); margin: 1.5mm 0 0; }
 .vz ol { margin: 0.5mm 0 0 5mm; padding: 0; }
-.vz li { margin-bottom: 0.4mm; }
-.javob { font-size: 10.5pt; margin: 1.5mm 0 0; }
+.vz li { margin-bottom: 0.8mm; }
+.javob { font-size: calc(12.5pt * var(--s)); margin: 1.5mm 0 0; }
 .eskiz { display: flex; gap: 4mm; margin: 0.5mm 0 1mm; }
 .dots { color: #000; }
 """
+
+
+FIT_JS = """<script>
+(function () {
+  var halves = [].slice.call(document.querySelectorAll('.half'));
+  function ok() {
+    return halves.every(function (h) {
+      if (h.scrollHeight > h.clientHeight + 1) return false;
+      return [].slice.call(h.querySelectorAll('table.x td')).every(function (t) { return t.scrollWidth <= t.clientWidth + 1; });
+    });
+  }
+  var lo = 0.55, hi = 1.25;
+  for (var i = 0; i < 14; i++) {
+    var m = (lo + hi) / 2;
+    document.documentElement.style.setProperty('--s', m);
+    if (ok()) lo = m; else hi = m;
+  }
+  document.documentElement.style.setProperty('--s', lo);
+})();
+</script>"""
 
 
 def card(s, dars, mavzu, k):
@@ -781,9 +802,9 @@ def card(s, dars, mavzu, k):
             merged[(a, c)] = 0
     # ustun kengliklari (mm): Excel kengligiga mutanosib, lekin varaq eniga (186 mm) sig'adi
     mm = {c: s.widths.get(c, 9) * 1.9 for c in range(1, c2 + 1)}
-    k_ = min(1.0, 182 / sum(mm.values()))
+    k_ = 188 / sum(mm.values())     # jadval varaq eniga to'liq yoyiladi
     mm = {c: v * k_ for c, v in mm.items()}
-    cols = '<colgroup><col style="width:4mm">' + "".join(f'<col style="width:{mm[c]:.1f}mm">' for c in range(1, c2 + 1)) + "</colgroup>"
+    cols = '<colgroup><col style="width:5mm">' + "".join(f'<col style="width:{mm[c]:.1f}mm">' for c in range(1, c2 + 1)) + "</colgroup>"
     rows = [cols, '<tr class="cl"><td></td>' + "".join(f"<td>{CL(c)}</td>" for c in range(1, c2 + 1)) + "</tr>"]
     for r in range(r1, r2 + 1):
         if r > 3 and s.card_rows and r > r2:
@@ -827,7 +848,7 @@ def pdf(path, varaqlar, dars, mavzu):
     for i in range(0, len(varaqlar), 2):
         halves = [card(s, dars, mavzu, i + j + 1) for j, s in enumerate(varaqlar[i:i + 2])]
         pages.append(f'<div class="page">{"".join(halves)}<div class="cut"><span>✂</span></div></div>')
-    doc = f'<!doctype html><html lang="uz"><head><meta charset="utf-8"><title>{dars}-dars variantlar</title><style>{CSS}</style></head><body>{"".join(pages)}</body></html>'
+    doc = f'<!doctype html><html lang="uz"><head><meta charset="utf-8"><title>{dars}-dars variantlar</title><style>{CSS}</style></head><body>{"".join(pages)}{FIT_JS}</body></html>'
     hp = path.with_suffix(".html")
     hp.write_text(doc, encoding="utf-8")
     if EDGE:
